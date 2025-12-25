@@ -27,16 +27,16 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
       {/* Header / Title */}
       <div className="text-center border-b-2 border-ink-800/10 pb-4">
         <h2 className="text-3xl font-calligraphy text-accent-red mb-2">
-          第 {scene.id} 章 · {scene.title}
+          {scene.id === 7 ? scene.title : `第 ${scene.id} 章 · ${scene.title}`}
         </h2>
       </div>
 
       {/* Image Container */}
       <div className="relative w-full aspect-video bg-ink-900 rounded-sm overflow-hidden shadow-xl border-4 border-double border-ink-800/50">
         {scene.imageUrl ? (
-          <img 
-            src={scene.imageUrl} 
-            alt={scene.imagePrompt}
+          <img
+            src={scene.imageUrl}
+            alt={scene.title}
             className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
           />
         ) : (
@@ -65,8 +65,8 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
                 onClick={() => handleOptionClick(idx)}
                 className="w-full text-left p-4 rounded border-2 border-ink-800/30 hover:border-accent-red hover:bg-paper-200 transition-all duration-300 group relative overflow-hidden"
               >
-                 <span className="absolute left-0 top-0 bottom-0 w-1 bg-ink-800 group-hover:bg-accent-red transition-colors"></span>
-                 <span className="pl-4 font-serif text-lg font-bold text-ink-800">{option.text}</span>
+                <span className="absolute left-0 top-0 bottom-0 w-1 bg-ink-800 group-hover:bg-accent-red transition-colors"></span>
+                <span className="pl-4 font-serif text-lg font-bold text-ink-800">{option.text}</span>
               </button>
             ))}
           </div>
@@ -74,14 +74,14 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
           // Feedback Mode
           <div className={`p-6 rounded-lg border-2 ${isCorrect ? 'border-green-700 bg-green-50' : 'border-accent-red bg-red-50'} animate-slide-up`}>
             <div className="flex items-center mb-4">
-               <div className={`text-4xl mr-4 font-calligraphy ${isCorrect ? 'text-green-800' : 'text-accent-red'}`}>
-                 {isCorrect ? UI_LABELS.correct_feedback : UI_LABELS.incorrect_feedback}
-               </div>
-               <h3 className="text-xl font-bold font-serif text-ink-900">
-                 {isCorrect ? "抉择明智" : "此路不通"}
-               </h3>
+              <div className={`text-4xl mr-4 font-calligraphy ${isCorrect ? 'text-green-800' : 'text-accent-red'}`}>
+                {isCorrect ? UI_LABELS.correct_feedback : UI_LABELS.incorrect_feedback}
+              </div>
+              <h3 className="text-xl font-bold font-serif text-ink-900">
+                {isCorrect ? "抉择明智" : "此路不通"}
+              </h3>
             </div>
-            
+
             <p className="text-md text-ink-800 mb-6 font-serif leading-relaxed">
               {currentOption?.feedback}
             </p>

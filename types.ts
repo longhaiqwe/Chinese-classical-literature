@@ -11,7 +11,7 @@ export interface IGameScene {
   narrative: string;
   environmentDescription: string;
   characterState: string;
-  imagePrompt: string;
+
   imageUrl?: string; // Populated after image generation
   options: GameOption[];
 }

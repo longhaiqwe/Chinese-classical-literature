@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+    --font-serif: "Noto Serif SC", serif;
+    --font-calligraphy: "Ma Shan Zheng", cursive;
+
+    --color-ink-900: #1a1a1a;
+    --color-ink-800: #2d2d2d;
+    --color-ink-500: #555555;
+
+    --color-paper-50: #fcfaf5;
+    --color-paper-100: #f7f4e9;
+    --color-paper-200: #ede6d4;
+    --color-paper-300: #dcd1b3;
+    --color-paper-400: #c5b18a;
+
+    --color-accent-red: #8b2626;
+    --color-accent-brown: #5d4037;
+
+    --background-image-paper-texture: url('https://www.transparenttextures.com/patterns/rice-paper-2.png');
+
+    --animate-spin-slow: spin 8s linear infinite;
+    --animate-fade-in: fadeIn 1s ease-in forwards;
+    --animate-slide-up: slideUp 0.5s ease-out forwards;
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+@layer base {
+    body {
+        @apply bg-paper-50 font-serif;
+    }
+}
+
+.ink-border {
+    border: 2px solid #2d2d2d;
+    box-shadow: 4px 4px 0px #8b2626;
+}

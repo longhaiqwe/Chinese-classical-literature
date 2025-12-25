@@ -1,70 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peach Garden Oath</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              serif: ['"Noto Serif SC"', 'serif'],
-              calligraphy: ['"Ma Shan Zheng"', 'cursive'],
-            },
-            colors: {
-              ink: {
-                900: '#1a1a1a',
-                800: '#2d2d2d',
-                500: '#555555',
-              },
-              paper: {
-                50: '#fcfaf5',
-                100: '#f7f4e9',
-                200: '#ede6d4',
-                300: '#dcd1b3',
-                400: '#c5b18a',
-              },
-              accent: {
-                red: '#8b2626', // Seal red
-                brown: '#5d4037',
-              }
-            },
-            backgroundImage: {
-              'paper-texture': "url('https://www.transparenttextures.com/patterns/rice-paper-2.png')",
-            },
-            animation: {
-              'spin-slow': 'spin 8s linear infinite',
-              'fade-in': 'fadeIn 1s ease-in forwards',
-              'slide-up': 'slideUp 0.5s ease-out forwards',
-            },
-            keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              slideUp: {
-                '0%': { transform: 'translateY(20px)', opacity: '0' },
-                '100%': { transform: 'translateY(0)', opacity: '1' },
-              }
-            }
-          },
-        },
-      }
-    </script>
-    <style>
-      body {
-        background-color: #f7f4e9;
-        font-family: 'Noto Serif SC', serif;
-      }
-      .ink-border {
-        border: 2px solid #2d2d2d;
-        box-shadow: 4px 4px 0px #8b2626;
-      }
-    </style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peach Garden Oath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Ma+Shan+Zheng&display=swap"
+    rel="stylesheet">
+
   <script type="importmap">
 {
   "imports": {
@@ -81,7 +24,10 @@
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
