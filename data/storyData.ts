@@ -11,17 +11,17 @@ export const STORY_SCENES: IGameScene[] = [
     imageUrl: "/assets/bg_01_notice.jpg",
     options: [
       {
-        text: "置之不理，自行离去 (Ignore and leave)",
+        text: "置之不理，自行离去",
         isCorrect: false,
         feedback: "玄德以此为傲？非也。刘备虽乃汉室宗亲，然此时落魄，且素以此待人接物。若傲慢离去，便无后来之桃园佳话。"
       },
       {
-        text: "忧国忧民，感时伤怀 (Sigh for the country)",
+        text: "忧国忧民，感时伤怀",
         isCorrect: true,
         feedback: "玄德这一长叹，满腹心事尽在其中。这一叹，却引得身后一人厉声高喝。"
       },
       {
-        text: "撕下皇榜，以此明志 (Tear down the notice)",
+        text: "撕下皇榜，以此明志",
         isCorrect: false,
         feedback: "此非玄德所为。刘备性格宽仁沉稳，非鲁莽之辈。撕榜乃狂徒行径，不合其皇叔身份与性格。"
       }
@@ -36,17 +36,17 @@ export const STORY_SCENES: IGameScene[] = [
     imageUrl: "/assets/bg_02_encounter.jpg",
     options: [
       {
-        text: "置之不理，自行离去 (Ignore him and leave)",
+        text: "置之不理，自行离去",
         isCorrect: false,
         feedback: "豪杰相逢，岂可交臂失之？若此时离去，便错失了这位万人敌的猛将。"
       },
       {
-        text: "回首询问，结识壮士 (Turn around and ask)",
+        text: "回首询问，结识壮士",
         isCorrect: true,
         feedback: "玄德回视其人，见身长八尺，豹头环眼，燕颔虎须，声若巨雷，势如奔马。此乃张飞张翼德也。二人志趣相投，遂同入村店饮酒。"
       },
       {
-        text: "反唇相讥，责其无礼 (Argue back)",
+        text: "反唇相讥，责其无礼",
         isCorrect: false,
         feedback: "玄德宽厚，不喜与人争执。且见此人相貌堂堂，必非凡俗，岂会因言语粗鲁而见怪？"
       }
@@ -61,17 +61,17 @@ export const STORY_SCENES: IGameScene[] = [
     imageUrl: "/assets/bg_03_guanyu.jpg",
     options: [
       {
-        text: "邀其同坐，共谋大事 (Invite him to sit and drink)",
+        text: "邀其同坐，共谋大事",
         isCorrect: true,
         feedback: "玄德见其威仪，心知非凡人，遂邀其同坐。关公此时正欲投军，三人一见如故，共叙抱负。"
       },
       {
-        text: "暗中观察，不做声张 (Watch silently)",
+        text: "暗中观察，不做声张",
         isCorrect: false,
         feedback: "玄德求贤若渴，见此英雄岂有交臂失之理？若不主动相邀，关公饮罢便去，何来桃园三结义？"
       },
       {
-        text: "张飞邀战，比试武艺 (Zhang Fei challenges him)",
+        text: "张飞邀战，比试武艺",
         isCorrect: false,
         feedback: "演义之中，三人相遇乃是惺惺相惜，并未动武。酒肆比武多为民间评书野史演绎，非正统情节。"
       }
@@ -86,17 +86,17 @@ export const STORY_SCENES: IGameScene[] = [
     imageUrl: "/assets/bg_04_tavern_talk.jpg",
     options: [
       {
-        text: "推辞不受，恐有不妥 (Decline politely)",
+        text: "推辞不受，恐有不妥",
         isCorrect: false,
         feedback: "玄德虽谦，然胸怀大志。今得两员虎将相助，正如鱼得水，岂有推辞之理？"
       },
       {
-        text: "即刻结拜，不需祭礼 (Swear immediately without ceremony)",
+        text: "即刻结拜，不需祭礼",
         isCorrect: false,
         feedback: "古人重礼。结义乃大事，需祭告天地表心迹。张飞虽粗中有细，亦知需择吉地（桃园）备祭礼，方显庄重。"
       },
       {
-        text: "欣然应允，约定明日 (Agree happily)",
+        text: "欣然应允，约定明日",
         isCorrect: true,
         feedback: "玄德、云长齐声应曰：“如此甚好。” 所谓千金易得，知己难求。三人意气相投，以此定下盟约。"
       }
@@ -111,17 +111,17 @@ export const STORY_SCENES: IGameScene[] = [
     imageUrl: "/assets/bg_05_oath_moment.jpg",
     options: [
       {
-        text: "按武艺高低排座次 (Rank by martial arts)",
+        text: "按武艺高低排座次",
         isCorrect: false,
         feedback: "桃园结义论的是年岁长幼，而非武力高低。若论武力，恐难分伯仲，且伤兄弟和气。"
       },
       {
-        text: "立誓毕，按年岁结拜 (Swear oath and bow by age)",
+        text: "立誓毕，按年岁结拜",
         isCorrect: true,
         feedback: "誓毕，拜玄德为兄，关羽次之，张飞为弟。长幼有序，礼之大本。此顺序定下三人终身之名分。"
       },
       {
-        text: "推举家资厚者为兄 (Rank by wealth)",
+        text: "推举家资厚者为兄",
         isCorrect: false,
         feedback: "张飞虽颇有家资，然结义看重的是志向与德行，且玄德乃汉室宗亲，年岁亦长，故尊为兄。"
       }
@@ -136,17 +136,17 @@ export const STORY_SCENES: IGameScene[] = [
     imageUrl: "/assets/bg_06_feasting.jpg",
     options: [
       {
-        text: "留守桃园，独霸一方 (Stay in the garden)",
+        text: "留守桃园，独霸一方",
         isCorrect: false,
         feedback: "结义初衷乃是“上报国家，下安黎庶”。若只知割据一方，便成草寇，非英雄所为。"
       },
       {
-        text: "散尽钱财，归隐田园 (Give away money and retire)",
+        text: "散尽钱财，归隐田园",
         isCorrect: false,
         feedback: "乱世已至，大丈夫当提三尺剑立不世之功。三人皆世之豪杰，岂肯老死于林泉之下？"
       },
       {
-        text: "整顿军马，投邹靖平乱 (Prepare army to join battle)",
+        text: "整顿军马，投邹靖平乱",
         isCorrect: true,
         feedback: "大功告成。三人收拾军马，投幽州太守刘焉处（校尉邹靖引之），正式踏上平定黄巾、争霸天下的征途。"
       }
