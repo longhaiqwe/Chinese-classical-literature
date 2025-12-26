@@ -49,7 +49,7 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
 
       {/* Narrative Text */}
       <div className="bg-paper-100/80 p-6 rounded-lg border border-ink-800/20 shadow-inner">
-        <p className="text-lg leading-loose text-ink-900 font-serif text-justify indent-8">
+        <p className="text-base md:text-lg leading-relaxed md:leading-loose tracking-wide text-ink-900 font-serif text-justify indent-8">
           {scene.narrative}
         </p>
       </div>
@@ -66,7 +66,7 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
                 className="w-full text-left p-4 rounded border-2 border-ink-800/30 hover:border-accent-red hover:bg-paper-200 transition-all duration-300 group relative overflow-hidden"
               >
                 <span className="absolute left-0 top-0 bottom-0 w-1 bg-ink-800 group-hover:bg-accent-red transition-colors"></span>
-                <span className="pl-4 font-serif text-lg font-bold text-ink-800">{option.text}</span>
+                <span className="pl-4 font-serif text-base md:text-lg font-bold text-ink-800">{option.text}</span>
               </button>
             ))}
           </div>
