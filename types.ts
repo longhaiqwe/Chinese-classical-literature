@@ -21,6 +21,8 @@ export interface IGameStory {
   id: string;
   title: string;
   description: string;
+  endingTitle?: string;
+  endingDescription?: string;
   scenes: IGameScene[];
 }
 

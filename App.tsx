@@ -65,8 +65,20 @@ const App: React.FC = () => {
       return;
     }
 
-    // Victory Condition: If current scene is the last "Good" scene (ID 6, Index 5)
-    if (currentSceneIndex === 5) {
+    // Victory Condition: If current scene is the second to last scene (assuming last is Bad Ending)
+    // OR if we define "Success" differently. For now, let's assume if there are N scenes,
+    // index N-1 is Bad Ending, so index N-2 is the Final Good Scene.
+    // If we are at index N-2 and click Next, we win.
+
+    // Better logic: Check if the *next* index is the Bad Ending (which we need to identify).
+    // Convention: The last scene in the array is the Bad Ending (id=7 or similar).
+    // So if currentSceneIndex satisfies (nextIndex === scenes.length - 1), it means we are trying to go to the bad ending
+    // but via the "Success" path (because options handle the bad path).
+
+    // Simplified: If we are at the last "Good" scene.
+    // Let's assume the last scene in the list is the Bad Ending.
+    const badEndingIndex = scenes.length - 1;
+    if (currentSceneIndex === badEndingIndex - 1) {
       setAppState(AppState.VICTORY);
       // saveProgressToDB(0); // Optional: Reset progress on victory
       return;
@@ -79,9 +91,11 @@ const App: React.FC = () => {
   };
 
   const handleGameOver = () => {
-    // Navigate to Bad Ending Sceene (ID 7, Index 6)
-    setCurrentSceneIndex(6);
-    window.scrollTo(0, 0);
+    // Navigate to Bad Ending Sceene (Last 1)
+    if (scenes.length > 0) {
+      setCurrentSceneIndex(scenes.length - 1);
+      window.scrollTo(0, 0);
+    }
   };
 
   const handleRestart = () => {
@@ -162,11 +176,11 @@ const App: React.FC = () => {
           {/* VICTORY VIEW */}
           {appState === AppState.VICTORY && (
             <div className="text-center animate-fade-in p-8 border-4 border-double border-accent-red bg-paper-100 shadow-2xl max-w-2xl">
-              <h2 className="text-5xl font-calligraphy text-accent-red mb-6">义薄云天</h2>
-              <p className="text-xl mb-8 leading-relaxed">
-                三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。
-                <br />
-                恭喜你完成了这段历史的演绎。
+              <h2 className="text-5xl font-calligraphy text-accent-red mb-6">
+                {selectedStory?.endingTitle || "通关成功"}
+              </h2>
+              <p className="text-xl mb-8 leading-relaxed whitespace-pre-line">
+                {selectedStory?.endingDescription || "恭喜你完成了这段历史的演绎。"}
               </p>
               <div className="flex gap-4 justify-center">
                 <button
