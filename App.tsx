@@ -91,11 +91,7 @@ const App: React.FC = () => {
   };
 
   const handleGameOver = () => {
-    // Navigate to Bad Ending Sceene (Last 1)
-    if (scenes.length > 0) {
-      setCurrentSceneIndex(scenes.length - 1);
-      window.scrollTo(0, 0);
-    }
+    setAppState(AppState.GAME_OVER);
   };
 
   const handleRestart = () => {
@@ -124,9 +120,12 @@ const App: React.FC = () => {
           {appState !== AppState.HOME && (
             <button
               onClick={handleBackToHome}
-              className="absolute left-4 top-4 text-sm text-ink-500 hover:text-ink-900 font-sans hidden md:block"
+              className="absolute left-4 top-4 text-ink-500 hover:text-ink-900 flex items-center gap-1 transition-colors z-50"
             >
-              首页
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+              </svg>
+              <span className="font-sans font-bold">首页</span>
             </button>
           )}
 
@@ -161,8 +160,17 @@ const App: React.FC = () => {
           {/* PLAYING VIEW */}
           {appState === AppState.PLAYING && scenes.length > 0 && (
             <div className="w-full">
-              <div className="mb-4 text-center">
-                <button onClick={handleExitGame} className="text-sm text-ink-400 hover:text-accent-red">结束闯关</button>
+              <div className="mb-4 flex justifyContent-between items-center px-4 md:px-0">
+                {/* Spacer to center the content if needed, or just simple alignment */}
+                <button
+                  onClick={handleExitGame}
+                  className="flex items-center gap-2 px-4 py-2 border border-ink-300 rounded-full text-ink-600 hover:border-accent-red hover:text-accent-red hover:bg-paper-50 transition-all text-sm font-serif group"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 group-hover:-translate-x-1 transition-transform">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                  </svg>
+                  结束闯关
+                </button>
               </div>
               <GameScene
                 key={currentSceneIndex}
@@ -175,14 +183,14 @@ const App: React.FC = () => {
 
           {/* VICTORY VIEW */}
           {appState === AppState.VICTORY && (
-            <div className="text-center animate-fade-in p-8 border-4 border-double border-accent-red bg-paper-100 shadow-2xl max-w-2xl">
-              <h2 className="text-5xl font-calligraphy text-accent-red mb-6">
+            <div className="text-center animate-fade-in p-8 border-4 border-double border-accent-red bg-paper-100 shadow-2xl max-w-2xl mx-4">
+              <h2 className="text-4xl md:text-5xl font-calligraphy text-accent-red mb-6">
                 {selectedStory?.endingTitle || "通关成功"}
               </h2>
-              <p className="text-xl mb-8 leading-relaxed whitespace-pre-line">
+              <p className="text-lg md:text-xl mb-8 leading-relaxed whitespace-pre-line font-serif text-ink-900">
                 {selectedStory?.endingDescription || "恭喜你完成了这段历史的演绎。"}
               </p>
-              <div className="flex gap-4 justify-center">
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <button
                   onClick={handleRestart}
                   className="px-8 py-3 bg-ink-900 text-paper-100 font-serif text-lg rounded hover:bg-accent-red transition-colors shadow-lg"
@@ -192,6 +200,40 @@ const App: React.FC = () => {
                 <button
                   onClick={handleExitGame}
                   className="px-8 py-3 border-2 border-ink-900 text-ink-900 font-serif text-lg rounded hover:bg-ink-100 transition-colors shadow-lg"
+                >
+                  返回目录
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* GAME OVER VIEW */}
+          {appState === AppState.GAME_OVER && (
+            <div className="text-center animate-fade-in p-8 border-4 border-double border-ink-400 bg-paper-100 shadow-2xl max-w-2xl mx-4">
+              <h2 className="text-4xl md:text-5xl font-calligraphy text-ink-600 mb-6">
+                {scenes[scenes.length - 1]?.title || "挑战失败"}
+              </h2>
+
+              {/* Optional: Show the bad ending image if available */}
+              {scenes[scenes.length - 1]?.imageUrl && (
+                <div className="mb-6 rounded overflow-hidden border-2 border-ink-200 shadow-md">
+                  <img src={scenes[scenes.length - 1].imageUrl} alt="Failure" className="w-full h-48 object-cover opacity-80" />
+                </div>
+              )}
+
+              <p className="text-lg md:text-xl mb-8 leading-relaxed whitespace-pre-line font-serif text-ink-800">
+                {scenes[scenes.length - 1]?.narrative || "胜败乃兵家常事，少侠请重新来过。"}
+              </p>
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <button
+                  onClick={handleRestart}
+                  className="px-8 py-3 bg-ink-900 text-paper-100 font-serif text-lg rounded hover:bg-ink-700 transition-colors shadow-lg"
+                >
+                  {UI_LABELS.restart}
+                </button>
+                <button
+                  onClick={handleExitGame}
+                  className="px-8 py-3 border-2 border-ink-500 text-ink-600 font-serif text-lg rounded hover:bg-ink-100 transition-colors shadow-lg"
                 >
                   返回目录
                 </button>
