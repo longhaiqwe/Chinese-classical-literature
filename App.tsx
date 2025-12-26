@@ -148,7 +148,7 @@ const App: React.FC = () => {
           {appState === AppState.PLAYING && scenes.length > 0 && (
             <div className="w-full">
               <div className="mb-4 text-center">
-                <button onClick={handleExitGame} className="text-sm text-ink-400 hover:text-accent-red">退出阅读</button>
+                <button onClick={handleExitGame} className="text-sm text-ink-400 hover:text-accent-red">结束闯关</button>
               </div>
               <GameScene
                 key={currentSceneIndex}
