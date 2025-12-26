@@ -1,6 +1,6 @@
 
-export const APP_TITLE = "桃园结义";
-export const APP_SUBTITLE = "The Peach Garden Oath";
+export const APP_TITLE = "中国古典文学";
+export const APP_SUBTITLE = "Chinese Classical Literature";
 
 export const UI_LABELS = {
   start_button: "开启卷轴 (Start Journey)",

@@ -16,14 +16,33 @@ export interface IGameScene {
   options: GameOption[];
 }
 
+
+export interface IGameStory {
+  id: string;
+  title: string;
+  description: string;
+  scenes: IGameScene[];
+}
+
+export interface IGameCategory {
+  id: string;
+  title: string;
+  coverImage?: string;
+  stories: IGameStory[];
+}
+
 export enum AppState {
-  INITIAL = 'INITIAL',
-  GENERATING_STORY = 'GENERATING_STORY',
-  GENERATING_IMAGES = 'GENERATING_IMAGES',
+  HOME = 'HOME',
+  CATEGORY_VIEW = 'CATEGORY_VIEW',
+  STORY_VIEW = 'STORY_VIEW',
   PLAYING = 'PLAYING',
   GAME_OVER = 'GAME_OVER',
   VICTORY = 'VICTORY',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
+  // Deprecated but kept for compatibility during refactor
+  INITIAL = 'INITIAL',
+  GENERATING_STORY = 'GENERATING_STORY',
+  GENERATING_IMAGES = 'GENERATING_IMAGES',
 }
 
 export interface GenerationProgress {

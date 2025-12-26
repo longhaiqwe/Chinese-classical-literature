@@ -1,5 +1,5 @@
 
-import { IGameScene } from '../types';
+import { IGameScene, IGameCategory } from '../types';
 
 export const STORY_SCENES: IGameScene[] = [
   {
@@ -164,6 +164,73 @@ export const STORY_SCENES: IGameScene[] = [
         text: "重新来过",
         isCorrect: true,
         feedback: "往事已矣，来者可追。"
+      }
+    ]
+  }
+];
+
+export const CATEGORIES: IGameCategory[] = [
+  {
+    id: 'sanguo',
+    title: '三国演义',
+    coverImage: '/assets/cover_sanguo.jpg', // Generated cover
+    stories: [
+      {
+        id: 'taoyuan',
+        title: '桃园结义',
+        description: '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。',
+        scenes: STORY_SCENES
+      },
+      {
+        id: 'sanguo_placeholder_1',
+        title: '三顾茅庐 (开发中)',
+        description: '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。',
+        scenes: []
+      },
+      {
+        id: 'sanguo_placeholder_2',
+        title: '草船借箭 (开发中)',
+        description: '周瑜设计害孔明，孔明谈笑间草船借箭十万枝。',
+        scenes: []
+      }
+    ]
+  },
+  {
+    id: 'xiyou',
+    title: '西游记',
+    coverImage: '/assets/cover_xiyou.jpg', // Generated cover
+    stories: [
+      {
+        id: 'xiyou_placeholder',
+        title: '大闹天宫 (开发中)',
+        description: '孙悟空不满弼马温之职，大闹天宫，自封齐天大圣。',
+        scenes: []
+      }
+    ]
+  },
+  {
+    id: 'shanhai',
+    title: '山海经',
+    coverImage: '/assets/cover_shanhai.jpg', // Generated cover
+    stories: [
+      {
+        id: 'shanhai_placeholder',
+        title: '精卫填海 (开发中)',
+        description: '炎帝之女溺亡东海，化为精卫鸟，衔石填海。',
+        scenes: []
+      }
+    ]
+  },
+  {
+    id: 'lunyu',
+    title: '论语',
+    coverImage: '/assets/cover_lunyu.jpg', // Generated cover
+    stories: [
+      {
+        id: 'lunyu_placeholder',
+        title: '杏坛讲学 (开发中)',
+        description: '孔子于杏坛讲学，弟子三千，贤人七十二。',
+        scenes: []
       }
     ]
   }

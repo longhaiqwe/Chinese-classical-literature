@@ -1,45 +1,62 @@
 import React, { useState, useEffect } from 'react';
-import { IGameScene, AppState } from './types';
-import { getStaticGameStory } from './services/geminiService';
+import { IGameScene, AppState, IGameCategory, IGameStory } from './types';
+import { CATEGORIES } from './data/storyData';
 import { loadProgressFromDB, saveProgressToDB } from './services/db';
 import { APP_TITLE, APP_SUBTITLE, UI_LABELS } from './constants';
 import GameScene from './components/GameScene';
+import HomeView from './components/HomeView';
+import CategoryView from './components/CategoryView';
 
 const App: React.FC = () => {
-  const [appState, setAppState] = useState<AppState>(AppState.INITIAL);
+  const [appState, setAppState] = useState<AppState>(AppState.HOME);
+
+  // Navigation State
+  const [selectedCategory, setSelectedCategory] = useState<IGameCategory | null>(null);
+  const [selectedStory, setSelectedStory] = useState<IGameStory | null>(null);
+
+  // Game Play State
   const [scenes, setScenes] = useState<IGameScene[]>([]);
   const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
 
-  // Initialize Game Data
+  // Initialize - No longer fetching "static story" blindly
   useEffect(() => {
-    const initialize = async () => {
-      // 1. Load Static Data
-      const staticScenes = getStaticGameStory();
-      setScenes(staticScenes);
-
-      // 2. Load Saved Progress
-      try {
-        const savedProgress = await loadProgressFromDB();
-        if (savedProgress >= 0 && savedProgress < staticScenes.length) {
-          setCurrentSceneIndex(savedProgress);
-        }
-      } catch (e) {
-        console.warn("Failed to load progress", e);
-      }
-    };
-    initialize();
+    // Only load DB progress if we end up implementing per-story progress saving later.
+    // For now, we start at HOME.
   }, []);
 
-  // Save progress to Local DB
+  // Save progress to Local DB (Keep existing logic but only when playing)
   useEffect(() => {
     if (appState === AppState.PLAYING) {
       saveProgressToDB(currentSceneIndex).catch(err => console.error("Failed to save progress", err));
     }
   }, [currentSceneIndex, appState]);
 
-  const startGame = () => {
+  // --- Navigation Handlers ---
+
+  const handleSelectCategory = (category: IGameCategory) => {
+    setSelectedCategory(category);
+    setAppState(AppState.CATEGORY_VIEW);
+  };
+
+  const handleBackToHome = () => {
+    setSelectedCategory(null);
+    setAppState(AppState.HOME);
+  };
+
+  const handleSelectStory = (story: IGameStory) => {
+    setSelectedStory(story);
+    setScenes(story.scenes);
+    setCurrentSceneIndex(0);
     setAppState(AppState.PLAYING);
   };
+
+  const handleBackToCategory = () => {
+    setSelectedStory(null);
+    setScenes([]);
+    setAppState(AppState.CATEGORY_VIEW);
+  };
+
+  // --- Game Gameplay Handlers ---
 
   const handleNextScene = () => {
     // Valid text flow from Bad Ending (Index 6) is to restart
@@ -51,7 +68,7 @@ const App: React.FC = () => {
     // Victory Condition: If current scene is the last "Good" scene (ID 6, Index 5)
     if (currentSceneIndex === 5) {
       setAppState(AppState.VICTORY);
-      saveProgressToDB(0);
+      // saveProgressToDB(0); // Optional: Reset progress on victory
       return;
     }
 
@@ -74,6 +91,11 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
+  const handleExitGame = () => {
+    // Return to story selection
+    handleBackToCategory();
+  };
+
   return (
     <div className="min-h-screen bg-paper-50 bg-paper-texture text-ink-900 font-serif selection:bg-accent-red selection:text-white">
       {/* Decorative Border */}
@@ -83,8 +105,18 @@ const App: React.FC = () => {
       <main className="container mx-auto px-4 py-8 min-h-screen flex flex-col">
 
         {/* Header */}
-        <header className="text-center mb-8 pt-4 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-calligraphy text-ink-900 mb-2 drop-shadow-sm tracking-widest">
+        <header className="text-center mb-8 pt-4 animate-fade-in relative">
+          {/* Optional: Home Button if not on Home */}
+          {appState !== AppState.HOME && (
+            <button
+              onClick={handleBackToHome}
+              className="absolute left-4 top-4 text-sm text-ink-500 hover:text-ink-900 font-sans hidden md:block"
+            >
+              首页
+            </button>
+          )}
+
+          <h1 className="text-5xl md:text-6xl font-calligraphy text-ink-900 mb-2 drop-shadow-sm tracking-widest cursor-pointer" onClick={handleBackToHome}>
             {APP_TITLE}
           </h1>
           <p className="text-lg text-accent-brown uppercase tracking-widest font-bold opacity-80 border-b border-ink-800/20 inline-block pb-1">
@@ -95,44 +127,39 @@ const App: React.FC = () => {
         {/* Content Area */}
         <div className="flex-grow flex flex-col items-center justify-center w-full">
 
-          {appState === AppState.INITIAL && (
-            <div className="text-center space-y-8 animate-fade-in max-w-2xl">
-              <div className="p-8 border-y-4 border-double border-ink-800 bg-paper-100 shadow-xl relative">
-                <p className="text-xl leading-loose mb-6">
-                  东汉末年，朝政腐败，天下大乱。涿郡之中，三位英雄即将际遇。
-                  <br />
-                  这是一个由AI实时生成的交互式历史绘卷。
-                </p>
-
-                <div className="text-md text-ink-500 italic flex flex-col items-center justify-center gap-2">
-                  {currentSceneIndex > 0 && <span className="text-accent-brown">| 进度: 第 {currentSceneIndex + 1} 章</span>}
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4 items-center">
-                <button
-                  onClick={startGame}
-                  className="group relative px-12 py-4 bg-ink-900 text-paper-50 text-xl font-bold rounded shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1 w-64"
-                >
-                  <div className="absolute inset-0 w-full h-full bg-accent-red translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></div>
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    <span className="font-calligraphy text-2xl">📖</span>
-                    {currentSceneIndex > 0 ? UI_LABELS.continue_button : '开始阅览'}
-                  </span>
-                </button>
-              </div>
-            </div>
-          )}
-
-          {appState === AppState.PLAYING && scenes.length > 0 && (
-            <GameScene
-              key={currentSceneIndex}
-              scene={scenes[currentSceneIndex]}
-              onNext={handleNextScene}
-              onGameOver={handleGameOver}
+          {/* HOME VIEW */}
+          {appState === AppState.HOME && (
+            <HomeView
+              categories={CATEGORIES}
+              onSelectCategory={handleSelectCategory}
             />
           )}
 
+          {/* CATEGORY VIEW */}
+          {appState === AppState.CATEGORY_VIEW && selectedCategory && (
+            <CategoryView
+              category={selectedCategory}
+              onSelectStory={handleSelectStory}
+              onBack={handleBackToHome}
+            />
+          )}
+
+          {/* PLAYING VIEW */}
+          {appState === AppState.PLAYING && scenes.length > 0 && (
+            <div className="w-full">
+              <div className="mb-4 text-center">
+                <button onClick={handleExitGame} className="text-sm text-ink-400 hover:text-accent-red">退出阅读</button>
+              </div>
+              <GameScene
+                key={currentSceneIndex}
+                scene={scenes[currentSceneIndex]}
+                onNext={handleNextScene}
+                onGameOver={handleGameOver}
+              />
+            </div>
+          )}
+
+          {/* VICTORY VIEW */}
           {appState === AppState.VICTORY && (
             <div className="text-center animate-fade-in p-8 border-4 border-double border-accent-red bg-paper-100 shadow-2xl max-w-2xl">
               <h2 className="text-5xl font-calligraphy text-accent-red mb-6">义薄云天</h2>
@@ -148,11 +175,15 @@ const App: React.FC = () => {
                 >
                   {UI_LABELS.restart}
                 </button>
+                <button
+                  onClick={handleExitGame}
+                  className="px-8 py-3 border-2 border-ink-900 text-ink-900 font-serif text-lg rounded hover:bg-ink-100 transition-colors shadow-lg"
+                >
+                  返回目录
+                </button>
               </div>
             </div>
           )}
-
-
 
         </div>
       </main>
