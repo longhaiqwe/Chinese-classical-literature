@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { IGameScene } from '../types';
 import { UI_LABELS } from '../constants';
 
@@ -13,13 +13,23 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
+  // Randomize options when scene changes
+  const shuffledOptions = useMemo(() => {
+    const options = [...scene.options];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    return options;
+  }, [scene]);
+
   const handleOptionClick = (index: number) => {
     if (showFeedback) return; // Prevent double clicking
     setSelectedOptionIndex(index);
     setShowFeedback(true);
   };
 
-  const currentOption = selectedOptionIndex !== null ? scene.options[selectedOptionIndex] : null;
+  const currentOption = selectedOptionIndex !== null ? shuffledOptions[selectedOptionIndex] : null;
   const isCorrect = currentOption?.isCorrect;
 
   return (
@@ -59,7 +69,7 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
         {!showFeedback ? (
           // Choice Mode
           <div className="grid gap-4">
-            {scene.options.map((option, idx) => (
+            {shuffledOptions.map((option, idx) => (
               <button
                 key={idx}
                 onClick={() => handleOptionClick(idx)}

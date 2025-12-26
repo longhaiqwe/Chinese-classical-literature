@@ -4,87 +4,136 @@ import { IGameScene } from '../../../types';
 export const YANHUITOUZHOU_SCENES: IGameScene[] = [
     {
         id: 1,
-        title: "陈蔡绝粮",
+        title: "绝粮陈蔡",
         narrative: "孔子困于陈蔡之间，绝粮七日，弟子无论老少皆有饥色。唯颜回依然神态自若，每日依旧读书习礼，并设法讨得少许米粮煮粥。",
         environmentDescription: "A dilapidated temple, Confucius and disciples looking hungry and weak.",
         characterState: "Yan Hui cooking porridge quietly.",
         imageUrl: "/assets/lunyu/yanhuitouzhou/bg_01_hungry.jpg",
         options: [
             {
-                text: "抱怨命运不公",
-                isCorrect: false,
-                feedback: "君子固穷，小人穷斯滥矣。孔门弟子当安贫乐道，岂可效小人之态？"
-            },
-            {
-                text: "坚持修身讲学",
+                text: "安贫乐道",
                 isCorrect: true,
-                feedback: "孔子弦歌不辍，以此以此教导弟子，越是困境，越显君子风骨。"
+                feedback: "君子固穷，小人穷斯滥矣。越是困境，越能磨炼心性，颜回深得夫子之道。"
             },
             {
-                text: "散伙各奔前程",
+                text: "质疑师道",
                 isCorrect: false,
-                feedback: "弟子追随夫子，乃为求大道。若因一时困顿便散去，何谈大义？"
+                feedback: "子路曾问：“君子亦有穷乎？”若因一时困顿而动摇信念，便非真君子。"
+            },
+            {
+                text: "甚至想要离开",
+                isCorrect: false,
+                feedback: "患难见真情，此时离去，不仅背弃师门，更背弃了自己的道义。"
             }
         ]
     },
     {
         id: 2,
-        title: "视线一瞥",
-        narrative: "粥将熟时，孔子正于堂上安坐，偶然眼光扫向庖厨，忽见颜回用勺子舀起锅中之粥喝了一口。",
-        environmentDescription: "View from the hall looking into the kitchen.",
-        characterState: "Confucius looking surprised/disappointed.",
-        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_02_glimpse.jpg",
+        title: "颜回讨米",
+        narrative: "颜回几经周折，终于讨回一些米来煮粥。大家早已饥肠辘辘，都在焦急地等待。",
+        environmentDescription: "Yan Hui cooking near a simple stove.",
+        characterState: "Yan Hui focused on cooking.",
+        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_02_cooking.jpg",
         options: [
             {
-                text: "大声呵斥颜回",
-                isCorrect: false,
-                feedback: "为师者，当先查明真相。若不问青红皂白便责骂，恐伤弟子之心，亦非圣贤所为。"
-            },
-            {
-                text: "装作未见，暗自怀疑",
-                isCorrect: false,
-                feedback: "心中存疑而不问，非直道也。且若此误解加深，师徒之道恐有裂痕。"
-            },
-            {
-                text: "佯作不知，借机试探",
+                text: "小心看火",
                 isCorrect: true,
-                feedback: "孔子不动声色。待颜回献粥时，孔子曰：“吾梦见先君，洁食以祭。”以此试探颜回反应。"
+                feedback: "米粮来之不易，需得全神贯注，确保粥熟且不浪费，这也是一种修行。"
+            },
+            {
+                text: "因为饥饿难耐",
+                isCorrect: false,
+                feedback: "虽饥肠辘辘，但颜回克己复礼，绝不会在师长未食之前因私欲而失态。"
+            },
+            {
+                text: "心生怨怼",
+                isCorrect: false,
+                feedback: "颜回为人谦冲，即使身处逆境，也绝无怨言，只会默默承担。"
             }
         ]
     },
     {
         id: 3,
-        title: "真相大白",
-        narrative: "颜回答道：“不可！方才烟尘落入釜中，弃之可惜，回已食之。不可祭也。”孔子闻言，长叹一声，方知错怪了颜回。",
-        environmentDescription: "Confucius and Yan Hui talking sincerely.",
-        characterState: "Confucius looking relieved and moved.",
-        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_03_truth.jpg",
+        title: "意外发生",
+        narrative: "粥快熟时，忽有一阵风吹来，屋顶上的灰尘掉进了锅里。颜回连忙用勺子将脏了的粥舀出来。",
+        environmentDescription: "Dust falling into the pot.",
+        characterState: "Yan Hui looking concerned.",
+        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_03_accident.jpg",
         options: [
             {
-                text: "向众弟子说明缘由",
+                text: "惜食吞粥",
                 isCorrect: true,
-                feedback: "孔子召集弟子曰：“所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。”"
+                feedback: "“一箪食，一瓢饮，在陋巷，人不堪其忧，回也不改其乐。”颜回深知物力维艰，故不忍丢弃，虽然不洁，宁可自己吃下。"
             },
             {
-                text: "默不作声，心中愧疚",
+                text: "倒掉脏粥",
                 isCorrect: false,
-                feedback: "既知真相，当为弟子正名，并以此教化众人。这也是极好的教育机会。"
+                feedback: "此时绝粮七日，每一粒米都关乎性命，岂能轻易倒掉？此举虽合卫生，却不合时宜。"
+            },
+            {
+                text: "搅拌掩饰",
+                isCorrect: false,
+                feedback: "若将灰尘拌入粥中呈给夫子，便是欺师；若自己食用却不言明，亦非诚实之道。"
             }
         ]
     },
     {
         id: 4,
-        title: "平行时空：信任崩塌",
-        narrative: "若孔子当时未能查明真相，认定颜回偷食，一代贤人恐蒙不白之冤，师徒情谊亦将不再。",
-        environmentDescription: "A rift appearing between master and disciple.",
-        characterState: "Yan Hui looking misunderstood.",
-        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_04_bad_mistrust.jpg",
+        title: "孔子试探",
+        narrative: "孔子远远看见颜回似乎在偷吃，心中不悦，但没有当面发作。待颜回端粥送上时，孔子故意说道：“刚才我梦见了先君，这粥若是洁净的，就先拿去祭祀吧。”",
+        environmentDescription: "Confucius testing Yan Hui.",
+        characterState: "Confucius looking stern but calm.",
+        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_04_test.jpg",
         options: [
             {
-                text: "重拾信任，再续师徒情",
+                text: "据实以告",
                 isCorrect: true,
-                feedback: "信任如镜，碎之难圆。然若有心修补，未必不能重归于好。"
+                feedback: "颜回坦荡答道：“不可！刚才有灰尘掉进锅里，我怕浪费便吃了，这粥已不洁，不能祭祀了。”诚实乃君子之本。"
+            },
+            {
+                text: "顺从师命",
+                isCorrect: false,
+                feedback: "祭祀讲究“诚”与“洁”。若明知粥不洁而献祭，是大不敬；若隐瞒实情，是欺师。"
+            },
+            {
+                text: "惶恐认错",
+                isCorrect: false,
+                feedback: "颜回所为并非错事，而是惜物之举，何须惶恐？只需如实说明即可。"
             }
         ]
+    },
+    {
+        id: 5,
+        title: "误会冰释",
+        narrative: "孔子听后感叹道：“原本我只相信眼睛看到的，可亲眼所见也未必是真相；原本我只依靠内心的推测，可内心有时也会不可靠。大家要记住，了解一个人真的不容易啊！”",
+        environmentDescription: "Confucius teaching his disciples.",
+        characterState: "All disciples listening with respect.",
+        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_05_resolution.jpg",
+        options: [
+            {
+                text: "深信不疑",
+                isCorrect: true,
+                feedback: "信任非一日之功，需经得起误解与考验。师徒之间，贵在相知相信。"
+            },
+            {
+                text: "眼见为实",
+                isCorrect: false,
+                feedback: "孔子今日之教，正是要破除“眼见为实”的执念。心之所感，往往比眼之所见更为真实。"
+            },
+            {
+                text: "心存芥蒂",
+                isCorrect: false,
+                feedback: "误会既已冰释，道理也已讲明，若仍存芥蒂，便枉费了夫子的一番教诲。"
+            }
+        ]
+    },
+    {
+        id: 6,
+        title: "信任崩塌",
+        narrative: "若孔子当时未能查明真相，或者颜回未能即使解释，一代贤人恐蒙不白之冤。师徒之间若无信任，道义何存？信任一旦破裂，便如覆水难收，令人扼腕叹息。",
+        environmentDescription: "Yan Hui walking away, Confucius looking regretful.",
+        characterState: "Sadness and separation.",
+        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_06_bad.jpg",
+        options: []
     }
 ];
