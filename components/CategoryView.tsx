@@ -61,17 +61,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({ category, onSelectStory, on
     return (
         <div className="w-full max-w-4xl mx-auto px-4 animate-fade-in">
             {/* Header with Back Button */}
-            <div className="flex items-center mb-8 pb-4 border-b border-ink-100">
-                <button
-                    onClick={onBack}
-                    className="group flex items-center gap-2 text-ink-600 hover:text-accent-red transition-colors"
-                >
-                    <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
-                    <span className="font-serif">返回书架</span>
-                </button>
-                <div className="flex-1 text-center pr-24">
-                    <h2 className="text-3xl font-calligraphy text-ink-900">{category.title}</h2>
-                </div>
+            {/* Header with Title Only - Improved Design */}
+            <div className="flex items-center justify-center mb-10 pb-2 mt-4">
+                <h2 className="text-4xl font-calligraphy text-ink-800 tracking-wider flex items-center gap-4">
+                    <span className="opacity-40 text-2xl font-serif">❝</span>
+                    {category.title}
+                    <span className="opacity-40 text-2xl font-serif">❞</span>
+                </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
