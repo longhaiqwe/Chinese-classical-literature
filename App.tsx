@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { Capacitor } from '@capacitor/core';
+import React, { useState, useEffect, useRef } from 'react';
 import { IGameScene, AppState, IGameCategory, IGameStory } from './types';
 import { CATEGORIES } from './data/storyData';
 import { loadProgressFromDB, saveProgressToDB } from './services/db';
@@ -9,6 +10,8 @@ import CategoryView from './components/CategoryView';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.HOME);
+  const [isNative, setIsNative] = useState(false);
+  const touchStartRef = useRef<{ x: number, y: number } | null>(null);
 
   // Navigation State
   const [selectedCategory, setSelectedCategory] = useState<IGameCategory | null>(null);
@@ -18,10 +21,9 @@ const App: React.FC = () => {
   const [scenes, setScenes] = useState<IGameScene[]>([]);
   const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
 
-  // Initialize - No longer fetching "static story" blindly
+  // Initialize
   useEffect(() => {
-    // Only load DB progress if we end up implementing per-story progress saving later.
-    // For now, we start at HOME.
+    setIsNative(Capacitor.isNativePlatform());
   }, []);
 
   // Save progress to Local DB (Keep existing logic but only when playing)
@@ -106,6 +108,47 @@ const App: React.FC = () => {
     handleBackToCategory();
   };
 
+  // Mobile: Swipe to Exit Game Listener
+  useEffect(() => {
+    if (!isNative || appState !== AppState.PLAYING) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartRef.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
+      };
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (!touchStartRef.current) return;
+
+      const startX = touchStartRef.current.x;
+      const currentX = e.changedTouches[0].clientX;
+      const currentY = e.changedTouches[0].clientY;
+
+      const deltaX = currentX - startX;
+      const deltaY = currentY - touchStartRef.current.y;
+
+      // Logic:
+      // 1. Must start from the left edge (e.g., within 50px)
+      // 2. Must swipe right significantly (> 60px)
+      // 3. Must be relatively horizontal (abs(deltaY) < abs(deltaX))
+      if (startX < 50 && deltaX > 60 && Math.abs(deltaY) < Math.abs(deltaX)) {
+        handleExitGame();
+      }
+
+      touchStartRef.current = null;
+    };
+
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isNative, appState]);
+
   return (
     <div className="min-h-screen bg-paper-50 bg-paper-texture text-ink-900 font-serif selection:bg-accent-red selection:text-white">
       {/* Decorative Border */}
@@ -115,9 +158,9 @@ const App: React.FC = () => {
       <main className="container mx-auto px-4 py-8 min-h-screen flex flex-col">
 
         {/* Header */}
-        <header className="text-center mb-8 pt-4 animate-fade-in relative">
-          {/* Optional: Home Button if not on Home */}
-          {appState !== AppState.HOME && (
+        <header className="text-center mb-8 pt-12 animate-fade-in relative">
+          {/* Optional: Home Button if not on Home (WEB ONLY) */}
+          {!isNative && appState !== AppState.HOME && (
             <button
               onClick={handleBackToHome}
               className="absolute left-4 top-4 text-ink-500 hover:text-ink-900 flex items-center gap-1 transition-colors z-50"
@@ -162,15 +205,17 @@ const App: React.FC = () => {
             <div className="w-full">
               <div className="mb-4 flex justifyContent-between items-center px-4 md:px-0">
                 {/* Spacer to center the content if needed, or just simple alignment */}
-                <button
-                  onClick={handleExitGame}
-                  className="flex items-center gap-2 px-4 py-2 border border-ink-300 rounded-full text-ink-600 hover:border-accent-red hover:text-accent-red hover:bg-paper-50 transition-all text-sm font-serif group"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 group-hover:-translate-x-1 transition-transform">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                  </svg>
-                  结束闯关
-                </button>
+                {!isNative && (
+                  <button
+                    onClick={handleExitGame}
+                    className="flex items-center gap-2 px-4 py-2 border border-ink-300 rounded-full text-ink-600 hover:border-accent-red hover:text-accent-red hover:bg-paper-50 transition-all text-sm font-serif group"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 group-hover:-translate-x-1 transition-transform">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    结束闯关
+                  </button>
+                )}
               </div>
               <GameScene
                 key={currentSceneIndex}
