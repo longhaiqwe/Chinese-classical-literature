@@ -12,6 +12,7 @@ const App: React.FC = () => {
 
   // Navigation State
   const [selectedCategory, setSelectedCategory] = useState<IGameCategory | null>(null);
+  const [lastCategoryId, setLastCategoryId] = useState<string | null>(null);
   const [selectedStory, setSelectedStory] = useState<IGameStory | null>(null);
 
   // Game Play State
@@ -35,6 +36,7 @@ const App: React.FC = () => {
 
   const handleSelectCategory = (category: IGameCategory) => {
     setSelectedCategory(category);
+    setLastCategoryId(category.id);
     setAppState(AppState.CATEGORY_VIEW);
   };
 
@@ -115,12 +117,12 @@ const App: React.FC = () => {
       <main className="container mx-auto px-4 py-8 min-h-screen flex flex-col">
 
         {/* Header */}
-        <header className="text-center mb-8 pt-4 animate-fade-in relative">
+        <header className="text-center mb-2 pt-20 animate-fade-in relative">
           {/* Optional: Home Button if not on Home */}
           {appState !== AppState.HOME && (
             <button
               onClick={handleBackToHome}
-              className="absolute left-4 top-4 text-ink-500 hover:text-ink-900 flex items-center gap-1 transition-colors z-50"
+              className="absolute left-4 top-20 text-ink-500 hover:text-ink-900 flex items-center gap-1 transition-colors z-50"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -129,7 +131,7 @@ const App: React.FC = () => {
             </button>
           )}
 
-          <h1 className="text-5xl md:text-6xl font-calligraphy text-ink-900 mb-2 drop-shadow-sm tracking-widest cursor-pointer" onClick={handleBackToHome}>
+          <h1 className="text-5xl md:text-6xl font-calligraphy text-ink-900 mb-6 drop-shadow-sm tracking-widest cursor-pointer" onClick={handleBackToHome}>
             {APP_TITLE}
           </h1>
           <p className="text-lg text-accent-brown uppercase tracking-widest font-bold opacity-80 border-b border-ink-800/20 inline-block pb-1">
@@ -145,6 +147,7 @@ const App: React.FC = () => {
             <HomeView
               categories={CATEGORIES}
               onSelectCategory={handleSelectCategory}
+              initialScrollToCategoryId={lastCategoryId || undefined}
             />
           )}
 
