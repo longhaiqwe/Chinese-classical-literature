@@ -220,6 +220,7 @@ const App: React.FC = () => {
               <GameScene
                 key={currentSceneIndex}
                 scene={scenes[currentSceneIndex]}
+                storyId={selectedStory?.id || 'unknown'}
                 onNext={handleNextScene}
                 onGameOver={handleGameOver}
               />

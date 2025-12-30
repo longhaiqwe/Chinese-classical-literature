@@ -2,14 +2,16 @@
 import React, { useState, useMemo } from 'react';
 import { IGameScene } from '../types';
 import { UI_LABELS } from '../constants';
+import { VoicePlayer } from './VoicePlayer';
 
 interface GameSceneProps {
   scene: IGameScene;
+  storyId: string;
   onNext: () => void;
   onGameOver: () => void;
 }
 
-const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
+const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOver }) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
@@ -62,6 +64,13 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, onNext, onGameOver }) => {
         <p className="text-base md:text-lg leading-relaxed md:leading-loose tracking-wide text-ink-900 font-serif text-justify indent-8">
           {scene.narrative}
         </p>
+        <div className="mt-4 flex justify-end">
+          <VoicePlayer
+            storyId={storyId}
+            sceneIndex={scene.id}
+            text={scene.narrative}
+          />
+        </div>
       </div>
 
       {/* Options Area */}
