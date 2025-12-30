@@ -1,6 +1,6 @@
 import { IGameCategory } from '../../../types';
 import { TAOYUAN_SCENES } from './taoyuan';
-// import { SANGUMAOLU_SCENES } from './sangumaolu';
+import { SANGUMAOLU_SCENES } from './sangumaolu';
 
 export const SanguoCategory: IGameCategory = {
     id: 'sanguo',
@@ -17,11 +17,11 @@ export const SanguoCategory: IGameCategory = {
         },
         {
             id: 'sangumaolu',
-            title: '三顾茅庐 (敬请期待)',
+            title: '三顾茅庐',
             description: '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。',
             endingTitle: '如鱼得水',
             endingDescription: '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。',
-            scenes: []
+            scenes: SANGUMAOLU_SCENES
         },
         {
             id: 'sanguo_placeholder_2',
