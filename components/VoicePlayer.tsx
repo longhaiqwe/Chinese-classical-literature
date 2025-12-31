@@ -15,32 +15,24 @@ export const VoicePlayer: React.FC<VoicePlayerProps> = ({ storyId, sceneIndex, t
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = React.useRef<HTMLAudioElement | null>(null);
-    const pollIntervalRef = React.useRef<number | null>(null);
 
-    // 1. Initial Check
+    // Initial Check - try to get existing audio URL
     useEffect(() => {
         checkStatus();
-        return () => stopPolling();
     }, [storyId, sceneIndex]);
-
-    const stopPolling = () => {
-        if (pollIntervalRef.current) {
-            window.clearInterval(pollIntervalRef.current);
-            pollIntervalRef.current = null;
-        }
-    };
 
     const checkStatus = async () => {
         try {
+            // We assume audio is pre-generated. 
+            // We check status mainly to get the URL if it exists.
             const { data, error } = await supabase.functions.invoke('check-narration-status', {
                 body: { story_id: storyId, scene_index: sceneIndex }
             });
 
             if (error) {
-                // If 404/not found, it means we haven't started yet, so idle. 
-                // But our function throws error if not found.
-                // We might need to handle that gracefully.
-                console.log('Check status error (likely not created yet):', error);
+                // Determine if it's a 404 or other error. 
+                // For now, if error, we set to idle/failed.
+                console.log('Check status error:', error);
                 setStatus('idle');
                 return;
             }
@@ -48,11 +40,9 @@ export const VoicePlayer: React.FC<VoicePlayerProps> = ({ storyId, sceneIndex, t
             if (data.status === 'success') {
                 setAudioUrl(data.audio_url);
                 setStatus('success');
-            } else if (data.status === 'pending') {
-                setStatus('pending');
-                startPolling();
-            } else if (data.status === 'failed') {
-                setStatus('failed');
+            } else {
+                // If pending or failed, we just show as unavailable for now in this pre-gen model
+                setStatus('idle');
             }
         } catch (err) {
             console.error(err);
@@ -60,53 +50,13 @@ export const VoicePlayer: React.FC<VoicePlayerProps> = ({ storyId, sceneIndex, t
         }
     };
 
-    const startPolling = () => {
-        stopPolling();
-        pollIntervalRef.current = window.setInterval(async () => {
-            const { data, error } = await supabase.functions.invoke('check-narration-status', {
-                body: { story_id: storyId, scene_index: sceneIndex }
-            });
+    const togglePlay = () => {
+        if (!audioRef.current) return;
 
-            if (data?.status === 'success') {
-                stopPolling();
-                setAudioUrl(data.audio_url);
-                setStatus('success');
-                // Auto play when ready? Maybe better to let user click play.
-            } else if (data?.status === 'failed') {
-                stopPolling();
-                setStatus('failed');
-            }
-        }, 10000); // Poll every 10s
-    };
-
-    const handlePlayClick = async () => {
-        if (status === 'success' && audioUrl) {
-            if (audioRef.current) {
-                audioRef.current.play();
-                setIsPlaying(true);
-            }
-            return;
-        }
-
-        if (status === 'idle' || status === 'failed') {
-            setStatus('pending');
-            try {
-                const { data, error } = await supabase.functions.invoke('request-narration', {
-                    body: { story_id: storyId, scene_index: sceneIndex, text }
-                });
-
-                if (error) throw error;
-
-                if (data.status === 'success') {
-                    setAudioUrl(data.audio_url);
-                    setStatus('success');
-                } else {
-                    startPolling();
-                }
-            } catch (err) {
-                console.error('Request narration failed:', err);
-                setStatus('failed');
-            }
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play();
         }
     };
 
@@ -114,32 +64,30 @@ export const VoicePlayer: React.FC<VoicePlayerProps> = ({ storyId, sceneIndex, t
         setIsPlaying(false);
     };
 
+    if (status !== 'success' || !audioUrl) {
+        // Option: Don't render anything if no audio, or render a disabled "No Audio" button/icon
+        // For better UX in pre-gen model, we might just hide it if not ready.
+        // Or show a disabled button.
+        return null;
+    }
+
     return (
         <div className="voice-player-container">
-            {audioUrl && (
-                <audio
-                    ref={audioRef}
-                    src={audioUrl}
-                    onEnded={handleAudioEnded}
-                    onPause={() => setIsPlaying(false)}
-                    onPlay={() => setIsPlaying(true)}
-                />
-            )}
+            <audio
+                ref={audioRef}
+                src={audioUrl}
+                onEnded={handleAudioEnded}
+                onPause={() => setIsPlaying(false)}
+                onPlay={() => setIsPlaying(true)}
+            />
 
             <button
-                onClick={status === 'success' && isPlaying ? () => audioRef.current?.pause() : handlePlayClick}
-                disabled={status === 'pending'}
-                className={`voice-btn ${status}`}
-                style={{
-                    opacity: status === 'pending' ? 0.7 : 1,
-                    cursor: status === 'pending' ? 'wait' : 'pointer'
-                }}
+                onClick={togglePlay}
+                className="voice-btn success"
+                style={{ cursor: 'pointer' }}
+                title="播放朗读"
             >
-                {status === 'idle' && '🔊 朗读'}
-                {status === 'pending' && '⏳ 生成中 (约1分钟)...'}
-                {status === 'failed' && '❌ 重试'}
-                {status === 'success' && !isPlaying && '▶️ 播放'}
-                {status === 'success' && isPlaying && '⏸️ 暂停'}
+                {isPlaying ? '⏸️ 暂停朗读' : '▶️ 播放朗读'}
             </button>
         </div>
     );
