@@ -1,8 +1,8 @@
 
 import { IGameCategory } from '../../types';
-import { SanguoCategory } from './sanguo';
-import { XiyouCategory } from './xiyou';
-import { ShanhaiCategory } from './shanhai';
+import { SanguoCategory } from './sanguoyanyi';
+import { XiyouCategory } from './xiyouji';
+import { ShanhaiCategory } from './shanhaijing';
 import { LunyuCategory } from './lunyu';
 
 export const CATEGORIES: IGameCategory[] = [

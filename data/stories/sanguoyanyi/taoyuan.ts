@@ -8,7 +8,7 @@ export const TAOYUAN_SCENES: IGameScene[] = [
         narrative: "东汉末年，黄巾造反，天下大乱。幽州太守刘焉出榜招募义兵。榜文行至涿县，引得百姓围观。人群中有一人，生得身长七尺五寸，两耳垂肩，双手过膝，目能自顾其耳，面如冠玉，唇若涂脂。他看罢榜文，不仅长叹一声。",
         environmentDescription: "A crowded market place in ancient China, viewing a government notice on a wall.",
         characterState: "Liu Bei sighing at the notice.",
-        imageUrl: "/assets/sanguo/taoyuan/bg_01_notice.jpg",
+        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_01_notice.jpg",
         options: [
             {
                 text: "置之不理，自行离去",
@@ -33,7 +33,7 @@ export const TAOYUAN_SCENES: IGameScene[] = [
         narrative: "忽闻背后一人厉声喝道：“大丈夫不与国家出力，何故长叹？”",
         environmentDescription: "Market place, Liu Bei turning around to face a tall warrior.",
         characterState: "Zhang Fei shouting at Liu Bei from behind.",
-        imageUrl: "/assets/sanguo/taoyuan/bg_02_encounter.jpg",
+        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_02_encounter.jpg",
         options: [
             {
                 text: "置之不理，自行离去",
@@ -58,7 +58,7 @@ export const TAOYUAN_SCENES: IGameScene[] = [
         narrative: "玄德与那壮士入酒肆对饮，那人道姓张名飞，颇有家资，愿结交天下豪杰。正饮间，见一大汉推车入店，入座便唤酒保：“快斟酒来吃，我待赶入城去投军！”玄德看其人：身长九尺，髯长二尺；面如重枣，唇若涂脂；丹凤眼，卧蚕眉；相貌堂堂，威风凛凛。",
         environmentDescription: "Inside a rustic ancient tavern, wooden tables and jars of wine.",
         characterState: "Guan Yu entering majestically.",
-        imageUrl: "/assets/sanguo/taoyuan/bg_03_guanyu.jpg",
+        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_03_guanyu.jpg",
         options: [
             {
                 text: "邀其同坐，共谋大事",
@@ -83,7 +83,7 @@ export const TAOYUAN_SCENES: IGameScene[] = [
         narrative: "三人互通姓名，关羽道出因杀势豪而亡命江湖。谈及天下大势，三人皆欲破贼安民，恨无门路。张飞大喜，提议道：“吾庄后有一桃园，花开正盛；明日当于园中祭告天地，我三人结为兄弟，协力同心，然后可图大事。”",
         environmentDescription: "Close up conversation at the table, animated gestures.",
         characterState: "Three heroes discussing passionately.",
-        imageUrl: "/assets/sanguo/taoyuan/bg_04_tavern_talk.jpg",
+        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_04_tavern_talk.jpg",
         options: [
             {
                 text: "推辞不受，恐有不妥",
@@ -108,7 +108,7 @@ export const TAOYUAN_SCENES: IGameScene[] = [
         narrative: "次日，于张飞庄后桃园中，备下乌牛白马，祭礼等项。时值桃花盛开，景色绚烂。三人焚香再拜。誓曰：“念刘备、关羽、张飞，虽然异姓，既结为兄弟，则同心协力，救困扶危；上报国家，下安黎庶。”",
         environmentDescription: "A beautiful peach garden in full bloom, altar prepared.",
         characterState: "Three men standing before an altar.",
-        imageUrl: "/assets/sanguo/taoyuan/bg_05_oath_moment.jpg",
+        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_05_oath_moment.jpg",
         options: [
             {
                 text: "按武艺高低排座次",
@@ -133,7 +133,7 @@ export const TAOYUAN_SCENES: IGameScene[] = [
         narrative: "誓毕，宰牛设酒，聚乡中勇士，得三百余人，于桃园中痛饮一醉。以此为始，以此为基。收拾兵器，招兵买马。更有中山大商张世平、苏双等，资助良马五十匹，金银五百两，镔铁一千斤。玄德以此打造双股剑，关羽造青龙偃月刀，张飞造丈八蛇矛。",
         environmentDescription: "Feasting in the garden, weapons being forged in background.",
         characterState: "Celebration and preparation for war.",
-        imageUrl: "/assets/sanguo/taoyuan/bg_06_feasting.jpg",
+        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_06_feasting.jpg",
         options: [
             {
                 text: "留守桃园，独霸一方",
@@ -158,7 +158,7 @@ export const TAOYUAN_SCENES: IGameScene[] = [
         narrative: "虽有心报国，然行差踏错，终是孤身一人。桃园之义未成，天下大势亦随之而变...",
         environmentDescription: "Lonely figure walking away in the snow.",
         characterState: "Liu Bei walking away alone.",
-        imageUrl: "/assets/sanguo/taoyuan/bg_07_bad_lonely.jpg",
+        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_07_bad_lonely.jpg",
         options: [
             {
                 text: "重新来过",

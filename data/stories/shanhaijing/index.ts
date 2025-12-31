@@ -1,8 +1,9 @@
 import { IGameCategory } from '../../../types';
 import { JINGWEITIANHAI_SCENES } from './jingweitianhai';
+import { HOUYISHERI_SCENES } from './houyisheri';
 
 export const ShanhaiCategory: IGameCategory = {
-    id: 'shanhai',
+    id: 'shanhaijing',
     title: '山海经',
     coverImage: '/assets/covers/cover_shanhai.jpg',
     stories: [
@@ -16,9 +17,9 @@ export const ShanhaiCategory: IGameCategory = {
         },
         {
             id: 'houyisheri',
-            title: '后羿射日 (敬请期待)',
+            title: '后羿射日',
             description: '十日并出，焦禾稼，杀草木。后羿张弓搭箭，射落九日，解救苍生。',
-            scenes: []
+            scenes: HOUYISHERI_SCENES
         },
         {
             id: 'kuafuzhuri',

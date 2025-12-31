@@ -3,7 +3,7 @@ import { DANAOTIANGONG_SCENES } from './danaotiangong';
 // import { SANDABAIGUJING_SCENES } from './sandabaigujing';
 
 export const XiyouCategory: IGameCategory = {
-    id: 'xiyou',
+    id: 'xiyouji',
     title: '西游记',
     coverImage: '/assets/covers/cover_xiyou.jpg',
     stories: [

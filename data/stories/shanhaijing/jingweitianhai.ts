@@ -8,7 +8,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "上古之时，炎帝神农氏有一爱女，名曰女娃。女娃生性活泼，向往自由。一日，她遥望日出之东方，只见云蒸霞蔚，心中顿生向往，意欲前往东海一游。",
         environmentDescription: "Morning mist in the mountains, a young girl looking towards the east.",
         characterState: "Nuwa standing on a hill, looking hopeful.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_01_departure.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_01_departure.jpg",
         options: [
             {
                 text: "留恋家园，放弃远行",
@@ -33,7 +33,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "历经跋涉，女娃终于抵达东海之滨。只见碧波万顷，海天一色。她寻得一叶扁舟，独自划入海中。海风轻拂，波光粼粼，女娃只觉心旷神怡，从未有过的畅快。",
         environmentDescription: "A beautiful young girl sailing a small boat on a calm sea.",
         characterState: "Nuwa enjoying the sea breeze.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_02_sailing.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_02_sailing.jpg",
         options: [
             {
                 text: "无论是岸边，还是浅滩",
@@ -58,7 +58,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "原本平静的海面骤然变色，乌云压顶，狂风大作。平静的东海瞬间化为吞噬万物的巨兽。巨浪滔天，狠狠地拍打着那如树叶般脆弱的小舟。",
         environmentDescription: "Dark storm clouds, massive waves, a small boat in danger.",
         characterState: "Nuwa struggling to control the boat.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_03_storm.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_03_storm.jpg",
         options: [
             {
                 text: "奋力划桨，与浪搏斗",
@@ -83,7 +83,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "轰隆一声巨响，一个如山般的巨浪拍下，小舟瞬间支离破碎。女娃落入冰冷的海水中，渐渐沉没。然而，她的身躯虽殁，怨愤之气不散，精魂化为一只白喙赤足的小鸟，名曰“精卫”。",
         environmentDescription: "Stormy sea, a bird rising from the waves.",
         characterState: "Jingwei bird flying defiantly.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_04_transformation.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_04_transformation.jpg",
         options: [
             {
                 text: "哀鸣离去，躲避大海",
@@ -108,7 +108,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "发鸠之山，其上多柘木。精卫以此为家，日复一日，往返于西山与东海之间。它衔来西山的木石，投得东海之中。路途遥远，风雨无阻，羽毛凌乱，足底流血，亦不肯停歇片刻。",
         environmentDescription: "Bird carrying a stone flying over mountains.",
         characterState: "Exhausted but determined bird.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_05_labor.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_05_labor.jpg",
         options: [
             {
                 text: "稍作休息，养精蓄锐",
@@ -133,7 +133,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "惊涛骇浪嘲笑它：“尔一小鸟，纵千百万年，也难填平我这汪洋大海。” 精卫在高空厉声回视：“纵使千万年，甚至亿万年，我也誓将你填平，以免你再害他人少年！”",
         environmentDescription: "Jingwei dropping stones into the vast ocean.",
         characterState: "Determined bird carrying a stone.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_06_oath.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_06_oath.jpg",
         options: [
             {
                 text: "与海谈判，祈求和平",
@@ -158,7 +158,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "后来，人们常用“精卫填海”来比喻意志坚决，不畏艰难。那只白喙赤足的小鸟，成为了中华民族不屈不挠精神的象征，千古流传。",
         environmentDescription: "A symbolic image of the bird and the filled sea (abstract).",
         characterState: "Legendary status.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_07_legacy.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_07_legacy.jpg",
         options: [
             {
                 text: "重读经典，再悟精神",
@@ -183,7 +183,7 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
         narrative: "若当日女娃听从父命，未去东海，或许她能承欢膝下，无忧无虑度过一生。世间少了一段凄美的神话，却多了一个幸福的少女。但那样的女娃，还是那个向往自由的灵魂吗？",
         environmentDescription: "Nuwa playing happily in the fields.",
         characterState: "Nuwa living a peaceful life.",
-        imageUrl: "/assets/shanhai/jingweitianhai/bg_08_bad_safe.jpg",
+        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_08_bad_safe.jpg",
         options: [
             {
                 text: "享受平凡，相夫教子",

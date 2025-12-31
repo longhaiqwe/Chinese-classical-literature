@@ -3,7 +3,7 @@ import { TAOYUAN_SCENES } from './taoyuan';
 import { SANGUMAOLU_SCENES } from './sangumaolu';
 
 export const SanguoCategory: IGameCategory = {
-    id: 'sanguo',
+    id: 'sanguoyanyi',
     title: '三国演义',
     coverImage: '/assets/covers/cover_sanguo.jpg',
     stories: [

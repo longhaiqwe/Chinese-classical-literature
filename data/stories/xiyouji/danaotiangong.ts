@@ -8,7 +8,7 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
         narrative: "孙悟空学艺归来，占山为王，虽有神通，却手无寸铁。闻听东海龙宫宝物众多，遂入海求兵。老龙王先后奉上大捍刀、九股叉、画杆方天戟，悟空皆大摇其头，嫌兵器太轻，不称手。",
         environmentDescription: "Splendid underwater Dragon Palace with various weapons displayed.",
         characterState: "Sun Wukong rejecting conventional weapons.",
-        imageUrl: "/assets/xiyou/danaotiangong/bg_01_dragon_palace.jpg",
+        imageUrl: "/assets/xiyouji/danaotiangong/bg_01_dragon_palace.jpg",
         options: [
             {
                 text: "强行索要，大闹龙宫",
@@ -33,7 +33,7 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
         narrative: "龙王领悟空至海藏中间，忽见金光万道。那是一根铁柱，约有斗来粗庆。悟空尽力一拔，那柱子便动了一动。悟空喜道：“再细些更妙！”那宝贝果然细了一圈。连叫几声，直到碗口粗细。细看有一行字：“如意金箍棒，重一万三千五百斤”。",
         environmentDescription: "The massive Golden Cudgel glowing in the depths of the sea.",
         characterState: "Sun Wukong marveling at the magical weapon.",
-        imageUrl: "/assets/xiyou/danaotiangong/bg_02_golden_cudgel.jpg",
+        imageUrl: "/assets/xiyouji/danaotiangong/bg_02_golden_cudgel.jpg",
         options: [
             {
                 text: "嫌太重，放回原处",
@@ -58,7 +58,7 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
         narrative: "悟空得了金箍棒，日日在花果山操练，好不快活。一日醉卧松阴，魂魄被黑白无常勾至幽冥界。悟空醒来大怒，掏出金箍棒，一路打入森罗殿，逼十代冥王取出此时生死簿。",
         environmentDescription: "Gloomy Underworld court with terrified judges.",
         characterState: "Sun Wukong checking the Book of Life and Death.",
-        imageUrl: "/assets/xiyou/danaotiangong/bg_03_underworld.jpg",
+        imageUrl: "/assets/xiyouji/danaotiangong/bg_03_underworld.jpg",
         options: [
             {
                 text: "只勾去自己名字",
@@ -83,7 +83,7 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
         narrative: "龙王、冥王上天告状。玉帝欲遣兵捉拿，太白金星主张招安。悟空受诏上天，被封为“弼马温”。初时不知官小，日夜在御马监殷勤看守。半月后，宴请同僚，忽问此官品级。",
         environmentDescription: "Heavenly stables with divine horses.",
         characterState: "Sun Wukong interacting with celestial horses.",
-        imageUrl: "/assets/xiyou/danaotiangong/bg_04_stables.jpg",
+        imageUrl: "/assets/xiyouji/danaotiangong/bg_04_stables.jpg",
         options: [
             {
                 text: "嫌官小，打出南天门",
@@ -108,7 +108,7 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
         narrative: "悟空回山自封“齐天大圣”。玉帝无奈，只得承认其号，令看管蟠桃园。一日，七仙女来摘桃，言王母设宴请众仙，并未请大圣。悟空大怒，定住七仙女，奔瑶池痛饮仙酒，又偷吃了太上老君的仙丹。",
         environmentDescription: "Celestial banquet hall in disarray.",
         characterState: "Sun Wukong drunk and causing chaos.",
-        imageUrl: "/assets/xiyou/danaotiangong/bg_05_banquet.jpg",
+        imageUrl: "/assets/xiyouji/danaotiangong/bg_05_banquet.jpg",
         options: [
             {
                 text: "酒醒惧罪，逃回下界",
@@ -133,7 +133,7 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
         narrative: "玉帝大恼，命四大天王、李靖、哪吒，点十万天兵天将，布下十八架天罗地网，下界捉拿悟空。双方在花果山一场恶战。悟空使出法天象地神通，杀得天兵丢盔弃甲。",
         environmentDescription: "Epic battlefield between Monkey King and Heavenly Army.",
         characterState: "Sun Wukong fighting heroically.",
-        imageUrl: "/assets/xiyou/danaotiangong/bg_06_battle.jpg",
+        imageUrl: "/assets/xiyouji/danaotiangong/bg_06_battle.jpg",
         options: [
             {
                 text: "乘胜追击，杀上天庭",
@@ -158,7 +158,7 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
         narrative: "若当初不至龙宫寻宝、地府销名、不闹天宫，安分守己做个弼马温，或许便是另一番光景。但这，还是那个敢爱敢恨、无法无天的齐天大圣吗？",
         environmentDescription: "Sun Wukong looking bored in heaven.",
         characterState: "Sun Wukong as a celestial bureaucrat.",
-        imageUrl: "/assets/xiyou/danaotiangong/bg_07_bad_boring.jpg",
+        imageUrl: "/assets/xiyouji/danaotiangong/bg_07_bad_boring.jpg",
         options: [
             {
                 text: "重新来过，再闹天宫！",

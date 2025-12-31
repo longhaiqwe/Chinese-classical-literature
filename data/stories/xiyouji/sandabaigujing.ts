@@ -8,7 +8,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "唐僧师徒行至白虎岭，忽见一少妇，提篮送饭而来。八戒见了，口水直流，要去讨饭吃。悟空火眼金睛，一眼识破那是妖怪所变。",
         environmentDescription: "A desolate mountain path, a young woman approaching with a basket.",
         characterState: "Sun Wukong suspicious, Pigsy eager.",
-        imageUrl: "/assets/xiyou/sandabaigujing/bg_01_girl.jpg",
+        imageUrl: "/assets/xiyouji/sandabaigujing/bg_01_girl.jpg",
         options: [
             {
                 text: "当头一棒，打死妖精",
@@ -33,7 +33,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "少顷，山坡上闪出一个老妇人，哭哭啼啼，要寻女儿。唐僧见了，心中不忍，责怪悟空方才做得太绝。",
         environmentDescription: "An old woman crying on the mountain slope.",
         characterState: "Tang Seng feeling guilty.",
-        imageUrl: "/assets/xiyou/sandabaigujing/bg_02_old_woman.jpg",
+        imageUrl: "/assets/xiyouji/sandabaigujing/bg_02_old_woman.jpg",
         options: [
             {
                 text: "再起一棒，打杀老妇",
@@ -58,7 +58,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "不多时，个老公公拄着拐杖走来。悟空睁圆火眼金睛，认得还是那个孽畜。",
         environmentDescription: "An elderly man approaching slowly.",
         characterState: "Sun Wukong furious but hesitant.",
-        imageUrl: "/assets/xiyou/sandabaigujing/bg_03_old_man.jpg",
+        imageUrl: "/assets/xiyouji/sandabaigujing/bg_03_old_man.jpg",
         options: [
             {
                 text: "忍气吞声，任由师父责罚",
@@ -83,7 +83,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "唐僧见连伤三命，大怒之下，写下贬书，将悟空逐出师门。悟空无奈，只得嘱咐沙僧好好看顾师父，含泪拜别。",
         environmentDescription: "Tang Seng handing a letter to Wukong, looking away.",
         characterState: "Sun Wukong leaving in tears.",
-        imageUrl: "/assets/xiyou/sandabaigujing/bg_04_parting.jpg",
+        imageUrl: "/assets/xiyouji/sandabaigujing/bg_04_parting.jpg",
         options: [
             {
                 text: "回花果山，重做齐天大圣",
@@ -98,7 +98,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "若当时唐僧能识破妖计，或悟空能有更好法子证明清白，师徒也不必经受这一番分离之苦。",
         environmentDescription: "Original team walking happily towards the sunset.",
         characterState: "Team united.",
-        imageUrl: "/assets/xiyou/sandabaigujing/bg_05_happy_team.jpg",
+        imageUrl: "/assets/xiyouji/sandabaigujing/bg_05_happy_team.jpg",
         options: [
             {
                 text: "重新来过，护送师父",

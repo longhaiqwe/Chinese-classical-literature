@@ -8,7 +8,7 @@ export const SANGUMAOLU_SCENES: IGameScene[] = [
         narrative: "汉末乱世，刘备求贤若渴，闻听司马徽推荐诸葛亮之名，遂携关羽、张飞前往隆中拜访。只见山不高而秀雅，水不深而澄清，地不广而平坦，林不大而茂盛。三人来到草庐门前，叩门问童子，童子应声而出。刘备恭敬询问先生所在。",
         environmentDescription: "A serene thatched cottage in the mountains, surrounded by pine and bamboo.",
         characterState: "Liu Bei asking a young servant boy.",
-        imageUrl: "/assets/sanguo/sangumaolu/bg_01_visit1.png",
+        imageUrl: "/assets/sanguoyanyi/sangumaolu/bg_01_visit1.png",
         options: [
             {
                 text: "硬闯草庐，搜寻孔明",
@@ -33,7 +33,7 @@ export const SANGUMAOLU_SCENES: IGameScene[] = [
         narrative: "时值隆冬，天降大雪。刘备探得孔明归家，不顾天寒地冻，冒雪再去。张飞曰：“天寒地冻，且非用兵之时，何必受此劳苦？”刘备呵斥之。至门前，闻草堂书声琅琅，刘备心中暗喜，以为即是孔明。",
         environmentDescription: "Snowy landscape, Liu Bei waiting respectfully outside.",
         characterState: "Liu Bei standing in the snow.",
-        imageUrl: "/assets/sanguo/sangumaolu/bg_02_visit2.png",
+        imageUrl: "/assets/sanguoyanyi/sangumaolu/bg_02_visit2.png",
         options: [
             {
                 text: "上前打断，表明来意",
@@ -58,7 +58,7 @@ export const SANGUMAOLU_SCENES: IGameScene[] = [
         narrative: "开春之际，刘备选定吉期，斋戒沐浴，三往隆中。凡门，童子曰：“先生昼寝未醒。”刘备当即大喜，令关张在门外等候，自己轻步入内。见先生仰卧于草堂几席之上，那般神态安详。",
         environmentDescription: "Springtime at the cottage, peace and quiet.",
         characterState: "Liu Bei waiting while Zhuge Liang sleeps.",
-        imageUrl: "/assets/sanguo/sangumaolu/bg_03_visit3.png",
+        imageUrl: "/assets/sanguoyanyi/sangumaolu/bg_03_visit3.png",
         options: [
             {
                 text: "拱立阶下，静候惊觉",
@@ -83,7 +83,7 @@ export const SANGUMAOLU_SCENES: IGameScene[] = [
         narrative: "孔明更衣出迎，见刘备气宇轩昂，诚意拳拳。分宾主坐定，童子献茶。刘备言：“汉室倾颓，奸臣窃命，主上蒙尘。备不量力，欲伸大义于天下，而智术浅短，迄无所就。惟先生开其愚而拯其厄。”",
         environmentDescription: "Interior of the cottage, simple but elegant. Liu Bei and Zhuge Liang sitting face to face.",
         characterState: "Liu Bei bowing respectfully to Zhuge Liang.",
-        imageUrl: "/assets/sanguo/sangumaolu/bg_04_meeting.png",
+        imageUrl: "/assets/sanguoyanyi/sangumaolu/bg_04_meeting.png",
         options: [
             {
                 text: "夸耀兵力，许以重金",
@@ -108,7 +108,7 @@ export const SANGUMAOLU_SCENES: IGameScene[] = [
         narrative: "孔明命童子取出地图，指点江山，为刘备分析天下大势：“曹操已拥百万之众，挟天子以令诸侯，此诚不可与争锋。孙权据有江东，已历三世，此可以为援而不可图也。荆州北据汉、沔，利尽南海……”",
         environmentDescription: "Zhuge Liang pointing at a map of China, explaining the strategy.",
         characterState: "Zhuge Liang pointing at the map.",
-        imageUrl: "/assets/sanguo/sangumaolu/bg_05_map.png",
+        imageUrl: "/assets/sanguoyanyi/sangumaolu/bg_05_map.png",
         options: [
             {
                 text: "欲取中原，直捣许都",
@@ -133,7 +133,7 @@ export const SANGUMAOLU_SCENES: IGameScene[] = [
         narrative: "若非刘备这般三顾之诚，诸葛亮恐终老林泉，或许汉室难兴，三国历史也将改写。",
         environmentDescription: "An old man fishing by the river, forgotten by history.",
         characterState: "Zhuge Liang fishing alone.",
-        imageUrl: "/assets/sanguo/sangumaolu/bg_06_bad_missed.png",
+        imageUrl: "/assets/sanguoyanyi/sangumaolu/bg_06_bad_missed.png",
         options: [
             {
                 text: "重新来过，诚心求贤",
