@@ -1,12 +1,13 @@
 import { Capacitor } from '@capacitor/core';
 import React, { useState, useEffect, useRef } from 'react';
 import { IGameScene, AppState, IGameCategory, IGameStory } from './types';
-import { CATEGORIES } from './data/storyData';
+import { storyService } from './services/storyService';
 import { loadProgressFromDB, saveProgressToDB } from './services/db';
 import { APP_TITLE, APP_SUBTITLE, UI_LABELS } from './constants';
 import GameScene from './components/GameScene';
 import HomeView from './components/HomeView';
 import CategoryView from './components/CategoryView';
+import LoadingScreen from './components/LoadingScreen';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.HOME);
@@ -14,6 +15,7 @@ const App: React.FC = () => {
   const touchStartRef = useRef<{ x: number, y: number } | null>(null);
 
   // Navigation State
+  const [categories, setCategories] = useState<IGameCategory[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<IGameCategory | null>(null);
   const [selectedStory, setSelectedStory] = useState<IGameStory | null>(null);
 
@@ -21,10 +23,29 @@ const App: React.FC = () => {
   const [scenes, setScenes] = useState<IGameScene[]>([]);
   const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
 
+  // UI State
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   // Initialize
   useEffect(() => {
     setIsNative(Capacitor.isNativePlatform());
+    loadCategories();
   }, []);
+
+  const loadCategories = async () => {
+    try {
+      setIsLoading(true);
+      const data = await storyService.getCategories();
+      setCategories(data);
+      setError(null);
+    } catch (err) {
+      console.error("Failed to load categories", err);
+      setError("无法加载故事数据，请检查网络连接。");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   // Save progress to Local DB (Keep existing logic but only when playing)
   useEffect(() => {
@@ -45,11 +66,21 @@ const App: React.FC = () => {
     setAppState(AppState.HOME);
   };
 
-  const handleSelectStory = (story: IGameStory) => {
-    setSelectedStory(story);
-    setScenes(story.scenes);
-    setCurrentSceneIndex(0);
-    setAppState(AppState.PLAYING);
+  const handleSelectStory = async (story: IGameStory) => {
+    try {
+      setIsLoading(true);
+      const scenes = await storyService.getStoryDetails(story.id);
+      setSelectedStory(story);
+      setScenes(scenes);
+      setCurrentSceneIndex(0);
+      setAppState(AppState.PLAYING);
+    } catch (err) {
+      console.error("Failed to load story details", err);
+      // Ideally show a toast or alert
+      alert("无法加载故事详情，请稍后再试。");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleBackToCategory = () => {
@@ -183,16 +214,21 @@ const App: React.FC = () => {
         {/* Content Area */}
         <div className="flex-grow flex flex-col items-center justify-center w-full">
 
+          {/* LOADING */}
+          {isLoading && (
+            <LoadingScreen mode="story" />
+          )}
+
           {/* HOME VIEW */}
-          {appState === AppState.HOME && (
+          {!isLoading && appState === AppState.HOME && (
             <HomeView
-              categories={CATEGORIES}
+              categories={categories}
               onSelectCategory={handleSelectCategory}
             />
           )}
 
           {/* CATEGORY VIEW */}
-          {appState === AppState.CATEGORY_VIEW && selectedCategory && (
+          {!isLoading && appState === AppState.CATEGORY_VIEW && selectedCategory && (
             <CategoryView
               category={selectedCategory}
               onSelectStory={handleSelectStory}
@@ -201,7 +237,7 @@ const App: React.FC = () => {
           )}
 
           {/* PLAYING VIEW */}
-          {appState === AppState.PLAYING && scenes.length > 0 && (
+          {!isLoading && appState === AppState.PLAYING && scenes.length > 0 && (
             <div className="w-full">
               <div className="mb-4 flex justifyContent-between items-center px-4 md:px-0">
                 {/* Spacer to center the content if needed, or just simple alignment */}
