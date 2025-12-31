@@ -85,9 +85,9 @@ export const VoicePlayer: React.FC<VoicePlayerProps> = ({ storyId, sceneIndex, t
                 onClick={togglePlay}
                 className="voice-btn success"
                 style={{ cursor: 'pointer' }}
-                title="播放朗读"
+                title="播放"
             >
-                {isPlaying ? '⏸️ 暂停朗读' : '▶️ 播放朗读'}
+                {isPlaying ? '⏸️ 暂停' : '▶️ 播放'}
             </button>
         </div>
     );

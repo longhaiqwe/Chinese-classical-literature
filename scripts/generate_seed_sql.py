@@ -848,6 +848,9 @@ def generate_sql():
         'yanhuitouzhou', 'weibiansanjue', 'zilushoujiao', 'shizherusi', 'junzibuqi'
     ]
     ids_list = "'" + "', '".join(story_ids) + "'"
+
+    # STORAGE CONFIG
+    STORAGE_BASE_URL = "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets"
     
     sql.append("-- Clean existing data")
     sql.append(f"DELETE FROM scene_options WHERE scene_id IN (SELECT id FROM scenes WHERE story_id IN ({ids_list}));")
@@ -857,59 +860,53 @@ def generate_sql():
     sql.append("DELETE FROM categories WHERE id IN ('sanguo', 'xiyou', 'shanhai');")
 
     
-    # PL/pgSQL block
-    sql.append("DO $$")
-    sql.append("DECLARE")
-    sql.append("  v_cat_sanguo text := 'sanguoyanyi';")
-    sql.append("  v_cat_xiyou text := 'xiyouji';")
-    sql.append("  v_cat_shanhai text := 'shanhaijing';")
-    sql.append("  v_cat_lunyu text := 'lunyu';")
-    sql.append("  v_scene_id uuid;")
-    sql.append("BEGIN")
+    # PL/pgSQL block removed, standard SQL for setup
+
     
     # -------------------------------------------------------------
     # 2. Insert Categories
     # -------------------------------------------------------------
-    sql.append("  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('sanguoyanyi', '三国演义', '/assets/covers/cover_sanguo.jpg', 1) ON CONFLICT (id) DO UPDATE SET sort_order=1;")
-    sql.append("  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('xiyouji', '西游记', '/assets/covers/cover_xiyou.jpg', 2) ON CONFLICT (id) DO UPDATE SET sort_order=2;")
-    sql.append("  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('shanhaijing', '山海经', '/assets/covers/cover_shanhai.jpg', 3) ON CONFLICT (id) DO UPDATE SET sort_order=3;")
-    sql.append("  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('lunyu', '论语', '/assets/covers/cover_lunyu.jpg', 4) ON CONFLICT (id) DO UPDATE SET sort_order=4;")
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('sanguoyanyi', '三国演义', '{STORAGE_BASE_URL}/covers/cover_sanguo.jpg', 1) ON CONFLICT (id) DO UPDATE SET sort_order=1, cover_image=EXCLUDED.cover_image;")
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('xiyouji', '西游记', '{STORAGE_BASE_URL}/covers/cover_xiyou.jpg', 2) ON CONFLICT (id) DO UPDATE SET sort_order=2, cover_image=EXCLUDED.cover_image;")
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('shanhaijing', '山海经', '{STORAGE_BASE_URL}/covers/cover_shanhai.jpg', 3) ON CONFLICT (id) DO UPDATE SET sort_order=3, cover_image=EXCLUDED.cover_image;")
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('lunyu', '论语', '{STORAGE_BASE_URL}/covers/cover_lunyu.jpg', 4) ON CONFLICT (id) DO UPDATE SET sort_order=4, cover_image=EXCLUDED.cover_image;")
     
     # -------------------------------------------------------------
     # 3. Insert Stories (All, including placeholders)
     # -------------------------------------------------------------
     
     # Sanguo
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('sangumaolu', v_cat_sanguo, '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('taoyuan', v_cat_sanguo, '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('sangumaolu', 'sanguoyanyi', '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('taoyuan', 'sanguoyanyi', '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2) ON CONFLICT (id) DO NOTHING;")
 
     # Xiyou
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('danaotiangong', v_cat_xiyou, '大闹天宫', '孙悟空大闹天宫，挑战十万天兵天将。', '齐天大圣', '十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('sandabaigujing', v_cat_xiyou, '三打白骨精 (敬请期待)', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', 2) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zhenjiameihouwang', v_cat_xiyou, '真假美猴王 (敬请期待)', '六耳猕猴假冒悟空，上天入地难辨真伪，终至如来佛祖处方显原形。', 3) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('nuerguo', v_cat_xiyou, '女儿国奇遇 (敬请期待)', '师徒误入西梁女国，唐僧在女王柔情与取经大业之间经受考验。', 4) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dazhanhonghaier', v_cat_xiyou, '大战红孩儿 (敬请期待)', '红孩儿练成三昧真火，悟空难敌，请来观音菩萨方才收服。', 5) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('touchirenshenguo', v_cat_xiyou, '偷吃人参果 (敬请期待)', '万寿山五庄观，悟空偷吃人参果，推倒果树，惹怒镇元大仙。', 6) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('danaotiangong', 'xiyouji', '大闹天宫', '孙悟空大闹天宫，挑战十万天兵天将。', '齐天大圣', '十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。', 1) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('sandabaigujing', 'xiyouji', '三打白骨精 (敬请期待)', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', 2) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zhenjiameihouwang', 'xiyouji', '真假美猴王 (敬请期待)', '六耳猕猴假冒悟空，上天入地难辨真伪，终至如来佛祖处方显原形。', 3) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('nuerguo', 'xiyouji', '女儿国奇遇 (敬请期待)', '师徒误入西梁女国，唐僧在女王柔情与取经大业之间经受考验。', 4) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dazhanhonghaier', 'xiyouji', '大战红孩儿 (敬请期待)', '红孩儿练成三昧真火，悟空难敌，请来观音菩萨方才收服。', 5) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('touchirenshenguo', 'xiyouji', '偷吃人参果 (敬请期待)', '万寿山五庄观，悟空偷吃人参果，推倒果树，惹怒镇元大仙。', 6) ON CONFLICT (id) DO NOTHING;")
 
     # Shanhai
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('jingweitianhai', v_cat_shanhai, '精卫填海', '炎帝之女溺亡东海，化为精卫鸟，衔石填海，矢志不渝。', '坚韧不拔', '精卫衔微木，将以填沧海。刑天舞干戚，猛志固常在。你的坚持与毅力，正如这精卫鸟一般，令人动容。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('houyisheri', v_cat_shanhai, '后羿射日 (敬请期待)', '十日并出，焦禾稼，杀草木。后羿张弓搭箭，射落九日，解救苍生。', 2) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('kuafuzhuri', v_cat_shanhai, '夸父逐日 (敬请期待)', '夸父与日逐走，渴欲得饮，饮于河、渭；河、渭不足，北饮大泽，未至，道渴而死。', 3) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dayuzhishui', v_cat_shanhai, '大禹治水 (敬请期待)', '大禹率民治水，三过家门而不入，疏通九河，平定水患。', 4) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('huangdizhan', v_cat_shanhai, '黄帝战蚩尤 (敬请期待)', '轩辕黄帝与蚩尤大战于逐鹿之野，风后设指南车破迷雾，最终统一华夏。', 5) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('jingweitianhai', 'shanhaijing', '精卫填海', '炎帝之女溺亡东海，化为精卫鸟，衔石填海，矢志不渝。', '坚韧不拔', '精卫衔微木，将以填沧海。刑天舞干戚，猛志固常在。你的坚持与毅力，正如这精卫鸟一般，令人动容。', 1) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('houyisheri', 'shanhaijing', '后羿射日 (敬请期待)', '十日并出，焦禾稼，杀草木。后羿张弓搭箭，射落九日，解救苍生。', 2) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('kuafuzhuri', 'shanhaijing', '夸父逐日 (敬请期待)', '夸父与日逐走，渴欲得饮，饮于河、渭；河、渭不足，北饮大泽，未至，道渴而死。', 3) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dayuzhishui', 'shanhaijing', '大禹治水 (敬请期待)', '大禹率民治水，三过家门而不入，疏通九河，平定水患。', 4) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('huangdizhan', 'shanhaijing', '黄帝战蚩尤 (敬请期待)', '轩辕黄帝与蚩尤大战于逐鹿之野，风后设指南车破迷雾，最终统一华夏。', 5) ON CONFLICT (id) DO NOTHING;")
 
     # Lunyu
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('yanhuitouzhou', v_cat_lunyu, '颜回偷粥', '孔子误会颜回偷食，终知真相。通过此事感叹“知人不易”。', '知人不易', '所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('weibiansanjue', v_cat_lunyu, '韦编三绝 (敬请期待)', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', 2) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zilushoujiao', v_cat_lunyu, '子路受教 (敬请期待)', '子路问政，孔子教之以先之劳之。子路性直，孔子常循循善诱。', 3) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('shizherusi', v_cat_lunyu, '逝者如斯 (敬请期待)', '子在川上曰：“逝者如斯夫！不舍昼夜。” 感叹时光流逝，勉励弟子珍惜光阴。', 4) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('junzibuqi', v_cat_lunyu, '君子不器 (敬请期待)', '孔子曰：“君子不器。” 意为君子博学多才，不应像器物一样只有单一用途。', 5) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('yanhuitouzhou', 'lunyu', '颜回偷粥', '孔子误会颜回偷食，终知真相。通过此事感叹“知人不易”。', '知人不易', '所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。', 1) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('weibiansanjue', 'lunyu', '韦编三绝 (敬请期待)', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', 2) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zilushoujiao', 'lunyu', '子路受教 (敬请期待)', '子路问政，孔子教之以先之劳之。子路性直，孔子常循循善诱。', 3) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('shizherusi', 'lunyu', '逝者如斯 (敬请期待)', '子在川上曰：“逝者如斯夫！不舍昼夜。” 感叹时光流逝，勉励弟子珍惜光阴。', 4) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('junzibuqi', 'lunyu', '君子不器 (敬请期待)', '孔子曰：“君子不器。” 意为君子博学多才，不应像器物一样只有单一用途。', 5) ON CONFLICT (id) DO NOTHING;")
     
     # -------------------------------------------------------------
     # 4. Helper function to insert scenes
     # -------------------------------------------------------------
     def get_scene_sql(story_id, scenes):
         lines = []
+        lines.append(f"DO $$ DECLARE v_scene_id uuid; BEGIN")
         lines.append(f"  -- {story_id}")
         for scene in scenes:
             scene_index = scene['id']
@@ -918,6 +915,9 @@ def generate_sql():
             env_desc = scene['environmentDescription'].replace("'", "''")
             char_state = scene['characterState'].replace("'", "''")
             img_url = scene['imageUrl'].replace("'", "''")
+            if img_url.startswith('/assets/'):
+                img_url = STORAGE_BASE_URL + img_url.replace('/assets/', '/')
+            
             
             lines.append(f"  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('{story_id}', {scene_index}, '{title}', '{narrative}', '{env_desc}', '{char_state}', '{img_url}') RETURNING id INTO v_scene_id;")
             
@@ -928,6 +928,8 @@ def generate_sql():
                 sort_order = index + 1
                 lines.append(f"  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '{opt_text}', {is_correct}, '{feedback}', {sort_order});")
             lines.append("")
+            lines.append("")
+        lines.append("END $$;")
         return lines
 
     # -------------------------------------------------------------
@@ -939,7 +941,7 @@ def generate_sql():
     sql.extend(get_scene_sql('jingweitianhai', jingweitianhai_scenes))
     sql.extend(get_scene_sql('yanhuitouzhou', yanhuitouzhou_scenes))
 
-    sql.append("END $$;")
+    # PL/pgSQL END removed
     
     return "\n".join(sql)
 
