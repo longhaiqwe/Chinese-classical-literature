@@ -8,7 +8,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "师徒四人行至白虎岭，只见峰岩重叠，涧壑湾环。忽见一女子，翠袖轻摇，湘裙斜拽，手提青砂罐，面如满月，目似秋波。八戒见了大喜，却不知此乃千年尸魔白骨精所化，意在取唐僧元阳。",
         environmentDescription: "A desolate mountain path, a young woman approaching with a basket.",
         characterState: "Sun Wukong suspicious, Pigsy eager.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_01_girl.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_01_girl.jpg",
         options: [
             {
                 text: "运起火眼金睛，当头便打",
@@ -33,7 +33,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "悟空才打跑妖精，山坡上又闪出一个老妇人，年满八旬，手拄藜杖，一步一哭，要寻女儿。唐僧见状，更是责备悟空滥杀无辜。悟空火眼金睛再看，认得还是那妖精变的，心中大怒。",
         environmentDescription: "An old woman 80 years of age, leaning on a cane, crying on the mountain slope.",
         characterState: "Tang Seng angry and guilty, Wukong furious.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_02_old_woman.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_02_old_woman.jpg",
         options: [
             {
                 text: "不容分说，举棒再打",
@@ -58,7 +58,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "师徒正行间，又见一个老公公，白发如彭祖，苍髯赛寿星，念着佛号走来。那白骨精三次变化，意在乱唐僧心智。悟空见他又来，心中暗恨，道：'这妖精三番两次来戏弄我！' 须得断其根株。",
         environmentDescription: "An elderly man matching the description of a longevity god (Shou Xing) approaching.",
         characterState: "Wukong determined but wary of punishment.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_03_old_man.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_03_old_man.jpg",
         options: [
             {
                 text: "唤土地为证，一棒断根",
@@ -83,7 +83,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "唐僧见连伤三命，虽有白骨为证，却信了八戒谗言，道是悟空以此变术以此遮掩。长老决意要赶悟空走，写下一纸贬书，递与悟空。悟空求饶无果，只得含泪从命。",
         environmentDescription: "Tang Seng handing a written letter (贬书) to Wukong, looking stern. Wukong kneeling.",
         characterState: "Wukong heartbroken, Tang Seng resolute.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_04_parting.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_04_parting.jpg",
         options: [
             {
                 text: "拜别恩师，嘱托沙僧",
@@ -108,7 +108,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "悟空走后，唐僧师徒行至碗子山波月洞，被黄袍怪摄去。那怪将唐僧变成一只斑斓猛虎，关在笼中。八戒沙僧双战黄袍怪不过，八戒侥幸逃脱，沙僧被擒。",
         environmentDescription: "A dark, eerie cave. A tiger in a cage. Yellow Robed Monster laughing.",
         characterState: "Tang Seng transformed into a tiger, terrified.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_05_tiger.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_05_tiger.jpg",
         options: [
             {
                 text: "硬着头皮再战",
@@ -133,7 +133,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "八戒来到花果山，见悟空在当猴王快活，便用激将法，说那妖怪骂齐天大圣是脓包。悟空虽知是计，但心中其实挂念师父，又听不得别人辱没名头，便随八戒下山。",
         environmentDescription: "Water Curtain Cave (Shuilian Dong) with monkeys. Pigsy pleading/goading Wukong.",
         characterState: "Wukong proud but concerned, Pigsy desperate.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_06_pleading.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_06_pleading.jpg",
         options: [
             {
                 text: "推脱不去，记恨前嫌",
@@ -158,7 +158,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "悟空施法收了黄袍怪，救出公主，又将唐僧变回原身。师徒相见，悲喜交集。唐僧悔不该听信谗言，逐走良徒；悟空亦泣拜师父，誓死护送西行。正是：剪断尘缘离色相，荡除心垢见灵山。",
         environmentDescription: "Wukong defeating the monster, Tang Seng turning back to human, team reunited.",
         characterState: "Tang Seng remorseful and grateful, Wukong triumphant.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_07_reunion.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_07_reunion.jpg",
         options: [
             {
                 text: "释嫌修好，重踏征程",
@@ -183,7 +183,7 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
         narrative: "若当时唐僧能识破妖计，或悟空能有更好法子证明清白，师徒也不必经受这一番分离之苦。然天道循环，自有定数。九九八十一难，少一难皆不成正果。",
         environmentDescription: "A conceptual scene of the team reunited, walking towards the west.",
         characterState: "Reflective and hopeful.",
-        imageUrl: "/assets/xiyouji/sandabaigujing/bg_08_happy_team.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_08_happy_team.jpg",
         options: [
             {
                 text: "勘破迷障，再续前缘",

@@ -494,7 +494,7 @@ sandabaigujing_scenes = [
         "narrative": "师徒四人行至白虎岭，只见峰岩重叠，涧壑湾环。忽见一女子，翠袖轻摇，湘裙斜拽，手提青砂罐，面如满月，目似秋波。八戒见了大喜，却不知此乃千年尸魔白骨精所化，意在取唐僧元阳。",
         "environmentDescription": "A desolate mountain ridge with jagged peaks (Baihu Ling). A beautiful young woman in green sleeves and skirt holding a clay pot approaches.",
         "characterState": "Sun Wukong vigilant, Pigsy infatuated, Tang Seng oblivious.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_01_girl.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_01_girl.jpg",
         "options": [
             {
                 "text": "运起火眼金睛，当头便打",
@@ -519,7 +519,7 @@ sandabaigujing_scenes = [
         "narrative": "悟空才打跑妖精，山坡上又闪出一个老妇人，年满八旬，手拄藜杖，一步一哭，要寻女儿。唐僧见状，更是责备悟空滥杀无辜。悟空火眼金睛再看，认得还是那妖精变的，心中大怒。",
         "environmentDescription": "An old woman 80 years of age, leaning on a cane, crying on the mountain slope.",
         "characterState": "Tang Seng angry and guilty, Wukong furious.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_02_old_woman.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_02_old_woman.jpg",
         "options": [
             {
                 "text": "不容分说，举棒再打",
@@ -544,7 +544,7 @@ sandabaigujing_scenes = [
         "narrative": "师徒正行间，又见一个老公公，白发如彭祖，苍髯赛寿星，念着佛号走来。那白骨精三次变化，意在乱唐僧心智。悟空见他又来，心中暗恨，道：'这妖精三番两次来戏弄我！' 须得断其根株。",
         "environmentDescription": "An elderly man matching the description of a longevity god (Shou Xing) approaching.",
         "characterState": "Wukong determined but wary of punishment.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_03_old_man.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_03_old_man.jpg",
         "options": [
             {
                 "text": "唤土地为证，一棒断根",
@@ -569,7 +569,7 @@ sandabaigujing_scenes = [
         "narrative": "唐僧见连伤三命，虽有白骨为证，却信了八戒谗言，道是悟空以此变术以此遮掩。长老决意要赶悟空走，写下一纸贬书，递与悟空。悟空求饶无果，只得含泪从命。",
         "environmentDescription": "Tang Seng handing a written letter (贬书) to Wukong, looking stern. Wukong kneeling.",
         "characterState": "Wukong heartbroken, Tang Seng resolute.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_04_parting.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_04_parting.jpg",
         "options": [
             {
                 "text": "拜别恩师，嘱托沙僧",
@@ -594,7 +594,7 @@ sandabaigujing_scenes = [
         "narrative": "悟空走后，唐僧师徒行至碗子山波月洞，被黄袍怪摄去。那怪将唐僧变成一只斑斓猛虎，关在笼中。八戒沙僧双战黄袍怪不过，八戒侥幸逃脱，沙僧被擒。",
         "environmentDescription": "A dark, eerie cave. A tiger in a cage. Yellow Robed Monster laughing.",
         "characterState": "Tang Seng transformed into a tiger, terrified.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_05_tiger.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_05_tiger.jpg",
         "options": [
             {
                 "text": "硬着头皮再战",
@@ -619,7 +619,7 @@ sandabaigujing_scenes = [
         "narrative": "八戒来到花果山，见悟空在当猴王快活，便用激将法，说那妖怪骂齐天大圣是脓包。悟空虽知是计，但心中其实挂念师父，又听不得别人辱没名头，便随八戒下山。",
         "environmentDescription": "Water Curtain Cave (Shuilian Dong) with monkeys. Pigsy pleading/goading Wukong.",
         "characterState": "Wukong proud but concerned, Pigsy desperate.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_06_pleading.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_06_pleading.jpg",
         "options": [
             {
                 "text": "推脱不去，记恨前嫌",
@@ -644,7 +644,7 @@ sandabaigujing_scenes = [
         "narrative": "悟空施法收了黄袍怪，救出公主，又将唐僧变回原身。师徒相见，悲喜交集。唐僧悔不该听信谗言，逐走良徒；悟空亦泣拜师父，誓死护送西行。正是：剪断尘缘离色相，荡除心垢见灵山。",
         "environmentDescription": "Wukong defeating the monster, Tang Seng turning back to human, team reunited.",
         "characterState": "Tang Seng remorseful and grateful, Wukong triumphant.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_07_reunion.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_07_reunion.jpg",
         "options": [
             {
                 "text": "释嫌修好，重踏征程",
@@ -669,7 +669,7 @@ sandabaigujing_scenes = [
         "narrative": "若当时唐僧能识破妖计，或悟空能有更好法子证明清白，师徒也不必经受这一番分离之苦。然天道循环，自有定数。九九八十一难，少一难皆不成正果。",
         "environmentDescription": "A conceptual scene of the team reunited, walking towards the west.",
         "characterState": "Reflective and hopeful.",
-        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_08_happy_team.jpg",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_08_happy_team.jpg",
         "options": [
             {
                 "text": "勘破迷障，再续前缘",
@@ -1327,75 +1327,74 @@ def generate_sql():
     sql = []
     
     # -------------------------------------------------------------
-    # 1. Clean existing data
+    # 1. Clean existing data (MODIFIED: WE NO LONGER DELETE EVERYTHING)
+    #    Instead, we will use UPSERT (ON CONFLICT DO UPDATE) to support incremental updates.
     # -------------------------------------------------------------
-    story_ids = [
-        'sangumaolu', 'taoyuan', 
-        'danaotiangong', 'sandabaigujing', 'zhenjiameihouwang', 'nuerguo', 'dazhanhonghaier', 'touchirenshenguo',
-        'jingweitianhai', 'houyisheri', 'kuafuzhuri', 'dayuzhishui', 'huangdizhan',
-        'yanhuitouzhou', 'weibiansanjue', 'zilushoujiao', 'shizherusi', 'junzibuqi'
-    ]
-    ids_list = "'" + "', '".join(story_ids) + "'"
-
+    
     # STORAGE CONFIG
     STORAGE_BASE_URL = "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets"
-    
-    sql.append("-- Clean existing data")
-    sql.append(f"DELETE FROM scene_options WHERE scene_id IN (SELECT id FROM scenes WHERE story_id IN ({ids_list}));")
-    sql.append(f"DELETE FROM scenes WHERE story_id IN ({ids_list});")
-    sql.append(f"DELETE FROM stories WHERE id IN ({ids_list});")
-    # Also clean categories with old IDs if possible
-    sql.append("DELETE FROM categories WHERE id IN ('sanguo', 'xiyou', 'shanhai');")
 
+    sql.append("-- NOTE: This script now uses UPSERT logic. It will NOT delete all data.")
+    sql.append("-- It will update existing stories/scenes and insert new ones.")
     
-    # PL/pgSQL block removed, standard SQL for setup
+    # -------------------------------------------------------------
+    # 2. Insert Categories (Upsert)
+    # -------------------------------------------------------------
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('sanguoyanyi', '三国演义', '{STORAGE_BASE_URL}/covers/cover_sanguo.jpg', 1) ON CONFLICT (id) DO UPDATE SET sort_order=EXCLUDED.sort_order, cover_image=EXCLUDED.cover_image, title=EXCLUDED.title;")
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('xiyouji', '西游记', '{STORAGE_BASE_URL}/covers/cover_xiyou.jpg', 2) ON CONFLICT (id) DO UPDATE SET sort_order=EXCLUDED.sort_order, cover_image=EXCLUDED.cover_image, title=EXCLUDED.title;")
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('shanhaijing', '山海经', '{STORAGE_BASE_URL}/covers/cover_shanhai.jpg', 3) ON CONFLICT (id) DO UPDATE SET sort_order=EXCLUDED.sort_order, cover_image=EXCLUDED.cover_image, title=EXCLUDED.title;")
+    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('lunyu', '论语', '{STORAGE_BASE_URL}/covers/cover_lunyu.jpg', 4) ON CONFLICT (id) DO UPDATE SET sort_order=EXCLUDED.sort_order, cover_image=EXCLUDED.cover_image, title=EXCLUDED.title;")
+    
+    # -------------------------------------------------------------
+    # 3. Insert Stories (Upsert)
+    # -------------------------------------------------------------
+    
+    # Helper for story upsert
+    def get_story_upsert(id, category_id, title, description, ending_title, ending_description, sort_order):
+        # Escape single quotes
+        title = title.replace("'", "''")
+        description = description.replace("'", "''")
+        if ending_title: ending_title = "'" + ending_title.replace("'", "''") + "'"
+        else: ending_title = "NULL"
+        
+        if ending_description: ending_description = "'" + ending_description.replace("'", "''") + "'"
+        else: ending_description = "NULL"
+        
+        return f"INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('{id}', '{category_id}', '{title}', '{description}', {ending_title}, {ending_description}, {sort_order}) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;"
 
-    
-    # -------------------------------------------------------------
-    # 2. Insert Categories
-    # -------------------------------------------------------------
-    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('sanguoyanyi', '三国演义', '{STORAGE_BASE_URL}/covers/cover_sanguo.jpg', 1) ON CONFLICT (id) DO UPDATE SET sort_order=1, cover_image=EXCLUDED.cover_image;")
-    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('xiyouji', '西游记', '{STORAGE_BASE_URL}/covers/cover_xiyou.jpg', 2) ON CONFLICT (id) DO UPDATE SET sort_order=2, cover_image=EXCLUDED.cover_image;")
-    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('shanhaijing', '山海经', '{STORAGE_BASE_URL}/covers/cover_shanhai.jpg', 3) ON CONFLICT (id) DO UPDATE SET sort_order=3, cover_image=EXCLUDED.cover_image;")
-    sql.append(f"  INSERT INTO categories (id, title, cover_image, sort_order) VALUES ('lunyu', '论语', '{STORAGE_BASE_URL}/covers/cover_lunyu.jpg', 4) ON CONFLICT (id) DO UPDATE SET sort_order=4, cover_image=EXCLUDED.cover_image;")
-    
-    # -------------------------------------------------------------
-    # 3. Insert Stories (All, including placeholders)
-    # -------------------------------------------------------------
-    
     # Sanguo
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('sangumaolu', 'sanguoyanyi', '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('taoyuan', 'sanguoyanyi', '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2) ON CONFLICT (id) DO NOTHING;")
+    sql.append(get_story_upsert('sangumaolu', 'sanguoyanyi', '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1))
+    sql.append(get_story_upsert('taoyuan', 'sanguoyanyi', '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2))
 
     # Xiyou
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('danaotiangong', 'xiyouji', '大闹天宫', '孙悟空大闹天宫，挑战十万天兵天将。', '齐天大圣', '十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('sandabaigujing', 'xiyouji', '三打白骨精', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', '破镜重圆', '师徒四人经历了误会与分离，最终消除隔阂，重归于好。这份失而复得的情谊，更加坚不可摧。', 2) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zhenjiameihouwang', 'xiyouji', '真假美猴王 (敬请期待)', '六耳猕猴假冒悟空，上天入地难辨真伪，终至如来佛祖处方显原形。', 3) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('nuerguo', 'xiyouji', '女儿国奇遇 (敬请期待)', '师徒误入西梁女国，唐僧在女王柔情与取经大业之间经受考验。', 4) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dazhanhonghaier', 'xiyouji', '大战红孩儿 (敬请期待)', '红孩儿练成三昧真火，悟空难敌，请来观音菩萨方才收服。', 5) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('touchirenshenguo', 'xiyouji', '偷吃人参果 (敬请期待)', '万寿山五庄观，悟空偷吃人参果，推倒果树，惹怒镇元大仙。', 6) ON CONFLICT (id) DO NOTHING;")
+    sql.append(get_story_upsert('danaotiangong', 'xiyouji', '大闹天宫', '孙悟空大闹天宫，挑战十万天兵天将。', '齐天大圣', '十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。', 1))
+    sql.append(get_story_upsert('sandabaigujing', 'xiyouji', '三打白骨精', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', '破镜重圆', '师徒四人经历了误会与分离，最终消除隔阂，重归于好。这份失而复得的情谊，更加坚不可摧。', 2))
+    sql.append(get_story_upsert('zhenjiameihouwang', 'xiyouji', '真假美猴王 (敬请期待)', '六耳猕猴假冒悟空，上天入地难辨真伪，终至如来佛祖处方显原形。', None, None, 3))
+    sql.append(get_story_upsert('nuerguo', 'xiyouji', '女儿国奇遇 (敬请期待)', '师徒误入西梁女国，唐僧在女王柔情与取经大业之间经受考验。', None, None, 4))
+    sql.append(get_story_upsert('dazhanhonghaier', 'xiyouji', '大战红孩儿 (敬请期待)', '红孩儿练成三昧真火，悟空难敌，请来观音菩萨方才收服。', None, None, 5))
+    sql.append(get_story_upsert('touchirenshenguo', 'xiyouji', '偷吃人参果 (敬请期待)', '万寿山五庄观，悟空偷吃人参果，推倒果树，惹怒镇元大仙。', None, None, 6))
 
     # Shanhai
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('jingweitianhai', 'shanhaijing', '精卫填海', '炎帝之女溺亡东海，化为精卫鸟，衔石填海，矢志不渝。', '坚韧不拔', '精卫衔微木，将以填沧海。刑天舞干戚，猛志固常在。你的坚持与毅力，正如这精卫鸟一般，令人动容。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('houyisheri', 'shanhaijing', '后羿射日', '十日并出，焦禾稼，杀草木。后羿张弓搭箭，射落九日，解救苍生。', '光耀千秋', '后羿射落九日，留一日以照万物。自此风调雨顺，万物复苏。英雄之名，与日月同辉。', 2) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('kuafuzhuri', 'shanhaijing', '夸父逐日 (敬请期待)', '夸父与日逐走，渴欲得饮，饮于河、渭；河、渭不足，北饮大泽，未至，道渴而死。', 3) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dayuzhishui', 'shanhaijing', '大禹治水 (敬请期待)', '大禹率民治水，三过家门而不入，疏通九河，平定水患。', 4) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('huangdizhan', 'shanhaijing', '黄帝战蚩尤 (敬请期待)', '轩辕黄帝与蚩尤大战于逐鹿之野，风后设指南车破迷雾，最终统一华夏。', 5) ON CONFLICT (id) DO NOTHING;")
+    sql.append(get_story_upsert('jingweitianhai', 'shanhaijing', '精卫填海', '炎帝之女溺亡东海，化为精卫鸟，衔石填海，矢志不渝。', '坚韧不拔', '精卫衔微木，将以填沧海。刑天舞干戚，猛志固常在。你的坚持与毅力，正如这精卫鸟一般，令人动容。', 1))
+    sql.append(get_story_upsert('houyisheri', 'shanhaijing', '后羿射日', '十日并出，焦禾稼，杀草木。后羿张弓搭箭，射落九日，解救苍生。', '光耀千秋', '后羿射落九日，留一日以照万物。自此风调雨顺，万物复苏。英雄之名，与日月同辉。', 2))
+    sql.append(get_story_upsert('kuafuzhuri', 'shanhaijing', '夸父逐日 (敬请期待)', '夸父与日逐走，渴欲得饮，饮于河、渭；河、渭不足，北饮大泽，未至，道渴而死。', None, None, 3))
+    sql.append(get_story_upsert('dayuzhishui', 'shanhaijing', '大禹治水 (敬请期待)', '大禹率民治水，三过家门而不入，疏通九河，平定水患。', None, None, 4))
+    sql.append(get_story_upsert('huangdizhan', 'shanhaijing', '黄帝战蚩尤 (敬请期待)', '轩辕黄帝与蚩尤大战于逐鹿之野，风后设指南车破迷雾，最终统一华夏。', None, None, 5))
 
     # Lunyu
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('yanhuitouzhou', 'lunyu', '颜回偷粥', '孔子误会颜回偷食，终知真相。通过此事感叹“知人不易”。', '知人不易', '所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('weibiansanjue', 'lunyu', '韦编三绝', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', '勤学不倦', '韦编三绝今犹在，从此勤学不仅是少年的事，更是毕生的修行。', 2) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zilushoujiao', 'lunyu', '子路受教 (敬请期待)', '子路问政，孔子教之以先之劳之。子路性直，孔子常循循善诱。', 3) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('shizherusi', 'lunyu', '逝者如斯 (敬请期待)', '子在川上曰：“逝者如斯夫！不舍昼夜。” 感叹时光流逝，勉励弟子珍惜光阴。', 4) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('junzibuqi', 'lunyu', '君子不器 (敬请期待)', '孔子曰：“君子不器。” 意为君子博学多才，不应像器物一样只有单一用途。', 5) ON CONFLICT (id) DO NOTHING;")
+    sql.append(get_story_upsert('yanhuitouzhou', 'lunyu', '颜回偷粥', '孔子误会颜回偷食，终知真相。通过此事感叹“知人不易”。', '知人不易', '所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。', 1))
+    sql.append(get_story_upsert('weibiansanjue', 'lunyu', '韦编三绝', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', '勤学不倦', '韦编三绝今犹在，从此勤学不仅是少年的事，更是毕生的修行。', 2))
+    sql.append(get_story_upsert('zilushoujiao', 'lunyu', '子路受教 (敬请期待)', '子路问政，孔子教之以先之劳之。子路性直，孔子常循循善诱。', None, None, 3))
+    sql.append(get_story_upsert('shizherusi', 'lunyu', '逝者如斯 (敬请期待)', '子在川上曰：“逝者如斯夫！不舍昼夜。” 感叹时光流逝，勉励弟子珍惜光阴。', None, None, 4))
+    sql.append(get_story_upsert('junzibuqi', 'lunyu', '君子不器 (敬请期待)', '孔子曰：“君子不器。” 意为君子博学多才，不应像器物一样只有单一用途。', None, None, 5))
     
     # -------------------------------------------------------------
-    # 4. Helper function to insert scenes
+    # 4. Helper function to insert scenes (Upsert)
     # -------------------------------------------------------------
     def get_scene_sql(story_id, scenes):
         lines = []
         lines.append(f"DO $$ DECLARE v_scene_id uuid; BEGIN")
-        lines.append(f"  -- {story_id}")
+        lines.append(f"  -- Story: {story_id}")
         for scene in scenes:
             scene_index = scene['id']
             title = scene['title'].replace("'", "''")
@@ -1406,8 +1405,14 @@ def generate_sql():
             if img_url.startswith('/assets/'):
                 img_url = STORAGE_BASE_URL + img_url.replace('/assets/', '/')
             
+            # UPSERT SCENE
+            # This requires a UNIQUE constraint on scenes(story_id, scene_index)
+            lines.append(f"  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('{story_id}', {scene_index}, '{title}', '{narrative}', '{env_desc}', '{char_state}', '{img_url}') ON CONFLICT (story_id, scene_index) DO UPDATE SET title=EXCLUDED.title, narrative=EXCLUDED.narrative, environment_description=EXCLUDED.environment_description, character_state=EXCLUDED.character_state, image_url=EXCLUDED.image_url RETURNING id INTO v_scene_id;")
             
-            lines.append(f"  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('{story_id}', {scene_index}, '{title}', '{narrative}', '{env_desc}', '{char_state}', '{img_url}') RETURNING id INTO v_scene_id;")
+            # REFRESH OPTIONS
+            # Delete options for this scene first, then re-insert. 
+            # This is safer than upserting options since options are list-based.
+            lines.append(f"  DELETE FROM scene_options WHERE scene_id = v_scene_id;")
             
             for index, option in enumerate(scene['options']):
                 opt_text = option['text'].replace("'", "''")
@@ -1415,7 +1420,6 @@ def generate_sql():
                 feedback = option['feedback'].replace("'", "''")
                 sort_order = index + 1
                 lines.append(f"  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '{opt_text}', {is_correct}, '{feedback}', {sort_order});")
-            lines.append("")
             lines.append("")
         lines.append("END $$;")
         return lines
@@ -1431,8 +1435,6 @@ def generate_sql():
     sql.extend(get_scene_sql('houyisheri', houyisheri_scenes))
     sql.extend(get_scene_sql('yanhuitouzhou', yanhuitouzhou_scenes))
     sql.extend(get_scene_sql('weibiansanjue', weibiansanjue_scenes))
-
-    # PL/pgSQL END removed
     
     return "\n".join(sql)
 
