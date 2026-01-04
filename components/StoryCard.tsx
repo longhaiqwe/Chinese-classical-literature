@@ -26,7 +26,7 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, onClick, disabled = false 
                 </h3>
                 {disabled && (
                     <span className="text-xs px-2 py-1 bg-ink-200 text-ink-500 rounded font-sans">
-                        未解锁
+                        敬请期待
                     </span>
                 )}
             </div>

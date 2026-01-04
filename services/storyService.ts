@@ -45,6 +45,7 @@ export const storyService = {
                     description: s.description,
                     endingTitle: s.ending_title,
                     endingDescription: s.ending_description,
+                    isReady: s.is_ready,
                     // If story has scenes in DB, give it a dummy scene to pass the UI check (length > 0)
                     scenes: validStoryIds.has(s.id) ? [{ id: -1 } as any] : []
                 }))

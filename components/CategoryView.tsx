@@ -76,7 +76,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({ category, onSelectStory, on
                         key={story.id}
                         story={story}
                         onClick={onSelectStory}
-                        disabled={story.scenes.length === 0}
+                        disabled={!story.isReady}
                     />
                 ))}
             </div>

@@ -24,6 +24,7 @@ export interface IGameStory {
   endingTitle?: string;
   endingDescription?: string;
   scenes: IGameScene[];
+  isReady: boolean;
 }
 
 export interface IGameCategory {

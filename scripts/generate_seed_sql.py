@@ -1350,21 +1350,32 @@ def generate_sql():
     # -------------------------------------------------------------
     
     # Helper for story upsert
+    # Helper for story upsert
     def get_story_upsert(id, category_id, title, description, ending_title, ending_description, sort_order):
         # Escape single quotes
         title = title.replace("'", "''")
         description = description.replace("'", "''")
+
+        # Check for "(敬请期待)" in title
+        is_ready = str(True).lower()
+        if "(敬请期待)" in title:
+            is_ready = str(False).lower()
+            title = title.replace(" (敬请期待)", "").replace("(敬请期待)", "")
+
         if ending_title: ending_title = "'" + ending_title.replace("'", "''") + "'"
         else: ending_title = "NULL"
         
         if ending_description: ending_description = "'" + ending_description.replace("'", "''") + "'"
         else: ending_description = "NULL"
         
-        return f"INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('{id}', '{category_id}', '{title}', '{description}', {ending_title}, {ending_description}, {sort_order}) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;"
+        return f"INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order, is_ready) VALUES ('{id}', '{category_id}', '{title}', '{description}', {ending_title}, {ending_description}, {sort_order}, {is_ready}) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order, is_ready=EXCLUDED.is_ready;"
 
     # Sanguo
     sql.append(get_story_upsert('sangumaolu', 'sanguoyanyi', '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1))
     sql.append(get_story_upsert('taoyuan', 'sanguoyanyi', '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2))
+    sql.append(get_story_upsert('caochuanjiejian', 'sanguoyanyi', '草船借箭 (敬请期待)', '周瑜刁难诸葛亮，命其十日造剑十万。诸葛亮趁大雾草船借箭，挫败周瑜阴谋。', None, None, 3))
+    sql.append(get_story_upsert('huoshaochibi', 'sanguoyanyi', '火烧赤壁 (敬请期待)', '孙刘联军于赤壁大破曹军，奠定三国鼎立基础。', None, None, 4))
+    sql.append(get_story_upsert('kongchengji', 'sanguoyanyi', '空城计 (敬请期待)', '马谡失街亭，司马懿大军压境。诸葛亮大开城门，抚琴退敌。', None, None, 5))
 
     # Xiyou
     sql.append(get_story_upsert('danaotiangong', 'xiyouji', '大闹天宫', '孙悟空大闹天宫，挑战十万天兵天将。', '齐天大圣', '十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。', 1))
