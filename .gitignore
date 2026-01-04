@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local scripts
+scripts/delete_narrations.ts
+scripts/list_narrations.ts
+
+# Temporary assets
+temp_assets/

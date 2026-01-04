@@ -1,5 +1,6 @@
 import { IGameCategory } from '../../../types';
 import { YANHUITOUZHOU_SCENES } from './yanhuitouzhou';
+import { WEIBIANSANJUE_SCENES } from './weibiansanjue';
 
 export const LunyuCategory: IGameCategory = {
     id: 'lunyu',
@@ -16,9 +17,11 @@ export const LunyuCategory: IGameCategory = {
         },
         {
             id: 'weibiansanjue',
-            title: '韦编三绝 (敬请期待)',
+            title: '韦编三绝',
             description: '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”',
-            scenes: []
+            endingTitle: '勤学不倦',
+            endingDescription: '韦编三绝今犹在，从此勤学不仅是少年的事，更是毕生的修行。',
+            scenes: WEIBIANSANJUE_SCENES
         },
         {
             id: 'zilushoujiao',
