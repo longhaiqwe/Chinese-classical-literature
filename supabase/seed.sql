@@ -10,7 +10,7 @@ DELETE FROM categories WHERE id IN ('sanguo', 'xiyou', 'shanhai');
   INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('sangumaolu', 'sanguoyanyi', '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('taoyuan', 'sanguoyanyi', '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('danaotiangong', 'xiyouji', '大闹天宫', '孙悟空大闹天宫，挑战十万天兵天将。', '齐天大圣', '十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。', 1) ON CONFLICT (id) DO NOTHING;
-  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('sandabaigujing', 'xiyouji', '三打白骨精 (敬请期待)', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', 2) ON CONFLICT (id) DO NOTHING;
+  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('sandabaigujing', 'xiyouji', '三打白骨精', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', '破镜重圆', '师徒四人经历了误会与分离，最终消除隔阂，重归于好。这份失而复得的情谊，更加坚不可摧。', 2) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zhenjiameihouwang', 'xiyouji', '真假美猴王 (敬请期待)', '六耳猕猴假冒悟空，上天入地难辨真伪，终至如来佛祖处方显原形。', 3) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('nuerguo', 'xiyouji', '女儿国奇遇 (敬请期待)', '师徒误入西梁女国，唐僧在女王柔情与取经大业之间经受考验。', 4) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dazhanhonghaier', 'xiyouji', '大战红孩儿 (敬请期待)', '红孩儿练成三昧真火，悟空难敌，请来观音菩萨方才收服。', 5) ON CONFLICT (id) DO NOTHING;
@@ -21,7 +21,7 @@ DELETE FROM categories WHERE id IN ('sanguo', 'xiyou', 'shanhai');
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dayuzhishui', 'shanhaijing', '大禹治水 (敬请期待)', '大禹率民治水，三过家门而不入，疏通九河，平定水患。', 4) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('huangdizhan', 'shanhaijing', '黄帝战蚩尤 (敬请期待)', '轩辕黄帝与蚩尤大战于逐鹿之野，风后设指南车破迷雾，最终统一华夏。', 5) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('yanhuitouzhou', 'lunyu', '颜回偷粥', '孔子误会颜回偷食，终知真相。通过此事感叹“知人不易”。', '知人不易', '所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。', 1) ON CONFLICT (id) DO NOTHING;
-  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('weibiansanjue', 'lunyu', '韦编三绝 (敬请期待)', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', 2) ON CONFLICT (id) DO NOTHING;
+  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('weibiansanjue', 'lunyu', '韦编三绝', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', '勤学不倦', '韦编三绝今犹在，从此勤学不仅是少年的事，更是毕生的修行。', 2) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zilushoujiao', 'lunyu', '子路受教 (敬请期待)', '子路问政，孔子教之以先之劳之。子路性直，孔子常循循善诱。', 3) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('shizherusi', 'lunyu', '逝者如斯 (敬请期待)', '子在川上曰：“逝者如斯夫！不舍昼夜。” 感叹时光流逝，勉励弟子珍惜光阴。', 4) ON CONFLICT (id) DO NOTHING;
   INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('junzibuqi', 'lunyu', '君子不器 (敬请期待)', '孔子曰：“君子不器。” 意为君子博学多才，不应像器物一样只有单一用途。', 5) ON CONFLICT (id) DO NOTHING;
@@ -149,6 +149,57 @@ DO $$ DECLARE v_scene_id uuid; BEGIN
 
 END $$;
 DO $$ DECLARE v_scene_id uuid; BEGIN
+  -- sandabaigujing
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 1, '荒山遇美', '师徒四人行至白虎岭，只见峰岩重叠，涧壑湾环。忽见一女子，翠袖轻摇，湘裙斜拽，手提青砂罐，面如满月，目似秋波。八戒见了大喜，却不知此乃千年尸魔白骨精所化，意在取唐僧元阳。', 'A desolate mountain ridge with jagged peaks (Baihu Ling). A beautiful young woman in green sleeves and skirt holding a clay pot approaches.', 'Sun Wukong vigilant, Pigsy infatuated, Tang Seng oblivious.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_01_girl.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '运起火眼金睛，当头便打', true, '悟空定睛一看，认出妖精本相，掣铁棒，大喝一声''好孽畜！''，劈头便打。那怪化一阵清风逃走，只留下一具假尸。唐僧肉眼凡胎，大惊失色，责怪悟空无故伤生。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '上前搭讪，探问虚实', false, '既是荒山野岭，孤身女子行走必有蹊跷。若贸然上前，恐堕入妖计，反误了师父性命。这妖精手段高明，言多必失。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '请师父定夺', false, '师父慈悲为怀，必不许伤生。若以此请示，妖精定然趁机下手，那时悔之晚矣。斩妖除魔，需得雷厉风行。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 2, '老妇寻女', '悟空才打跑妖精，山坡上又闪出一个老妇人，年满八旬，手拄藜杖，一步一哭，要寻女儿。唐僧见状，更是责备悟空滥杀无辜。悟空火眼金睛再看，认得还是那妖精变的，心中大怒。', 'An old woman 80 years of age, leaning on a cane, crying on the mountain slope.', 'Tang Seng angry and guilty, Wukong furious.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_02_old_woman.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '不容分说，举棒再打', true, '悟空道：''这孽畜又来骗人！'' 轮起金箍棒，照头一下。那怪元神出窍，化风而逃，却留下一具老妇尸首。唐僧气得念起紧箍咒，痛得悟空在地上打滚。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '向师父解释原委', false, '此时唐僧已被八戒挑唆，正在气头上，哪里听得进解释？多说无益，反遭紧箍咒之苦。妖精在前，唯有除恶务尽。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '变作个土地神哄她', false, '大圣乃正大光明之辈，岂可甚至妖精行骗？况且妖精认得大圣，此计难行。当务之急是保护师父，非是斗智。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 3, '老丈寻亲', '师徒正行间，又见一个老公公，白发如彭祖，苍髯赛寿星，念着佛号走来。那白骨精三次变化，意在乱唐僧心智。悟空见他又来，心中暗恨，道：''这妖精三番两次来戏弄我！'' 须得断其根株。', 'An elderly man matching the description of a longevity god (Shou Xing) approaching.', 'Wukong determined but wary of punishment.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_03_old_man.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '唤土地为证，一棒断根', true, '悟空恐师父念咒，先唤出本方土地、山神作证，然后抡起金箍棒，劈脸一下。那妖精再无处逃生，化作一堆白骨，脊梁上刻有''白骨夫人''四字。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '听凭师父发落', false, '若不出手，妖怪必将师父摄去吃掉。为了取经大业，哪怕受屈含冤，也不能坐视不理。我不入地狱，谁入地狱？', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '佯装不见，护送师父快走', false, '树欲静而风不止，妖怪既然盯上，岂有轻易放过之理？避无可避，唯有迎头痛击，方能绝后患。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 4, '师徒决裂', '唐僧见连伤三命，虽有白骨为证，却信了八戒谗言，道是悟空以此变术以此遮掩。长老决意要赶悟空走，写下一纸贬书，递与悟空。悟空求饶无果，只得含泪从命。', 'Tang Seng handing a written letter (贬书) to Wukong, looking stern. Wukong kneeling.', 'Wukong heartbroken, Tang Seng resolute.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_04_parting.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '拜别恩师，嘱托沙僧', true, '悟空见挽回无望，含泪朝东拜了四拜，嘱咐沙僧道：''贤弟，你是个好人，千万仔细看守师父！'' 随后纵云回花果山水帘洞去了。此去经年，也是命中魔障。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '强留不走，苦苦哀求', false, '师父心意已决，强留只会徒增厌恶。缘分暂尽，强求无益，不如暂避，待日后师父有难，自会明白俺老孙的苦心。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '毁去贬书，软硬兼施', false, '如此岂是为人弟子之道？悟空虽顽劣，却极重尊师重道之礼，断不肯行此悖逆之事。一日为师，终身为父。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 5, '黑松林遇险', '悟空走后，唐僧师徒行至碗子山波月洞，被黄袍怪摄去。那怪将唐僧变成一只斑斓猛虎，关在笼中。八戒沙僧双战黄袍怪不过，八戒侥幸逃脱，沙僧被擒。', 'A dark, eerie cave. A tiger in a cage. Yellow Robed Monster laughing.', 'Tang Seng transformed into a tiger, terrified.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_05_tiger.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '硬着头皮再战', false, '那黄袍怪武艺高强，连沙僧都被捉了，八戒独木难支，再去也是送死。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '回高老庄散伙', false, '虽然八戒常嚷嚷着散伙，但真到了师父生死存亡之际，他倒也不忍心就这样一走了之。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '去花果山请大师兄', true, '八戒心想：''解铃还须系铃人，这妖怪只有大师兄降得住！'' 于是硬着头皮，驾云往东海花果山而去。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 6, '义激美猴王', '八戒来到花果山，见悟空在当猴王快活，便用激将法，说那妖怪骂齐天大圣是脓包。悟空虽知是计，但心中其实挂念师父，又听不得别人辱没名头，便随八戒下山。', 'Water Curtain Cave (Shuilian Dong) with monkeys. Pigsy pleading/goading Wukong.', 'Wukong proud but concerned, Pigsy desperate.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_06_pleading.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '推脱不去，记恨前嫌', false, '悟空乃真豪杰，岂会真的记恨师父？他只是一时气愤，只需给个台阶便会下来。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '即刻下山，降妖救师', true, '悟空道：''贤弟，莫要在那里胡扯！我岂不知你在激我？但我还须救师父去！'' 兄弟二人驾云同去。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '派孩儿们去打探', false, '救人如救火，迟则生变。况且那黄袍怪神通广大，小猴子们去也是白搭。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 7, '破镜重圆', '悟空施法收了黄袍怪，救出公主，又将唐僧变回原身。师徒相见，悲喜交集。唐僧悔不该听信谗言，逐走良徒；悟空亦泣拜师父，誓死护送西行。正是：剪断尘缘离色相，荡除心垢见灵山。', 'Wukong defeating the monster, Tang Seng turning back to human, team reunited.', 'Tang Seng remorseful and grateful, Wukong triumphant.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_07_reunion.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '释嫌修好，重踏征程', true, '师父道：''贤徒，亏了你也！'' 悟空道：''师父，你今日方知老孙的手段！'' 经此一事，师徒情分更深一层，同心协力，共赴西天。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '恃功傲物，逼师赔礼', false, '一日为师，终身为父。悟空虽受委屈，然笃守尊师重道之礼，岂敢恃功而傲慢？', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '夸耀神通，奚落八戒', false, '大圣心胸开阔，既已降妖救师，便不再计较前嫌。兄弟阋墙，非智者所为。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('sandabaigujing', 8, '平行时空：师徒情缘', '若当时唐僧能识破妖计，或悟空能有更好法子证明清白，师徒也不必经受这一番分离之苦。然天道循环，自有定数。九九八十一难，少一难皆不成正果。', 'A conceptual scene of the team reunited, walking towards the west.', 'Reflective and hopeful.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_08_happy_team.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '勘破迷障，再续前缘', true, '经此一难，师徒情分虽受挫折，却也为日后破镜重圆埋下伏笔。真金不怕火炼，患难才见真情。终以此心，修成正果。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '畏难而退，散伙各去', false, '取经大业，关乎苍生福祉，岂可因一时误会而轻言放弃？半途而废，非英雄所为。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '独善其身，逍遥自在', false, '悟空本已长生不老，然成佛作祖并非只为长生，更为修得正果，普度众生。独善其身，终非大道。', 3);
+
+
+END $$;
+DO $$ DECLARE v_scene_id uuid; BEGIN
   -- jingweitianhai
   INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('jingweitianhai', 1, '离家远游', '上古之时，炎帝神农氏有一爱女，名曰女娃。女娃生性活泼，向往自由。一日，她遥望日出之东方，只见云蒸霞蔚，心中顿生向往，意欲前往东海一游。', 'Morning mist in the mountains, a young girl looking towards the east.', 'Nuwa standing on a hill, looking hopeful.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/shanhaijing/jingweitianhai/bg_01_departure.jpg') RETURNING id INTO v_scene_id;
   INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '留恋家园，放弃远行', false, '若不出行，虽得安稳，却永远无法见识那广阔的天地。但这不符合女娃的性格。', 1);
@@ -269,6 +320,42 @@ DO $$ DECLARE v_scene_id uuid; BEGIN
 
 
   INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('yanhuitouzhou', 6, '信任崩塌', '若孔子当时未能查明真相，或者颜回未能即使解释，一代贤人恐蒙不白之冤。师徒之间若无信任，道义何存？信任一旦破裂，便如覆水难收，令人扼腕叹息。', 'Yan Hui walking away, Confucius looking regretful.', 'Sadness and separation.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/yanhuitouzhou/bg_06_bad.jpg') RETURNING id INTO v_scene_id;
+
+
+END $$;
+DO $$ DECLARE v_scene_id uuid; BEGIN
+  -- weibiansanjue
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('weibiansanjue', 1, '晚年好易', '孔子晚年由卫返鲁，结束了长达十四年的周游列国生涯。此时他已年近古稀，却依然壮心不已，将全部精力投入到对古代典籍的整理之中。而在六经之中，他尤爱《周易》，常常不知疲倦地研读，甚至到了废寝忘食的地步。', 'Confucius in his study room, surrounded by bamboo slips, peaceful atmosphere.', 'Confucius reading with great interest.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_01_reading.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '探究天道', true, '《周易》虽以此卜筮，但孔子看到的却是其中蕴含的天地万物变化之道。他不仅是读，更是要探寻宇宙人生的终极真理。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '消磨时光', false, '孔子晚年惜时如金，感叹“逝者如斯夫”，绝不会为了单纯消磨时光而读书。他是在与时间赛跑，传承文化。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '寻求吉凶', false, '孔子言“不占而已矣”，他读易并非为了算命卜卦求吉凶，而是为了通晓事理，修身养性。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('weibiansanjue', 2, '日夜精研', '夜深了，颜回、子路等弟子都已歇息，孔子的书房里那盏油灯却依然亮着。他时而凝眉沉思，时而提笔批注，对于《周易》中的每一句卦辞、每一段爻辞，都反复推敲，务求甚解。简册上的字迹，在他昏花的眼中却似星辰般闪耀。', 'Confucius studying late at night by candlelight.', 'Confucius looking thoughtful and focused.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_02_studying.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '学思并重', true, '“学而不思则罔，思而不学则殆。” 孔子正是通过不断地研读与思考，将古老的卜筮之书升华为哲学经典。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '囫囵吞枣', false, '孔子治学最忌只读表面而不求甚解。对于艰深的《周易》，他更是逐字逐句地推敲，绝不含糊。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '墨守成规', false, '孔子读易，并非死守古义，而是“述而不作，信而好古”中又有所创新，赋予了《周易》全新的德义内涵。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('weibiansanjue', 3, '韦编初断', '春秋时期的书，是将许多根竹简用熟牛皮绳（韦）编联起来的。虽然牛皮绳坚韧异常，但架不住孔子日复一日、年复一年的频繁翻阅。这一日，正当孔子读到兴头上时，手中的书简突然散了架——那条坚韧的牛皮绳竟然磨断了！', 'Bamboo slips scattered on the floor, broken leather strap.', 'Confucius looking surprised but calm.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_03_broken.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '欣然重编', true, '孔子并没有因此懊恼，反而因为自己读书之勤而感到一丝欣慰。他唤来弟子，耐心地将竹简按顺序重新编好，继续攻读。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '怅然若失', false, '书简虽断，学问未断。孔子心胸豁达，这点小事不会让他感到怅然，反而会更激发他读书的热情。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '置之不理', false, '书是孔子的良师益友，怎么会置之不理呢？', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('weibiansanjue', 4, '韦编三绝', '这并非偶然。随着岁月的流逝，孔子读《易》的热情有增无减。据说，那编联竹简的熟牛皮绳，竟然先后断了三次之多！这也不仅成为了“韦编三绝”这一成语的典故由来，更成为了后世千古流传的勤学佳话。', 'Time passing montage, worn out bamboo slips.', 'Confucius looking determined and diligent.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_04_three_times.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '笃志虚心', true, '正是这种笃志好学、虚心求教的精神，成就了孔子的圣人地位。正如他自己所言：“我非生而知之者，好古，敏以求之者也。”', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '爱书如命', false, '虽然孔子确实爱书，但“韦编三绝”的核心精神在于“勤奋”与“刻苦”，而非单纯对书籍实体的爱惜。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '力大无穷', false, '牛皮绳并非被拉断，而是被磨断的。这体现的是“水滴石穿”的功夫，而非力气的大小。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('weibiansanjue', 5, '假我数年', '面对博大精深的《周易》，孔子依然保持着极度的谦逊。他曾深有感触地对子路说：“假我数年，五十以学《易》，可以无大过矣。” 即使到了古稀之年，他依然觉得时间不够用，依然觉得自己还有提升的空间。', 'Confucius looking at the sky/horizon, contemplating.', 'Confucius looking wise and humble.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_05_humble.jpg') RETURNING id INTO v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '不仅孜孜', true, '圣人之所以为圣人，在于从不满足于已有的成就。孔子的这种“不知老之将至”的求学态度，才是最值得我们后人学习的。', 1);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '临渊羡鱼', false, '孔子是在身体力行地“退而结网”，通过踏实地学习来避免过失，而非空想羡慕。', 2);
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '悔不当初', false, '孔子一生光明磊落，此言并非后悔，而是对知识的无限向往和对完美人格的不懈追求。', 3);
+
+
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('weibiansanjue', 6, '十翼传世', '功夫不负有心人。孔子晚年对《周易》的整理和注释，汇集成了被后世称为《十翼》（《易传》）的不朽经典。他为这本古老的卜筮之书插上了哲学的翅膀，使其飞越了千年的时空，至今仍照耀着中华文明的天空。', 'Confucius teaching, phantom of Yi Jing text in background.', 'Confucius interacting with disciples.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_06_legacy.jpg') RETURNING id INTO v_scene_id;
 
 
 END $$;

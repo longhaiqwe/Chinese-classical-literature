@@ -487,6 +487,209 @@ danaotiangong_scenes = [
     }
 ]
 
+sandabaigujing_scenes = [
+    {
+        "id": 1,
+        "title": "荒山遇美",
+        "narrative": "师徒四人行至白虎岭，只见峰岩重叠，涧壑湾环。忽见一女子，翠袖轻摇，湘裙斜拽，手提青砂罐，面如满月，目似秋波。八戒见了大喜，却不知此乃千年尸魔白骨精所化，意在取唐僧元阳。",
+        "environmentDescription": "A desolate mountain ridge with jagged peaks (Baihu Ling). A beautiful young woman in green sleeves and skirt holding a clay pot approaches.",
+        "characterState": "Sun Wukong vigilant, Pigsy infatuated, Tang Seng oblivious.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_01_girl.jpg",
+        "options": [
+            {
+                "text": "运起火眼金睛，当头便打",
+                "isCorrect": True,
+                "feedback": "悟空定睛一看，认出妖精本相，掣铁棒，大喝一声'好孽畜！'，劈头便打。那怪化一阵清风逃走，只留下一具假尸。唐僧肉眼凡胎，大惊失色，责怪悟空无故伤生。"
+            },
+            {
+                "text": "上前搭讪，探问虚实",
+                "isCorrect": False,
+                "feedback": "既是荒山野岭，孤身女子行走必有蹊跷。若贸然上前，恐堕入妖计，反误了师父性命。这妖精手段高明，言多必失。"
+            },
+            {
+                "text": "请师父定夺",
+                "isCorrect": False,
+                "feedback": "师父慈悲为怀，必不许伤生。若以此请示，妖精定然趁机下手，那时悔之晚矣。斩妖除魔，需得雷厉风行。"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "老妇寻女",
+        "narrative": "悟空才打跑妖精，山坡上又闪出一个老妇人，年满八旬，手拄藜杖，一步一哭，要寻女儿。唐僧见状，更是责备悟空滥杀无辜。悟空火眼金睛再看，认得还是那妖精变的，心中大怒。",
+        "environmentDescription": "An old woman 80 years of age, leaning on a cane, crying on the mountain slope.",
+        "characterState": "Tang Seng angry and guilty, Wukong furious.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_02_old_woman.jpg",
+        "options": [
+            {
+                "text": "不容分说，举棒再打",
+                "isCorrect": True,
+                "feedback": "悟空道：'这孽畜又来骗人！' 轮起金箍棒，照头一下。那怪元神出窍，化风而逃，却留下一具老妇尸首。唐僧气得念起紧箍咒，痛得悟空在地上打滚。"
+            },
+            {
+                "text": "向师父解释原委",
+                "isCorrect": False,
+                "feedback": "此时唐僧已被八戒挑唆，正在气头上，哪里听得进解释？多说无益，反遭紧箍咒之苦。妖精在前，唯有除恶务尽。"
+            },
+            {
+                "text": "变作个土地神哄她",
+                "isCorrect": False,
+                "feedback": "大圣乃正大光明之辈，岂可甚至妖精行骗？况且妖精认得大圣，此计难行。当务之急是保护师父，非是斗智。"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "老丈寻亲",
+        "narrative": "师徒正行间，又见一个老公公，白发如彭祖，苍髯赛寿星，念着佛号走来。那白骨精三次变化，意在乱唐僧心智。悟空见他又来，心中暗恨，道：'这妖精三番两次来戏弄我！' 须得断其根株。",
+        "environmentDescription": "An elderly man matching the description of a longevity god (Shou Xing) approaching.",
+        "characterState": "Wukong determined but wary of punishment.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_03_old_man.jpg",
+        "options": [
+            {
+                "text": "唤土地为证，一棒断根",
+                "isCorrect": True,
+                "feedback": "悟空恐师父念咒，先唤出本方土地、山神作证，然后抡起金箍棒，劈脸一下。那妖精再无处逃生，化作一堆白骨，脊梁上刻有'白骨夫人'四字。"
+            },
+            {
+                "text": "听凭师父发落",
+                "isCorrect": False,
+                "feedback": "若不出手，妖怪必将师父摄去吃掉。为了取经大业，哪怕受屈含冤，也不能坐视不理。我不入地狱，谁入地狱？"
+            },
+            {
+                "text": "佯装不见，护送师父快走",
+                "isCorrect": False,
+                "feedback": "树欲静而风不止，妖怪既然盯上，岂有轻易放过之理？避无可避，唯有迎头痛击，方能绝后患。"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "师徒决裂",
+        "narrative": "唐僧见连伤三命，虽有白骨为证，却信了八戒谗言，道是悟空以此变术以此遮掩。长老决意要赶悟空走，写下一纸贬书，递与悟空。悟空求饶无果，只得含泪从命。",
+        "environmentDescription": "Tang Seng handing a written letter (贬书) to Wukong, looking stern. Wukong kneeling.",
+        "characterState": "Wukong heartbroken, Tang Seng resolute.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_04_parting.jpg",
+        "options": [
+            {
+                "text": "拜别恩师，嘱托沙僧",
+                "isCorrect": True,
+                "feedback": "悟空见挽回无望，含泪朝东拜了四拜，嘱咐沙僧道：'贤弟，你是个好人，千万仔细看守师父！' 随后纵云回花果山水帘洞去了。此去经年，也是命中魔障。"
+            },
+            {
+                "text": "强留不走，苦苦哀求",
+                "isCorrect": False,
+                "feedback": "师父心意已决，强留只会徒增厌恶。缘分暂尽，强求无益，不如暂避，待日后师父有难，自会明白俺老孙的苦心。"
+            },
+            {
+                "text": "毁去贬书，软硬兼施",
+                "isCorrect": False,
+                "feedback": "如此岂是为人弟子之道？悟空虽顽劣，却极重尊师重道之礼，断不肯行此悖逆之事。一日为师，终身为父。"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "黑松林遇险",
+        "narrative": "悟空走后，唐僧师徒行至碗子山波月洞，被黄袍怪摄去。那怪将唐僧变成一只斑斓猛虎，关在笼中。八戒沙僧双战黄袍怪不过，八戒侥幸逃脱，沙僧被擒。",
+        "environmentDescription": "A dark, eerie cave. A tiger in a cage. Yellow Robed Monster laughing.",
+        "characterState": "Tang Seng transformed into a tiger, terrified.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_05_tiger.jpg",
+        "options": [
+            {
+                "text": "硬着头皮再战",
+                "isCorrect": False,
+                "feedback": "那黄袍怪武艺高强，连沙僧都被捉了，八戒独木难支，再去也是送死。"
+            },
+            {
+                "text": "回高老庄散伙",
+                "isCorrect": False,
+                "feedback": "虽然八戒常嚷嚷着散伙，但真到了师父生死存亡之际，他倒也不忍心就这样一走了之。"
+            },
+            {
+                "text": "去花果山请大师兄",
+                "isCorrect": True,
+                "feedback": "八戒心想：'解铃还须系铃人，这妖怪只有大师兄降得住！' 于是硬着头皮，驾云往东海花果山而去。"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "义激美猴王",
+        "narrative": "八戒来到花果山，见悟空在当猴王快活，便用激将法，说那妖怪骂齐天大圣是脓包。悟空虽知是计，但心中其实挂念师父，又听不得别人辱没名头，便随八戒下山。",
+        "environmentDescription": "Water Curtain Cave (Shuilian Dong) with monkeys. Pigsy pleading/goading Wukong.",
+        "characterState": "Wukong proud but concerned, Pigsy desperate.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_06_pleading.jpg",
+        "options": [
+            {
+                "text": "推脱不去，记恨前嫌",
+                "isCorrect": False,
+                "feedback": "悟空乃真豪杰，岂会真的记恨师父？他只是一时气愤，只需给个台阶便会下来。"
+            },
+            {
+                "text": "即刻下山，降妖救师",
+                "isCorrect": True,
+                "feedback": "悟空道：'贤弟，莫要在那里胡扯！我岂不知你在激我？但我还须救师父去！' 兄弟二人驾云同去。"
+            },
+            {
+                "text": "派孩儿们去打探",
+                "isCorrect": False,
+                "feedback": "救人如救火，迟则生变。况且那黄袍怪神通广大，小猴子们去也是白搭。"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "破镜重圆",
+        "narrative": "悟空施法收了黄袍怪，救出公主，又将唐僧变回原身。师徒相见，悲喜交集。唐僧悔不该听信谗言，逐走良徒；悟空亦泣拜师父，誓死护送西行。正是：剪断尘缘离色相，荡除心垢见灵山。",
+        "environmentDescription": "Wukong defeating the monster, Tang Seng turning back to human, team reunited.",
+        "characterState": "Tang Seng remorseful and grateful, Wukong triumphant.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_07_reunion.jpg",
+        "options": [
+            {
+                "text": "释嫌修好，重踏征程",
+                "isCorrect": True,
+                "feedback": "师父道：'贤徒，亏了你也！' 悟空道：'师父，你今日方知老孙的手段！' 经此一事，师徒情分更深一层，同心协力，共赴西天。"
+            },
+            {
+                "text": "恃功傲物，逼师赔礼",
+                "isCorrect": False,
+                "feedback": "一日为师，终身为父。悟空虽受委屈，然笃守尊师重道之礼，岂敢恃功而傲慢？"
+            },
+            {
+                "text": "夸耀神通，奚落八戒",
+                "isCorrect": False,
+                "feedback": "大圣心胸开阔，既已降妖救师，便不再计较前嫌。兄弟阋墙，非智者所为。"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "平行时空：师徒情缘",
+        "narrative": "若当时唐僧能识破妖计，或悟空能有更好法子证明清白，师徒也不必经受这一番分离之苦。然天道循环，自有定数。九九八十一难，少一难皆不成正果。",
+        "environmentDescription": "A conceptual scene of the team reunited, walking towards the west.",
+        "characterState": "Reflective and hopeful.",
+        "imageUrl": "/assets/xiyouji/sandabaigujing/bg_08_happy_team.jpg",
+        "options": [
+            {
+                "text": "勘破迷障，再续前缘",
+                "isCorrect": True,
+                "feedback": "经此一难，师徒情分虽受挫折，却也为日后破镜重圆埋下伏笔。真金不怕火炼，患难才见真情。终以此心，修成正果。"
+            },
+            {
+                "text": "畏难而退，散伙各去",
+                "isCorrect": False,
+                "feedback": "取经大业，关乎苍生福祉，岂可因一时误会而轻言放弃？半途而废，非英雄所为。"
+            },
+            {
+                "text": "独善其身，逍遥自在",
+                "isCorrect": False,
+                "feedback": "悟空本已长生不老，然成佛作祖并非只为长生，更为修得正果，普度众生。独善其身，终非大道。"
+            }
+        ]
+    }
+]
+
 # ==========================================
 # 3. 山海经 (Shanhaijing) - 精卫填海
 # ==========================================
@@ -983,6 +1186,143 @@ yanhuitouzhou_scenes = [
     }
 ]
 
+weibiansanjue_scenes = [
+    {
+        "id": 1,
+        "title": "晚年好易",
+        "narrative": "孔子晚年由卫返鲁，结束了长达十四年的周游列国生涯。此时他已年近古稀，却依然壮心不已，将全部精力投入到对古代典籍的整理之中。而在六经之中，他尤爱《周易》，常常不知疲倦地研读，甚至到了废寝忘食的地步。",
+        "environmentDescription": "Confucius in his study room, surrounded by bamboo slips, peaceful atmosphere.",
+        "characterState": "Confucius reading with great interest.",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_01_reading.jpg",
+        "options": [
+            {
+                "text": "探究天道",
+                "isCorrect": True,
+                "feedback": "《周易》虽以此卜筮，但孔子看到的却是其中蕴含的天地万物变化之道。他不仅是读，更是要探寻宇宙人生的终极真理。"
+            },
+            {
+                "text": "消磨时光",
+                "isCorrect": False,
+                "feedback": "孔子晚年惜时如金，感叹“逝者如斯夫”，绝不会为了单纯消磨时光而读书。他是在与时间赛跑，传承文化。"
+            },
+            {
+                "text": "寻求吉凶",
+                "isCorrect": False,
+                "feedback": "孔子言“不占而已矣”，他读易并非为了算命卜卦求吉凶，而是为了通晓事理，修身养性。"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "日夜精研",
+        "narrative": "夜深了，颜回、子路等弟子都已歇息，孔子的书房里那盏油灯却依然亮着。他时而凝眉沉思，时而提笔批注，对于《周易》中的每一句卦辞、每一段爻辞，都反复推敲，务求甚解。简册上的字迹，在他昏花的眼中却似星辰般闪耀。",
+        "environmentDescription": "Confucius studying late at night by candlelight.",
+        "characterState": "Confucius looking thoughtful and focused.",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_02_studying.jpg",
+        "options": [
+            {
+                "text": "学思并重",
+                "isCorrect": True,
+                "feedback": "“学而不思则罔，思而不学则殆。” 孔子正是通过不断地研读与思考，将古老的卜筮之书升华为哲学经典。"
+            },
+            {
+                "text": "囫囵吞枣",
+                "isCorrect": False,
+                "feedback": "孔子治学最忌只读表面而不求甚解。对于艰深的《周易》，他更是逐字逐句地推敲，绝不含糊。"
+            },
+            {
+                "text": "墨守成规",
+                "isCorrect": False,
+                "feedback": "孔子读易，并非死守古义，而是“述而不作，信而好古”中又有所创新，赋予了《周易》全新的德义内涵。"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "韦编初断",
+        "narrative": "春秋时期的书，是将许多根竹简用熟牛皮绳（韦）编联起来的。虽然牛皮绳坚韧异常，但架不住孔子日复一日、年复一年的频繁翻阅。这一日，正当孔子读到兴头上时，手中的书简突然散了架——那条坚韧的牛皮绳竟然磨断了！",
+        "environmentDescription": "Bamboo slips scattered on the floor, broken leather strap.",
+        "characterState": "Confucius looking surprised but calm.",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_03_broken.jpg",
+        "options": [
+            {
+                "text": "欣然重编",
+                "isCorrect": True,
+                "feedback": "孔子并没有因此懊恼，反而因为自己读书之勤而感到一丝欣慰。他唤来弟子，耐心地将竹简按顺序重新编好，继续攻读。"
+            },
+            {
+                "text": "怅然若失",
+                "isCorrect": False,
+                "feedback": "书简虽断，学问未断。孔子心胸豁达，这点小事不会让他感到怅然，反而会更激发他读书的热情。"
+            },
+            {
+                "text": "置之不理",
+                "isCorrect": False,
+                "feedback": "书是孔子的良师益友，怎么会置之不理呢？"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "韦编三绝",
+        "narrative": "这并非偶然。随着岁月的流逝，孔子读《易》的热情有增无减。据说，那编联竹简的熟牛皮绳，竟然先后断了三次之多！这也不仅成为了“韦编三绝”这一成语的典故由来，更成为了后世千古流传的勤学佳话。",
+        "environmentDescription": "Time passing montage, worn out bamboo slips.",
+        "characterState": "Confucius looking determined and diligent.",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_04_three_times.jpg",
+        "options": [
+            {
+                "text": "笃志虚心",
+                "isCorrect": True,
+                "feedback": "正是这种笃志好学、虚心求教的精神，成就了孔子的圣人地位。正如他自己所言：“我非生而知之者，好古，敏以求之者也。”"
+            },
+            {
+                "text": "爱书如命",
+                "isCorrect": False,
+                "feedback": "虽然孔子确实爱书，但“韦编三绝”的核心精神在于“勤奋”与“刻苦”，而非单纯对书籍实体的爱惜。"
+            },
+            {
+                "text": "力大无穷",
+                "isCorrect": False,
+                "feedback": "牛皮绳并非被拉断，而是被磨断的。这体现的是“水滴石穿”的功夫，而非力气的大小。"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "假我数年",
+        "narrative": "面对博大精深的《周易》，孔子依然保持着极度的谦逊。他曾深有感触地对子路说：“假我数年，五十以学《易》，可以无大过矣。” 即使到了古稀之年，他依然觉得时间不够用，依然觉得自己还有提升的空间。",
+        "environmentDescription": "Confucius looking at the sky/horizon, contemplating.",
+        "characterState": "Confucius looking wise and humble.",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_05_humble.jpg",
+        "options": [
+            {
+                "text": "不仅孜孜",
+                "isCorrect": True,
+                "feedback": "圣人之所以为圣人，在于从不满足于已有的成就。孔子的这种“不知老之将至”的求学态度，才是最值得我们后人学习的。"
+            },
+            {
+                "text": "临渊羡鱼",
+                "isCorrect": False,
+                "feedback": "孔子是在身体力行地“退而结网”，通过踏实地学习来避免过失，而非空想羡慕。"
+            },
+            {
+                "text": "悔不当初",
+                "isCorrect": False,
+                "feedback": "孔子一生光明磊落，此言并非后悔，而是对知识的无限向往和对完美人格的不懈追求。"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "十翼传世",
+        "narrative": "功夫不负有心人。孔子晚年对《周易》的整理和注释，汇集成了被后世称为《十翼》（《易传》）的不朽经典。他为这本古老的卜筮之书插上了哲学的翅膀，使其飞越了千年的时空，至今仍照耀着中华文明的天空。",
+        "environmentDescription": "Confucius teaching, phantom of Yi Jing text in background.",
+        "characterState": "Confucius interacting with disciples.",
+        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_06_legacy.jpg",
+        "options": []
+    }
+]
+
 def generate_sql():
     sql = []
     
@@ -1029,7 +1369,7 @@ def generate_sql():
 
     # Xiyou
     sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('danaotiangong', 'xiyouji', '大闹天宫', '孙悟空大闹天宫，挑战十万天兵天将。', '齐天大圣', '十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('sandabaigujing', 'xiyouji', '三打白骨精 (敬请期待)', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', 2) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('sandabaigujing', 'xiyouji', '三打白骨精', '白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。', '破镜重圆', '师徒四人经历了误会与分离，最终消除隔阂，重归于好。这份失而复得的情谊，更加坚不可摧。', 2) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;")
     sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zhenjiameihouwang', 'xiyouji', '真假美猴王 (敬请期待)', '六耳猕猴假冒悟空，上天入地难辨真伪，终至如来佛祖处方显原形。', 3) ON CONFLICT (id) DO NOTHING;")
     sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('nuerguo', 'xiyouji', '女儿国奇遇 (敬请期待)', '师徒误入西梁女国，唐僧在女王柔情与取经大业之间经受考验。', 4) ON CONFLICT (id) DO NOTHING;")
     sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('dazhanhonghaier', 'xiyouji', '大战红孩儿 (敬请期待)', '红孩儿练成三昧真火，悟空难敌，请来观音菩萨方才收服。', 5) ON CONFLICT (id) DO NOTHING;")
@@ -1044,7 +1384,7 @@ def generate_sql():
 
     # Lunyu
     sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('yanhuitouzhou', 'lunyu', '颜回偷粥', '孔子误会颜回偷食，终知真相。通过此事感叹“知人不易”。', '知人不易', '所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。', 1) ON CONFLICT (id) DO NOTHING;")
-    sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('weibiansanjue', 'lunyu', '韦编三绝 (敬请期待)', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', 2) ON CONFLICT (id) DO NOTHING;")
+    sql.append("  INSERT INTO stories (id, category_id, title, description, ending_title, ending_description, sort_order) VALUES ('weibiansanjue', 'lunyu', '韦编三绝', '孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”', '勤学不倦', '韦编三绝今犹在，从此勤学不仅是少年的事，更是毕生的修行。', 2) ON CONFLICT (id) DO UPDATE SET title=EXCLUDED.title, description=EXCLUDED.description, ending_title=EXCLUDED.ending_title, ending_description=EXCLUDED.ending_description, sort_order=EXCLUDED.sort_order;")
     sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('zilushoujiao', 'lunyu', '子路受教 (敬请期待)', '子路问政，孔子教之以先之劳之。子路性直，孔子常循循善诱。', 3) ON CONFLICT (id) DO NOTHING;")
     sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('shizherusi', 'lunyu', '逝者如斯 (敬请期待)', '子在川上曰：“逝者如斯夫！不舍昼夜。” 感叹时光流逝，勉励弟子珍惜光阴。', 4) ON CONFLICT (id) DO NOTHING;")
     sql.append("  INSERT INTO stories (id, category_id, title, description, sort_order) VALUES ('junzibuqi', 'lunyu', '君子不器 (敬请期待)', '孔子曰：“君子不器。” 意为君子博学多才，不应像器物一样只有单一用途。', 5) ON CONFLICT (id) DO NOTHING;")
@@ -1086,9 +1426,11 @@ def generate_sql():
     sql.extend(get_scene_sql('sangumaolu', sangumaolu_scenes))
     sql.extend(get_scene_sql('taoyuan', taoyuan_scenes))
     sql.extend(get_scene_sql('danaotiangong', danaotiangong_scenes))
+    sql.extend(get_scene_sql('sandabaigujing', sandabaigujing_scenes))
     sql.extend(get_scene_sql('jingweitianhai', jingweitianhai_scenes))
     sql.extend(get_scene_sql('houyisheri', houyisheri_scenes))
     sql.extend(get_scene_sql('yanhuitouzhou', yanhuitouzhou_scenes))
+    sql.extend(get_scene_sql('weibiansanjue', weibiansanjue_scenes))
 
     # PL/pgSQL END removed
     
