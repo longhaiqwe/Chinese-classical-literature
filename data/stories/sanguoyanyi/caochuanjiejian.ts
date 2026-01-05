@@ -8,7 +8,7 @@ export const CAOCHUANJIEJIAN_SCENES: IGameScene[] = [
         narrative: "周瑜忌孔明之能，恐为东吴后患，意欲除之。一日，瑜请孔明议事，曰：“水上交兵，当以何兵器为先？”孔明曰：“大江之上，弓箭为先。”瑜大喜，曰：“军中正缺箭，敢烦先生监造十万枝。此系公事，先生幸勿推却。”",
         environmentDescription: "Inside the military tent, Zhou Yu sits on the main seat with a hidden agenda, while Zhuge Liang stands calmly.",
         characterState: "Zhou Yu looks commanding; Zhuge Liang holds a feather fan, composed.",
-        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_01_request.png",
+        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_01_request.jpg",
         options: [
             {
                 text: "言辞推托，不承军令",
@@ -33,7 +33,7 @@ export const CAOCHUANJIEJIAN_SCENES: IGameScene[] = [
         narrative: "孔明立状毕，鲁肃忧而问曰：“先生何故自取其祸？三日如何造得如许之箭？”孔明曰：“子敬救我！望借我二十只船，每船军士三十人，船上皆用青布为幔，各束草千余个，分布两边。切不可令公瑾知之。”",
         environmentDescription: "Zhuge Liang and Lu Su talking privately, intense atmosphere.",
         characterState: "Zhuge Liang whispering requests to Lu Su.",
-        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_02_plan.png",
+        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_02_plan.jpg",
         options: [
             {
                 text: "密嘱子敬，隐瞒公瑾",
@@ -58,7 +58,7 @@ export const CAOCHUANJIEJIAN_SCENES: IGameScene[] = [
         narrative: "至第三日五更，孔明密请鲁肃入舟。肃惊问：“何往？”孔明笑曰：“特请子敬同往取箭。”是时大雾漫天，长江之中，面对不相见。孔明令将二十只船，用长索连住，径望北岸进发。",
         environmentDescription: "Heavy fog on the river, boats connected by chains invisible in the distance.",
         characterState: "Zhuge Liang and Lu Su on a boat, surrounded by thick fog.",
-        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_03_fog.png",
+        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_03_fog.jpg",
         options: [
             {
                 text: "擂鼓呐喊，虚张声势",
@@ -83,7 +83,7 @@ export const CAOCHUANJIEJIAN_SCENES: IGameScene[] = [
         narrative: "曹操于寨中闻鼓声擂人心魄，慌问虚实。左右报曰：“江上迷雾重重，不知吴军多少。”操疑有伏兵，不敢轻出，急令旱寨、水寨弓弩手乱箭射之。",
         environmentDescription: "Cao Cao's camp in panic, archers shooting blindly into the fog.",
         characterState: "Cao Cao commanding archers with a suspicious look.",
-        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_04_arrows.png",
+        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_04_arrows.jpg",
         options: [
             {
                 text: "掉转船头，两面受箭",
@@ -108,7 +108,7 @@ export const CAOCHUANJIEJIAN_SCENES: IGameScene[] = [
         narrative: "日高雾散，孔明视草上之箭，密密麻麻，约得十万余枝。遂令军士齐声高叫：“谢丞相箭！”曹操知中计，急令赶时，轻舟已过万重山。",
         environmentDescription: "Boats full of arrows returning, sun starting to clear the fog.",
         characterState: "Zhuge Liang laughing, soldiers shouting in joy.",
-        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_05_return.png",
+        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_05_return.jpg",
         options: [
             {
                 text: "满载而归，复命周瑜",
