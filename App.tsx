@@ -388,7 +388,7 @@ const App: React.FC = () => {
               {/* Optional: Show the bad ending image if available */}
               {scenes[scenes.length - 1]?.imageUrl && (
                 <div className="mb-6 rounded overflow-hidden border-2 border-ink-200 shadow-md">
-                  <img src={scenes[scenes.length - 1].imageUrl} alt="Failure" className="w-full h-48 object-cover opacity-80" />
+                  <img src={scenes[scenes.length - 1].imageUrl} alt="Failure" className="w-full aspect-video object-cover opacity-80" />
                 </div>
               )}
 

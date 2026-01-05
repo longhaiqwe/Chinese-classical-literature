@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 # Local scripts
-scripts
+
 
 # Temporary assets
 temp_assets/

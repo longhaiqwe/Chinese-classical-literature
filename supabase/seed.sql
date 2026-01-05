@@ -94,6 +94,10 @@ DO $$ DECLARE v_scene_id uuid; BEGIN
   INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '乘胜追击，痛打落水狗', false, '此行只为借箭，兵力单薄，不可恋战。', 2);
   INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '半途而废，私吞羽箭', false, '若私吞羽箭，何以复命？', 3);
 
+  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url, audio_url) VALUES ('caochuanjiejian', 6, '平行时空：军法从事', '三天期限已到，十万枝箭未能凑齐。周瑜依军令状，令刀斧手将诸葛亮推出辕门斩首。一代卧龙就此陨落，孙刘联盟破裂，曹操挥师南下，天下一统归魏。', 'Execution ground inside the camp. Zhou Yu sits sternly on the podium, throwing the command arrow. Zhuge Liang is bound, looking up at the sky with a sigh.', 'Zhou Yu stern and cold; Zhuge Liang resigned.', 'https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/sanguoyanyi/caochuanjiejian/bg_06_execution.jpg', NULL) ON CONFLICT (story_id, scene_index) DO UPDATE SET title=EXCLUDED.title, narrative=EXCLUDED.narrative, environment_description=EXCLUDED.environment_description, character_state=EXCLUDED.character_state, image_url=EXCLUDED.image_url, audio_url=EXCLUDED.audio_url RETURNING id INTO v_scene_id;
+  DELETE FROM scene_options WHERE scene_id = v_scene_id;
+  INSERT INTO scene_options (scene_id, text, is_correct, feedback, sort_order) VALUES (v_scene_id, '重新来过，再施妙计', true, '胜败乃兵家常事，少侠请重新来过。', 1);
+
 END $$;
 DO $$ DECLARE v_scene_id uuid; BEGIN
   -- Story: taoyuan
