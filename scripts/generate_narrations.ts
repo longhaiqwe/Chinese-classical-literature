@@ -20,7 +20,7 @@ async function generateNarrations() {
         console.log(`Processing category: ${category.id} (${category.title})`);
 
         for (const story of category.stories) {
-            if (story.id !== 'caochuanjiejian') continue;
+            if (story.id !== 'zhenjiameihouwang') continue;
             console.log(`  Processing story: ${story.id} (${story.title})`);
 
             for (const scene of story.scenes) {
@@ -43,6 +43,7 @@ async function generateNarrations() {
 
                     if (data?.status === 'success') {
                         console.log(`    [SUCCESS] Audio already exists: ${data.audio_url}`);
+                        console.log(`SQL_UPDATE: UPDATE scenes SET audio_url = '${data.audio_url}' WHERE story_id = '${story.id}' AND scene_index = ${scene.id};`);
                         continue;
                     }
 
@@ -69,6 +70,7 @@ async function generateNarrations() {
 
                         if (statusData?.status === 'success') {
                             console.log(`    [SUCCESS] Audio generated and uploaded: ${statusData.audio_url}`);
+                            console.log(`SQL_UPDATE: UPDATE scenes SET audio_url = '${statusData.audio_url}' WHERE story_id = '${story.id}' AND scene_index = ${scene.id};`);
                             break;
                         } else if (statusData?.status === 'failed') {
                             console.error(`    [FAILED] Generation failed: ${statusData.message}`);
@@ -88,18 +90,13 @@ async function generateNarrations() {
                     if (JSON.stringify(err).includes("Too many requests")) {
                         console.log(`    [RATE LIMIT] Hit rate limit. Waiting 60s before retry...`);
                         await new Promise(resolve => setTimeout(resolve, 60000));
-                        // Decrement loop counter or retry logic? 
-                        // Simplified: just wait and let next iteration proceed (or maybe retry this scene?)
-                        // For simplicity in this script, we'll just log and move to next, user can re-run.
-                        // Ideally we should retry.
                     }
                     console.error(`    [EXCEPTION] Error processing scene ${scene.id}:`, err);
                 }
 
-                // Add delay to avoid rate limiting (3 requests per 60s => 1 req per 20s)
-                // We add 25s padding to be safe.
-                console.log(`    [WAIT] Waiting 25s to respect rate limit...`);
-                await new Promise(resolve => setTimeout(resolve, 25000));
+                // Add delay to avoid rate limiting
+                console.log(`    [WAIT] Waiting 5s...`);
+                await new Promise(resolve => setTimeout(resolve, 5000));
             }
         }
     }

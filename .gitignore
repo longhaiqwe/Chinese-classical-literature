@@ -30,3 +30,6 @@ dist-ssr
 temp_assets/
 xiaohongshu_exports/
 public/assets/
+
+# Antigravity
+.agent/
