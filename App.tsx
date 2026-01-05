@@ -33,6 +33,31 @@ const App: React.FC = () => {
     loadCategories();
   }, []);
 
+  // Deep Linking Handler (for Automation/Debugging)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const storyId = params.get('story');
+    const sceneIndexStr = params.get('scene');
+
+    if (storyId && categories.length > 0 && !selectedStory && !isLoading) {
+      const targetCategory = categories.find(c => c.stories.some(s => s.id === storyId));
+      if (targetCategory) {
+        const targetStory = targetCategory.stories.find(s => s.id === storyId);
+        if (targetStory) {
+          console.log(`Deep linking to story: ${storyId}, scene: ${sceneIndexStr}`);
+          handleSelectStory(targetStory).then(() => {
+            if (sceneIndexStr) {
+              const idx = parseInt(sceneIndexStr, 10);
+              if (!isNaN(idx)) {
+                setCurrentSceneIndex(idx);
+              }
+            }
+          });
+        }
+      }
+    }
+  }, [categories, isLoading]); // Depend on categories to ensure they are loaded
+
   const loadCategories = async () => {
     try {
       setIsLoading(true);
@@ -183,8 +208,13 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-paper-50 bg-paper-texture text-ink-900 font-serif selection:bg-accent-red selection:text-white">
       {/* Decorative Border */}
-      <div className="fixed top-0 left-0 w-full h-2 bg-ink-800 z-50"></div>
-      <div className="fixed bottom-0 left-0 w-full h-2 bg-ink-800 z-50"></div>
+      {/* Decorative Border - Hide in screenshot mode (when ?scene= is present) to avoid scrolling artifacts */}
+      {!new URLSearchParams(window.location.search).has('scene') && (
+        <>
+          <div className="fixed top-0 left-0 w-full h-2 bg-ink-800 z-50"></div>
+          <div className="fixed bottom-0 left-0 w-full h-2 bg-ink-800 z-50"></div>
+        </>
+      )}
 
       <main className="container mx-auto px-4 py-8 min-h-screen flex flex-col">
 
@@ -212,7 +242,7 @@ const App: React.FC = () => {
         </header>
 
         {/* Content Area */}
-        <div className="flex-grow flex flex-col items-center justify-center w-full">
+        <div className="flex-grow flex flex-col items-center justify-start w-full">
 
           {/* LOADING */}
           {isLoading && (
