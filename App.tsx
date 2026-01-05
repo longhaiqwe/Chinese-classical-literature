@@ -28,26 +28,23 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   // --- URL State Management Helper ---
-  const updateUrlParams = (categoryId: string | null, storyId: string | null, sceneIndex: number | null) => {
+  const updateUrlParams = (categoryId: string | null, storyId: string | null, sceneIndex: number | string | null) => {
     const url = new URL(window.location.href);
 
-    if (categoryId) {
-      url.searchParams.set('category', categoryId);
-    } else {
-      url.searchParams.delete('category');
-    }
+    if (categoryId) url.searchParams.set('category', categoryId);
+    else url.searchParams.delete('category');
 
-    if (storyId) {
-      url.searchParams.set('story', storyId);
-    } else {
-      url.searchParams.delete('story');
-    }
+    if (storyId) url.searchParams.set('story', storyId);
+    else url.searchParams.delete('story');
 
     if (sceneIndex !== null) {
       url.searchParams.set('scene', sceneIndex.toString());
     } else {
       url.searchParams.delete('scene');
     }
+
+    // Remove legacy state param if it exists, to keep URLs clean
+    url.searchParams.delete('state');
 
     window.history.replaceState({}, '', url.toString());
   };
@@ -63,7 +60,8 @@ const App: React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     const categoryId = params.get('category');
     const storyId = params.get('story');
-    const sceneIndexStr = params.get('scene');
+    const sceneParam = params.get('scene');
+    // const stateStr = params.get('state'); // Deprecated
 
     if (categories.length > 0 && !isLoading) {
       // 1. Handle Story Deep Link (Prioritized)
@@ -72,10 +70,23 @@ const App: React.FC = () => {
         if (targetCategory) {
           const targetStory = targetCategory.stories.find(s => s.id === storyId);
           if (targetStory) {
-            console.log(`Deep linking to story: ${storyId}, scene: ${sceneIndexStr}`);
-            handleSelectStory(targetStory).then(() => {
-              if (sceneIndexStr) {
-                const idx = parseInt(sceneIndexStr, 10);
+            console.log(`Deep linking to story: ${storyId}, scene: ${sceneParam}`);
+            handleSelectStory(targetStory).then((loadedScenes) => {
+              // Handle special states via 'scene' param
+              if (sceneParam === 'game_over') {
+                setAppState(AppState.GAME_OVER);
+                // Ensure scene is at end for data consistency if needed
+                if (loadedScenes) setCurrentSceneIndex(loadedScenes.length - 1);
+                return;
+              }
+              if (sceneParam === 'victory') {
+                setAppState(AppState.VICTORY);
+                return;
+              }
+
+              // Handle numeric scene index
+              if (sceneParam) {
+                const idx = parseInt(sceneParam, 10);
                 if (!isNaN(idx)) {
                   setCurrentSceneIndex(idx);
                 }
@@ -142,15 +153,16 @@ const App: React.FC = () => {
       setScenes(scenes);
       setCurrentSceneIndex(0);
       setAppState(AppState.PLAYING);
-      // We keep result param categoryId if available, but simplest is to find it or just set story
-      // Ideally we know the category of this story.
-      // Let's find it from state or list.
+
       const parentCat = categories.find(c => c.stories.some(s => s.id === story.id));
       updateUrlParams(parentCat?.id || null, story.id, 0);
+
+      return scenes; // Return scenes for deep linking logic
     } catch (err) {
       console.error("Failed to load story details", err);
       // Ideally show a toast or alert
       alert("无法加载故事详情，请稍后再试。");
+      return null;
     } finally {
       setIsLoading(false);
     }
@@ -191,7 +203,9 @@ const App: React.FC = () => {
     const badEndingIndex = scenes.length - 1;
     if (currentSceneIndex === badEndingIndex - 1) {
       setAppState(AppState.VICTORY);
-      // saveProgressToDB(0); // Optional: Reset progress on victory
+      if (selectedStory) {
+        updateUrlParams(selectedCategory?.id || null, selectedStory.id, 'victory');
+      }
       return;
     }
 
@@ -206,6 +220,12 @@ const App: React.FC = () => {
 
   const handleGameOver = () => {
     setAppState(AppState.GAME_OVER);
+    // Update URL to point to the bad ending scene index (last scene)
+    if (selectedStory && scenes.length > 0) {
+      const badEndingIndex = scenes.length - 1;
+      setCurrentSceneIndex(badEndingIndex); // Sync index too just in case
+      updateUrlParams(selectedCategory?.id || null, selectedStory.id, 'game_over');
+    }
   };
 
   const handleRestart = () => {
