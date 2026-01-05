@@ -1,6 +1,7 @@
 import { IGameCategory } from '../../../types';
 import { TAOYUAN_SCENES } from './taoyuan';
 import { SANGUMAOLU_SCENES } from './sangumaolu';
+import { CAOCHUANJIEJIAN_SCENES } from './caochuanjiejian';
 
 export const SanguoCategory: IGameCategory = {
     id: 'sanguoyanyi',
@@ -9,6 +10,7 @@ export const SanguoCategory: IGameCategory = {
     stories: [
         {
             id: 'taoyuan',
+            isReady: true,
             title: '桃园结义',
             description: '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。',
             endingTitle: '义薄云天',
@@ -17,6 +19,7 @@ export const SanguoCategory: IGameCategory = {
         },
         {
             id: 'sangumaolu',
+            isReady: true,
             title: '三顾茅庐',
             description: '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。',
             endingTitle: '如鱼得水',
@@ -24,31 +27,38 @@ export const SanguoCategory: IGameCategory = {
             scenes: SANGUMAOLU_SCENES
         },
         {
-            id: 'sanguo_placeholder_2',
-            title: '草船借箭 (敬请期待)',
+            id: 'caochuanjiejian',
+            isReady: true,
+            title: '草船借箭',
             description: '周瑜设计害孔明，孔明谈笑间草船借箭十万枝。',
-            scenes: []
+            endingTitle: '神机妙算',
+            endingDescription: '孔明神机妙算，草船借箭十万枝，周瑜自叹不如。',
+            scenes: CAOCHUANJIEJIAN_SCENES
         },
         {
             id: 'chibizhizhan',
+            isReady: false,
             title: '赤壁之战 (敬请期待)',
             description: '孙刘联军火烧赤壁，大破曹操八十万大军，奠定三国鼎立之势。',
             scenes: []
         },
         {
             id: 'kongchengji',
+            isReady: false,
             title: '空城计 (敬请期待)',
             description: '司马懿大军压境，诸葛亮因险设局，抚琴退敌。',
             scenes: []
         },
         {
             id: 'zhujiulunyinxiong',
+            isReady: false,
             title: '煮酒论英雄 (敬请期待)',
             description: '曹操青梅煮酒，与刘备共论天下英雄。',
             scenes: []
         },
         {
             id: 'qiqinmenghuo',
+            isReady: false,
             title: '七擒孟获 (敬请期待)',
             description: '诸葛亮深入南中，七擒七纵孟获，攻心为上，平定南方。',
             scenes: []

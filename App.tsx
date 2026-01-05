@@ -27,32 +27,72 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // --- URL State Management Helper ---
+  const updateUrlParams = (categoryId: string | null, storyId: string | null, sceneIndex: number | null) => {
+    const url = new URL(window.location.href);
+
+    if (categoryId) {
+      url.searchParams.set('category', categoryId);
+    } else {
+      url.searchParams.delete('category');
+    }
+
+    if (storyId) {
+      url.searchParams.set('story', storyId);
+    } else {
+      url.searchParams.delete('story');
+    }
+
+    if (sceneIndex !== null) {
+      url.searchParams.set('scene', sceneIndex.toString());
+    } else {
+      url.searchParams.delete('scene');
+    }
+
+    window.history.replaceState({}, '', url.toString());
+  };
+
   // Initialize
   useEffect(() => {
     setIsNative(Capacitor.isNativePlatform());
     loadCategories();
   }, []);
 
-  // Deep Linking Handler (for Automation/Debugging)
+  // Deep Linking Handler (for Automation/Debugging/State Persistence)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    const categoryId = params.get('category');
     const storyId = params.get('story');
     const sceneIndexStr = params.get('scene');
 
-    if (storyId && categories.length > 0 && !selectedStory && !isLoading) {
-      const targetCategory = categories.find(c => c.stories.some(s => s.id === storyId));
-      if (targetCategory) {
-        const targetStory = targetCategory.stories.find(s => s.id === storyId);
-        if (targetStory) {
-          console.log(`Deep linking to story: ${storyId}, scene: ${sceneIndexStr}`);
-          handleSelectStory(targetStory).then(() => {
-            if (sceneIndexStr) {
-              const idx = parseInt(sceneIndexStr, 10);
-              if (!isNaN(idx)) {
-                setCurrentSceneIndex(idx);
+    if (categories.length > 0 && !isLoading) {
+      // 1. Handle Story Deep Link (Prioritized)
+      if (storyId && !selectedStory) {
+        const targetCategory = categories.find(c => c.stories.some(s => s.id === storyId));
+        if (targetCategory) {
+          const targetStory = targetCategory.stories.find(s => s.id === storyId);
+          if (targetStory) {
+            console.log(`Deep linking to story: ${storyId}, scene: ${sceneIndexStr}`);
+            handleSelectStory(targetStory).then(() => {
+              if (sceneIndexStr) {
+                const idx = parseInt(sceneIndexStr, 10);
+                if (!isNaN(idx)) {
+                  setCurrentSceneIndex(idx);
+                }
               }
-            }
-          });
+            });
+            return; // Exit if handling story
+          }
+        }
+      }
+
+      // 2. Handle Category Deep Link (If no story selected)
+      if (categoryId && !selectedCategory && !selectedStory) {
+        const targetCategory = categories.find(c => c.id === categoryId);
+        if (targetCategory) {
+          console.log(`Deep linking to category: ${categoryId}`);
+          setSelectedCategory(targetCategory);
+          setAppState(AppState.CATEGORY_VIEW);
         }
       }
     }
@@ -79,16 +119,19 @@ const App: React.FC = () => {
     }
   }, [currentSceneIndex, appState]);
 
+
   // --- Navigation Handlers ---
 
   const handleSelectCategory = (category: IGameCategory) => {
     setSelectedCategory(category);
     setAppState(AppState.CATEGORY_VIEW);
+    updateUrlParams(category.id, null, null);
   };
 
   const handleBackToHome = () => {
     setSelectedCategory(null);
     setAppState(AppState.HOME);
+    updateUrlParams(null, null, null);
   };
 
   const handleSelectStory = async (story: IGameStory) => {
@@ -99,6 +142,11 @@ const App: React.FC = () => {
       setScenes(scenes);
       setCurrentSceneIndex(0);
       setAppState(AppState.PLAYING);
+      // We keep result param categoryId if available, but simplest is to find it or just set story
+      // Ideally we know the category of this story.
+      // Let's find it from state or list.
+      const parentCat = categories.find(c => c.stories.some(s => s.id === story.id));
+      updateUrlParams(parentCat?.id || null, story.id, 0);
     } catch (err) {
       console.error("Failed to load story details", err);
       // Ideally show a toast or alert
@@ -112,6 +160,11 @@ const App: React.FC = () => {
     setSelectedStory(null);
     setScenes([]);
     setAppState(AppState.CATEGORY_VIEW);
+    if (selectedCategory) {
+      updateUrlParams(selectedCategory.id, null, null);
+    } else {
+      updateUrlParams(null, null, null); // Fallback
+    }
   };
 
   // --- Game Gameplay Handlers ---
@@ -145,6 +198,9 @@ const App: React.FC = () => {
     // Standard progression
     const nextIndex = currentSceneIndex + 1;
     setCurrentSceneIndex(nextIndex);
+    if (selectedStory) {
+      updateUrlParams(selectedCategory?.id || null, selectedStory.id, nextIndex);
+    }
     window.scrollTo(0, 0);
   };
 
@@ -156,6 +212,9 @@ const App: React.FC = () => {
     setCurrentSceneIndex(0);
     saveProgressToDB(0);
     setAppState(AppState.PLAYING);
+    if (selectedStory) {
+      updateUrlParams(selectedCategory?.id || null, selectedStory.id, 0);
+    }
     window.scrollTo(0, 0);
   };
 

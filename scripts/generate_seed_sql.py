@@ -147,6 +147,140 @@ sangumaolu_scenes = [
     }
 ]
 
+
+caochuanjiejian_scenes = [
+    {
+        "id": 1,
+        "title": "公瑾设计",
+        "narrative": "周瑜忌孔明之能，恐为东吴后患，意欲除之。一日，瑜请孔明议事，曰：“水上交兵，当以何兵器为先？”孔明曰：“大江之上，弓箭为先。”瑜大喜，曰：“军中正缺箭，敢烦先生监造十万枝。此系公事，先生幸勿推却。”",
+        "environmentDescription": "Inside the military tent, Zhou Yu sits on the main seat with a hidden agenda, while Zhuge Liang stands calmly.",
+        "characterState": "Zhou Yu looks commanding; Zhuge Liang holds a feather fan, composed.",
+        "imageUrl": "/assets/sanguoyanyi/caochuanjiejian/bg_01_request.png",
+        "audioUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_1.mp3",
+        "options": [
+            {
+                "text": "言辞推托，不承军令",
+                "isCorrect": False,
+                "feedback": "若此推托，周瑜必以贻误军机之罪相加，正中其下怀。"
+            },
+            {
+                "text": "立军令状，三日便交",
+                "isCorrect": True,
+                "feedback": "孔明笑曰：“曹军即日将至，若候十日，必误大事。亮只须三天，便献十万枝箭。”遂立军令状。"
+            },
+            {
+                "text": "如期应允，十日完工",
+                "isCorrect": False,
+                "feedback": "十日造十万箭，纵有工匠也不易办到。且周瑜必从中作梗，使之不成，此乃绝路。"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "私借草船",
+        "narrative": "孔明立状毕，鲁肃忧而问曰：“先生何故自取其祸？三日如何造得如许之箭？”孔明曰：“子敬救我！望借我二十只船，每船军士三十人，船上皆用青布为幔，各束草千余个，分布两边。切不可令公瑾知之。”",
+        "environmentDescription": "Zhuge Liang and Lu Su talking privately, intense atmosphere.",
+        "characterState": "Zhuge Liang whispering requests to Lu Su.",
+        "imageUrl": "/assets/sanguoyanyi/caochuanjiejian/bg_02_plan.png",
+        "audioUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_2.mp3",
+        "options": [
+            {
+                "text": "密嘱子敬，隐瞒公瑾",
+                "isCorrect": True,
+                "feedback": "子敬依言而行，回报周瑜时，只说孔明不用竹、漆、翎、毛等物，瑜大惑不解。"
+            },
+            {
+                "text": "告知实情，求助于瑜",
+                "isCorrect": False,
+                "feedback": "若让周瑜知晓此计，必先毁船断路，孔明性命休矣。"
+            },
+            {
+                "text": "自购材料，连夜赶制",
+                "isCorrect": False,
+                "feedback": "军中材料皆被周瑜扣留，且三天时间绝难造出十万箭。"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "雾锁长江",
+        "narrative": "至第三日五更，孔明密请鲁肃入舟。肃惊问：“何往？”孔明笑曰：“特请子敬同往取箭。”是时大雾漫天，长江之中，面对不相见。孔明令将二十只船，用长索连住，径望北岸进发。",
+        "environmentDescription": "Heavy fog on the river, boats connected by chains invisible in the distance.",
+        "characterState": "Zhuge Liang and Lu Su on a boat, surrounded by thick fog.",
+        "imageUrl": "/assets/sanguoyanyi/caochuanjiejian/bg_03_fog.png",
+        "audioUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_3.mp3",
+        "options": [
+            {
+                "text": "擂鼓呐喊，虚张声势",
+                "isCorrect": True,
+                "feedback": "孔明令船只头西尾东，一字摆开，军士擂鼓呐喊。鲁肃大惊曰：“曹兵齐出若何？”"
+            },
+            {
+                "text": "悄然潜行，勿露行藏",
+                "isCorrect": False,
+                "feedback": "若不惊动曹军，曹操怎会轻易放箭？此计关键在于“诱”字。"
+            },
+            {
+                "text": "正面强攻，登陆冲杀",
+                "isCorrect": False,
+                "feedback": "我们就这二十只船，几百军士，若去强攻，无异于以卵击石。"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "曹营惊弓",
+        "narrative": "曹操于寨中闻鼓声擂人心魄，慌问虚实。左右报曰：“江上迷雾重重，不知吴军多少。”操疑有伏兵，不敢轻出，急令旱寨、水寨弓弩手乱箭射之。",
+        "environmentDescription": "Cao Cao's camp in panic, archers shooting blindly into the fog.",
+        "characterState": "Cao Cao commanding archers with a suspicious look.",
+        "imageUrl": "/assets/sanguoyanyi/caochuanjiejian/bg_04_arrows.png",
+        "audioUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_4.mp3",
+        "options": [
+            {
+                "text": "掉转船头，两面受箭",
+                "isCorrect": True,
+                "feedback": "一侧草把箭满，孔明令把船掉转，头东尾西，逼近水寨受箭，一面既满，再取一面。"
+            },
+            {
+                "text": "急令回撤，见好就收",
+                "isCorrect": False,
+                "feedback": "此时箭数尚不足十万，若此时回撤，军令状难销，性命难保。"
+            },
+            {
+                "text": "冲入水寨，火攻曹营",
+                "isCorrect": False,
+                "feedback": "船上尽是干草，若冲入寨中，反易被火箭所引，自取灭亡。"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "谢箭而还",
+        "narrative": "日高雾散，孔明视草上之箭，密密麻麻，约得十万余枝。遂令军士齐声高叫：“谢丞相箭！”曹操知中计，急令赶时，轻舟已过万重山。",
+        "environmentDescription": "Boats full of arrows returning, sun starting to clear the fog.",
+        "characterState": "Zhuge Liang laughing, soldiers shouting in joy.",
+        "imageUrl": "/assets/sanguoyanyi/caochuanjiejian/bg_05_return.png",
+        "audioUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_5.mp3",
+        "options": [
+            {
+                "text": "满载而归，复命周瑜",
+                "isCorrect": True,
+                "feedback": "船轻水急，曹军追之不及。孔明回至江东，周瑜差人来搬箭，只见十万余枝，无一根缺损。"
+            },
+            {
+                "text": "乘胜追击，痛打落水狗",
+                "isCorrect": False,
+                "feedback": "此行只为借箭，兵力单薄，不可恋战。"
+            },
+             {
+                "text": "半途而废，私吞羽箭",
+                "isCorrect": False,
+                "feedback": "若私吞羽箭，何以复命？"
+            }
+        ]
+    }
+]
+
 taoyuan_scenes = [
     {
         "id": 1,
@@ -1373,7 +1507,7 @@ def generate_sql():
     # Sanguo
     sql.append(get_story_upsert('sangumaolu', 'sanguoyanyi', '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1))
     sql.append(get_story_upsert('taoyuan', 'sanguoyanyi', '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2))
-    sql.append(get_story_upsert('caochuanjiejian', 'sanguoyanyi', '草船借箭 (敬请期待)', '周瑜刁难诸葛亮，命其十日造剑十万。诸葛亮趁大雾草船借箭，挫败周瑜阴谋。', None, None, 3))
+    sql.append(get_story_upsert('caochuanjiejian', 'sanguoyanyi', '草船借箭', '周瑜设计害孔明，孔明谈笑间草船借箭十万枝。', '神机妙算', '孔明神机妙算，草船借箭十万枝，周瑜自叹不如。', 3))
     sql.append(get_story_upsert('huoshaochibi', 'sanguoyanyi', '火烧赤壁 (敬请期待)', '孙刘联军于赤壁大破曹军，奠定三国鼎立基础。', None, None, 4))
     sql.append(get_story_upsert('kongchengji', 'sanguoyanyi', '空城计 (敬请期待)', '马谡失街亭，司马懿大军压境。诸葛亮大开城门，抚琴退敌。', None, None, 5))
 
@@ -1416,9 +1550,15 @@ def generate_sql():
             if img_url.startswith('/assets/'):
                 img_url = STORAGE_BASE_URL + img_url.replace('/assets/', '/')
             
+            audio_url = scene.get('audioUrl', '').replace("'", "''")
+            if not audio_url:
+                audio_url = 'NULL'
+            else:
+                audio_url = f"'{audio_url}'"
+            
             # UPSERT SCENE
             # This requires a UNIQUE constraint on scenes(story_id, scene_index)
-            lines.append(f"  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url) VALUES ('{story_id}', {scene_index}, '{title}', '{narrative}', '{env_desc}', '{char_state}', '{img_url}') ON CONFLICT (story_id, scene_index) DO UPDATE SET title=EXCLUDED.title, narrative=EXCLUDED.narrative, environment_description=EXCLUDED.environment_description, character_state=EXCLUDED.character_state, image_url=EXCLUDED.image_url RETURNING id INTO v_scene_id;")
+            lines.append(f"  INSERT INTO scenes (story_id, scene_index, title, narrative, environment_description, character_state, image_url, audio_url) VALUES ('{story_id}', {scene_index}, '{title}', '{narrative}', '{env_desc}', '{char_state}', '{img_url}', {audio_url}) ON CONFLICT (story_id, scene_index) DO UPDATE SET title=EXCLUDED.title, narrative=EXCLUDED.narrative, environment_description=EXCLUDED.environment_description, character_state=EXCLUDED.character_state, image_url=EXCLUDED.image_url, audio_url=EXCLUDED.audio_url RETURNING id INTO v_scene_id;")
             
             # REFRESH OPTIONS
             # Delete options for this scene first, then re-insert. 
@@ -1439,6 +1579,7 @@ def generate_sql():
     # 5. Insert Scenes
     # -------------------------------------------------------------
     sql.extend(get_scene_sql('sangumaolu', sangumaolu_scenes))
+    sql.extend(get_scene_sql('caochuanjiejian', caochuanjiejian_scenes))
     sql.extend(get_scene_sql('taoyuan', taoyuan_scenes))
     sql.extend(get_scene_sql('danaotiangong', danaotiangong_scenes))
     sql.extend(get_scene_sql('sandabaigujing', sandabaigujing_scenes))

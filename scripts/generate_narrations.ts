@@ -20,7 +20,7 @@ async function generateNarrations() {
         console.log(`Processing category: ${category.id} (${category.title})`);
 
         for (const story of category.stories) {
-            if (story.id !== 'houyisheri') continue;
+            if (story.id !== 'caochuanjiejian') continue;
             console.log(`  Processing story: ${story.id} (${story.title})`);
 
             for (const scene of story.scenes) {
