@@ -224,6 +224,16 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
+  const handleRetry = () => {
+    // Retry current chapter (keep same scene index)
+    // No need to reset progress to 0, just set state back to PLAYING
+    setAppState(AppState.PLAYING);
+    if (selectedStory) {
+      updateUrlParams(selectedCategory?.id || null, selectedStory.id, currentSceneIndex);
+    }
+    window.scrollTo(0, 0);
+  };
+
   const handleExitGame = () => {
     // Return to story selection
     handleBackToCategory();

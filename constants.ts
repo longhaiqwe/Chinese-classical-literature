@@ -12,6 +12,7 @@ export const UI_LABELS = {
   redraw: "重绘卷轴",
   correct_feedback: "【妙哉】",
   incorrect_feedback: "【偏颇】",
+  retry_chapter: "重试",
 };
 
 // Ink wash style colors for dynamic usage if needed

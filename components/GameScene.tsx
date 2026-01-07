@@ -16,8 +16,9 @@ interface GameSceneProps {
 const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOver, currentSceneIndex, totalScenes }) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
 
-  // Randomize options when scene changes
+  // Randomize options when scene changes or retried
   const shuffledOptions = useMemo(() => {
     const options = [...scene.options];
     for (let i = options.length - 1; i > 0; i--) {
@@ -25,7 +26,7 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOve
       [options[i], options[j]] = [options[j], options[i]];
     }
     return options;
-  }, [scene]);
+  }, [scene, retryCount]);
 
   const handleOptionClick = (index: number) => {
     if (showFeedback) return; // Prevent double clicking
@@ -110,7 +111,7 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOve
               {currentOption?.feedback}
             </p>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end gap-3">
               {isCorrect ? (
                 <button
                   onClick={onNext}
@@ -119,12 +120,28 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOve
                   {UI_LABELS.next_scene}
                 </button>
               ) : (
-                <button
-                  onClick={onGameOver}
-                  className="px-8 py-2 bg-accent-red text-paper-100 font-serif text-lg rounded hover:bg-red-800 transition-colors shadow-lg"
-                >
-                  结束
-                </button>
+                <>
+                  <button
+                    onClick={() => {
+                      setSelectedOptionIndex(null);
+                      setShowFeedback(false);
+                      // Optional: Reshuffle or not? User asked to "retry", usually implies resetting the decision point.
+                      // If we want to reshuffle, we'd need to depend on something that changes.
+                      // Currently shuffledOptions depends on [scene].
+                      // If we want to reshuffle, we can add a retryCount state to the dependency.
+                      setRetryCount(c => c + 1);
+                    }}
+                    className="px-6 py-2 bg-accent-brown text-paper-100 font-serif text-lg rounded hover:opacity-90 transition-colors shadow-lg"
+                  >
+                    {UI_LABELS.retry_chapter}
+                  </button>
+                  <button
+                    onClick={onGameOver}
+                    className="px-4 py-2 bg-transparent border border-accent-red text-accent-red font-serif text-lg rounded hover:bg-red-50 transition-colors"
+                  >
+                    结束
+                  </button>
+                </>
               )}
             </div>
           </div>
