@@ -9,6 +9,8 @@ import GameScene from './components/GameScene';
 import HomeView from './components/HomeView';
 import CategoryView from './components/CategoryView';
 import LoadingScreen from './components/LoadingScreen';
+import FeedbackModal from './components/FeedbackModal';
+import FeedbackTassel from './components/FeedbackTassel';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.HOME);
@@ -27,6 +29,7 @@ const App: React.FC = () => {
   // UI State
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
 
   // --- URL State Management Helper ---
   const updateUrlParams = (categoryId: string | null, storyId: string | null, sceneIndex: number | string | null) => {
@@ -348,7 +351,23 @@ const App: React.FC = () => {
             </button>
           )}
 
-          <h1 className="text-5xl md:text-6xl font-calligraphy text-ink-900 mb-2 drop-shadow-sm tracking-widest cursor-pointer" onClick={handleBackToHome}>
+          {/* Feedback Button */}
+          {/* Feedback Button - Only on Home */}
+          {(appState === AppState.HOME && !isNative) && (
+            // Web fallback or alternative if needed, but for now we use the Tassel for both if desired.
+            // However, the user specifically asked for "App" design. Let's make it consistent.
+            // Actually, the user's prompt implies the previous Web one was "Okay", but this Tassel is for "App".
+            // To ensure consistent high-quality aesthetics, we will use the Tassel everywhere.
+            <></>
+          )}
+
+          {appState === AppState.HOME && (
+            <FeedbackTassel
+              onClick={() => setIsFeedbackOpen(true)}
+            />
+          )}
+
+          <h1 className="text-[42px] md:text-6xl font-calligraphy text-ink-900 mb-2 drop-shadow-sm tracking-widest cursor-pointer" onClick={handleBackToHome}>
             {APP_TITLE}
           </h1>
 
@@ -477,6 +496,11 @@ const App: React.FC = () => {
 
         </div>
       </main>
+
+      <FeedbackModal
+        isOpen={isFeedbackOpen}
+        onClose={() => setIsFeedbackOpen(false)}
+      />
     </div>
   );
 };
