@@ -81,7 +81,7 @@ async function main() {
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
         defaultViewport: {
             width: 1080,
-            height: 600, // Small initial height to let content determine the full page size
+            height: 1440, // 3:4 Ratio (1080 * 1.333...)
             deviceScaleFactor: 1,
             isMobile: true,
             hasTouch: true
@@ -89,7 +89,9 @@ async function main() {
     });
 
     const page = await browser.newPage();
-    const BASE_URL = 'http://localhost:3002'; // Updated to match running dev server
+    const portArgIndex = args.indexOf('--port');
+    const port = portArgIndex !== -1 ? args[portArgIndex + 1] : '3000';
+    const BASE_URL = `http://localhost:${port}`;
 
     // 5. Generate Text & Screenshots
     let postContent = '';
@@ -101,7 +103,8 @@ async function main() {
     postContent += `3. 这种暗黑国漫风谁懂啊？西游记《${storyId}》\n\n`;
     postContent += `【正文内容】\n`;
 
-    for (let i = 0; i < scenes.length; i++) {
+    // Exclude the last scene (Bad Ending) as requested
+    for (let i = 0; i < scenes.length - 1; i++) {
         const scene = scenes[i];
         const indexStr = (i + 1).toString().padStart(2, '0');
         const screenshotPath = path.join(storyDir, `${indexStr}_${scene.title.replace(/\s+/g, '_')}.png`);
@@ -113,15 +116,96 @@ async function main() {
             const url = `${BASE_URL}?story=${storyId}&scene=${i}`;
             await page.goto(url, { waitUntil: 'networkidle0' });
 
-            // Wait specifically for the GameScene component to appear
-            // We'll target a generic class that should exist in your GameScene
-            // Based on App.tsx, GameScene is rendered. Let's assume some stable selector or just wait briefly.
-            // Better to wait for a specific text or element from the scene to be robust.
-
             // Wait a moment for animations/images to load
             await new Promise(r => setTimeout(r, 2000)); // 2s delay for safety
 
-            // Capture screenshot
+            // Inject Custom CSS for Better Visibility on 1080px width
+            await page.addStyleTag({
+                content: `
+                    /* Hide Global App Header - Aggressive Selector */
+                    header { display: none !important; }
+
+                    /* Title */
+                    h2 { 
+                        font-size: 56px !important; 
+                        margin-bottom: 24px !important; 
+                        margin-top: 40px !important; 
+                    }
+                    
+                    /* Narrative Text - Target GameScene (text-justify) and Game Over (generic) differently */
+                    p { 
+                        font-size: 36px !important; 
+                        line-height: 1.5 !important; 
+                        margin-bottom: 24px !important;
+                    }
+                    /* Indent only for Story Scene */
+                    p.text-justify {
+                        text-indent: 2em !important; 
+                    }
+                    /* Center for Game Over Scene */
+                    p:not(.text-justify) {
+                        text-align: center !important;
+                        text-indent: 0 !important;
+                    }
+
+                    /* Layout Enforcement - Allow growth but ensure min 3:4 ratio */
+                    html, body, #root, main { 
+                        min-height: 1440px !important; 
+                        height: auto !important;
+                        overflow: visible !important;
+                        background-color: #f7f5f0; 
+                    }
+
+                    /* Main Container Flex */
+                    main {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        justify-content: flex-start !important; /* Start from top now that padding is managed */
+                        padding-top: 40px !important; 
+                        padding-bottom: 80px !important; /* Add padding at bottom for breathing room */
+                    }
+
+                    /* Reduce Scene Spacing */
+                    .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+                        --tw-space-y-reverse: 0;
+                        margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+                        margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+                    }
+                    
+                    /* Image Container - Limit Height to save space */
+                    .aspect-video {
+                        aspect-ratio: auto !important;
+                        height: 500px !important; /* Fixed height for image */
+                        width: 100% !important;
+                        margin-bottom: 24px !important;
+                    }
+                    img { object-fit: cover !important; height: 100% !important; width: 100% !important; }
+                    
+                    /* Scene Container Padding */
+                    .p-6, .p-8 { padding: 32px !important; }
+                    
+                    /* Options Text */
+                    button { margin-bottom: 16px !important; font-size: 32px !important; }
+                    button span { font-size: 32px !important; }
+
+                    /* Hide Interactive Buttons (Back button in header) */
+                    button:has(svg) { display: none !important; } 
+                    
+                    /* Allow Game Over buttons to be visible but style them */
+                    /* The above :has(svg) might hide Game Over buttons if they have icons? No icons in Game Over buttons in App.tsx */
+                    
+                    /* Force Game Over Card Width */
+                    div[class*="max-w-2xl"] {
+                        max-width: 90% !important; /* Widen it a bit for the screenshot */
+                    }
+                `
+            });
+
+            // Debug: Log the height
+            const height = await page.evaluate(() => document.documentElement.scrollHeight);
+            console.log(`📏 Page height for scene ${i + 1}: ${height}px`);
+
+            // Capture screenshot (full page for long content)
             await page.screenshot({ path: screenshotPath, fullPage: true });
 
         } catch (err) {

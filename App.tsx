@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { IGameScene, AppState, IGameCategory, IGameStory } from './types';
 import { storyService } from './services/storyService';
 import { loadProgressFromDB, saveProgressToDB } from './services/db';
-import { APP_TITLE, APP_SUBTITLE, UI_LABELS } from './constants';
+import { APP_TITLE, UI_LABELS } from './constants';
 import GameScene from './components/GameScene';
 import HomeView from './components/HomeView';
 import CategoryView from './components/CategoryView';
@@ -315,9 +315,7 @@ const App: React.FC = () => {
           <h1 className="text-5xl md:text-6xl font-calligraphy text-ink-900 mb-2 drop-shadow-sm tracking-widest cursor-pointer" onClick={handleBackToHome}>
             {APP_TITLE}
           </h1>
-          <p className="text-lg text-accent-brown uppercase tracking-widest font-bold opacity-80 border-b border-ink-800/20 inline-block pb-1">
-            {APP_SUBTITLE}
-          </p>
+
         </header>
 
         {/* Content Area */}
