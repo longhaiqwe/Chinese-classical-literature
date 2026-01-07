@@ -1,6 +1,10 @@
 
 export const APP_TITLE = "中国古典文学";
 
+export const STORAGE_KEYS = {
+  LAST_PLAYED_STORY: 'peach_garden_last_story_id',
+};
+
 export const UI_LABELS = {
   start_button: "开启卷轴",
   continue_button: "继续旅程",

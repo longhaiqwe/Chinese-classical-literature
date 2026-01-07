@@ -1,5 +1,6 @@
 import { Capacitor } from '@capacitor/core';
 import React, { useState, useEffect, useRef } from 'react';
+import { STORAGE_KEYS } from './constants';
 import { IGameScene, AppState, IGameCategory, IGameStory } from './types';
 import { storyService } from './services/storyService';
 import { loadProgressFromDB, saveProgressToDB } from './services/db';
@@ -56,64 +57,78 @@ const App: React.FC = () => {
   }, []);
 
   // Deep Linking Handler (for Automation/Debugging/State Persistence)
+  // This useEffect is now largely replaced by logic within loadCategories for initial load
+  // but remains for handling specific 'scene' states after a story is loaded via deep link.
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const categoryId = params.get('category');
-    const storyId = params.get('story');
     const sceneParam = params.get('scene');
-    // const stateStr = params.get('state'); // Deprecated
 
-    if (categories.length > 0 && !isLoading) {
-      // 1. Handle Story Deep Link (Prioritized)
-      if (storyId && !selectedStory) {
-        const targetCategory = categories.find(c => c.stories.some(s => s.id === storyId));
-        if (targetCategory) {
-          const targetStory = targetCategory.stories.find(s => s.id === storyId);
-          if (targetStory) {
-            console.log(`Deep linking to story: ${storyId}, scene: ${sceneParam}`);
-            handleSelectStory(targetStory).then((loadedScenes) => {
-              // Handle special states via 'scene' param
-              if (sceneParam === 'game_over') {
-                setAppState(AppState.GAME_OVER);
-                // Ensure scene is at end for data consistency if needed
-                if (loadedScenes) setCurrentSceneIndex(loadedScenes.length - 1);
-                return;
-              }
-              if (sceneParam === 'victory') {
-                setAppState(AppState.VICTORY);
-                return;
-              }
-
-              // Handle numeric scene index
-              if (sceneParam) {
-                const idx = parseInt(sceneParam, 10);
-                if (!isNaN(idx)) {
-                  setCurrentSceneIndex(idx);
-                }
-              }
-            });
-            return; // Exit if handling story
-          }
-        }
+    if (selectedStory && scenes.length > 0) {
+      // Handle special states via 'scene' param
+      if (sceneParam === 'game_over') {
+        setAppState(AppState.GAME_OVER);
+        // Ensure scene is at end for data consistency if needed
+        if (scenes) setCurrentSceneIndex(scenes.length - 1);
+        return;
+      }
+      if (sceneParam === 'victory') {
+        setAppState(AppState.VICTORY);
+        return;
       }
 
-      // 2. Handle Category Deep Link (If no story selected)
-      if (categoryId && !selectedCategory && !selectedStory) {
-        const targetCategory = categories.find(c => c.id === categoryId);
-        if (targetCategory) {
-          console.log(`Deep linking to category: ${categoryId}`);
-          setSelectedCategory(targetCategory);
-          setAppState(AppState.CATEGORY_VIEW);
+      // Handle numeric scene index
+      if (sceneParam) {
+        const idx = parseInt(sceneParam, 10);
+        if (!isNaN(idx) && idx >= 0 && idx < scenes.length) {
+          setCurrentSceneIndex(idx);
         }
       }
     }
-  }, [categories, isLoading]); // Depend on categories to ensure they are loaded
+  }, [selectedStory, scenes]); // Depend on selectedStory and scenes to ensure they are loaded
 
   const loadCategories = async () => {
     try {
       setIsLoading(true);
       const data = await storyService.getCategories();
-      setCategories(data);
+      console.log('Loaded categories:', data);
+
+      // Check for deep links
+      const params = new URLSearchParams(window.location.search);
+      const storyId = params.get('story');
+      const catId = params.get('category');
+
+      // Check for auto-resume (Last played story) - Only if NO deep link is present
+      const lastPlayedStoryId = localStorage.getItem(STORAGE_KEYS.LAST_PLAYED_STORY);
+
+      setCategories(data); // Set categories first so they are available for selection logic
+
+      if (storyId) {
+        // Handle Story Deep Link (Prioritized)
+        const flatStories = data.flatMap(c => c.stories);
+        const targetStory = flatStories.find(s => s.id === storyId);
+        if (targetStory) {
+          console.log(`Deep linking to story: ${storyId}`);
+          await handleSelectStory(targetStory); // This handles loading progress too
+        }
+      } else if (lastPlayedStoryId) {
+        // Auto-resume logic if no story deep link
+        console.log("Found last played story, auto-resuming:", lastPlayedStoryId);
+        const flatStories = data.flatMap(c => c.stories);
+        const targetStory = flatStories.find(s => s.id === lastPlayedStoryId);
+        if (targetStory) {
+          // We found the story, let's go!
+          await handleSelectStory(targetStory);
+        }
+      } else if (catId) {
+        // Handle Category Deep Link (If no story selected)
+        const targetCat = data.find(c => c.id === catId);
+        if (targetCat) {
+          console.log(`Deep linking to category: ${catId}`);
+          setSelectedCategory(targetCat);
+          setAppState(AppState.CATEGORY_VIEW);
+        }
+      }
+
       setError(null);
     } catch (err) {
       console.error("Failed to load categories", err);
@@ -125,10 +140,10 @@ const App: React.FC = () => {
 
   // Save progress to Local DB (Keep existing logic but only when playing)
   useEffect(() => {
-    if (appState === AppState.PLAYING) {
-      saveProgressToDB(currentSceneIndex).catch(err => console.error("Failed to save progress", err));
+    if (appState === AppState.PLAYING && selectedStory) {
+      saveProgressToDB(selectedStory.id, currentSceneIndex).catch(err => console.error("Failed to save progress", err));
     }
-  }, [currentSceneIndex, appState]);
+  }, [currentSceneIndex, appState, selectedStory]);
 
 
   // --- Navigation Handlers ---
@@ -140,8 +155,11 @@ const App: React.FC = () => {
   };
 
   const handleBackToHome = () => {
-    setSelectedCategory(null);
     setAppState(AppState.HOME);
+    setSelectedCategory(null);
+    setSelectedStory(null);
+    // User explicitly exited, so clear the auto-resume record
+    localStorage.removeItem(STORAGE_KEYS.LAST_PLAYED_STORY);
     updateUrlParams(null, null, null);
   };
 
@@ -156,11 +174,22 @@ const App: React.FC = () => {
 
       setSelectedStory(story);
       setScenes(validScenes);
-      setCurrentSceneIndex(0);
+
+      // Load saved progress
+      const savedIndex = await loadProgressFromDB(story.id);
+      console.log(`Loaded progress for story ${story.id}: scene ${savedIndex}`);
+
+      // Auto-resume if within valid range
+      const initialIndex = (savedIndex >= 0 && savedIndex < validScenes.length) ? savedIndex : 0;
+      setCurrentSceneIndex(initialIndex);
+
       setAppState(AppState.PLAYING);
 
+      // Save as last played story for auto-resume on next launch
+      localStorage.setItem(STORAGE_KEYS.LAST_PLAYED_STORY, story.id);
+
       const parentCat = categories.find(c => c.stories.some(s => s.id === story.id));
-      updateUrlParams(parentCat?.id || null, story.id, 0);
+      updateUrlParams(parentCat?.id || null, story.id, initialIndex);
 
       return validScenes; // Return scenes for deep linking logic
     } catch (err) {
@@ -191,10 +220,7 @@ const App: React.FC = () => {
 
     // If we've completed all valid scenes, it's Victory
     if (nextIndex >= scenes.length) {
-      setAppState(AppState.VICTORY);
-      if (selectedStory) {
-        updateUrlParams(selectedCategory?.id || null, selectedStory.id, 'victory');
-      }
+      handleVictory();
       return;
     }
 
@@ -214,9 +240,24 @@ const App: React.FC = () => {
     }
   };
 
+  const handleVictory = () => {
+    if (selectedStory) {
+      // Clear progress on victory so they can start fresh next time
+      saveProgressToDB(selectedStory.id, 0);
+      // Also clear auto-resume since they finished it
+      localStorage.removeItem(STORAGE_KEYS.LAST_PLAYED_STORY);
+    }
+    setAppState(AppState.VICTORY);
+    if (selectedStory) {
+      updateUrlParams(selectedCategory?.id || null, selectedStory.id, 'victory');
+    }
+  };
+
   const handleRestart = () => {
     setCurrentSceneIndex(0);
-    saveProgressToDB(0);
+    if (selectedStory) {
+      saveProgressToDB(selectedStory.id, 0);
+    }
     setAppState(AppState.PLAYING);
     if (selectedStory) {
       updateUrlParams(selectedCategory?.id || null, selectedStory.id, 0);
@@ -322,8 +363,22 @@ const App: React.FC = () => {
             <LoadingScreen mode="story" />
           )}
 
+          {/* ERROR MESSAGE */}
+          {!isLoading && error && (
+            <div className="flex flex-col items-center justify-center p-8 text-center animate-fade-in">
+              <div className="text-accent-red text-xl mb-4 font-bold">出错了</div>
+              <p className="text-ink-600 mb-6">{error}</p>
+              <button
+                onClick={loadCategories}
+                className="px-6 py-2 bg-ink-900 text-white rounded hover:bg-ink-700 transition-colors"
+              >
+                重试
+              </button>
+            </div>
+          )}
+
           {/* HOME VIEW */}
-          {!isLoading && appState === AppState.HOME && (
+          {!isLoading && !error && appState === AppState.HOME && (
             <HomeView
               categories={categories}
               onSelectCategory={handleSelectCategory}

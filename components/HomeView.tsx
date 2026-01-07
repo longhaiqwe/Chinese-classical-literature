@@ -39,11 +39,15 @@ const HomeView: React.FC<HomeViewProps> = ({ categories, onSelectCategory, initi
 
     // Create an extended array: [Last, ...Originals, First]
     // This allows swiping left from First to Last, and right from Last to First.
-    const extendedCategories = React.useMemo(() => [
-        { ...categories[categories.length - 1], id: categories[categories.length - 1].id + '_clone_start' },
-        ...categories,
-        { ...categories[0], id: categories[0].id + '_clone_end' }
-    ], [categories]);
+    const extendedCategories = React.useMemo(() => {
+        if (categories.length === 0) return [];
+
+        return [
+            { ...categories[categories.length - 1], id: categories[categories.length - 1].id + '_clone_start' },
+            ...categories,
+            { ...categories[0], id: categories[0].id + '_clone_end' }
+        ];
+    }, [categories]);
 
     // Ref to track if we need to adjust scroll silently
     const isScrollingRef = React.useRef(false);
@@ -88,6 +92,14 @@ const HomeView: React.FC<HomeViewProps> = ({ categories, onSelectCategory, initi
 
     // Mobile App View: Swipeable Carousel with Circular (Infinite) Scroll
     if (isNative) {
+        if (categories.length === 0) {
+            return (
+                <div className="w-full h-full flex flex-col items-center justify-center animate-fade-in pb-4 text-ink-400">
+                    <p>暂无典籍数据</p>
+                </div>
+            );
+        }
+
         return (
             <div className="w-full h-full flex flex-col overflow-hidden animate-fade-in pb-4">
                 {/* Compact Header for Carousel */}

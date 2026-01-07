@@ -69,14 +69,14 @@ export const loadScenesFromDB = async (): Promise<IGameScene[] | null> => {
 };
 
 /**
- * Save current reading progress (index)
+ * Save current reading progress (index) for a specific story
  */
-export const saveProgressToDB = async (index: number): Promise<void> => {
+export const saveProgressToDB = async (storyId: string, index: number): Promise<void> => {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction([STORE_PROGRESS], 'readwrite');
     const store = transaction.objectStore(STORE_PROGRESS);
-    const request = store.put(index, KEY_PROGRESS);
+    const request = store.put(index, storyId);
 
     request.onsuccess = () => resolve();
     request.onerror = () => reject(request.error);
@@ -84,14 +84,14 @@ export const saveProgressToDB = async (index: number): Promise<void> => {
 };
 
 /**
- * Load reading progress
+ * Load reading progress for a specific story
  */
-export const loadProgressFromDB = async (): Promise<number> => {
+export const loadProgressFromDB = async (storyId: string): Promise<number> => {
   const db = await openDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction([STORE_PROGRESS], 'readonly');
     const store = transaction.objectStore(STORE_PROGRESS);
-    const request = store.get(KEY_PROGRESS);
+    const request = store.get(storyId);
 
     request.onsuccess = () => {
       // Default to 0 if not found
