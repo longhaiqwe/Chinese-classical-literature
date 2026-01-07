@@ -9,9 +9,11 @@ interface GameSceneProps {
   storyId: string;
   onNext: () => void;
   onGameOver: () => void;
+  currentSceneIndex: number;
+  totalScenes: number;
 }
 
-const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOver }) => {
+const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOver, currentSceneIndex, totalScenes }) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
 
@@ -37,10 +39,13 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOve
   return (
     <div className="flex flex-col w-full max-w-4xl mx-auto space-y-6 animate-fade-in pb-12">
       {/* Header / Title */}
-      <div className="text-center border-b-2 border-ink-800/10 pb-4">
+      <div className="text-center border-b-2 border-ink-800/10 pb-4 relative">
         <h2 className="text-3xl font-calligraphy text-accent-red mb-2">
           {scene.id === 7 ? scene.title : `第 ${scene.id} 章 · ${scene.title}`}
         </h2>
+        <div className="absolute right-0 bottom-4 text-ink-600 font-serif text-xl opacity-80">
+          第 {currentSceneIndex + 1} / {totalScenes} 幕
+        </div>
       </div>
 
       {/* Image Container */}

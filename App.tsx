@@ -148,16 +148,21 @@ const App: React.FC = () => {
   const handleSelectStory = async (story: IGameStory) => {
     try {
       setIsLoading(true);
-      const scenes = await storyService.getStoryDetails(story.id);
+      const allScenes = await storyService.getStoryDetails(story.id);
+
+      // Remove the last scene (Bad Ending) to unify logic
+      // Only slice if we have multiple scenes, assuming the last is always the Bad Ending placeholder
+      const validScenes = allScenes.length > 1 ? allScenes.slice(0, -1) : allScenes;
+
       setSelectedStory(story);
-      setScenes(scenes);
+      setScenes(validScenes);
       setCurrentSceneIndex(0);
       setAppState(AppState.PLAYING);
 
       const parentCat = categories.find(c => c.stories.some(s => s.id === story.id));
       updateUrlParams(parentCat?.id || null, story.id, 0);
 
-      return scenes; // Return scenes for deep linking logic
+      return validScenes; // Return scenes for deep linking logic
     } catch (err) {
       console.error("Failed to load story details", err);
       // Ideally show a toast or alert
@@ -182,26 +187,10 @@ const App: React.FC = () => {
   // --- Game Gameplay Handlers ---
 
   const handleNextScene = () => {
-    // Valid text flow from Bad Ending (Index 6) is to restart
-    if (currentSceneIndex === 6) {
-      handleRestart();
-      return;
-    }
+    const nextIndex = currentSceneIndex + 1;
 
-    // Victory Condition: If current scene is the second to last scene (assuming last is Bad Ending)
-    // OR if we define "Success" differently. For now, let's assume if there are N scenes,
-    // index N-1 is Bad Ending, so index N-2 is the Final Good Scene.
-    // If we are at index N-2 and click Next, we win.
-
-    // Better logic: Check if the *next* index is the Bad Ending (which we need to identify).
-    // Convention: The last scene in the array is the Bad Ending (id=7 or similar).
-    // So if currentSceneIndex satisfies (nextIndex === scenes.length - 1), it means we are trying to go to the bad ending
-    // but via the "Success" path (because options handle the bad path).
-
-    // Simplified: If we are at the last "Good" scene.
-    // Let's assume the last scene in the list is the Bad Ending.
-    const badEndingIndex = scenes.length - 1;
-    if (currentSceneIndex === badEndingIndex - 1) {
+    // If we've completed all valid scenes, it's Victory
+    if (nextIndex >= scenes.length) {
       setAppState(AppState.VICTORY);
       if (selectedStory) {
         updateUrlParams(selectedCategory?.id || null, selectedStory.id, 'victory');
@@ -210,7 +199,6 @@ const App: React.FC = () => {
     }
 
     // Standard progression
-    const nextIndex = currentSceneIndex + 1;
     setCurrentSceneIndex(nextIndex);
     if (selectedStory) {
       updateUrlParams(selectedCategory?.id || null, selectedStory.id, nextIndex);
@@ -220,10 +208,8 @@ const App: React.FC = () => {
 
   const handleGameOver = () => {
     setAppState(AppState.GAME_OVER);
-    // Update URL to point to the bad ending scene index (last scene)
-    if (selectedStory && scenes.length > 0) {
-      const badEndingIndex = scenes.length - 1;
-      setCurrentSceneIndex(badEndingIndex); // Sync index too just in case
+    // Use 'game_over' state in URL, but do NOT set index to a scene that doesn't exist in our filtered list
+    if (selectedStory) {
       updateUrlParams(selectedCategory?.id || null, selectedStory.id, 'game_over');
     }
   };
@@ -366,6 +352,8 @@ const App: React.FC = () => {
                 storyId={selectedStory?.id || 'unknown'}
                 onNext={handleNextScene}
                 onGameOver={handleGameOver}
+                currentSceneIndex={currentSceneIndex}
+                totalScenes={scenes.length}
               />
             </div>
           )}
@@ -400,18 +388,11 @@ const App: React.FC = () => {
           {appState === AppState.GAME_OVER && (
             <div className="text-center animate-fade-in p-8 border-4 border-double border-ink-400 bg-paper-100 shadow-2xl max-w-2xl mx-4">
               <h2 className="text-4xl md:text-5xl font-calligraphy text-ink-600 mb-6">
-                {scenes[scenes.length - 1]?.title || "挑战失败"}
+                挑战失败
               </h2>
 
-              {/* Optional: Show the bad ending image if available */}
-              {scenes[scenes.length - 1]?.imageUrl && (
-                <div className="mb-6 rounded overflow-hidden border-2 border-ink-200 shadow-md">
-                  <img src={scenes[scenes.length - 1].imageUrl} alt="Failure" className="w-full aspect-video object-cover opacity-80" />
-                </div>
-              )}
-
               <p className="text-lg md:text-xl mb-8 leading-relaxed whitespace-pre-line font-serif text-ink-800">
-                {scenes[scenes.length - 1]?.narrative || "胜败乃兵家常事，少侠请重新来过。"}
+                胜败乃兵家常事，少侠请重新来过。
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <button
