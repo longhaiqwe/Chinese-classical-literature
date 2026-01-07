@@ -40,12 +40,19 @@ const GameScene: React.FC<GameSceneProps> = ({ scene, storyId, onNext, onGameOve
   return (
     <div className="flex flex-col w-full max-w-4xl mx-auto space-y-6 animate-fade-in pb-12">
       {/* Header / Title */}
-      <div className="text-center border-b-2 border-ink-800/10 pb-4 relative">
-        <h2 className="text-3xl font-calligraphy text-accent-red mb-2">
+      {/* Header / Title */}
+      <div className="flex flex-col md:flex-row items-center justify-center relative border-b-2 border-ink-800/10 pb-4 gap-2 md:gap-0">
+
+        {/* Title - Centered on mobile and desktop */}
+        <h2 className="text-2xl md:text-3xl font-calligraphy text-accent-red text-center w-full">
           {scene.id === 7 ? scene.title : `第 ${scene.id} 章 · ${scene.title}`}
         </h2>
-        <div className="absolute right-0 bottom-4 text-ink-600 font-serif text-xl opacity-80">
-          第 {currentSceneIndex + 1} / {totalScenes} 幕
+
+        {/* Progress Indicator - Below title on mobile, Right aligned on desktop */}
+        <div className="md:absolute md:right-0 md:bottom-4 text-ink-500 font-serif text-sm md:text-xl md:text-ink-600 md:opacity-80 flex items-center gap-2">
+          <span className="md:hidden opacity-50 text-xs">—</span>
+          <span>第 {currentSceneIndex + 1} / {totalScenes} 幕</span>
+          <span className="md:hidden opacity-50 text-xs">—</span>
         </div>
       </div>
 

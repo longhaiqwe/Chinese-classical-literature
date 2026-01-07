@@ -32,7 +32,6 @@ export const VoicePlayer: React.FC<VoicePlayerProps> = ({ storyId, sceneIndex, t
             if (error) {
                 // Determine if it's a 404 or other error. 
                 // For now, if error, we set to idle/failed.
-                console.log('Check status error:', error);
                 setStatus('idle');
                 return;
             }

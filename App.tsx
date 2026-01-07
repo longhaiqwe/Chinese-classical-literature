@@ -90,7 +90,7 @@ const App: React.FC = () => {
     try {
       setIsLoading(true);
       const data = await storyService.getCategories();
-      console.log('Loaded categories:', data);
+
 
       // Check for deep links
       const params = new URLSearchParams(window.location.search);
@@ -112,7 +112,6 @@ const App: React.FC = () => {
         }
       } else if (lastPlayedStoryId) {
         // Auto-resume logic if no story deep link
-        console.log("Found last played story, auto-resuming:", lastPlayedStoryId);
         const flatStories = data.flatMap(c => c.stories);
         const targetStory = flatStories.find(s => s.id === lastPlayedStoryId);
         if (targetStory) {
@@ -177,7 +176,7 @@ const App: React.FC = () => {
 
       // Load saved progress
       const savedIndex = await loadProgressFromDB(story.id);
-      console.log(`Loaded progress for story ${story.id}: scene ${savedIndex}`);
+
 
       // Auto-resume if within valid range
       const initialIndex = (savedIndex >= 0 && savedIndex < validScenes.length) ? savedIndex : 0;
