@@ -8,12 +8,12 @@ interface FeedbackTasselProps {
 const FeedbackTassel: React.FC<FeedbackTasselProps> = ({ onClick, className = '' }) => {
     return (
         <div
-            className={`absolute top-0 right-1 z-[60] cursor-pointer hover:brightness-110 transition-all origin-top hover:rotate-1 ${className} group`}
+            className={`absolute top-3 right-1 z-[60] cursor-pointer hover:brightness-110 transition-all origin-top hover:rotate-1 ${className} group`}
             onClick={onClick}
             title="意见反馈"
         >
             {/* Hanging Rope */}
-            <div className="w-[1px] h-5 bg-accent-red mx-auto" />
+            <div className="w-[2px] h-5 bg-accent-red mx-auto" />
 
             <svg
                 width="34"
@@ -50,12 +50,12 @@ const FeedbackTassel: React.FC<FeedbackTasselProps> = ({ onClick, className = ''
 
                 {/* The 'Tag' - This is the key affordance for 'Feedback' */}
                 {/* Using a rectangular Wooden/Paper tag shape */}
-                <rect x="18" y="45" width="24" height="42" rx="2" fill="#F7F4E9" stroke="#8B2626" strokeWidth="2" />
-                <rect x="20" y="47" width="20" height="38" rx="1" stroke="#8B2626" strokeWidth="1" strokeOpacity="0.3" fill="none" />
+                <rect x="16" y="43" width="28" height="46" rx="2" fill="#F7F4E9" stroke="#8B2626" strokeWidth="2" />
+                <rect x="18" y="45" width="24" height="42" rx="1" stroke="#8B2626" strokeWidth="1" strokeOpacity="0.3" fill="none" />
 
                 {/* Vertical Text 'Feedback' */}
-                <text x="30" y="62" textAnchor="middle" fontSize="12" fontFamily="Ma Shan Zheng, cursive" fill="#8B2626" className="select-none pointer-events-none">反</text>
-                <text x="30" y="78" textAnchor="middle" fontSize="12" fontFamily="Ma Shan Zheng, cursive" fill="#8B2626" className="select-none pointer-events-none">馈</text>
+                <text x="30" y="61" textAnchor="middle" fontSize="15" fontFamily="Ma Shan Zheng, cursive" fill="#8B2626" className="select-none pointer-events-none">反</text>
+                <text x="30" y="79" textAnchor="middle" fontSize="15" fontFamily="Ma Shan Zheng, cursive" fill="#8B2626" className="select-none pointer-events-none">馈</text>
 
                 {/* Tassel Head */}
                 <path d="M22 90 Q 30 95 38 90 L 36 100 H 24 L 22 90 Z" fill="#8B2626" />
