@@ -107,18 +107,22 @@ const App: React.FC = () => {
 
       if (storyId) {
         // Handle Story Deep Link (Prioritized)
-        const flatStories = data.flatMap(c => c.stories);
-        const targetStory = flatStories.find(s => s.id === storyId);
-        if (targetStory) {
+        const targetCategory = data.find(c => c.stories.some(s => s.id === storyId));
+        const targetStory = targetCategory?.stories.find(s => s.id === storyId);
+
+        if (targetCategory && targetStory) {
           console.log(`Deep linking to story: ${storyId}`);
+          setSelectedCategory(targetCategory);
           await handleSelectStory(targetStory); // This handles loading progress too
         }
       } else if (lastPlayedStoryId) {
         // Auto-resume logic if no story deep link
-        const flatStories = data.flatMap(c => c.stories);
-        const targetStory = flatStories.find(s => s.id === lastPlayedStoryId);
-        if (targetStory) {
+        const targetCategory = data.find(c => c.stories.some(s => s.id === lastPlayedStoryId));
+        const targetStory = targetCategory?.stories.find(s => s.id === lastPlayedStoryId);
+
+        if (targetCategory && targetStory) {
           // We found the story, let's go!
+          setSelectedCategory(targetCategory);
           await handleSelectStory(targetStory);
         }
       } else if (catId) {
