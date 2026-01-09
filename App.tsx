@@ -113,7 +113,18 @@ const App: React.FC = () => {
         if (targetCategory && targetStory) {
           console.log(`Deep linking to story: ${storyId}`);
           setSelectedCategory(targetCategory);
-          await handleSelectStory(targetStory); // This handles loading progress too
+
+          // Parse scene index if present
+          const sceneParam = params.get('scene');
+          let initialScene: number | undefined = undefined;
+          if (sceneParam) {
+            const parsed = parseInt(sceneParam, 10);
+            if (!isNaN(parsed)) {
+              initialScene = parsed;
+            }
+          }
+
+          await handleSelectStory(targetStory, initialScene); // Pass initial scene
         }
       } else if (lastPlayedStoryId) {
         // Auto-resume logic if no story deep link
@@ -169,7 +180,7 @@ const App: React.FC = () => {
     updateUrlParams(null, null, null);
   };
 
-  const handleSelectStory = async (story: IGameStory) => {
+  const handleSelectStory = async (story: IGameStory, targetSceneIndex?: number) => {
     try {
       setIsLoading(true);
       const allScenes = await storyService.getStoryDetails(story.id);
@@ -185,8 +196,18 @@ const App: React.FC = () => {
       const savedIndex = await loadProgressFromDB(story.id);
 
 
-      // Auto-resume if within valid range
-      const initialIndex = (savedIndex >= 0 && savedIndex < validScenes.length) ? savedIndex : 0;
+      // Auto-resume logic:
+      // 1. If targetSceneIndex is explicitly provided (e.g. via deep link), use it.
+      // 2. Otherwise, use savedIndex if valid.
+      // 3. Fallback to 0.
+      let initialIndex = 0;
+
+      if (typeof targetSceneIndex === 'number' && targetSceneIndex >= 0 && targetSceneIndex < validScenes.length) {
+        initialIndex = targetSceneIndex;
+      } else if (savedIndex >= 0 && savedIndex < validScenes.length) {
+        initialIndex = savedIndex;
+      }
+
       setCurrentSceneIndex(initialIndex);
 
       setAppState(AppState.PLAYING);
