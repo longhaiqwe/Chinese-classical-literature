@@ -3,13 +3,15 @@ import StoryGenerator from './components/StoryGenerator';
 import StoryReview from './components/StoryReview';
 import DatabaseSync from './components/DatabaseSync';
 import AudioGenerator from './components/AudioGenerator';
+import ImagePromptGenerator from './components/ImagePromptGenerator';
 
 // Keys for localStorage
 const STORAGE_KEYS = {
   STEP: 'sg_current_step',
   STORY: 'sg_generated_story',
   TITLE: 'sg_story_title',
-  ID: 'sg_story_id'
+  ID: 'sg_story_id',
+  PROMPTS: 'sg_image_prompts'
 };
 
 function App() {
@@ -30,6 +32,12 @@ function App() {
 
   const [storyId, setStoryId] = useState<string | null>(() => {
     return localStorage.getItem(STORAGE_KEYS.ID) || null;
+  });
+
+  // State for Step 5: Image Prompts
+  const [imagePrompts, setImagePrompts] = useState<any[]>(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.PROMPTS);
+    return saved ? JSON.parse(saved) : [];
   });
 
   const [suggestedMeta, setSuggestedMeta] = useState<{ id: string, categoryId: string } | null>(null);
@@ -59,17 +67,28 @@ function App() {
     }
   }, [storyId]);
 
+  // Persist image prompts
+  useEffect(() => {
+    if (imagePrompts.length > 0) {
+      localStorage.setItem(STORAGE_KEYS.PROMPTS, JSON.stringify(imagePrompts));
+    } else {
+      localStorage.removeItem(STORAGE_KEYS.PROMPTS);
+    }
+  }, [imagePrompts]);
+
   const handleClearCache = () => {
     localStorage.removeItem(STORAGE_KEYS.STEP);
     localStorage.removeItem(STORAGE_KEYS.STORY);
     localStorage.removeItem(STORAGE_KEYS.TITLE);
     localStorage.removeItem(STORAGE_KEYS.ID);
+    localStorage.removeItem(STORAGE_KEYS.PROMPTS);
 
     // Reset state defaults
     setCurrentStep(1);
     setGeneratedStory(null);
     setStoryTitle('');
     setStoryId(null);
+    setImagePrompts([]);
     window.location.reload();
   };
 
@@ -173,6 +192,27 @@ function App() {
               onBack={() => setCurrentStep(3)}
               onNext={() => setCurrentStep(5)}
             />
+          )}
+
+          {currentStep === 5 && generatedStory && (
+            <ImagePromptGenerator
+              story={generatedStory}
+              initialPrompts={imagePrompts}
+              onPromptsChange={setImagePrompts}
+              onBack={() => setCurrentStep(4)}
+              onNext={() => {
+                // Save prompts before moving (although handled by state, ensure sync if needed)
+                setCurrentStep(6);
+              }}
+            />
+          )}
+
+          {currentStep === 6 && (
+            <div className="text-center py-12">
+              <h2 className="text-2xl font-bold mb-4">Step 6: Image Generation</h2>
+              <p className="text-stone-500">Coming soon...</p>
+              <button onClick={() => setCurrentStep(5)} className="mt-4 text-emerald-600 hover:underline">Back to Prompts</button>
+            </div>
           )}
         </div>
       </main>
