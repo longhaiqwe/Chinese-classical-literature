@@ -110,10 +110,10 @@ export type Database = {
                     character_state: string
                     created_at: string
                     environment_description: string
-                    id: number
+                    id: string
                     image_url: string | null
                     narrative: string
-                    sort_order: number | null
+                    scene_index: number | null
                     story_id: string
                     title: string
                 }
@@ -122,10 +122,10 @@ export type Database = {
                     character_state: string
                     created_at?: string
                     environment_description: string
-                    id?: number
+                    id?: string
                     image_url?: string | null
                     narrative: string
-                    sort_order?: number | null
+                    scene_index?: number | null
                     story_id: string
                     title: string
                 }
@@ -134,10 +134,10 @@ export type Database = {
                     character_state?: string
                     created_at?: string
                     environment_description?: string
-                    id?: number
+                    id?: string
                     image_url?: string | null
                     narrative?: string
-                    sort_order?: number | null
+                    scene_index?: number | null
                     story_id?: string
                     title?: string
                 }
@@ -189,34 +189,34 @@ export type Database = {
                     },
                 ]
             }
-            story_options: {
+            scene_options: {
                 Row: {
                     created_at: string
                     feedback: string
-                    id: number
+                    id: string
                     is_correct: boolean
-                    scene_id: number
+                    scene_id: string
                     text: string
                 }
                 Insert: {
                     created_at?: string
                     feedback: string
-                    id?: number
+                    id?: string
                     is_correct: boolean
-                    scene_id: number
+                    scene_id: string
                     text: string
                 }
                 Update: {
                     created_at?: string
                     feedback?: string
-                    id?: number
+                    id?: string
                     is_correct?: boolean
-                    scene_id?: number
+                    scene_id?: string
                     text?: string
                 }
                 Relationships: [
                     {
-                        foreignKeyName: "story_options_scene_id_fkey"
+                        foreignKeyName: "scene_options_scene_id_fkey"
                         columns: ["scene_id"]
                         isOneToOne: false
                         referencedRelation: "scenes"

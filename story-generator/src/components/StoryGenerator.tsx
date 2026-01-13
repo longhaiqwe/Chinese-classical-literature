@@ -17,7 +17,7 @@ interface Scene {
 }
 
 interface StoryGeneratorProps {
-    onStoryGenerated: (story: Scene[]) => void;
+    onStoryGenerated: (story: Scene[], topic: string, metadata?: { id: string, categoryId: string }) => void;
 }
 
 export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps) {
@@ -48,8 +48,25 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
                 jsonStr = jsonStr.replace(/^```(json)?|```$/g, '');
             }
 
-            const storyData: Scene[] = JSON.parse(jsonStr);
-            onStoryGenerated(storyData);
+            const result = JSON.parse(jsonStr);
+
+            // Check if result is the new object format or fallback (though schema enforces object now)
+            let storyData: Scene[] = [];
+            let metadata = { id: '', categoryId: '' };
+
+            if (Array.isArray(result)) {
+                storyData = result;
+            } else if (result.scenes) {
+                storyData = result.scenes;
+                metadata = {
+                    id: result.id || '',
+                    categoryId: result.category_id || ''
+                };
+            } else {
+                throw new Error('Invalid JSON format');
+            }
+
+            onStoryGenerated(storyData, topic, metadata);
         } catch (err: any) {
             console.error('Generation failed:', err);
             setError(err.message || '生成故事失败');

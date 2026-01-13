@@ -13,29 +13,37 @@ export const geminiModel = genAI.getGenerativeModel({
     generationConfig: {
         responseMimeType: "application/json",
         responseSchema: {
-            type: SchemaType.ARRAY,
-            items: {
-                type: SchemaType.OBJECT,
-                properties: {
-                    id: { type: SchemaType.STRING },
-                    title: { type: SchemaType.STRING },
-                    narrative: { type: SchemaType.STRING },
-                    choices: {
-                        type: SchemaType.ARRAY,
-                        items: {
-                            type: SchemaType.OBJECT,
-                            properties: {
-                                text: { type: SchemaType.STRING },
-                                next_scene_id: { type: SchemaType.STRING, nullable: true },
-                                is_correct: { type: SchemaType.BOOLEAN },
-                                failure_message: { type: SchemaType.STRING, nullable: true }
-                            },
-                            required: ["text", "is_correct"]
-                        }
+            type: SchemaType.OBJECT,
+            properties: {
+                id: { type: SchemaType.STRING, description: "Unique story ID in pinyin, e.g., 'huoshaochibi'" },
+                category_id: { type: SchemaType.STRING, description: "Category ID: 'sanguoyanyi', 'xiyouji', 'shanhaijing', 'lunyu', etc." },
+                scenes: {
+                    type: SchemaType.ARRAY,
+                    items: {
+                        type: SchemaType.OBJECT,
+                        properties: {
+                            id: { type: SchemaType.STRING },
+                            title: { type: SchemaType.STRING },
+                            narrative: { type: SchemaType.STRING },
+                            choices: {
+                                type: SchemaType.ARRAY,
+                                items: {
+                                    type: SchemaType.OBJECT,
+                                    properties: {
+                                        text: { type: SchemaType.STRING },
+                                        next_scene_id: { type: SchemaType.STRING, nullable: true },
+                                        is_correct: { type: SchemaType.BOOLEAN },
+                                        failure_message: { type: SchemaType.STRING }
+                                    },
+                                    required: ["text", "is_correct", "failure_message"]
+                                }
+                            }
+                        },
+                        required: ["id", "title", "narrative", "choices"]
                     }
-                },
-                required: ["id", "title", "narrative", "choices"]
-            }
+                }
+            },
+            required: ["id", "category_id", "scenes"]
         }
     }
 });
@@ -54,16 +62,20 @@ Requirements:
 3.  **Length**: The story MUST contain **4 to 6 scenes** for the main plot path. 3 scenes is too short.
 4.  **Perspective**: Third-person perspective. **Do NOT use "you" (你)** to refer to the protagonist. Use the historical figure's name or title directly (e.g., "Kong Ming", "Li Bai").
 5.  **Structure**:
-    *   Return an ARRAY of Scene objects.
+    *   Return a JSON OBJECT with the following fields:
+        *   id: A unique string ID for the story in Pinyin (e.g., "huoshaochibi", "caochuanjiejian").
+        *   category_id: Choose the most appropriate category from: "sanguoyanyi" (Three Kingdoms), "xiyouji" (Journey to the West), "shanhaijing" (Classic of Mountains and Seas), "lunyu" (Analects), "shijing" (Book of Songs).
+        *   scenes: An ARRAY of Scene objects.
     *   Each Scene has an 'id' (unique string).
     *   'narrative': Detailed description of the scene.
     *   'choices': Exactly 3 options. Keep texts **very short** (under 10 chars).
     *   One option is CORRECT and leads to the next main plot scene (or the ending summary).
-    *   Two options are INCORRECT (traps/failures) and lead to failure endings (or immediate failure messages).
+    *   Two options are INCORRECT (traps/failures) and lead to failure endings.
     *   **Final Scene**: The last scene provided in this JSON should be the **CLIMAX** of the story, not a post-game summary. It MUST still have 3 choices (1 Correct, 2 Incorrect). The correct choice should conceptually lead to the "Happy Ending". Do NOT create a scene with only 1 options or where all options are correct. Treat the finale as a gameplay challenge.
 6.  **Failure handling**:
     *   If a choice is incorrect, set 'is_correct' to false.
-    *   You can either handle failure by providing a 'failure_message' (short feedback) or by routing to a specific failure scene (via next_scene_id). For this game, simpler is often better: providing a 'failure_message' is preferred for immediate feedback, but if the failure leads to an interesting parallel ending, create a new scene for it.
+    *   **MANDATORY**: You MUST provide a 'failure_message' (short feedback explaining why the choice was wrong) for ALL choices, even correct ones (as positive reinforcement or just blank).
+    *   For incorrect choices, this message is CRITICAL.
 7.  **Content**:
     *   Include a "start" scene.
     *   Ensure the story has a satisfying conclusion.

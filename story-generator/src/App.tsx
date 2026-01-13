@@ -1,25 +1,103 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import StoryGenerator from './components/StoryGenerator';
 import StoryReview from './components/StoryReview';
+import DatabaseSync from './components/DatabaseSync';
+
+// Keys for localStorage
+const STORAGE_KEYS = {
+  STEP: 'sg_current_step',
+  STORY: 'sg_generated_story',
+  TITLE: 'sg_story_title',
+  ID: 'sg_story_id'
+};
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [generatedStory, setGeneratedStory] = useState<any[] | null>(null);
+  // Initialize state from localStorage if available
+  const [currentStep, setCurrentStep] = useState(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.STEP);
+    return saved ? parseInt(saved, 10) : 1;
+  });
 
-  const handleStoryGenerated = (story: any[]) => {
+  const [generatedStory, setGeneratedStory] = useState<any[] | null>(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.STORY);
+    return saved ? JSON.parse(saved) : null;
+  });
+
+  const [storyTitle, setStoryTitle] = useState<string>(() => {
+    return localStorage.getItem(STORAGE_KEYS.TITLE) || '';
+  });
+
+  const [storyId, setStoryId] = useState<string | null>(() => {
+    return localStorage.getItem(STORAGE_KEYS.ID) || null;
+  });
+
+  const [suggestedMeta, setSuggestedMeta] = useState<{ id: string, categoryId: string } | null>(null);
+
+  // Persist state changes to localStorage
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.STEP, currentStep.toString());
+  }, [currentStep]);
+
+  useEffect(() => {
+    if (generatedStory) {
+      localStorage.setItem(STORAGE_KEYS.STORY, JSON.stringify(generatedStory));
+    } else {
+      localStorage.removeItem(STORAGE_KEYS.STORY);
+    }
+  }, [generatedStory]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.TITLE, storyTitle);
+  }, [storyTitle]);
+
+  useEffect(() => {
+    if (storyId) {
+      localStorage.setItem(STORAGE_KEYS.ID, storyId);
+    } else {
+      localStorage.removeItem(STORAGE_KEYS.ID);
+    }
+  }, [storyId]);
+
+  const handleClearCache = () => {
+    localStorage.removeItem(STORAGE_KEYS.STEP);
+    localStorage.removeItem(STORAGE_KEYS.STORY);
+    localStorage.removeItem(STORAGE_KEYS.TITLE);
+    localStorage.removeItem(STORAGE_KEYS.ID);
+
+    // Reset state defaults
+    setCurrentStep(1);
+    setGeneratedStory(null);
+    setStoryTitle('');
+    setStoryId(null);
+    window.location.reload();
+  };
+
+  const handleStoryGenerated = (story: any[], topic: string, metadata?: { id: string, categoryId: string }) => {
     setGeneratedStory(story);
+    setStoryTitle(topic);
+    if (metadata) {
+      setSuggestedMeta(metadata);
+    }
     // Move to next step (Review) - implementation of Step 2 will follow
     setCurrentStep(2);
-    console.log('Story generated:', story);
+    console.log('Story generated:', story, metadata);
   };
 
   return (
     <div className="min-h-screen bg-paper-50 font-serif p-8">
-      <header className="mb-12 text-center">
+      <header className="mb-12 text-center relative">
         <h1 className="text-4xl font-calligraphy text-accent-red mb-2">
           中国古典文学故事生成工具
         </h1>
         <p className="text-ink-500">自动化内容生产流水线</p>
+
+        {/* Dev tool: Clear Cache */}
+        <button
+          onClick={handleClearCache}
+          className="absolute top-0 right-0 text-xs text-ink-400 hover:text-red-500 underline"
+        >
+          清除缓存 (Reset)
+        </button>
       </header>
 
       <main className="container mx-auto">
@@ -68,19 +146,30 @@ function App() {
               story={generatedStory}
               onBack={() => setCurrentStep(1)}
               onConfirm={() => {
-                // TODO: Prepare for Step 3 (Sync DB)
                 setCurrentStep(3);
               }}
             />
           )}
 
-          {currentStep === 3 && (
+          {currentStep === 3 && generatedStory && (
+            <DatabaseSync
+              story={generatedStory}
+              title={storyTitle}
+              initialStoryId={suggestedMeta?.id}
+              initialCategoryId={suggestedMeta?.categoryId}
+              onBack={() => setCurrentStep(2)}
+              onSyncComplete={(id) => {
+                setStoryId(id);
+                setCurrentStep(4); // Move to Audio Generation
+              }}
+            />
+          )}
+
+          {currentStep === 4 && (
             <div className="max-w-2xl mx-auto text-center p-12 bg-paper-100 rounded ink-border">
-              <h2 className="text-2xl font-bold mb-4">第三步：同步到数据库</h2>
-              <p className="text-ink-500">即将实现...</p>
-              <button onClick={() => setCurrentStep(2)} className="mt-4 px-4 py-2 border border-ink-500 rounded">
-                返回审阅
-              </button>
+              <h2 className="text-2xl font-bold mb-4">第四步：音频生成</h2>
+              <p className="text-ink-500">Story ID: {storyId}</p>
+              <p className="text-ink-500">Coming soon...</p>
             </div>
           )}
         </div>
