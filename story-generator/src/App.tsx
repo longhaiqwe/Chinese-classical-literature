@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import StoryGenerator from './components/StoryGenerator';
 import StoryReview from './components/StoryReview';
 import DatabaseSync from './components/DatabaseSync';
+import AudioGenerator from './components/AudioGenerator';
 
 // Keys for localStorage
 const STORAGE_KEYS = {
@@ -165,12 +166,13 @@ function App() {
             />
           )}
 
-          {currentStep === 4 && (
-            <div className="max-w-2xl mx-auto text-center p-12 bg-paper-100 rounded ink-border">
-              <h2 className="text-2xl font-bold mb-4">第四步：音频生成</h2>
-              <p className="text-ink-500">Story ID: {storyId}</p>
-              <p className="text-ink-500">Coming soon...</p>
-            </div>
+          {currentStep === 4 && generatedStory && storyId && (
+            <AudioGenerator
+              story={generatedStory}
+              storyId={storyId}
+              onBack={() => setCurrentStep(3)}
+              onNext={() => setCurrentStep(5)}
+            />
           )}
         </div>
       </main>
