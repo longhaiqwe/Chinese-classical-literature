@@ -1678,7 +1678,7 @@ def generate_sql():
     sql.append(get_story_upsert('sangumaolu', 'sanguoyanyi', '三顾茅庐', '刘备三次拜访诸葛亮，求贤若渴，终得隆中对。', '如鱼得水', '刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。', 1))
     sql.append(get_story_upsert('taoyuan', 'sanguoyanyi', '桃园结义', '东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。', '义薄云天', '三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。', 2))
     sql.append(get_story_upsert('caochuanjiejian', 'sanguoyanyi', '草船借箭', '周瑜设计害孔明，孔明谈笑间草船借箭十万枝。', '神机妙算', '孔明神机妙算，草船借箭十万枝，周瑜自叹不如。', 3))
-    sql.append(get_story_upsert('huoshaochibi', 'sanguoyanyi', '火烧赤壁 (敬请期待)', '孙刘联军于赤壁大破曹军，奠定三国鼎立基础。', None, None, 4))
+    sql.append(get_story_upsert('huoshaochibi', 'sanguoyanyi', '火烧赤壁', '孙刘联军火烧赤壁，大破曹操八十万大军，奠定三国鼎立之势。', None, None, 4))
     sql.append(get_story_upsert('kongchengji', 'sanguoyanyi', '空城计 (敬请期待)', '马谡失街亭，司马懿大军压境。诸葛亮大开城门，抚琴退敌。', None, None, 5))
 
     # Xiyou

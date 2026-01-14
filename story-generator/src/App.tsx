@@ -41,7 +41,13 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const [suggestedMeta, setSuggestedMeta] = useState<{ id: string, categoryId: string } | null>(null);
+  const [suggestedMeta, setSuggestedMeta] = useState<{
+    id: string;
+    categoryId: string;
+    description: string;
+    endingTitle: string;
+    endingDescription: string;
+  } | null>(null);
 
   // Persist state changes to localStorage
   useEffect(() => {
@@ -93,7 +99,11 @@ function App() {
     window.location.reload();
   };
 
-  const handleStoryGenerated = (story: any[], topic: string, metadata?: { id: string, categoryId: string }) => {
+  const handleStoryGenerated = (
+    story: any[],
+    topic: string,
+    metadata?: { id: string; categoryId: string; description: string; endingTitle: string; endingDescription: string }
+  ) => {
     setGeneratedStory(story);
     setStoryTitle(topic);
     if (metadata) {
@@ -178,6 +188,9 @@ function App() {
               title={storyTitle}
               initialStoryId={suggestedMeta?.id}
               initialCategoryId={suggestedMeta?.categoryId}
+              initialDescription={suggestedMeta?.description}
+              initialEndingTitle={suggestedMeta?.endingTitle}
+              initialEndingDescription={suggestedMeta?.endingDescription}
               onBack={() => setCurrentStep(2)}
               onSyncComplete={(id) => {
                 setStoryId(id);

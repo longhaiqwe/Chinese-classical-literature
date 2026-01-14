@@ -17,6 +17,9 @@ export const geminiModel = genAI.getGenerativeModel({
             properties: {
                 id: { type: SchemaType.STRING, description: "Unique story ID in pinyin, e.g., 'huoshaochibi'" },
                 category_id: { type: SchemaType.STRING, description: "Category ID: 'sanguoyanyi', 'xiyouji', 'shanhaijing', 'lunyu', etc." },
+                description: { type: SchemaType.STRING, description: "A brief summary of the story (1-2 sentences)." },
+                ending_title: { type: SchemaType.STRING, description: "A 4-character idiom for the success ending title, e.g., '义薄云天'" },
+                ending_description: { type: SchemaType.STRING, description: "A concluding message for the user upon success." },
                 scenes: {
                     type: SchemaType.ARRAY,
                     items: {
@@ -43,7 +46,7 @@ export const geminiModel = genAI.getGenerativeModel({
                     }
                 }
             },
-            required: ["id", "category_id", "scenes"]
+            required: ["id", "category_id", "description", "ending_title", "ending_description", "scenes"]
         }
     }
 });
@@ -75,6 +78,9 @@ Create a complete branching story based on the topic: "${topic}".
     * Return a JSON OBJECT with the following fields:
         * id: A unique string ID for the story in Pinyin(e.g., "huoshaochibi", "caochuanjiejian").
         * category_id: Choose the most appropriate category from: "sanguoyanyi"(Three Kingdoms), "xiyouji"(Journey to the West), "shanhaijing"(Classic of Mountains and Seas), "lunyu"(Analects), "shijing"(Book of Songs).
+        * description: A brief summary of the story (1-2 sentences), suitable for a card preview.
+        * ending_title: A 4-character idiom for the success ending title.
+        * ending_description: A concluding message for the user upon success.
         * scenes: An ARRAY of Scene objects.
     * Each Scene has an 'id'(unique string).
     * 'narrative': Detailed description of the scene.

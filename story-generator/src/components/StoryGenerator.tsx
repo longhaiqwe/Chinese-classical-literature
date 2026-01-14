@@ -17,7 +17,13 @@ interface Scene {
 }
 
 interface StoryGeneratorProps {
-    onStoryGenerated: (story: Scene[], topic: string, metadata?: { id: string, categoryId: string }) => void;
+    onStoryGenerated: (story: Scene[], topic: string, metadata?: {
+        id: string;
+        categoryId: string;
+        description: string;
+        endingTitle: string;
+        endingDescription: string;
+    }) => void;
 }
 
 export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps) {
@@ -52,7 +58,7 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
 
             // Check if result is the new object format or fallback (though schema enforces object now)
             let storyData: Scene[] = [];
-            let metadata = { id: '', categoryId: '' };
+            let metadata = { id: '', categoryId: '', description: '', endingTitle: '', endingDescription: '' };
 
             if (Array.isArray(result)) {
                 storyData = result;
@@ -60,7 +66,10 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
                 storyData = result.scenes;
                 metadata = {
                     id: result.id || '',
-                    categoryId: result.category_id || ''
+                    categoryId: result.category_id || '',
+                    description: result.description || '',
+                    endingTitle: result.ending_title || '',
+                    endingDescription: result.ending_description || ''
                 };
             } else {
                 throw new Error('Invalid JSON format');

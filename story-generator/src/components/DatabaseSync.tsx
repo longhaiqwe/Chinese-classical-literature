@@ -6,11 +6,24 @@ interface DatabaseSyncProps {
     title: string;
     initialStoryId?: string;
     initialCategoryId?: string;
+    initialDescription?: string;
+    initialEndingTitle?: string;
+    initialEndingDescription?: string;
     onSyncComplete: (storyId: string) => void;
     onBack: () => void;
 }
 
-export default function DatabaseSync({ story, title, initialStoryId, initialCategoryId, onSyncComplete, onBack }: DatabaseSyncProps) {
+export default function DatabaseSync({
+    story,
+    title,
+    initialStoryId,
+    initialCategoryId,
+    initialDescription,
+    initialEndingTitle,
+    initialEndingDescription,
+    onSyncComplete,
+    onBack
+}: DatabaseSyncProps) {
     const [syncing, setSyncing] = useState(false);
     const [status, setStatus] = useState<string>('');
     const [error, setError] = useState<string | null>(null);
@@ -18,9 +31,9 @@ export default function DatabaseSync({ story, title, initialStoryId, initialCate
     // Form state
     const [customStoryId, setCustomStoryId] = useState(initialStoryId || '');
     const [categoryId, setCategoryId] = useState(initialCategoryId || '');
-
-    // Auto-generate ID suggestion based on title - Removed pinyin dependency for now
-    // User can manually enter the ID as requested.
+    const [description, setDescription] = useState(initialDescription || `Created on ${new Date().toLocaleDateString()}`);
+    const [endingTitle, setEndingTitle] = useState(initialEndingTitle || '通关成功');
+    const [endingDescription, setEndingDescription] = useState(initialEndingDescription || '恭喜你完成了这段历史的演绎。');
 
     // Simple effect to pre-fill ID if empty (mocking pinyin or just manual)
     useEffect(() => {
@@ -47,19 +60,13 @@ export default function DatabaseSync({ story, title, initialStoryId, initialCate
             const storyId = customStoryId.trim();
 
             // 2. Insert Story
-            // Initial status is unavailable (implied by not having a "published" flag or custom check)
-            // The PRD says "Initially set story status to unavailable". 
-            // Our schema doesn't have a status column on `stories` table?
-            // Checking schema: id, title, description, created_at, category_id, ending_title, ending_description.
-            // Maybe it's implicitly unavailable until added to a category or some other logic?
-            // Or maybe "status" mentioned in PRD allows it, but schema is missing it.
-            // For now, we follows schema.
-
             const { error: storyError } = await supabase.from('stories').insert({
                 id: storyId,
                 title: title,
-                description: `Created on ${new Date().toLocaleDateString()}`,
+                description: description,
                 category_id: categoryId.trim(),
+                ending_title: endingTitle,
+                ending_description: endingDescription
             });
 
             if (storyError) throw storyError;
@@ -135,36 +142,78 @@ export default function DatabaseSync({ story, title, initialStoryId, initialCate
                 <div className="bg-white p-6 rounded border border-ink-200 space-y-4">
                     <h3 className="font-bold text-lg text-ink-800">数据库配置</h3>
 
-                    <div>
-                        <label className="block text-sm font-bold text-ink-700 mb-1">
-                            Story ID (英文标识) <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            value={customStoryId}
-                            onChange={(e) => setCustomStoryId(e.target.value)}
-                            placeholder="例如: huoshaochibi"
-                            className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none"
-                            disabled={syncing}
-                        />
-                        <p className="text-xs text-ink-400 mt-1">
-                            对应 URL 和数据库主键，需唯一。
-                        </p>
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-sm font-bold text-ink-700 mb-1">
+                                Story ID <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                value={customStoryId}
+                                onChange={(e) => setCustomStoryId(e.target.value)}
+                                placeholder="例如: huoshaochibi"
+                                className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none"
+                                disabled={syncing}
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-bold text-ink-700 mb-1">
+                                Category ID <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                value={categoryId}
+                                onChange={(e) => setCategoryId(e.target.value)}
+                                placeholder="例如: sanguoyanyi"
+                                className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none"
+                                disabled={syncing}
+                            />
+                        </div>
                     </div>
 
                     <div>
                         <label className="block text-sm font-bold text-ink-700 mb-1">
-                            Category ID (分类) <span className="text-red-500">*</span>
+                            故事简介 (Description)
                         </label>
-                        <input
-                            type="text"
-                            value={categoryId}
-                            onChange={(e) => setCategoryId(e.target.value)}
-                            placeholder="例如: sanguoyanyi"
-                            className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none"
+                        <textarea
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            placeholder="请输入故事简介..."
+                            className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none h-20"
                             disabled={syncing}
                         />
                     </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-sm font-bold text-ink-700 mb-1">
+                                结局标题 (Ending Title)
+                            </label>
+                            <input
+                                type="text"
+                                value={endingTitle}
+                                onChange={(e) => setEndingTitle(e.target.value)}
+                                placeholder="例如: 义薄云天"
+                                className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none"
+                                disabled={syncing}
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-bold text-ink-700 mb-1">
+                                结局描述 (Ending Desc)
+                            </label>
+                            <input
+                                type="text"
+                                value={endingDescription}
+                                onChange={(e) => setEndingDescription(e.target.value)}
+                                placeholder="例如: 恭喜通关..."
+                                className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none"
+                                disabled={syncing}
+                            />
+                        </div>
+                    </div>
+
                 </div>
 
                 {error && (
