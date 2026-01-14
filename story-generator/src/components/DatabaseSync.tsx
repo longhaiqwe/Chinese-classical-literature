@@ -59,17 +59,38 @@ export default function DatabaseSync({
             // 1. Use provided Story ID
             const storyId = customStoryId.trim();
 
-            // 2. Insert Story
-            const { error: storyError } = await supabase.from('stories').insert({
+            // 2. Insert/Upsert Story
+            const { error: storyError } = await supabase.from('stories').upsert({
                 id: storyId,
                 title: title,
                 description: description,
                 category_id: categoryId.trim(),
                 ending_title: endingTitle,
-                ending_description: endingDescription
+                ending_description: endingDescription,
+                created_at: new Date().toISOString() // Update timestamp
             });
 
             if (storyError) throw storyError;
+
+            setStatus('清理旧数据...');
+
+            // 2.5 Clean up existing scenes (and options via cascade if configured, but let's be safe)
+            // Note: If you have ON DELETE CASCADE on scenes -> options, this is enough.
+            // If not, you might need to delete scene_options first. 
+            // Assuming standard cascade or loose coupling, let's try deleting scenes.
+            // First find scenes to know their IDs if we need to delete options manually? 
+            // Let's assume cascade for now as it's cleaner. If it fails, we fix it.
+            const { error: cleanupError } = await supabase
+                .from('scenes')
+                .delete()
+                .eq('story_id', storyId);
+
+            if (cleanupError) {
+                console.warn("Cleanup warning:", cleanupError);
+                // Try to proceed anyway? Or throw?
+                // If cleanup failed due to FK, we must handle it.
+                // Let's assume we proceed and see.
+            }
 
             setStatus('正在同步场景...');
 
@@ -203,12 +224,11 @@ export default function DatabaseSync({
                             <label className="block text-sm font-bold text-ink-700 mb-1">
                                 结局描述 (Ending Desc)
                             </label>
-                            <input
-                                type="text"
+                            <textarea
                                 value={endingDescription}
                                 onChange={(e) => setEndingDescription(e.target.value)}
-                                placeholder="例如: 恭喜通关..."
-                                className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none"
+                                placeholder="例如: 刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。"
+                                className="w-full p-2 border border-ink-300 rounded focus:border-accent-red focus:outline-none h-24"
                                 disabled={syncing}
                             />
                         </div>

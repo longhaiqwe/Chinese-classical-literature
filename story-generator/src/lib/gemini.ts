@@ -18,8 +18,8 @@ export const geminiModel = genAI.getGenerativeModel({
                 id: { type: SchemaType.STRING, description: "Unique story ID in pinyin, e.g., 'huoshaochibi'" },
                 category_id: { type: SchemaType.STRING, description: "Category ID: 'sanguoyanyi', 'xiyouji', 'shanhaijing', 'lunyu', etc." },
                 description: { type: SchemaType.STRING, description: "A brief summary of the story (1-2 sentences)." },
-                ending_title: { type: SchemaType.STRING, description: "A 4-character idiom for the success ending title, e.g., '义薄云天'" },
-                ending_description: { type: SchemaType.STRING, description: "A concluding message for the user upon success." },
+                ending_title: { type: SchemaType.STRING, description: "A 4-character idiom for the success ending title, e.g., '如鱼得水'" },
+                ending_description: { type: SchemaType.STRING, description: "A specific summary of the story's outcome and historical significance (2-3 sentences). Do NOT use generic congratulations." },
                 scenes: {
                     type: SchemaType.ARRAY,
                     items: {
@@ -79,8 +79,8 @@ Create a complete branching story based on the topic: "${topic}".
         * id: A unique string ID for the story in Pinyin(e.g., "huoshaochibi", "caochuanjiejian").
         * category_id: Choose the most appropriate category from: "sanguoyanyi"(Three Kingdoms), "xiyouji"(Journey to the West), "shanhaijing"(Classic of Mountains and Seas), "lunyu"(Analects), "shijing"(Book of Songs).
         * description: A brief summary of the story (1-2 sentences), suitable for a card preview.
-        * ending_title: A 4-character idiom for the success ending title.
-        * ending_description: A concluding message for the user upon success.
+        * ending_title: A 4-character idiom for the success ending title (e.g., '如鱼得水').
+        * ending_description: A specific summary of the story's outcome and historical significance (2-3 sentences). Example: "刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。" Do NOT use generic text like "Congratulations on finishing the story".
         * scenes: An ARRAY of Scene objects.
     * Each Scene has an 'id'(unique string).
     * 'narrative': Detailed description of the scene.
@@ -90,8 +90,10 @@ Create a complete branching story based on the topic: "${topic}".
     *   ** Final Scene **: The last scene provided in this JSON should be the ** CLIMAX ** of the story, not a post - game summary.It MUST still have 3 choices(1 Correct, 2 Incorrect).The correct choice should conceptually lead to the "Happy Ending".Do NOT create a scene with only 1 options or where all options are correct.Treat the finale as a gameplay challenge.
 6. ** Failure handling **:
     * If a choice is incorrect, set 'is_correct' to false.
-    *   ** MANDATORY **: You MUST provide a 'failure_message'(short feedback explaining why the choice was wrong) for ALL choices, even correct ones(as positive reinforcement or just blank).
-    * For incorrect choices, this message is CRITICAL.
+    *   ** MANDATORY **: You MUST provide a 'failure_message' for ALL choices.
+    *   ** For INCORRECT choices **: Explain why it's wrong (short feedback).
+    *   ** For CORRECT choices **: Provide positive reinforcement or a short fun fact/historical context. ** IT MUST NOT BE EMPTY **.
+    *   (Note: The field is still called 'failure_message' in the schema, but treat it as 'feedback_message').
 7. ** Content **:
     * Include a "start" scene.
     * Ensure the story has a satisfying conclusion.

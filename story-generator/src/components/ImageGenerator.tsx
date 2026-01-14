@@ -132,6 +132,26 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
     // Check if all done
     const allDone = story.length > 0 && story.every((_, index) => imageStatuses[index]?.status === 'success');
 
+    const handleFinish = async () => {
+        try {
+            setGlobalLoading(true);
+            const { error } = await supabase
+                .from('stories')
+                .update({ is_ready: true })
+                .eq('id', storyId);
+
+            if (error) throw error;
+
+            // Success
+            onFinish();
+        } catch (err) {
+            console.error("Failed to publish story:", err);
+            alert("发布失败，请重试");
+        } finally {
+            setGlobalLoading(false);
+        }
+    };
+
     return (
         <div className="max-w-6xl mx-auto p-8 bg-[#FDFBF7] font-serif min-h-screen">
             <header className="mb-8 border-b-2 border-accent-red/10 pb-6 flex justify-between items-end">
@@ -155,8 +175,9 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
                         {globalLoading ? '批量生成中...' : '一键生成所有图片'}
                     </button>
                     <button
-                        onClick={onFinish}
-                        className="px-8 py-2 rounded font-bold shadow-md transition-all bg-emerald-700 text-white hover:bg-emerald-800 hover:scale-105"
+                        onClick={handleFinish}
+                        disabled={globalLoading}
+                        className="px-8 py-2 rounded font-bold shadow-md transition-all bg-emerald-700 text-white hover:bg-emerald-800 hover:scale-105 disabled:opacity-50"
                     >
                         发布故事 (Finish)
                     </button>

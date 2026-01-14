@@ -160,6 +160,7 @@ export type Database = {
                     ending_title: string | null
                     id: string
                     title: string
+                    is_ready: boolean // Added manually
                 }
                 Insert: {
                     category_id?: string | null
@@ -169,6 +170,7 @@ export type Database = {
                     ending_title?: string | null
                     id: string
                     title: string
+                    is_ready?: boolean // Added manually
                 }
                 Update: {
                     category_id?: string | null
@@ -178,6 +180,7 @@ export type Database = {
                     ending_title?: string | null
                     id?: string
                     title?: string
+                    is_ready?: boolean // Added manually
                 }
                 Relationships: [
                     {

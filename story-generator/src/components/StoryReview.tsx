@@ -123,9 +123,9 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
                                     </div>
                                     <div className="flex-1">
                                         <p className="font-bold text-ink-900 mb-1">{choice.text}</p>
-                                        {!choice.is_correct && choice.failure_message && (
-                                            <p className="text-sm text-rose-700 italic">
-                                                失败反馈: "{choice.failure_message}"
+                                        {choice.failure_message && (
+                                            <p className={`text-sm italic ${choice.is_correct ? 'text-emerald-700' : 'text-rose-700'}`}>
+                                                {choice.is_correct ? '正向反馈' : '失败反馈'}: "{choice.failure_message}"
                                             </p>
                                         )}
                                         {choice.next_scene_id && (
