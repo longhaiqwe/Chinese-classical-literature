@@ -1,0 +1,1892 @@
+[
+  {
+    "id": "55de0745-8f6c-4dfb-8c58-fb360a032794",
+    "scene_id": "bfceb355-ca65-400c-8e23-9ec09b50b83b",
+    "text": "硬闯草庐，搜寻孔明",
+    "is_correct": false,
+    "feedback": "此非求贤之道！若这般无礼，只会惹怒高人，断送这段机缘。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "52b39777-93cf-48e4-86b4-82321e9ad348",
+    "scene_id": "bfceb355-ca65-400c-8e23-9ec09b50b83b",
+    "text": "怏怏而回，改日再来",
+    "is_correct": true,
+    "feedback": "童子言：“先生晨起自出……踪迹不定，不知何日归。”刘备听罢，怅然若失，只得嘱咐童子：“先生归时，可言刘备拜访。”遂上马而回。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "7ad9a4d9-4164-43dd-87f8-7795d0993f2c",
+    "scene_id": "bfceb355-ca65-400c-8e23-9ec09b50b83b",
+    "text": "留关张守候，独自寻找",
+    "is_correct": false,
+    "feedback": "山林广大，云深不知处，去何处寻找？且关张二人性急，若无人约束，只怕生事。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "ba7c0c6a-36d5-4d7d-873c-e134da582cb5",
+    "scene_id": "f2f309d9-283b-4f22-8c97-94c4f81f686a",
+    "text": "上前打断，表明来意",
+    "is_correct": false,
+    "feedback": "此人乃是孔明之弟诸葛均。若贸然打断，显失礼数。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c34a8926-3691-4abd-a8d4-597b492d0cc0",
+    "scene_id": "f2f309d9-283b-4f22-8c97-94c4f81f686a",
+    "text": "大怒而去，不再复来",
+    "is_correct": false,
+    "feedback": "若因一时挫折便轻言放弃，何以此诚心感动卧龙？天下三分之策恐成泡影。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "a3f68001-67b0-490e-b7c2-7b49774cc0f2",
+    "scene_id": "f2f309d9-283b-4f22-8c97-94c4f81f686a",
+    "text": "静候其毕，方才询问",
+    "is_correct": true,
+    "feedback": "原来是诸葛均。孔明昨又应友人之约出门闲游去了。刘备虽失望，仍留书一封，以此明志：“备久慕高名，两次晋谒，不遇空回，惆怅何似……”",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "3b4e285c-e97e-4234-a46a-1f4c5598f2fc",
+    "scene_id": "1cb4e65c-2b5b-4570-9c99-e5b7ca5f1099",
+    "text": "拱立阶下，静候惊觉",
+    "is_correct": true,
+    "feedback": "刘备此时已年近五旬，却恭敬侍立半晌。直待孔明醒来，口占一绝：“大梦谁先觉？平生我自知。草堂春睡足，窗外日迟迟。”",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "026a7a29-704d-47f0-bc8b-c3a44388d557",
+    "scene_id": "1cb4e65c-2b5b-4570-9c99-e5b7ca5f1099",
+    "text": "令童子唤醒先生",
+    "is_correct": false,
+    "feedback": "张飞曾欲放火烧屋逼其起床，被刘备喝止。求贤当诚心诚意，岂可稍有怠慢？",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "ef0a2cb8-debd-4d0a-88cb-1991637a8339",
+    "scene_id": "1cb4e65c-2b5b-4570-9c99-e5b7ca5f1099",
+    "text": "咳嗽示警，促其早醒",
+    "is_correct": false,
+    "feedback": "虽未直接唤醒，但故意弄出声响亦是不敬。孔明虽醒，然见客心浮气躁，恐难真心相辅。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "cce33f0c-9d19-44aa-a951-7ddf073523cc",
+    "scene_id": "7b993b08-8909-4e3b-963a-a163fa567b40",
+    "text": "夸耀兵力，许以重金",
+    "is_correct": false,
+    "feedback": "先生志在天下，非为金银所动。若以此相诱，反显得刘备目光短浅，俗不可耐。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d8f136e6-00bb-492d-9e25-fcfc92484e4f",
+    "scene_id": "7b993b08-8909-4e3b-963a-a163fa567b40",
+    "text": "屏退左右，坦陈心迹",
+    "is_correct": true,
+    "feedback": "刘备真情流露，泪沾袍袖。孔明感其诚意，乃曰：“将军既有如此大志，亮愿效犬马之劳。”",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "67966eff-ad3b-43e6-b483-fa7f3d6f3de9",
+    "scene_id": "7b993b08-8909-4e3b-963a-a163fa567b40",
+    "text": "询问卜筮，测算吉凶",
+    "is_correct": false,
+    "feedback": "孔明乃经天纬地之才，非江湖术士。问吉凶而非问大计，是看轻了先生。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "3a1782cd-ffe7-4475-ae0d-2901c893968e",
+    "scene_id": "e9ca0524-97cf-4d76-bd19-ffb5c409017e",
+    "text": "欲取中原，直捣许都",
+    "is_correct": false,
+    "feedback": "此时曹操势大，若贸然北伐，无异于以卵击石。孔明之策，在先取基业，待天下有变。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "be3dba5b-682e-4034-b4f5-8822e3805d49",
+    "scene_id": "e9ca0524-97cf-4d76-bd19-ffb5c409017e",
+    "text": "偏安一隅，以此终老",
+    "is_correct": false,
+    "feedback": "刘备志在匡扶汉室，若只求偏安，何须三顾茅庐？亦非孔明出山之本意。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "42ac89e9-ed54-4d49-80b0-1832464c4030",
+    "scene_id": "e9ca0524-97cf-4d76-bd19-ffb5c409017e",
+    "text": "拜谢先生，恳请出山",
+    "is_correct": true,
+    "feedback": "先生未出草庐，已知三分天下。刘备顿首拜谢：“先生之言，顿开茅塞，如拨云雾而见青天！”",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "e94f918e-7c8b-4cd6-b268-3e47e32321be",
+    "scene_id": "0e8631d0-a42f-4082-967d-b60b4a0ce7d5",
+    "text": "重新来过，诚心求贤",
+    "is_correct": true,
+    "feedback": "精诚所至，金石为开。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "a6ebedda-cc4e-453f-a9e1-b546610a652f",
+    "scene_id": "9aaab9ef-ae0f-471c-b287-15fcc099ba40",
+    "text": "沙僧怒斥，挥杖便打",
+    "is_correct": true,
+    "feedback": "沙僧见那'悟空'不仅不认账，反要自立门户去取经，大怒之下，举降妖杖便打。那'悟空'也不示弱，举棒相迎。沙僧虽勇，却难敌这'大圣'神威，只得败走南海求观音。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "5136ae64-e54f-419d-9dde-42116dc4994a",
+    "scene_id": "9aaab9ef-ae0f-471c-b287-15fcc099ba40",
+    "text": "好言相劝，请回师兄",
+    "is_correct": false,
+    "feedback": "沙僧不知眼前乃是假货，只道大师兄还在气头上。低声下气，反惹那妖怪耻笑，变本加厉，更无回转之机。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "491f202c-a9e2-42bf-8c50-f8e495fdb6ef",
+    "scene_id": "9aaab9ef-ae0f-471c-b287-15fcc099ba40",
+    "text": "回禀师父，从长计议",
+    "is_correct": false,
+    "feedback": "行李已失，师父受伤，若空手而回，岂不让师父更添忧虑？且那怪既然假扮悟空，必有图谋，迟则生变。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "ea02b060-3c5f-41ae-848b-de00867e0336",
+    "scene_id": "5000daeb-5f80-4ee9-9e3e-b5de305937c3",
+    "text": "请师父念咒辨真假",
+    "is_correct": false,
+    "feedback": "二猴打到唐僧面前，唐僧念起紧箍咒。两个悟空一齐喊疼，抱着头打滚，一般无二。师父肉眼凡胎，哪里分辨得出？反倒疼坏了真悟空。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "f1fa18e9-c5b4-4e69-8413-27e0e3acf5b5",
+    "scene_id": "5000daeb-5f80-4ee9-9e3e-b5de305937c3",
+    "text": "上天入地，且战且行",
+    "is_correct": true,
+    "feedback": "既然武艺神通一般无二，便只有去寻个眼力高明的。二猴且战且走，惊动天庭，吓坏龙王，却谁也奈何不得谁，只得去往南天门求玉帝分辨。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "5e1819da-79ee-4d98-8071-f15780fead3f",
+    "scene_id": "5000daeb-5f80-4ee9-9e3e-b5de305937c3",
+    "text": "各自罢手，平分行李",
+    "is_correct": false,
+    "feedback": "美猴王乃是天地间独一无二的灵明石猴，岂容他人冒名顶替？便是粉身碎骨，也要争个明白，绝无妥协之理。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "09c87222-8841-44fa-9d76-a3e367972566",
+    "scene_id": "dea30787-e289-4bf9-9a56-f68ccc4b19de",
+    "text": "去天庭照妖镜一照",
+    "is_correct": false,
+    "feedback": "托塔天王李靖借来照妖镜，照住两个悟空。镜中只见两个影子，一般无二，金箍服色皆同，毫无妖气。众神也是束手无策。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "65c2656d-60c9-45bd-8310-57c09c67bbe0",
+    "scene_id": "dea30787-e289-4bf9-9a56-f68ccc4b19de",
+    "text": "往地府寻谛听辨认",
+    "is_correct": true,
+    "feedback": "观音道：'我亦难辨。却往地府去走一遭。' 二猴又打到幽冥地界，惊动十殿阎王。地藏王菩萨唤神兽谛听来听。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "bfdc14b2-d97b-4ddf-b9c9-edfc14c9cb43",
+    "scene_id": "dea30787-e289-4bf9-9a56-f68ccc4b19de",
+    "text": "请如来佛祖定夺",
+    "is_correct": false,
+    "feedback": "虽是终极之法，但按顺序，悟空性急，必是先近后远。地府既有能听遍三界之事的神兽，自当先去一试。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "8189974a-cb6e-43f9-a9f9-4334d47989c4",
+    "scene_id": "d56e86d4-2777-43d2-97bb-8149d4dd08de",
+    "text": "谛听直言真相",
+    "is_correct": false,
+    "feedback": "谛听若说，那妖精必怒，地府阴司又无如来佛祖那般大法力，只怕要被拆了奈何桥，毁了森罗殿。神兽有灵，断不冒此险。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "0fd312d0-06be-4e41-a5db-0849f0bab97e",
+    "scene_id": "d56e86d4-2777-43d2-97bb-8149d4dd08de",
+    "text": "指引去雷音寺",
+    "is_correct": true,
+    "feedback": "谛听对地藏王道：'怪名虽有，但不可当面说破，免致地府不安。佛法无边，还得去西天雷音寺。' 二猴听罢，又翻跟斗云往西天而去。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "4d765456-7bc6-49a9-a7a7-6f118f3b6b1e",
+    "scene_id": "d56e86d4-2777-43d2-97bb-8149d4dd08de",
+    "text": "阎王查阅生死簿",
+    "is_correct": false,
+    "feedback": "悟空早年闹地府，已将猴属之名尽数勾去。生死簿上既然无名，又从何查起？阎王们也是无可奈何。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "30b4656a-99d7-465f-8154-0f0f30b09045",
+    "scene_id": "1e948968-fff9-4fbc-bb57-a6379cad32b6",
+    "text": "道破六耳猕猴身世",
+    "is_correct": true,
+    "feedback": "如来道：'此猴非天非地，非神非鬼，乃六耳猕猴也。善聆音，能察理，知前后，万物皆明。' 那妖精见被说破，现了本相想要逃走，被金钵盂罩住。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "75c621c5-f87d-4360-a147-714a1b0ca802",
+    "scene_id": "1e948968-fff9-4fbc-bb57-a6379cad32b6",
+    "text": "施法力强行镇压",
+    "is_correct": false,
+    "feedback": "我佛慈悲，以理服人。若不说明原委，只强行镇压，不仅众神不明，悟空心中也还在疑惑。道破根源，方显佛法无边。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "a8bbde97-2ca2-4de7-8336-4f71e86eaecb",
+    "scene_id": "1e948968-fff9-4fbc-bb57-a6379cad32b6",
+    "text": "让真悟空自己认",
+    "is_correct": false,
+    "feedback": "真悟空若认得出，何必打到西天？此妖与真悟空同象同音，非大法力大智慧者不能辨。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T06:41:04.661857+00:00"
+  },
+  {
+    "id": "99496a95-2234-4604-800e-1eb9251b75b7",
+    "scene_id": "c24d55be-0ba5-437b-9b3a-f6551fc6f198",
+    "text": "大开四门",
+    "is_correct": true,
+    "feedback": "",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:10.030251+00:00"
+  },
+  {
+    "id": "282e0b37-3d80-4a98-8fbe-0e5b7267bebe",
+    "scene_id": "c24d55be-0ba5-437b-9b3a-f6551fc6f198",
+    "text": "半掩城门",
+    "is_correct": false,
+    "feedback": "城门半掩，犹抱琵琶，反而显得心虚怯懦。司马懿见状直接下令强攻。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:10.030251+00:00"
+  },
+  {
+    "id": "acdfc4c4-efea-4774-ba65-c0f28f3653ee",
+    "scene_id": "c24d55be-0ba5-437b-9b3a-f6551fc6f198",
+    "text": "紧闭吊桥",
+    "is_correct": false,
+    "feedback": "若紧闭城门，司马懿便无顾忌，只需围城数日，城中粮尽自破。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:10.030251+00:00"
+  },
+  {
+    "id": "922ae2be-eb68-4b13-b1ee-41804b89f8f9",
+    "scene_id": "6dcd474d-da37-477c-918a-e9bfbf8e806f",
+    "text": "言辞推托，不承军令",
+    "is_correct": false,
+    "feedback": "若此推托，周瑜必以贻误军机之罪相加，正中其下怀。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d5cb4b4e-5f83-491b-acea-43a74002dd99",
+    "scene_id": "6dcd474d-da37-477c-918a-e9bfbf8e806f",
+    "text": "立军令状，三日便交",
+    "is_correct": true,
+    "feedback": "孔明笑曰：“曹军即日将至，若候十日，必误大事。亮只须三天，便献十万枝箭。”遂立军令状。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "abf136c7-8d8e-4c4b-a866-49b4140eaeac",
+    "scene_id": "6dcd474d-da37-477c-918a-e9bfbf8e806f",
+    "text": "如期应允，十日完工",
+    "is_correct": false,
+    "feedback": "十日造十万箭，纵有工匠也不易办到。且周瑜必从中作梗，使之不成，此乃绝路。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "a9beed52-b517-45c4-ae90-a4d207401f3b",
+    "scene_id": "5ab7754c-be2f-46c0-8941-16ccdeb212b1",
+    "text": "密嘱子敬，隐瞒公瑾",
+    "is_correct": true,
+    "feedback": "子敬依言而行，回报周瑜时，只说孔明不用竹、漆、翎、毛等物，瑜大惑不解。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "27de9438-8ec0-4f4f-81ca-13fa9e2d9174",
+    "scene_id": "5ab7754c-be2f-46c0-8941-16ccdeb212b1",
+    "text": "告知实情，求助于瑜",
+    "is_correct": false,
+    "feedback": "若让周瑜知晓此计，必先毁船断路，孔明性命休矣。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "fa446dad-d647-47dd-99f1-fe21cc631103",
+    "scene_id": "5ab7754c-be2f-46c0-8941-16ccdeb212b1",
+    "text": "自购材料，连夜赶制",
+    "is_correct": false,
+    "feedback": "军中材料皆被周瑜扣留，且三天时间绝难造出十万箭。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "dfd232f5-449f-4bf6-8d9a-12e7e0a25808",
+    "scene_id": "390c16b2-dad9-43cd-a209-5ada7aba577a",
+    "text": "擂鼓呐喊，虚张声势",
+    "is_correct": true,
+    "feedback": "孔明令船只头西尾东，一字摆开，军士擂鼓呐喊。鲁肃大惊曰：“曹兵齐出若何？”",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f3df5bfe-6b1f-4fd9-9a60-bfe554f18096",
+    "scene_id": "390c16b2-dad9-43cd-a209-5ada7aba577a",
+    "text": "悄然潜行，勿露行藏",
+    "is_correct": false,
+    "feedback": "若不惊动曹军，曹操怎会轻易放箭？此计关键在于“诱”字。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "6ad317c6-949f-4de4-90ed-99e2c05ebc02",
+    "scene_id": "390c16b2-dad9-43cd-a209-5ada7aba577a",
+    "text": "正面强攻，登陆冲杀",
+    "is_correct": false,
+    "feedback": "我们就这二十只船，几百军士，若去强攻，无异于以卵击石。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "026c1d3b-97ea-4bcc-a865-86099921e2a7",
+    "scene_id": "d29c0186-3214-4b46-9f00-88dcc7a3bb1a",
+    "text": "掉转船头，两面受箭",
+    "is_correct": true,
+    "feedback": "一侧草把箭满，孔明令把船掉转，头东尾西，逼近水寨受箭，一面既满，再取一面。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "3caa11eb-592c-4b26-84a2-a83b62748250",
+    "scene_id": "d29c0186-3214-4b46-9f00-88dcc7a3bb1a",
+    "text": "急令回撤，见好就收",
+    "is_correct": false,
+    "feedback": "此时箭数尚不足十万，若此时回撤，军令状难销，性命难保。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "eae5734a-e8c4-4a08-bba4-637df6ad42c5",
+    "scene_id": "d29c0186-3214-4b46-9f00-88dcc7a3bb1a",
+    "text": "冲入水寨，火攻曹营",
+    "is_correct": false,
+    "feedback": "船上尽是干草，若冲入寨中，反易被火箭所引，自取灭亡。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "15ad46e3-ee43-4096-8490-da642040f7a3",
+    "scene_id": "8857ab15-a918-47db-816e-40ccf68dbcb7",
+    "text": "满载而归，复命周瑜",
+    "is_correct": true,
+    "feedback": "船轻水急，曹军追之不及。孔明回至江东，周瑜差人来搬箭，只见十万余枝，无一根缺损。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "321134a1-9ef3-407b-87db-34d0d605c175",
+    "scene_id": "8857ab15-a918-47db-816e-40ccf68dbcb7",
+    "text": "乘胜追击，痛打落水狗",
+    "is_correct": false,
+    "feedback": "此行只为借箭，兵力单薄，不可恋战。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d658fd03-5681-4958-a6c7-134234cb25c8",
+    "scene_id": "8857ab15-a918-47db-816e-40ccf68dbcb7",
+    "text": "半途而废，私吞羽箭",
+    "is_correct": false,
+    "feedback": "若私吞羽箭，何以复命？",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "b6d2acb8-e4de-4b1b-aa17-479c1706cbd7",
+    "scene_id": "c85d2466-4196-4878-b592-eca1dfd87ce1",
+    "text": "重新来过，再施妙计",
+    "is_correct": true,
+    "feedback": "胜败乃兵家常事，少侠请重新来过。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d77fd168-65e0-4bfc-a284-5e736fb09424",
+    "scene_id": "eff08745-0c99-441b-91aa-ea1130a4b340",
+    "text": "置之不理，自行离去",
+    "is_correct": false,
+    "feedback": "玄德以此为傲？非也。刘备虽乃汉室宗亲，然此时落魄，且素以此待人接物。若傲慢离去，便无后来之桃园佳话。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "6db8bd64-df0c-4768-9f3d-83955838ec87",
+    "scene_id": "eff08745-0c99-441b-91aa-ea1130a4b340",
+    "text": "忧国忧民，感时伤怀",
+    "is_correct": true,
+    "feedback": "玄德这一长叹，满腹心事尽在其中。这一叹，却引得身后一人厉声高喝。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "894d31ee-3ca1-45b2-9fad-ad1ed49cfd80",
+    "scene_id": "eff08745-0c99-441b-91aa-ea1130a4b340",
+    "text": "撕下皇榜，以此明志",
+    "is_correct": false,
+    "feedback": "此非玄德所为。刘备性格宽仁沉稳，非鲁莽之辈。撕榜乃狂徒行径，不合其皇叔身份与性格。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "3a97f950-d5f5-4a69-b377-f1977c281132",
+    "scene_id": "bab19494-bb58-4a56-a902-c8534102f407",
+    "text": "置之不理，自行离去",
+    "is_correct": false,
+    "feedback": "豪杰相逢，岂可交臂失之？若此时离去，便错失了这位万人敌的猛将。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "39533b16-8373-4006-883b-aff9e6ed3d57",
+    "scene_id": "bab19494-bb58-4a56-a902-c8534102f407",
+    "text": "回首询问，结识壮士",
+    "is_correct": true,
+    "feedback": "玄德回视其人，见身长八尺，豹头环眼，燕颔虎须，声若巨雷，势如奔马。此乃张飞张翼德也。二人志趣相投，遂同入村店饮酒。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "834e3852-22a6-4825-b13f-7cd6b7ccc94a",
+    "scene_id": "bab19494-bb58-4a56-a902-c8534102f407",
+    "text": "反唇相讥，责其无礼",
+    "is_correct": false,
+    "feedback": "玄德宽厚，不喜与人争执。且见此人相貌堂堂，必非凡俗，岂会因言语粗鲁而见怪？",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "7b1cc13b-1eea-4f18-b37c-9b80b664efd8",
+    "scene_id": "adb799df-11d6-4a0d-affe-9bfe8159ed24",
+    "text": "邀其同坐，共谋大事",
+    "is_correct": true,
+    "feedback": "玄德见其威仪，心知非凡人，遂邀其同坐。关公此时正欲投军，三人一见如故，共叙抱负。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "3e6bdac8-25c6-4bb1-890d-aa986bb9483c",
+    "scene_id": "adb799df-11d6-4a0d-affe-9bfe8159ed24",
+    "text": "暗中观察，不做声张",
+    "is_correct": false,
+    "feedback": "玄德求贤若渴，见此英雄岂有交臂失之理？若不主动相邀，关公饮罢便去，何来桃园三结义？",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "2854be6e-0562-4731-9754-815c8a96f9b4",
+    "scene_id": "adb799df-11d6-4a0d-affe-9bfe8159ed24",
+    "text": "张飞邀战，比试武艺",
+    "is_correct": false,
+    "feedback": "演义之中，三人相遇乃是惺惺相惜，并未动武。酒肆比武多为民间评书野史演绎，非正统情节。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "eb2895da-060b-4e91-b6fa-bacc6238b7af",
+    "scene_id": "c27a676a-9244-47a5-b08d-44ef6e97a220",
+    "text": "推辞不受，恐有不妥",
+    "is_correct": false,
+    "feedback": "玄德虽谦，然胸怀大志。今得两员虎将相助，正如鱼得水，岂有推辞之理？",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "8bb58839-ab03-46a3-ad84-f7eeb8eee9e9",
+    "scene_id": "c27a676a-9244-47a5-b08d-44ef6e97a220",
+    "text": "即刻结拜，不需祭礼",
+    "is_correct": false,
+    "feedback": "古人重礼。结义乃大事，需祭告天地表心迹。张飞虽粗中有细，亦知需择吉地（桃园）备祭礼，方显庄重。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "2ca6e0f3-ec5c-4e69-b459-924fad7b870e",
+    "scene_id": "c27a676a-9244-47a5-b08d-44ef6e97a220",
+    "text": "欣然应允，约定明日",
+    "is_correct": true,
+    "feedback": "玄德、云长齐声应曰：“如此甚好。” 所谓千金易得，知己难求。三人意气相投，以此定下盟约。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d57a854c-94da-43b4-9071-6d4fa8d4da70",
+    "scene_id": "d2e869d3-0b3f-491f-925d-f5eaf4444ad8",
+    "text": "按武艺高低排座次",
+    "is_correct": false,
+    "feedback": "桃园结义论的是年岁长幼，而非武力高低。若论武力，恐难分伯仲，且伤兄弟和气。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d1b77179-8db9-4851-8783-abce0c48cd59",
+    "scene_id": "d2e869d3-0b3f-491f-925d-f5eaf4444ad8",
+    "text": "立誓毕，按年岁结拜",
+    "is_correct": true,
+    "feedback": "誓毕，拜玄德为兄，关羽次之，张飞为弟。长幼有序，礼之大本。此顺序定下三人终身之名分。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "bed2a992-54cf-4091-b53b-d75bd304ab23",
+    "scene_id": "d2e869d3-0b3f-491f-925d-f5eaf4444ad8",
+    "text": "推举家资厚者为兄",
+    "is_correct": false,
+    "feedback": "张飞虽颇有家资，然结义看重的是志向与德行，且玄德乃汉室宗亲，年岁亦长，故尊为兄。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "afd375ce-fcee-4b98-825c-bce98d230462",
+    "scene_id": "64180733-eed7-4435-ab3e-2a73194a54b1",
+    "text": "留守桃园，独霸一方",
+    "is_correct": false,
+    "feedback": "结义初衷乃是“上报国家，下安黎庶”。若只知割据一方，便成草寇，非英雄所为。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d3da9e8f-b6cc-407f-b7ab-d48f613d18fa",
+    "scene_id": "51db87ca-6d0d-4b93-abe9-76472ef92099",
+    "text": "派小股部队试探",
+    "is_correct": false,
+    "feedback": "（此选项为司马懿视角陷阱）孔明若见兵来，必乱阵脚。但此时孔明镇定自若，你若派兵，反而容易中埋伏。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:13.937045+00:00"
+  },
+  {
+    "id": "d12904fa-66ba-48c7-a678-6ec3611d1189",
+    "scene_id": "51db87ca-6d0d-4b93-abe9-76472ef92099",
+    "text": "下令全军急退",
+    "is_correct": false,
+    "feedback": "未听琴音虚实便急退，恐失良机。司马懿决定再听片刻。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:13.937045+00:00"
+  },
+  {
+    "id": "9dfba1cf-e605-40d0-af79-7ecd5142fd8f",
+    "scene_id": "51db87ca-6d0d-4b93-abe9-76472ef92099",
+    "text": "静听琴音虚实",
+    "is_correct": true,
+    "feedback": "",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:13.937045+00:00"
+  },
+  {
+    "id": "092ebc25-010d-412b-a7c8-9b620e119af3",
+    "scene_id": "64180733-eed7-4435-ab3e-2a73194a54b1",
+    "text": "散尽钱财，归隐田园",
+    "is_correct": false,
+    "feedback": "乱世已至，大丈夫当提三尺剑立不世之功。三人皆世之豪杰，岂肯老死于林泉之下？",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "77f775f0-d2b7-4484-83f9-b9b3dcd14f25",
+    "scene_id": "64180733-eed7-4435-ab3e-2a73194a54b1",
+    "text": "整顿军马，投邹靖平乱",
+    "is_correct": true,
+    "feedback": "大功告成。三人收拾军马，投幽州太守刘焉处（校尉邹靖引之），正式踏上平定黄巾、争霸天下的征途。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "0ed4a7ba-665d-4b71-9e46-e64f4b919fda",
+    "scene_id": "e1bca762-c175-4aee-bec8-abeb231320fb",
+    "text": "重新来过",
+    "is_correct": true,
+    "feedback": "往事已矣，来者可追。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "b7eed33b-a5c8-4e24-8fcb-54008cf6c523",
+    "scene_id": "238c75a2-2649-47e6-bd7b-c6c5c0a4a8c6",
+    "text": "强行索要，大闹龙宫",
+    "is_correct": false,
+    "feedback": "虽显威风，然龙王也是一方神祗。若无理取闹，只怕引来看守海藏的神将围攻，反倒不美。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "8385d480-b969-4b8c-91c2-9621016fe12c",
+    "scene_id": "238c75a2-2649-47e6-bd7b-c6c5c0a4a8c6",
+    "text": "既然无宝，转身离去",
+    "is_correct": false,
+    "feedback": "好不容易来此一遭，若空手而归，确是可惜。且龙宫必有异宝，只恨未曾得见。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f699b79c-7c06-4d19-9610-9261d1056516",
+    "scene_id": "238c75a2-2649-47e6-bd7b-c6c5c0a4a8c6",
+    "text": "询问更有何宝物",
+    "is_correct": true,
+    "feedback": "龙女献策，道海藏中有一块天河定底神珍铁。龙王虽不舍，却也无奈，只得带悟空去见识。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "7d6084fd-d4dc-4b95-a351-c9a212c5d048",
+    "scene_id": "3233d2cb-2a0b-4cfb-b2ba-46e3217d3da8",
+    "text": "嫌太重，放回原处",
+    "is_correct": false,
+    "feedback": "此宝虽然沉重，却正是为你量身打造。若弃之不用，只怕再难寻得这般趁手兵器。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "e0e70120-c294-4324-97a5-9e070cb92dc8",
+    "scene_id": "3233d2cb-2a0b-4cfb-b2ba-46e3217d3da8",
+    "text": "变作绣花针，藏于耳内",
+    "is_correct": true,
+    "feedback": "妙哉！此宝能大能小，随心变化。悟空将其变作绣花针塞入耳中，谢过龙王，大笑而去。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "659d0de0-1d81-4801-a0f2-e5e8b813eb48",
+    "scene_id": "3233d2cb-2a0b-4cfb-b2ba-46e3217d3da8",
+    "text": "扛起铁柱，径直打出",
+    "is_correct": false,
+    "feedback": "虽有神力，然扛着如此巨物行走，终究不便。且宝物灵性，不知变化运用，仅做凡铁使唤，岂不暴殄天物？",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "5f8d2e7e-f34b-494c-8e72-2f9afdc21f68",
+    "scene_id": "84408f1e-8676-4271-8739-c174b0faddbd",
+    "text": "只勾去自己名字",
+    "is_correct": false,
+    "feedback": "虽得长生，然猴属同类仍受轮回之苦。既来之，何不惠及子孙？",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "560f868b-2cb7-458d-bc44-feacd403eef0",
+    "scene_id": "84408f1e-8676-4271-8739-c174b0faddbd",
+    "text": "尽销猴属之名",
+    "is_correct": true,
+    "feedback": "悟空提起笔，把猴属之类有名者，一概勾之。大笑扔笔：“了帐！了帐！今番不伏你管了！”一路棒打出幽冥界。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "135a1a1b-718b-4b3f-b4d4-09f7bc8ca9a3",
+    "scene_id": "84408f1e-8676-4271-8739-c174b0faddbd",
+    "text": "大闹地府，推翻冥王",
+    "is_correct": false,
+    "feedback": "地府乃三界轮回之所，若将其毁坏，致使阴阳失序，罪孽深重，必遭天谴。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "af669299-6bea-4785-a19b-7d771836c28e",
+    "scene_id": "5746490d-5d9b-41db-b50e-c98d2a3ca028",
+    "text": "嫌官小，打出南天门",
+    "is_correct": true,
+    "feedback": "悟空闻言大怒：“这般渺视老孙！老孙在花果山，称王称祖，怎么哄我来替他养马？” 推倒公案，耳中取出宝贝，一路打出天门去了。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "1a3fa406-1dac-4c36-9116-272ee878cab9",
+    "scene_id": "5746490d-5d9b-41db-b50e-c98d2a3ca028",
+    "text": "忍气吞声，继续养马",
+    "is_correct": false,
+    "feedback": "齐天大圣其实池中之物？若甘心养马，便失了那一身傲骨与灵性。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "20bac149-5ecd-48db-8325-4f10829de748",
+    "scene_id": "5746490d-5d9b-41db-b50e-c98d2a3ca028",
+    "text": "上书玉帝，请求升迁",
+    "is_correct": false,
+    "feedback": "天庭等级森严，岂容你轻易讨价还价？且悟空生性急躁，哪耐得住这般繁文缛节。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "b7e2b978-5972-4c62-898a-558284012326",
+    "scene_id": "5a39d4e3-0b04-4589-87f4-7acaf6d260d2",
+    "text": "酒醒惧罪，逃回下界",
+    "is_correct": true,
+    "feedback": "悟空酒醒，自知闯下大祸：“不好！不好！这场祸比天大，若惊动玉帝，性命难存。走！走！走！” 遂逃回花果山。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f440f846-0e1e-47b6-84c1-643bce7ae9a0",
+    "scene_id": "5a39d4e3-0b04-4589-87f4-7acaf6d260d2",
+    "text": "在此等候，向玉帝请罪",
+    "is_correct": false,
+    "feedback": "偷桃盗丹，搅乱蟠桃会，罪在不赦。若在此等候，正是自投罗网。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "88d35513-d8df-4b27-87d5-e961cfdc551e",
+    "scene_id": "5a39d4e3-0b04-4589-87f4-7acaf6d260d2",
+    "text": "大闹瑶池，挑战群仙",
+    "is_correct": false,
+    "feedback": "此时孤身一人，若在此大闹，引来漫天神佛围攻，只怕插翅难逃。不如先避其锋芒。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "dbff8128-eb9e-4e87-8a8f-7058555b72d1",
+    "scene_id": "7a49ae47-59b3-464c-800d-4d60f212e3e1",
+    "text": "乘胜追击，杀上天庭",
+    "is_correct": false,
+    "feedback": "虽一时得胜，然天庭底蕴深厚，高手如云。若孤军深入，必陷绝境。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c4394631-4269-48f9-9796-4f9af80a8798",
+    "scene_id": "7a49ae47-59b3-464c-800d-4d60f212e3e1",
+    "text": "苦战不退，力竭被擒",
+    "is_correct": false,
+    "feedback": "二郎神杨奇赶来助战，又有太上老君暗中偷袭。悟空虽勇，终究双拳难敌四手。然此非结局，乃是另一段传奇的开始。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f1b8d6bd-cd20-411e-91ec-2dcc5f32a116",
+    "scene_id": "7a49ae47-59b3-464c-800d-4d60f212e3e1",
+    "text": "且战且退，静观其变",
+    "is_correct": true,
+    "feedback": "这一战，打出了齐天大圣的威名！虽最终被擒，然大闹天宫之举，已震动三界，成就千古美名。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "79f662e6-dcb3-41c1-83a9-3bae9a4d3a59",
+    "scene_id": "4a38847d-9d46-4904-ba73-490373f47137",
+    "text": "重新来过，再闹天宫！",
+    "is_correct": true,
+    "feedback": "哪怕被压五百年，哪怕历经九九八十一难，俺老孙也绝不后悔！",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "9cf6c409-91f7-4f2e-9a15-5cfa017d8c99",
+    "scene_id": "1e652600-e12d-4c69-8e33-0f98e79a877d",
+    "text": "运起火眼金睛，当头便打",
+    "is_correct": true,
+    "feedback": "悟空定睛一看，认出妖精本相，掣铁棒，大喝一声'好孽畜！'，劈头便打。那怪化一阵清风逃走，只留下一具假尸。唐僧肉眼凡胎，大惊失色，责怪悟空无故伤生。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "350cb9e6-187e-4cf5-bd15-df00778bbba2",
+    "scene_id": "1e652600-e12d-4c69-8e33-0f98e79a877d",
+    "text": "上前搭讪，探问虚实",
+    "is_correct": false,
+    "feedback": "既是荒山野岭，孤身女子行走必有蹊跷。若贸然上前，恐堕入妖计，反误了师父性命。这妖精手段高明，言多必失。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "91a140dc-7bb7-4bdc-a5f1-ed941c589fd9",
+    "scene_id": "1e652600-e12d-4c69-8e33-0f98e79a877d",
+    "text": "请师父定夺",
+    "is_correct": false,
+    "feedback": "师父慈悲为怀，必不许伤生。若以此请示，妖精定然趁机下手，那时悔之晚矣。斩妖除魔，需得雷厉风行。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "51c61006-3146-41d4-a927-6fc346b0674c",
+    "scene_id": "86e5040b-0cea-43f2-93d4-22fc86250477",
+    "text": "不容分说，举棒再打",
+    "is_correct": true,
+    "feedback": "悟空道：'这孽畜又来骗人！' 轮起金箍棒，照头一下。那怪元神出窍，化风而逃，却留下一具老妇尸首。唐僧气得念起紧箍咒，痛得悟空在地上打滚。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "6c5c1720-758c-4189-8506-a09d0f7b2ba5",
+    "scene_id": "86e5040b-0cea-43f2-93d4-22fc86250477",
+    "text": "向师父解释原委",
+    "is_correct": false,
+    "feedback": "此时唐僧已被八戒挑唆，正在气头上，哪里听得进解释？多说无益，反遭紧箍咒之苦。妖精在前，唯有除恶务尽。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "8a6c799a-f800-41e4-abfb-e8023b7c1c55",
+    "scene_id": "86e5040b-0cea-43f2-93d4-22fc86250477",
+    "text": "变作个土地神哄她",
+    "is_correct": false,
+    "feedback": "大圣乃正大光明之辈，岂可甚至妖精行骗？况且妖精认得大圣，此计难行。当务之急是保护师父，非是斗智。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "8366a07d-fcd2-45ed-9975-ed31695a6faa",
+    "scene_id": "d8c935c5-fa5a-4618-abe0-969551a8d37d",
+    "text": "重新来过，再辨真伪",
+    "is_correct": true,
+    "feedback": "",
+    "sort_order": 1,
+    "created_at": "2026-01-05T06:55:51.722405+00:00"
+  },
+  {
+    "id": "3e92bfb8-9bed-47f1-a192-983c18e5c14d",
+    "scene_id": "033be942-d869-4c77-94f5-af0e95b98266",
+    "text": "唤土地为证，一棒断根",
+    "is_correct": true,
+    "feedback": "悟空恐师父念咒，先唤出本方土地、山神作证，然后抡起金箍棒，劈脸一下。那妖精再无处逃生，化作一堆白骨，脊梁上刻有'白骨夫人'四字。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "fa52bcfb-02fb-4b95-bcb3-a9050ba06632",
+    "scene_id": "033be942-d869-4c77-94f5-af0e95b98266",
+    "text": "听凭师父发落",
+    "is_correct": false,
+    "feedback": "若不出手，妖怪必将师父摄去吃掉。为了取经大业，哪怕受屈含冤，也不能坐视不理。我不入地狱，谁入地狱？",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f2a694dc-4d61-4048-b892-c218fb056b54",
+    "scene_id": "033be942-d869-4c77-94f5-af0e95b98266",
+    "text": "佯装不见，护送师父快走",
+    "is_correct": false,
+    "feedback": "树欲静而风不止，妖怪既然盯上，岂有轻易放过之理？避无可避，唯有迎头痛击，方能绝后患。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "dd240f9c-98be-4433-8943-4ca0ee05bc96",
+    "scene_id": "ed4ffe2a-2ff5-42e3-9233-e2f900281ba5",
+    "text": "拜别恩师，嘱托沙僧",
+    "is_correct": true,
+    "feedback": "悟空见挽回无望，含泪朝东拜了四拜，嘱咐沙僧道：'贤弟，你是个好人，千万仔细看守师父！' 随后纵云回花果山水帘洞去了。此去经年，也是命中魔障。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "b5106487-1f4e-400d-8381-03a1f577a9de",
+    "scene_id": "ed4ffe2a-2ff5-42e3-9233-e2f900281ba5",
+    "text": "强留不走，苦苦哀求",
+    "is_correct": false,
+    "feedback": "师父心意已决，强留只会徒增厌恶。缘分暂尽，强求无益，不如暂避，待日后师父有难，自会明白俺老孙的苦心。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "0ba9b528-59e2-4a71-8364-80e208a725b3",
+    "scene_id": "ed4ffe2a-2ff5-42e3-9233-e2f900281ba5",
+    "text": "毁去贬书，软硬兼施",
+    "is_correct": false,
+    "feedback": "如此岂是为人弟子之道？悟空虽顽劣，却极重尊师重道之礼，断不肯行此悖逆之事。一日为师，终身为父。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "475ff2fd-96fa-444a-845e-32e8853f7a26",
+    "scene_id": "580d8ca6-d706-496e-9f63-6433ea41e156",
+    "text": "硬着头皮再战",
+    "is_correct": false,
+    "feedback": "那黄袍怪武艺高强，连沙僧都被捉了，八戒独木难支，再去也是送死。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "671acd18-cd17-45cc-a913-44e1d94962f9",
+    "scene_id": "580d8ca6-d706-496e-9f63-6433ea41e156",
+    "text": "回高老庄散伙",
+    "is_correct": false,
+    "feedback": "虽然八戒常嚷嚷着散伙，但真到了师父生死存亡之际，他倒也不忍心就这样一走了之。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c1a4c9e8-9f28-418c-9767-55706e5b6c20",
+    "scene_id": "580d8ca6-d706-496e-9f63-6433ea41e156",
+    "text": "去花果山请大师兄",
+    "is_correct": true,
+    "feedback": "八戒心想：'解铃还须系铃人，这妖怪只有大师兄降得住！' 于是硬着头皮，驾云往东海花果山而去。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "2964c531-b918-4104-adb1-eaff45736e05",
+    "scene_id": "77ecbaef-086c-409c-a4f1-1696825ee6ff",
+    "text": "推脱不去，记恨前嫌",
+    "is_correct": false,
+    "feedback": "悟空乃真豪杰，岂会真的记恨师父？他只是一时气愤，只需给个台阶便会下来。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "7aa669ff-0d6b-4a8a-a9a0-bc460ea8dcae",
+    "scene_id": "77ecbaef-086c-409c-a4f1-1696825ee6ff",
+    "text": "即刻下山，降妖救师",
+    "is_correct": true,
+    "feedback": "悟空道：'贤弟，莫要在那里胡扯！我岂不知你在激我？但我还须救师父去！' 兄弟二人驾云同去。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "ba24aec7-281a-4c13-ae73-0679a260cd6f",
+    "scene_id": "77ecbaef-086c-409c-a4f1-1696825ee6ff",
+    "text": "派孩儿们去打探",
+    "is_correct": false,
+    "feedback": "救人如救火，迟则生变。况且那黄袍怪神通广大，小猴子们去也是白搭。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "092c858d-52fc-448a-85d8-d5b6eaefd328",
+    "scene_id": "ec69afc5-4b74-4dd7-aff8-4cd3504bbefc",
+    "text": "释嫌修好，重踏征程",
+    "is_correct": true,
+    "feedback": "师父道：'贤徒，亏了你也！' 悟空道：'师父，你今日方知老孙的手段！' 经此一事，师徒情分更深一层，同心协力，共赴西天。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "62e159f7-467e-49a9-9560-e78fbc8adf14",
+    "scene_id": "ec69afc5-4b74-4dd7-aff8-4cd3504bbefc",
+    "text": "恃功傲物，逼师赔礼",
+    "is_correct": false,
+    "feedback": "一日为师，终身为父。悟空虽受委屈，然笃守尊师重道之礼，岂敢恃功而傲慢？",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "a173925a-1fa7-46af-b13e-693c8b3f127b",
+    "scene_id": "ec69afc5-4b74-4dd7-aff8-4cd3504bbefc",
+    "text": "夸耀神通，奚落八戒",
+    "is_correct": false,
+    "feedback": "大圣心胸开阔，既已降妖救师，便不再计较前嫌。兄弟阋墙，非智者所为。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c4835e73-62c1-4593-90ac-ab4381aedc78",
+    "scene_id": "bf065bbb-3aa4-4a36-ac78-38d38e0f81a4",
+    "text": "勘破迷障，再续前缘",
+    "is_correct": true,
+    "feedback": "经此一难，师徒情分虽受挫折，却也为日后破镜重圆埋下伏笔。真金不怕火炼，患难才见真情。终以此心，修成正果。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "0e3c3407-6c19-4f95-b161-b42851f7d87d",
+    "scene_id": "bf065bbb-3aa4-4a36-ac78-38d38e0f81a4",
+    "text": "畏难而退，散伙各去",
+    "is_correct": false,
+    "feedback": "取经大业，关乎苍生福祉，岂可因一时误会而轻言放弃？半途而废，非英雄所为。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "e08a2609-1c49-4fbc-9011-0aab988ec4f5",
+    "scene_id": "bf065bbb-3aa4-4a36-ac78-38d38e0f81a4",
+    "text": "独善其身，逍遥自在",
+    "is_correct": false,
+    "feedback": "悟空本已长生不老，然成佛作祖并非只为长生，更为修得正果，普度众生。独善其身，终非大道。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "6f892935-8f5a-49e5-aa89-f732844595df",
+    "scene_id": "be939769-6325-4058-9603-7903823650ed",
+    "text": "留恋家园，放弃远行",
+    "is_correct": false,
+    "feedback": "若不出行，虽得安稳，却永远无法见识那广阔的天地。但这不符合女娃的性格。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "4749feeb-dc1b-473b-bbad-e0172bb0a1ed",
+    "scene_id": "be939769-6325-4058-9603-7903823650ed",
+    "text": "辞别父亲，奔赴东海",
+    "is_correct": true,
+    "feedback": "女娃拜别父亲，踏上了前往东海的旅途。一路山高水长，她却不知疲倦。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c295af10-5fbb-48f7-ae1f-8d5071ce1bb2",
+    "scene_id": "be939769-6325-4058-9603-7903823650ed",
+    "text": "邀请伙伴，从长计议",
+    "is_correct": false,
+    "feedback": "时光不等人，若事事都要万全准备，恐怕这辈子都走不出这大山。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "749ba78e-15c4-49d4-b513-fdfb4663e629",
+    "scene_id": "1247335d-fb9f-43bb-9f51-a437f63e565a",
+    "text": "无论是岸边，还是浅滩",
+    "is_correct": false,
+    "feedback": "既已入海，岂能只在浅滩徘徊？",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "a6a782a4-a1eb-4f1d-9d6f-28fdf12e6c18",
+    "scene_id": "1247335d-fb9f-43bb-9f51-a437f63e565a",
+    "text": "收帆垂钓，静享安宁",
+    "is_correct": false,
+    "feedback": "大海变幻莫测，此刻虽宁静，却非久居之地。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "3af7675f-e31c-4ad6-bd9a-6fbf3e44e0db",
+    "scene_id": "1247335d-fb9f-43bb-9f51-a437f63e565a",
+    "text": "深入大海，探寻奇景",
+    "is_correct": true,
+    "feedback": "大海深处仿佛有神秘的呼唤，女娃不知不觉间已离岸甚远。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "cb7ff689-6db7-44e4-a659-f8f04d547325",
+    "scene_id": "4e662b53-4d0a-4498-8fcf-ae38d95c1b6d",
+    "text": "奋力划桨，与浪搏斗",
+    "is_correct": true,
+    "feedback": "女娃虽然年幼，却有着炎帝血脉中的倔强，她试图稳住小舟，但人力终究难抗天威。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f99a9503-ce26-429f-a5fa-2c8a91c8e0dc",
+    "scene_id": "4e662b53-4d0a-4498-8fcf-ae38d95c1b6d",
+    "text": "闭目祈祷，听天由命",
+    "is_correct": false,
+    "feedback": "坐以待毙绝非她的性格，即便面对绝境，也要抗争到底。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "19f1441a-e4a0-4a7f-8f93-6a300948c184",
+    "scene_id": "4e662b53-4d0a-4498-8fcf-ae38d95c1b6d",
+    "text": "弃船求生，跳入海中",
+    "is_correct": false,
+    "feedback": "在这惊涛骇浪之中，离开船只无异于自寻死路。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "cf17243b-0301-4411-b843-8b72b6ae1244",
+    "scene_id": "4f2792d3-85ab-41e3-aded-20b4a22ec8b4",
+    "text": "哀鸣离去，躲避大海",
+    "is_correct": false,
+    "feedback": "它既已重生，便不再畏惧。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "811d0790-d56a-4c44-baf9-9ae20743826a",
+    "scene_id": "4f2792d3-85ab-41e3-aded-20b4a22ec8b4",
+    "text": "衔石填海，矢志不渝",
+    "is_correct": true,
+    "feedback": "精卫发出凄厉的鸣叫，发誓要填平这夺去她性命的大海！",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "60d685a6-1da2-49bf-bb1b-f025b69db1d1",
+    "scene_id": "4f2792d3-85ab-41e3-aded-20b4a22ec8b4",
+    "text": "潜入海底，寻找肉身",
+    "is_correct": false,
+    "feedback": "肉身已逝，唯有精神长存。此时回头已无意义。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "01e7442b-b803-44fa-921d-198b2a74783c",
+    "scene_id": "ecf85ae4-cf05-41cb-a555-d246bfe3ea16",
+    "text": "稍作休息，养精蓄锐",
+    "is_correct": false,
+    "feedback": "每一刻的停歇，都让精卫觉得是对仇恨的遗忘，它不肯停。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "1601a14b-27fc-432a-9635-1e79d2bd3e7d",
+    "scene_id": "ecf85ae4-cf05-41cb-a555-d246bfe3ea16",
+    "text": "寻求帮手，共填沧海",
+    "is_correct": false,
+    "feedback": "这是属于她一个人的战斗，也是她一个人的执念，哪怕孤独，也要坚持。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "cedf366c-6e25-4a41-8f2a-24145f6b87db",
+    "scene_id": "ecf85ae4-cf05-41cb-a555-d246bfe3ea16",
+    "text": "坚持不懈，日夜往复",
+    "is_correct": true,
+    "feedback": "沧海桑田，精卫的身影从未消失。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "ec512920-57b9-46d0-9ee6-2e564f34cfb3",
+    "scene_id": "4c958e83-c0aa-4506-92d6-dd8778f67f18",
+    "text": "与海谈判，祈求和平",
+    "is_correct": false,
+    "feedback": "大海无情，岂会因为言语而改变？唯有行动能证明一切。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "76f93edb-5c5e-4c98-b985-e7132a7eb0b1",
+    "scene_id": "4c958e83-c0aa-4506-92d6-dd8778f67f18",
+    "text": "子孙相继，永不放弃",
+    "is_correct": true,
+    "feedback": "这种撼动天地的意志，令大海也不禁为之颤抖。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "7369cfdd-8221-4dab-a569-0bea69f9dfa6",
+    "scene_id": "4c958e83-c0aa-4506-92d6-dd8778f67f18",
+    "text": "沉默不语，专心投石",
+    "is_correct": false,
+    "feedback": "虽无言亦有力，但此刻的誓言，是对天地的宣告。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "78c475a7-14d4-4b45-8531-02fb6ddcfb40",
+    "scene_id": "34ee4d43-77db-43f8-beb8-a916a7159bed",
+    "text": "重读经典，再悟精神",
+    "is_correct": true,
+    "feedback": "故事虽短，精神长存。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "350c3f61-fda8-4caa-91e6-b54a2aaa5a00",
+    "scene_id": "34ee4d43-77db-43f8-beb8-a916a7159bed",
+    "text": "讲述故事，传承后人",
+    "is_correct": false,
+    "feedback": "将这精神代代相传，或许比填平大海更有意义。(游戏结束)",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "fb2c2320-983e-44c6-8a9b-34b4ad0867c8",
+    "scene_id": "34ee4d43-77db-43f8-beb8-a916a7159bed",
+    "text": "仰望星空，追忆往昔",
+    "is_correct": false,
+    "feedback": "星空之下，是否还有那只倔强的小鸟在飞翔？(游戏结束)",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "fedcae91-8fd6-4f90-a2f7-1eb510286f41",
+    "scene_id": "fb7fd302-8fc9-421f-8ad3-cc574d3a50ae",
+    "text": "享受平凡，相夫教子",
+    "is_correct": false,
+    "feedback": "这也是一种幸福，只是少了那份惊心动魄。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "08c3b4fa-e36a-445d-bf4e-efe64053c7e4",
+    "scene_id": "fb7fd302-8fc9-421f-8ad3-cc574d3a50ae",
+    "text": "梦回东海，心存遗憾",
+    "is_correct": false,
+    "feedback": "既然选择了安逸，便只能在梦中寻找那片海。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "949f5254-4831-4533-bb34-6a22c9306ebb",
+    "scene_id": "fb7fd302-8fc9-421f-8ad3-cc574d3a50ae",
+    "text": "重新来过，再化精卫",
+    "is_correct": true,
+    "feedback": "有些命运，或许注定要燃烧自己，照亮后人。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "da77b283-3dfb-4705-816b-63e572bbb98b",
+    "scene_id": "0a9a7359-c5e8-4611-a864-ce444dbef2dc",
+    "text": "躲入地穴，苟且偷生",
+    "is_correct": false,
+    "feedback": "虽可暂避一时，然大地若毁，地穴岂能独存？且坐视苍生受难，非勇者所为。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "a9039efa-5123-49e0-878a-77bdc0ce5c56",
+    "scene_id": "0a9a7359-c5e8-4611-a864-ce444dbef2dc",
+    "text": "祈求上苍，降雨灭火",
+    "is_correct": false,
+    "feedback": "天帝帝俊乃十日之父，此时正纵容诸子。祈求无用，唯有抗争。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "9c134ec1-8280-4c3a-ad32-92d7a063fc86",
+    "scene_id": "0a9a7359-c5e8-4611-a864-ce444dbef2dc",
+    "text": "挺身而出，寻找救法",
+    "is_correct": true,
+    "feedback": "在这绝望之际，神射手后羿看着受难的百姓，紧握手中彤弓素箭，眼中燃起怒火。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "6e6409c9-d5bf-4267-bccb-3f8d981f5c7b",
+    "scene_id": "228837f8-6cdf-43f6-94f2-56945e150547",
+    "text": "直接射杀，不留情面",
+    "is_correct": false,
+    "feedback": "先礼后兵乃君子之风。金乌虽顽劣，毕竟是神灵之子，应先予警告。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c5023903-ffb9-445e-82fd-e6299041ae62",
+    "scene_id": "228837f8-6cdf-43f6-94f2-56945e150547",
+    "text": "鸣镝示警，劝其归去",
+    "is_correct": true,
+    "feedback": "后羿射出一支鸣镝，划破长空，意在警告金乌速速归去，勿再为祸人间。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "5b202598-2c76-4f4c-9b41-712a27390dd8",
+    "scene_id": "228837f8-6cdf-43f6-94f2-56945e150547",
+    "text": "畏惧天帝，不敢开弓",
+    "is_correct": false,
+    "feedback": "后羿也就是因为这份刚正不阿，才会被贬下凡。既已领命，何惧之有？",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "cf453a30-2f76-4e43-b75b-a93d26e9d51c",
+    "scene_id": "72ff3088-a81c-4906-9930-b4c55c94047b",
+    "text": "再次警告，苦口婆心",
+    "is_correct": false,
+    "feedback": "此时再言，已被其视为软弱。对付这等顽劣之徒，言语已是无用。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "5a9b4329-5563-48b8-93b4-91425e3cc239",
+    "scene_id": "72ff3088-a81c-4906-9930-b4c55c94047b",
+    "text": "愤而开弓，射落一日",
+    "is_correct": true,
+    "feedback": "忍无可忍，无需再忍！后羿脚踏大地，手挽雕弓，满月崩弦，一箭射出！",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "bf6de613-a051-4b10-a461-a2a634560aa5",
+    "scene_id": "72ff3088-a81c-4906-9930-b4c55c94047b",
+    "text": "求助天帝，管教诸子",
+    "is_correct": false,
+    "feedback": "远水难救近火。况且天帝若肯管教，何至于此？",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "935a5282-69fb-49e5-a103-92e7f215e0ef",
+    "scene_id": "e3f7f21e-5333-478f-a263-e5ed0f29ab70",
+    "text": "乘胜追击，射杀殆尽",
+    "is_correct": false,
+    "feedback": "万物生长靠太阳。若十日皆亡，大地将陷入永恒的黑暗与严寒，亦是一场浩劫。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "1f94f021-2a68-4e3e-990e-3c66094af7c3",
+    "scene_id": "e3f7f21e-5333-478f-a263-e5ed0f29ab70",
+    "text": "因生怜悯，停手不射",
+    "is_correct": false,
+    "feedback": "剩下那只若不给足教训，难保日后不故态复萌。此时停手，尚嫌太早。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f561cf55-eab0-4651-9feb-1ad37dee311d",
+    "scene_id": "e3f7f21e-5333-478f-a263-e5ed0f29ab70",
+    "text": "欲射最后一日",
+    "is_correct": true,
+    "feedback": "后羿搭上最后一支箭，瞄准了最后那只瑟瑟发抖的金乌。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "6281abd5-aa62-44e5-8d5e-535adfa50684",
+    "scene_id": "aadbd04c-46df-44c0-99a2-3c6e7d19147a",
+    "text": "居功自傲，索要赏赐",
+    "is_correct": false,
+    "feedback": "后羿射日乃为苍生，非为私利。英雄之所以为英雄，在于其无私。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "18e82347-3971-4c00-987c-150bfc38f6e8",
+    "scene_id": "aadbd04c-46df-44c0-99a2-3c6e7d19147a",
+    "text": "归隐山林，不问世事",
+    "is_correct": false,
+    "feedback": "后羿虽立大功，但人世间尚有凿齿、九婴等妖兽为祸，英雄的使命尚未结束。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "9a89608e-04b7-46c6-8ee7-736e19fc8f4a",
+    "scene_id": "aadbd04c-46df-44c0-99a2-3c6e7d19147a",
+    "text": "继续除害，造福苍生",
+    "is_correct": true,
+    "feedback": "后羿收拾弓箭，又踏上了铲除妖兽、守护大地的征途。他的名字，被后世永远铭记。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "d5a27775-0d87-456f-99d0-029dff11600d",
+    "scene_id": "1569ab28-526f-466f-8e1a-f33d54f53293",
+    "text": "重新来过，手下留情",
+    "is_correct": true,
+    "feedback": "过犹不及，万事当有度。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "25cedbf2-085a-4752-98a3-05a806500868",
+    "scene_id": "27784d3c-ff73-4b20-bc5a-a7045c8cf18b",
+    "text": "安贫乐道",
+    "is_correct": true,
+    "feedback": "君子固穷，小人穷斯滥矣。越是困境，越能磨炼心性，颜回深得夫子之道。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "8abd8806-0ac0-4cea-a16a-60059c6b1110",
+    "scene_id": "27784d3c-ff73-4b20-bc5a-a7045c8cf18b",
+    "text": "质疑师道",
+    "is_correct": false,
+    "feedback": "子路曾问：“君子亦有穷乎？”若因一时困顿而动摇信念，便非真君子。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "1185de05-82dc-40e9-920c-82435361e256",
+    "scene_id": "27784d3c-ff73-4b20-bc5a-a7045c8cf18b",
+    "text": "甚至想要离开",
+    "is_correct": false,
+    "feedback": "患难见真情，此时离去，不仅背弃师门，更背弃了自己的道义。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "beda6fc4-0b2c-4511-b47b-a3bb8a465d59",
+    "scene_id": "17f50f72-8183-4b9f-be25-cebfc7a7a06f",
+    "text": "小心看火",
+    "is_correct": true,
+    "feedback": "米粮来之不易，需得全神贯注，确保粥熟且不浪费，这也是一种修行。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "aa305a6f-164b-447b-a9cd-d21122bea058",
+    "scene_id": "17f50f72-8183-4b9f-be25-cebfc7a7a06f",
+    "text": "因为饥饿难耐",
+    "is_correct": false,
+    "feedback": "虽饥肠辘辘，但颜回克己复礼，绝不会在师长未食之前因私欲而失态。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "91c0a786-bdda-458e-9058-241c4d97bd1d",
+    "scene_id": "17f50f72-8183-4b9f-be25-cebfc7a7a06f",
+    "text": "心生怨怼",
+    "is_correct": false,
+    "feedback": "颜回为人谦冲，即使身处逆境，也绝无怨言，只会默默承担。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "bd4ad802-4027-4f70-9bcf-bd9834319471",
+    "scene_id": "9bd009e4-b295-48db-bfb5-43918b37d8eb",
+    "text": "惜食吞粥",
+    "is_correct": true,
+    "feedback": "“一箪食，一瓢饮，在陋巷，人不堪其忧，回也不改其乐。”颜回深知物力维艰，故不忍丢弃，虽然不洁，宁可自己吃下。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "573b8407-bfe5-49e9-9994-da9756aed68b",
+    "scene_id": "9bd009e4-b295-48db-bfb5-43918b37d8eb",
+    "text": "倒掉脏粥",
+    "is_correct": false,
+    "feedback": "此时绝粮七日，每一粒米都关乎性命，岂能轻易倒掉？此举虽合卫生，却不合时宜。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f6aca691-8dcb-4a12-8c4d-aca9ff226eef",
+    "scene_id": "9bd009e4-b295-48db-bfb5-43918b37d8eb",
+    "text": "搅拌掩饰",
+    "is_correct": false,
+    "feedback": "若将灰尘拌入粥中呈给夫子，便是欺师；若自己食用却不言明，亦非诚实之道。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "f44afee7-b6b6-496a-8b78-8d5be1d3019a",
+    "scene_id": "3fb41af2-66b4-46a6-baf4-6c80fb88b402",
+    "text": "痛打黄盖",
+    "is_correct": true,
+    "feedback": "公瑾虽心中不忍，然为了江东基业，终成此苦肉之计，瞒过曹操细作。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:42.583792+00:00"
+  },
+  {
+    "id": "02bd0d6e-9a92-47e3-a5b0-257efc5c4e4b",
+    "scene_id": "3fb41af2-66b4-46a6-baf4-6c80fb88b402",
+    "text": "断然拒绝",
+    "is_correct": false,
+    "feedback": "妇人之仁，难成大事。曹操生性多疑，无此苦肉计，诈降书便成废纸，江东危矣。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:42.583792+00:00"
+  },
+  {
+    "id": "59a1afb5-9abe-4df6-b273-1955493ff7cb",
+    "scene_id": "3fb41af2-66b4-46a6-baf4-6c80fb88b402",
+    "text": "斩杀曹使",
+    "is_correct": false,
+    "feedback": "两军交战不斩来使，此举仅泄一时之愤，反激曹军斗志，且显得江东气数已尽。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:42.583792+00:00"
+  },
+  {
+    "id": "2ea1a6e4-32d8-4303-bc0e-3971183aa873",
+    "scene_id": "f4af2973-dbdc-4e50-a72a-3e69d853eb6c",
+    "text": "遣统献计",
+    "is_correct": true,
+    "feedback": "庞士元巧舌如簧，曹操果中连环计，战船铁索相连，动弹不得，火攻之势已成。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:43.281996+00:00"
+  },
+  {
+    "id": "be6deaa7-3fee-475e-8f84-bb0c577ee399",
+    "scene_id": "f4af2973-dbdc-4e50-a72a-3e69d853eb6c",
+    "text": "留统自用",
+    "is_correct": false,
+    "feedback": "庞统虽有大才，然若无连环计锁住曹军战船，火势一起，曹船四散，赤壁之战必败。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:43.281996+00:00"
+  },
+  {
+    "id": "e9ff2979-fc7a-4ac0-9d1a-bc65314472c2",
+    "scene_id": "f4af2973-dbdc-4e50-a72a-3e69d853eb6c",
+    "text": "犹豫不决",
+    "is_correct": false,
+    "feedback": "战机稍纵即逝，犹豫间曹操已整顿水军，庞统错失良机，火攻之计化为泡影。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:43.281996+00:00"
+  },
+  {
+    "id": "1c7bbffe-2bd6-4f5e-ba48-e624fa1cd6b0",
+    "scene_id": "bbe8c9d4-f31f-4395-b14f-5ebb3dd0a69c",
+    "text": "筑坛借风",
+    "is_correct": true,
+    "feedback": "孔明登坛作法，三日后果然东南风大作，旗幡转动，公瑾沉疴顿愈，天助江东！",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:44.25056+00:00"
+  },
+  {
+    "id": "03eaf191-69dc-45e8-bc3c-4a8cb8d262d1",
+    "scene_id": "bbe8c9d4-f31f-4395-b14f-5ebb3dd0a69c",
+    "text": "斩杀孔明",
+    "is_correct": false,
+    "feedback": "嫉贤妒能，自毁长城。孔明一死，无人能识天时，西北风依旧，火攻自焚，大军覆没。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:44.25056+00:00"
+  },
+  {
+    "id": "910da39b-6997-49bb-acde-03a59dc1db5e",
+    "scene_id": "bbe8c9d4-f31f-4395-b14f-5ebb3dd0a69c",
+    "text": "静待天时",
+    "is_correct": false,
+    "feedback": "天时不等人，隆冬之际难有东南风。坐以待毙，终被曹军百万雄师踏平。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:44.25056+00:00"
+  },
+  {
+    "id": "10ffd0fb-5ada-47cd-8004-584bf5611359",
+    "scene_id": "123983df-522c-46f4-9ece-3f179c3fe0e3",
+    "text": "擂鼓进军",
+    "is_correct": true,
+    "feedback": "战鼓震天，江东儿郎奋勇争先，直扑曹营，势不可挡。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:45.117967+00:00"
+  },
+  {
+    "id": "919749bf-fbbe-4a91-97eb-3a7756337ac3",
+    "scene_id": "123983df-522c-46f4-9ece-3f179c3fe0e3",
+    "text": "按兵不动",
+    "is_correct": false,
+    "feedback": "黄盖孤军深入，若无后援，必被曹军乱箭射死。公瑾若此时迟疑，前功尽弃。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:45.117967+00:00"
+  },
+  {
+    "id": "4622b10d-9e9f-44eb-b6f7-1332a4bb6da4",
+    "scene_id": "123983df-522c-46f4-9ece-3f179c3fe0e3",
+    "text": "鸣金收兵",
+    "is_correct": false,
+    "feedback": "箭在弦上，不得不发。此时撤军，不仅卖了黄盖，更乱了军心，曹军反扑，必死无疑。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:45.117967+00:00"
+  },
+  {
+    "id": "7a0633a3-9d70-4333-82b9-cd0a95f211a1",
+    "scene_id": "d2f2a4bf-658f-4c5b-9d6f-465038776340",
+    "text": "全线掩杀",
+    "is_correct": true,
+    "feedback": "公瑾挥剑直指彼岸，东吴水陆并进，痛打落水狗。曹军死伤无数，曹操败走华容道，奠定三国鼎立之势！",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:45.858471+00:00"
+  },
+  {
+    "id": "028a1b66-5d8c-4d5a-97dc-5fab3b0d6d0e",
+    "scene_id": "d2f2a4bf-658f-4c5b-9d6f-465038776340",
+    "text": "只顾抢掠",
+    "is_correct": false,
+    "feedback": "贪图曹营辎重，乱了阵脚。曹军虽败，猛将尚在，张辽率军反扑，东吴大军反受其害。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:45.858471+00:00"
+  },
+  {
+    "id": "56bf91f5-dbba-4503-aa8a-e64f43fde445",
+    "scene_id": "d2f2a4bf-658f-4c5b-9d6f-465038776340",
+    "text": "隔岸观火",
+    "is_correct": false,
+    "feedback": "错失良机！若不登岸追击，曹操得以从容整顿残部，卷土重来，江东再无宁日。",
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:45.858471+00:00"
+  },
+  {
+    "id": "e00655bd-664f-4556-b676-bf6901416d9f",
+    "scene_id": "ac538e75-78e6-42a6-b6fa-3073f515742a",
+    "text": "据实以告",
+    "is_correct": true,
+    "feedback": "颜回坦荡答道：“不可！刚才有灰尘掉进锅里，我怕浪费便吃了，这粥已不洁，不能祭祀了。”诚实乃君子之本。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "9256e525-c2ec-452b-9c86-fffb9d865dd9",
+    "scene_id": "ac538e75-78e6-42a6-b6fa-3073f515742a",
+    "text": "顺从师命",
+    "is_correct": false,
+    "feedback": "祭祀讲究“诚”与“洁”。若明知粥不洁而献祭，是大不敬；若隐瞒实情，是欺师。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "72f0cb19-6ada-4616-9d67-1b618f6e76aa",
+    "scene_id": "ac538e75-78e6-42a6-b6fa-3073f515742a",
+    "text": "惶恐认错",
+    "is_correct": false,
+    "feedback": "颜回所为并非错事，而是惜物之举，何须惶恐？只需如实说明即可。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "60909177-cf2e-4f18-95f5-69683e737c62",
+    "scene_id": "9c8a881c-6dd6-43a3-b16a-790626ec5e31",
+    "text": "深信不疑",
+    "is_correct": true,
+    "feedback": "信任非一日之功，需经得起误解与考验。师徒之间，贵在相知相信。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "bbeef3ee-241d-4645-bc32-e7d08f1c4224",
+    "scene_id": "9c8a881c-6dd6-43a3-b16a-790626ec5e31",
+    "text": "眼见为实",
+    "is_correct": false,
+    "feedback": "孔子今日之教，正是要破除“眼见为实”的执念。心之所感，往往比眼之所见更为真实。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "74d927fd-e1e9-4ea3-b245-b055720c87cc",
+    "scene_id": "9c8a881c-6dd6-43a3-b16a-790626ec5e31",
+    "text": "心存芥蒂",
+    "is_correct": false,
+    "feedback": "误会既已冰释，道理也已讲明，若仍存芥蒂，便枉费了夫子的一番教诲。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "092fadde-fb63-4b7e-9824-399a62738d8e",
+    "scene_id": "504c03b8-ac43-4ea3-93ce-ec5f9bd54fa7",
+    "text": "弃城而逃",
+    "is_correct": false,
+    "feedback": "此时弃城，必被魏军铁骑追上。众寡悬殊，蜀军全军覆没。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:08.81624+00:00"
+  },
+  {
+    "id": "53fccef8-0884-4f1c-a5f1-168ff0265672",
+    "scene_id": "504c03b8-ac43-4ea3-93ce-ec5f9bd54fa7",
+    "text": "闭门死守",
+    "is_correct": false,
+    "feedback": "二千残兵难敌十五万虎狼之师，城池瞬间告破，孔明被俘。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:08.81624+00:00"
+  },
+  {
+    "id": "ad37fd2f-ae88-4fef-aeff-afd954bcb052",
+    "scene_id": "504c03b8-ac43-4ea3-93ce-ec5f9bd54fa7",
+    "text": "故作疑兵",
+    "is_correct": true,
+    "feedback": "",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:08.81624+00:00"
+  },
+  {
+    "id": "f3b776ba-087d-4011-8dbe-8f8eb8cc22fd",
+    "scene_id": "85b241fa-f5b6-464d-b843-37851e5a61b5",
+    "text": "令百姓慌乱奔走",
+    "is_correct": false,
+    "feedback": "百姓慌乱，说明城中无备。魏军前哨立刻回报，大军掩杀而入。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:12.41324+00:00"
+  },
+  {
+    "id": "7266ff5e-5f9d-435f-a861-33e75f09a2a7",
+    "scene_id": "85b241fa-f5b6-464d-b843-37851e5a61b5",
+    "text": "令百姓若无其事",
+    "is_correct": true,
+    "feedback": "",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:12.41324+00:00"
+  },
+  {
+    "id": "361a70ab-8f40-481d-8825-95dc26653d82",
+    "scene_id": "85b241fa-f5b6-464d-b843-37851e5a61b5",
+    "text": "令百姓列队欢迎",
+    "is_correct": false,
+    "feedback": "此举过于做作，司马懿生性多疑，反觉其中有诈，但也知绝非伏兵，遂派兵试探。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:12.41324+00:00"
+  },
+  {
+    "id": "368aa53d-66f3-4644-8fe6-ec7866f94590",
+    "scene_id": "619eef0f-037c-4e53-8b0d-66a13ac9a362",
+    "text": "探究天道",
+    "is_correct": true,
+    "feedback": "《周易》虽以此卜筮，但孔子看到的却是其中蕴含的天地万物变化之道。他不仅是读，更是要探寻宇宙人生的终极真理。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "3c6d1349-2045-4cfd-b147-93b215f5ff43",
+    "scene_id": "619eef0f-037c-4e53-8b0d-66a13ac9a362",
+    "text": "消磨时光",
+    "is_correct": false,
+    "feedback": "孔子晚年惜时如金，感叹“逝者如斯夫”，绝不会为了单纯消磨时光而读书。他是在与时间赛跑，传承文化。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "5b3250d0-905f-4ab8-93f5-51beab51c71a",
+    "scene_id": "619eef0f-037c-4e53-8b0d-66a13ac9a362",
+    "text": "寻求吉凶",
+    "is_correct": false,
+    "feedback": "孔子言“不占而已矣”，他读易并非为了算命卜卦求吉凶，而是为了通晓事理，修身养性。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "69949ec0-b739-43f8-b58d-2f79e59b6fd7",
+    "scene_id": "b74c4813-75aa-41b8-a9ba-c97cce7f11f3",
+    "text": "学思并重",
+    "is_correct": true,
+    "feedback": "“学而不思则罔，思而不学则殆。” 孔子正是通过不断地研读与思考，将古老的卜筮之书升华为哲学经典。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "49a0f470-1e44-4daf-977d-b47718e24a32",
+    "scene_id": "b74c4813-75aa-41b8-a9ba-c97cce7f11f3",
+    "text": "囫囵吞枣",
+    "is_correct": false,
+    "feedback": "孔子治学最忌只读表面而不求甚解。对于艰深的《周易》，他更是逐字逐句地推敲，绝不含糊。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "62a042a9-fb16-4c13-860e-afd97ba979e8",
+    "scene_id": "b74c4813-75aa-41b8-a9ba-c97cce7f11f3",
+    "text": "墨守成规",
+    "is_correct": false,
+    "feedback": "孔子读易，并非死守古义，而是“述而不作，信而好古”中又有所创新，赋予了《周易》全新的德义内涵。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "85c07ced-7c6a-45cf-b44d-c568b85f9a71",
+    "scene_id": "72f2ac00-7398-452a-85bd-c19122bed405",
+    "text": "欣然重编",
+    "is_correct": true,
+    "feedback": "孔子并没有因此懊恼，反而因为自己读书之勤而感到一丝欣慰。他唤来弟子，耐心地将竹简按顺序重新编好，继续攻读。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c31d2814-df7e-485c-8654-d62fdffd652c",
+    "scene_id": "72f2ac00-7398-452a-85bd-c19122bed405",
+    "text": "怅然若失",
+    "is_correct": false,
+    "feedback": "书简虽断，学问未断。孔子心胸豁达，这点小事不会让他感到怅然，反而会更激发他读书的热情。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "9369d6dd-bc4f-4630-9b85-12908d1a6ad8",
+    "scene_id": "72f2ac00-7398-452a-85bd-c19122bed405",
+    "text": "置之不理",
+    "is_correct": false,
+    "feedback": "书是孔子的良师益友，怎么会置之不理呢？",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c0dfce09-f7f3-4fcf-821a-2d529a8e69fb",
+    "scene_id": "752e73fe-4fca-4618-ad72-3fc97fd5017c",
+    "text": "笃志虚心",
+    "is_correct": true,
+    "feedback": "正是这种笃志好学、虚心求教的精神，成就了孔子的圣人地位。正如他自己所言：“我非生而知之者，好古，敏以求之者也。”",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "52339ab7-e534-43e9-9e5c-14d3bd660d16",
+    "scene_id": "752e73fe-4fca-4618-ad72-3fc97fd5017c",
+    "text": "爱书如命",
+    "is_correct": false,
+    "feedback": "虽然孔子确实爱书，但“韦编三绝”的核心精神在于“勤奋”与“刻苦”，而非单纯对书籍实体的爱惜。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "0a4bfbce-ca9c-44ab-b04c-3120fc65790e",
+    "scene_id": "752e73fe-4fca-4618-ad72-3fc97fd5017c",
+    "text": "力大无穷",
+    "is_correct": false,
+    "feedback": "牛皮绳并非被拉断，而是被磨断的。这体现的是“水滴石穿”的功夫，而非力气的大小。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "49ed018e-c932-4b17-b647-abbc3756800e",
+    "scene_id": "751b0779-a1e6-48c0-aace-65dd1293263e",
+    "text": "不仅孜孜",
+    "is_correct": true,
+    "feedback": "圣人之所以为圣人，在于从不满足于已有的成就。孔子的这种“不知老之将至”的求学态度，才是最值得我们后人学习的。",
+    "sort_order": 1,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "0e125c68-9994-44c2-b936-c95ce7ca7cc4",
+    "scene_id": "751b0779-a1e6-48c0-aace-65dd1293263e",
+    "text": "临渊羡鱼",
+    "is_correct": false,
+    "feedback": "孔子是在身体力行地“退而结网”，通过踏实地学习来避免过失，而非空想羡慕。",
+    "sort_order": 2,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "dc5e457b-6993-4718-88e3-f7cc9378305c",
+    "scene_id": "110a940e-e908-4b75-83b3-6621c02af788",
+    "text": "琴声激昂高亢",
+    "is_correct": false,
+    "feedback": "琴声激昂，显露出心中杀气与焦躁。司马懿断定城中虚张声势，挥兵攻城。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:17.189943+00:00"
+  },
+  {
+    "id": "b509be17-9363-4cb6-beee-538968126c59",
+    "scene_id": "751b0779-a1e6-48c0-aace-65dd1293263e",
+    "text": "悔不当初",
+    "is_correct": false,
+    "feedback": "孔子一生光明磊落，此言并非后悔，而是对知识的无限向往和对完美人格的不懈追求。",
+    "sort_order": 3,
+    "created_at": "2026-01-05T03:39:28.037532+00:00"
+  },
+  {
+    "id": "c84f0bf3-fd3c-415c-bc8f-6572c6770638",
+    "scene_id": "110a940e-e908-4b75-83b3-6621c02af788",
+    "text": "琴声忽快忽慢",
+    "is_correct": false,
+    "feedback": "节奏紊乱，心神不宁。司马懿大笑：“孔明心慌矣！”遂下令进攻。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:17.189943+00:00"
+  },
+  {
+    "id": "7b126114-4291-4914-9cad-e775d56298f4",
+    "scene_id": "110a940e-e908-4b75-83b3-6621c02af788",
+    "text": "琴声平正冲和",
+    "is_correct": true,
+    "feedback": "琴声如高山流水，不紧不慢，毫无乱象。司马懿叹曰：“孔明平生谨慎，必不弄险。今大开城门，必有埋伏。”遂引兵退去。",
+    "sort_order": 0,
+    "created_at": "2026-01-14T02:40:17.189943+00:00"
+  }
+]

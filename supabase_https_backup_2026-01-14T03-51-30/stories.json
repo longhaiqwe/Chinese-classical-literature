@@ -1,0 +1,233 @@
+[
+  {
+    "id": "yanhuitouzhou",
+    "category_id": "lunyu",
+    "title": "颜回偷粥",
+    "description": "孔子误会颜回偷食，终知真相。通过此事感叹“知人不易”。",
+    "ending_title": "知人不易",
+    "ending_description": "所信者目也，而目犹不可信；所恃者心也，而心犹不足恃。弟子记之，知人固不易矣。",
+    "sort_order": 1,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "weibiansanjue",
+    "category_id": "lunyu",
+    "title": "韦编三绝",
+    "description": "孔子晚年喜读《易》，韦编三绝。曰：“假我数年，五十以学《易》，可以无大过矣。”",
+    "ending_title": "勤学不倦",
+    "ending_description": "韦编三绝今犹在，从此勤学不仅是少年的事，更是毕生的修行。",
+    "sort_order": 2,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "shizherusi",
+    "category_id": "lunyu",
+    "title": "逝者如斯",
+    "description": "子在川上曰：“逝者如斯夫！不舍昼夜。” 感叹时光流逝，勉励弟子珍惜光阴。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 4,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "junzibuqi",
+    "category_id": "lunyu",
+    "title": "君子不器",
+    "description": "孔子曰：“君子不器。” 意为君子博学多才，不应像器物一样只有单一用途。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 5,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "sangumaolu",
+    "category_id": "sanguoyanyi",
+    "title": "三顾茅庐",
+    "description": "刘备三次拜访诸葛亮，求贤若渴，终得隆中对。",
+    "ending_title": "如鱼得水",
+    "ending_description": "刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。",
+    "sort_order": 1,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "taoyuan",
+    "category_id": "sanguoyanyi",
+    "title": "桃园结义",
+    "description": "东汉末年，天下大乱。刘关张三人于桃园结义，共图大事。",
+    "ending_title": "义薄云天",
+    "ending_description": "三位英雄于桃园焚香结拜，誓同生死。一段波澜壮阔的三国史诗就此拉开序幕。恭喜你完成了这段历史的演绎。",
+    "sort_order": 2,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "caochuanjiejian",
+    "category_id": "sanguoyanyi",
+    "title": "草船借箭",
+    "description": "周瑜设计害孔明，孔明谈笑间草船借箭十万枝。",
+    "ending_title": "神机妙算",
+    "ending_description": "孔明神机妙算，草船借箭十万枝，周瑜自叹不如。",
+    "sort_order": 3,
+    "created_at": "2026-01-04T08:25:58.384639+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "danaotiangong",
+    "category_id": "xiyouji",
+    "title": "大闹天宫",
+    "description": "孙悟空大闹天宫，挑战十万天兵天将。",
+    "ending_title": "齐天大圣",
+    "ending_description": "十万天兵难抵挡，定海神针显神威。这一战，打出了齐天大圣的赫赫威名，也种下了五百年被压五行山的因果。",
+    "sort_order": 1,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "sandabaigujing",
+    "category_id": "xiyouji",
+    "title": "三打白骨精",
+    "description": "白骨精三次变化戏弄唐僧，悟空火眼金睛识破妖魔。",
+    "ending_title": "破镜重圆",
+    "ending_description": "师徒四人经历了误会与分离，最终消除隔阂，重归于好。这份失而复得的情谊，更加坚不可摧。",
+    "sort_order": 2,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "zhenjiameihouwang",
+    "category_id": "xiyouji",
+    "title": "真假美猴王",
+    "description": "六耳猕猴假冒悟空，上天入地难辨真伪，终至如来佛祖处方显原形。",
+    "ending_title": "师徒重归",
+    "ending_description": "悟空一棒打死六耳猕猴，绝了二心。观音菩萨领着悟空去见唐僧，说明原委。唐僧方知错怪了徒弟，师徒重归于好，再上西行大道。",
+    "sort_order": 3,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "huoshaochibi",
+    "category_id": "sanguoyanyi",
+    "title": "火烧赤壁",
+    "description": "孙刘联军火烧赤壁，大破曹操八十万大军，奠定三国鼎立之势。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 0,
+    "created_at": "2026-01-13T09:05:41.774985+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "kongchengji",
+    "category_id": "sanguoyanyi",
+    "title": "空城计",
+    "description": "街亭失守，司马懿十五万大军压境，诸葛亮身边却无大将。面对绝境，卧龙先生如何在西城城楼之上，凭抚琴一曲化险为夷？",
+    "ending_title": "抚琴退敌",
+    "ending_description": "孔明以空城之计，弄险于指掌之间，凭七弦古琴吓退司马懿十五万大军。此役不仅保全了蜀汉残部，更成就了千古传颂的智慧典范，令后人叹服。",
+    "sort_order": 5,
+    "created_at": "2026-01-14T02:40:02.369+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "nuerguo",
+    "category_id": "xiyouji",
+    "title": "女儿国奇遇",
+    "description": "师徒误入西梁女国，唐僧在女王柔情与取经大业之间经受考验。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 4,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "dazhanhonghaier",
+    "category_id": "xiyouji",
+    "title": "大战红孩儿",
+    "description": "红孩儿练成三昧真火，悟空难敌，请来观音菩萨方才收服。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 5,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "touchirenshenguo",
+    "category_id": "xiyouji",
+    "title": "偷吃人参果",
+    "description": "万寿山五庄观，悟空偷吃人参果，推倒果树，惹怒镇元大仙。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 6,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "jingweitianhai",
+    "category_id": "shanhaijing",
+    "title": "精卫填海",
+    "description": "炎帝之女溺亡东海，化为精卫鸟，衔石填海，矢志不渝。",
+    "ending_title": "坚韧不拔",
+    "ending_description": "精卫衔微木，将以填沧海。刑天舞干戚，猛志固常在。你的坚持与毅力，正如这精卫鸟一般，令人动容。",
+    "sort_order": 1,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "houyisheri",
+    "category_id": "shanhaijing",
+    "title": "后羿射日",
+    "description": "十日并出，焦禾稼，杀草木。后羿张弓搭箭，射落九日，解救苍生。",
+    "ending_title": "光耀千秋",
+    "ending_description": "后羿射落九日，留一日以照万物。自此风调雨顺，万物复苏。英雄之名，与日月同辉。",
+    "sort_order": 2,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": true
+  },
+  {
+    "id": "kuafuzhuri",
+    "category_id": "shanhaijing",
+    "title": "夸父逐日",
+    "description": "夸父与日逐走，渴欲得饮，饮于河、渭；河、渭不足，北饮大泽，未至，道渴而死。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 3,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "dayuzhishui",
+    "category_id": "shanhaijing",
+    "title": "大禹治水",
+    "description": "大禹率民治水，三过家门而不入，疏通九河，平定水患。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 4,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "huangdizhan",
+    "category_id": "shanhaijing",
+    "title": "黄帝战蚩尤",
+    "description": "轩辕黄帝与蚩尤大战于逐鹿之野，风后设指南车破迷雾，最终统一华夏。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 5,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  },
+  {
+    "id": "zilushoujiao",
+    "category_id": "lunyu",
+    "title": "子路受教",
+    "description": "子路问政，孔子教之以先之劳之。子路性直，孔子常循循善诱。",
+    "ending_title": null,
+    "ending_description": null,
+    "sort_order": 3,
+    "created_at": "2025-12-31T09:38:37.760042+00:00",
+    "is_ready": false
+  }
+]

@@ -1,0 +1,677 @@
+[
+  {
+    "id": "6dcca475-4fe9-43ea-838c-0ae690b39f3f",
+    "story_id": "jingweitianhai",
+    "scene_index": 4,
+    "episode_id": "695490a52c17917ad831b91b",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_4.mp3",
+    "created_at": "2025-12-31T02:55:39.660503+00:00"
+  },
+  {
+    "id": "3f87c600-1951-48ee-93a8-d88a9690116b",
+    "story_id": "jingweitianhai",
+    "scene_index": 1,
+    "episode_id": "695377474168cd5946e16a83",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_1.mp3",
+    "created_at": "2025-12-30T06:55:09.924949+00:00"
+  },
+  {
+    "id": "1e539d19-ae7c-40dc-b088-440acbbe79e0",
+    "story_id": "taoyuan",
+    "scene_index": 1,
+    "episode_id": "6953783e672c8112766a6868",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/taoyuan_1.mp3",
+    "created_at": "2025-12-30T06:59:16.092653+00:00"
+  },
+  {
+    "id": "01f0e232-dd94-451a-bfa8-e9336df354dc",
+    "story_id": "taoyuan",
+    "scene_index": 2,
+    "episode_id": "6953787de0ed77db1ac6c8cd",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/taoyuan_2.mp3",
+    "created_at": "2025-12-30T07:00:19.908775+00:00"
+  },
+  {
+    "id": "1002da4e-80a4-4b1b-b907-e99f93ddbb49",
+    "story_id": "taoyuan",
+    "scene_index": 3,
+    "episode_id": "69537a23e0ed77db1ac6e5c6",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/taoyuan_3.mp3",
+    "created_at": "2025-12-30T07:07:21.421501+00:00"
+  },
+  {
+    "id": "00b407fd-49da-4dd1-ba2a-78ec0a8c2cf1",
+    "story_id": "sangumaolu",
+    "scene_index": 1,
+    "episode_id": "6954803fe816ee3b48b577cc",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sangumaolu_1.mp3",
+    "created_at": "2025-12-31T01:45:42.213117+00:00"
+  },
+  {
+    "id": "424f6ce0-d95d-4987-a438-e1e46369d440",
+    "story_id": "sangumaolu",
+    "scene_index": 2,
+    "episode_id": "6954868ce253d6894ce9238e",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sangumaolu_2.mp3",
+    "created_at": "2025-12-31T02:12:35.473154+00:00"
+  },
+  {
+    "id": "a2216214-873e-49b9-9e94-769af776ea98",
+    "story_id": "taoyuan",
+    "scene_index": 4,
+    "episode_id": "695488c421912ad88070c031",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/taoyuan_4.mp3",
+    "created_at": "2025-12-31T02:22:02.654556+00:00"
+  },
+  {
+    "id": "f8f51bb7-96b5-4dd3-a958-6e6586bf0d48",
+    "story_id": "taoyuan",
+    "scene_index": 5,
+    "episode_id": "695488ccd7cd617cb995d455",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/taoyuan_5.mp3",
+    "created_at": "2025-12-31T02:22:10.463281+00:00"
+  },
+  {
+    "id": "1638f832-3744-45e9-9ff0-d066f3610453",
+    "story_id": "taoyuan",
+    "scene_index": 6,
+    "episode_id": "695488d32c17917ad8312e8c",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/taoyuan_6.mp3",
+    "created_at": "2025-12-31T02:22:18.338494+00:00"
+  },
+  {
+    "id": "beac4275-b6d1-444d-919c-b1e937693651",
+    "story_id": "taoyuan",
+    "scene_index": 7,
+    "episode_id": "6954898185a598f88c6769a8",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/taoyuan_7.mp3",
+    "created_at": "2025-12-31T02:25:11.977815+00:00"
+  },
+  {
+    "id": "7b88c79c-4b1c-44fd-a948-d6bca29ffab9",
+    "story_id": "sangumaolu",
+    "scene_index": 3,
+    "episode_id": "69548991aaa0e0daae13d704",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sangumaolu_3.mp3",
+    "created_at": "2025-12-31T02:25:27.800874+00:00"
+  },
+  {
+    "id": "cc6aef04-abc6-48bf-a3da-c84400b278a0",
+    "story_id": "sangumaolu",
+    "scene_index": 4,
+    "episode_id": "695489a7e253d6894ce9551d",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sangumaolu_4.mp3",
+    "created_at": "2025-12-31T02:25:49.805577+00:00"
+  },
+  {
+    "id": "1fd5a4d9-8a21-495e-95c6-74147f88f469",
+    "story_id": "sangumaolu",
+    "scene_index": 6,
+    "episode_id": "695489beb3da6b88a8aa951e",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sangumaolu_6.mp3",
+    "created_at": "2025-12-31T02:26:12.534546+00:00"
+  },
+  {
+    "id": "0d2a5668-bbd8-4ee3-b70d-16152e51a25f",
+    "story_id": "danaotiangong",
+    "scene_index": 2,
+    "episode_id": "695489ce85a598f88c676ecd",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/danaotiangong_2.mp3",
+    "created_at": "2025-12-31T02:26:28.88772+00:00"
+  },
+  {
+    "id": "7eb7e941-33cf-482b-8522-57ea64da73d3",
+    "story_id": "danaotiangong",
+    "scene_index": 3,
+    "episode_id": "695489e3b3da6b88a8aa973f",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/danaotiangong_3.mp3",
+    "created_at": "2025-12-31T02:26:50.011799+00:00"
+  },
+  {
+    "id": "8017018e-8494-401c-81c5-90484120404e",
+    "story_id": "danaotiangong",
+    "scene_index": 5,
+    "episode_id": "695489fa21912ad88070d2ff",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/danaotiangong_5.mp3",
+    "created_at": "2025-12-31T02:27:13.085443+00:00"
+  },
+  {
+    "id": "18294140-9ef1-4943-b650-122145b5ded9",
+    "story_id": "sangumaolu",
+    "scene_index": 5,
+    "episode_id": "69548a2cd7cd617cb995e969",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sangumaolu_5.mp3",
+    "created_at": "2025-12-31T02:28:03.304604+00:00"
+  },
+  {
+    "id": "2cf4b16f-0e51-481c-a601-21bb7ea55fb3",
+    "story_id": "danaotiangong",
+    "scene_index": 1,
+    "episode_id": "69548f92d7cd617cb9964062",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/danaotiangong_1.mp3",
+    "created_at": "2025-12-31T02:51:05.476144+00:00"
+  },
+  {
+    "id": "4c638b31-1cd6-4b9c-98b7-1945c3eb2ba3",
+    "story_id": "danaotiangong",
+    "scene_index": 4,
+    "episode_id": "69548fc32c17917ad831a7cf",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/danaotiangong_4.mp3",
+    "created_at": "2025-12-31T02:51:53.644316+00:00"
+  },
+  {
+    "id": "9a1c77e1-962a-48ee-8a80-ad11492587e2",
+    "story_id": "danaotiangong",
+    "scene_index": 6,
+    "episode_id": "69548a10d7cd617cb995e787",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/danaotiangong_6.mp3",
+    "created_at": "2025-12-31T02:27:34.462486+00:00"
+  },
+  {
+    "id": "dd274c78-72d0-420a-8dac-0a56688e6e45",
+    "story_id": "danaotiangong",
+    "scene_index": 7,
+    "episode_id": "6954901785a598f88c67dd1b",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/danaotiangong_7.mp3",
+    "created_at": "2025-12-31T02:53:18.380635+00:00"
+  },
+  {
+    "id": "119def93-49ae-4f55-a2d9-09f294fb6249",
+    "story_id": "jingweitianhai",
+    "scene_index": 2,
+    "episode_id": "69549047d7cd617cb9964dc0",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_2.mp3",
+    "created_at": "2025-12-31T02:54:05.435969+00:00"
+  },
+  {
+    "id": "a9bfd072-cf3c-42c4-aa2e-8fea8b447415",
+    "story_id": "jingweitianhai",
+    "scene_index": 3,
+    "episode_id": "6954907585a598f88c67e3fe",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_3.mp3",
+    "created_at": "2025-12-31T02:54:52.305118+00:00"
+  },
+  {
+    "id": "01a8d993-dbd1-49ef-a59d-30b94075b53b",
+    "story_id": "jingweitianhai",
+    "scene_index": 5,
+    "episode_id": "695490d4e253d6894ce9d244",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_5.mp3",
+    "created_at": "2025-12-31T02:56:26.83214+00:00"
+  },
+  {
+    "id": "c779ad16-ec55-4bad-afc5-a4c208419875",
+    "story_id": "jingweitianhai",
+    "scene_index": 6,
+    "episode_id": "69549103d7cd617cb9965c77",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_6.mp3",
+    "created_at": "2025-12-31T02:57:13.452282+00:00"
+  },
+  {
+    "id": "7a3515ef-aeff-4250-8fa2-76446743f84d",
+    "story_id": "jingweitianhai",
+    "scene_index": 7,
+    "episode_id": "695491312c17917ad831c461",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_7.mp3",
+    "created_at": "2025-12-31T02:58:00.096326+00:00"
+  },
+  {
+    "id": "6ba86b9e-be52-47c5-97df-56f089e95bee",
+    "story_id": "jingweitianhai",
+    "scene_index": 8,
+    "episode_id": "69549160aaa0e0daae1458d1",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/jingweitianhai_8.mp3",
+    "created_at": "2025-12-31T02:58:47.573923+00:00"
+  },
+  {
+    "id": "1312ffa1-e812-4e4b-83b8-4407dc7963b7",
+    "story_id": "yanhuitouzhou",
+    "scene_index": 1,
+    "episode_id": "6954919121912ad880715544",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/yanhuitouzhou_1.mp3",
+    "created_at": "2025-12-31T02:59:36.422818+00:00"
+  },
+  {
+    "id": "f4d2352e-147d-4746-8c5f-8d66bff52cc7",
+    "story_id": "yanhuitouzhou",
+    "scene_index": 2,
+    "episode_id": "695491baaaa0e0daae145fec",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/yanhuitouzhou_2.mp3",
+    "created_at": "2025-12-31T03:00:16.872779+00:00"
+  },
+  {
+    "id": "26701533-7fdc-4c4c-a079-3cfdcfa47787",
+    "story_id": "yanhuitouzhou",
+    "scene_index": 3,
+    "episode_id": "695491e42c17917ad831d2ab",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/yanhuitouzhou_3.mp3",
+    "created_at": "2025-12-31T03:00:58.678199+00:00"
+  },
+  {
+    "id": "ce87ff5f-a403-46f7-b09a-95ccf206ab79",
+    "story_id": "yanhuitouzhou",
+    "scene_index": 4,
+    "episode_id": "69549212e253d6894ce9ed44",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/yanhuitouzhou_4.mp3",
+    "created_at": "2025-12-31T03:01:45.082705+00:00"
+  },
+  {
+    "id": "ad0b9688-ddf2-4329-ba06-7f89c2b57ef1",
+    "story_id": "yanhuitouzhou",
+    "scene_index": 5,
+    "episode_id": "6954923bd7cd617cb9967737",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/yanhuitouzhou_5.mp3",
+    "created_at": "2025-12-31T03:02:25.63036+00:00"
+  },
+  {
+    "id": "510a0033-125d-4514-ae96-fd00ef4b2288",
+    "story_id": "yanhuitouzhou",
+    "scene_index": 6,
+    "episode_id": "69549269aaa0e0daae146ea9",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/yanhuitouzhou_6.mp3",
+    "created_at": "2025-12-31T03:03:12.404311+00:00"
+  },
+  {
+    "id": "921ba869-1b57-4d3b-97b2-1e47a292082c",
+    "story_id": "houyisheri",
+    "scene_index": 1,
+    "episode_id": "6954c583755323d01c14959a",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/houyisheri_1.mp3",
+    "created_at": "2025-12-31T06:41:13.874991+00:00"
+  },
+  {
+    "id": "1e2a7923-a667-4bd2-8b6f-5bf933d7f134",
+    "story_id": "houyisheri",
+    "scene_index": 2,
+    "episode_id": "6954c5b3b1828afa540c33fc",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/houyisheri_2.mp3",
+    "created_at": "2025-12-31T06:42:01.80469+00:00"
+  },
+  {
+    "id": "a9a40d3f-a555-490f-a7d5-f8ec90236d9f",
+    "story_id": "houyisheri",
+    "scene_index": 3,
+    "episode_id": "6954c5e368e85b36897c35d2",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/houyisheri_3.mp3",
+    "created_at": "2025-12-31T06:42:50.013265+00:00"
+  },
+  {
+    "id": "2d61f125-be9c-4fa1-a470-1fa7ca05af69",
+    "story_id": "houyisheri",
+    "scene_index": 4,
+    "episode_id": "6954c60b661101d92def0773",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/houyisheri_4.mp3",
+    "created_at": "2025-12-31T06:43:29.871863+00:00"
+  },
+  {
+    "id": "3d632e30-6de0-4476-8982-9af29792f349",
+    "story_id": "houyisheri",
+    "scene_index": 5,
+    "episode_id": "6954c63ccda1c2a3353e38af",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/houyisheri_5.mp3",
+    "created_at": "2025-12-31T06:44:18.931511+00:00"
+  },
+  {
+    "id": "08d60a4e-c384-468e-acd4-4cc17c3900da",
+    "story_id": "houyisheri",
+    "scene_index": 6,
+    "episode_id": "6954c66bcda1c2a3353e3c60",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/houyisheri_6.mp3",
+    "created_at": "2025-12-31T06:45:06.185553+00:00"
+  },
+  {
+    "id": "38c6e44a-05a2-4fa2-945e-365373eb75dd",
+    "story_id": "weibiansanjue",
+    "scene_index": 1,
+    "episode_id": "6954e4fbb1828afa540e52cc",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/weibiansanjue_1.mp3",
+    "created_at": "2025-12-31T08:55:29.616372+00:00"
+  },
+  {
+    "id": "f49cf1dc-375e-4661-abb3-e77588fd3a53",
+    "story_id": "weibiansanjue",
+    "scene_index": 2,
+    "episode_id": "6954e52a661101d92df1209b",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/weibiansanjue_2.mp3",
+    "created_at": "2025-12-31T08:56:17.232266+00:00"
+  },
+  {
+    "id": "d5343c66-f9fb-475c-8719-93940ccdcb6b",
+    "story_id": "weibiansanjue",
+    "scene_index": 3,
+    "episode_id": "6954e559661101d92df123fb",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/weibiansanjue_3.mp3",
+    "created_at": "2025-12-31T08:57:03.629987+00:00"
+  },
+  {
+    "id": "d1d73fd5-3858-4143-98d3-86a0bbd3a18a",
+    "story_id": "weibiansanjue",
+    "scene_index": 4,
+    "episode_id": "6954e587b1828afa540e5c6a",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/weibiansanjue_4.mp3",
+    "created_at": "2025-12-31T08:57:50.17771+00:00"
+  },
+  {
+    "id": "527d70da-6dd4-4c54-b66c-20abe954862f",
+    "story_id": "weibiansanjue",
+    "scene_index": 5,
+    "episode_id": "6954e5b6fe03f1679431e5a2",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/weibiansanjue_5.mp3",
+    "created_at": "2025-12-31T08:58:36.826153+00:00"
+  },
+  {
+    "id": "18f19ab9-f572-4912-8870-b59031351398",
+    "story_id": "weibiansanjue",
+    "scene_index": 6,
+    "episode_id": "6954e5e5fe03f1679431e971",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/weibiansanjue_6.mp3",
+    "created_at": "2025-12-31T08:59:23.595921+00:00"
+  },
+  {
+    "id": "f655dda8-ce18-48e1-9789-36b7c7dc3805",
+    "story_id": "sandabaigujing",
+    "scene_index": 2,
+    "episode_id": "6959c8b85a2f80d306e79779",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_2.mp3",
+    "created_at": "2026-01-04T01:56:14.45654+00:00"
+  },
+  {
+    "id": "0ffaefda-465e-4ad5-a65d-0b965f9acee9",
+    "story_id": "sandabaigujing",
+    "scene_index": 3,
+    "episode_id": "6959c8e725b7c3a5df1e88a2",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_3.mp3",
+    "created_at": "2026-01-04T01:57:01.401725+00:00"
+  },
+  {
+    "id": "0c9f3ffb-94a5-470e-a688-304526129376",
+    "story_id": "sandabaigujing",
+    "scene_index": 4,
+    "episode_id": "6959c916abe58366f7b79abb",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_4.mp3",
+    "created_at": "2026-01-04T01:57:48.764281+00:00"
+  },
+  {
+    "id": "14870772-5e0b-464e-b110-9ce04975b4a3",
+    "story_id": "sandabaigujing",
+    "scene_index": 5,
+    "episode_id": "6959c94525b7c3a5df1e8f4d",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_5.mp3",
+    "created_at": "2026-01-04T01:58:36.211461+00:00"
+  },
+  {
+    "id": "05ce9d26-e61d-4466-b7c9-e0bfd6c90964",
+    "story_id": "sandabaigujing",
+    "scene_index": 6,
+    "episode_id": "6959c97158add8aa3fd69688",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_6.mp3",
+    "created_at": "2026-01-04T01:59:19.383315+00:00"
+  },
+  {
+    "id": "c8b0fc27-30ec-49cd-8c32-587eef15a9a5",
+    "story_id": "sandabaigujing",
+    "scene_index": 7,
+    "episode_id": "6959c999fac073290595bbdf",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_7.mp3",
+    "created_at": "2026-01-04T02:00:00.332437+00:00"
+  },
+  {
+    "id": "52232afc-5574-4cfb-879f-f6ebe9edeaeb",
+    "story_id": "sandabaigujing",
+    "scene_index": 8,
+    "episode_id": "6959c9c825b7c3a5df1e9986",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_8.mp3",
+    "created_at": "2026-01-04T02:00:47.295707+00:00"
+  },
+  {
+    "id": "083ebd28-72bb-4ec9-b3fc-d9307450d397",
+    "story_id": "caochuanjiejian",
+    "scene_index": 1,
+    "episode_id": "695b20eab3ff4332ced40e57",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_1.mp3",
+    "created_at": "2026-01-05T02:24:49.571728+00:00"
+  },
+  {
+    "id": "cb1e228f-2216-494e-be4c-7dfd8cb8868e",
+    "story_id": "sandabaigujing",
+    "scene_index": 1,
+    "episode_id": "6959c88858add8aa3fd68450",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/sandabaigujing_1.mp3",
+    "created_at": "2026-01-04T01:55:26.808748+00:00"
+  },
+  {
+    "id": "9118d5d0-09ac-4038-a31f-bd2f8f3ca71c",
+    "story_id": "caochuanjiejian",
+    "scene_index": 2,
+    "episode_id": "695b211b7aacd37423f6be41",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_2.mp3",
+    "created_at": "2026-01-05T02:25:37.919129+00:00"
+  },
+  {
+    "id": "91269f07-5631-4714-8dfa-5167c2417388",
+    "story_id": "caochuanjiejian",
+    "scene_index": 3,
+    "episode_id": "695b214a16d2b2451230cef5",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_3.mp3",
+    "created_at": "2026-01-05T02:26:25.389157+00:00"
+  },
+  {
+    "id": "fdb08141-c65c-432d-9a02-9db81701f21d",
+    "story_id": "caochuanjiejian",
+    "scene_index": 4,
+    "episode_id": "695b217a54eac08c071038e9",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_4.mp3",
+    "created_at": "2026-01-05T02:27:12.901466+00:00"
+  },
+  {
+    "id": "32e1cfbd-71d2-4b03-b9ba-831234660934",
+    "story_id": "caochuanjiejian",
+    "scene_index": 5,
+    "episode_id": "695b21a954eac08c07103b7d",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/caochuanjiejian_5.mp3",
+    "created_at": "2026-01-05T02:27:59.972364+00:00"
+  },
+  {
+    "id": "58cbde50-f7f0-4428-9db8-42c1aa240651",
+    "story_id": "zhenjiameihouwang",
+    "scene_index": 1,
+    "episode_id": "695b5df2b2db8c69d82ebbda",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/zhenjiameihouwang_1.mp3",
+    "created_at": "2026-01-05T06:45:13.719142+00:00"
+  },
+  {
+    "id": "a5f04324-dc91-4374-b541-7fbfa6fafd0f",
+    "story_id": "zhenjiameihouwang",
+    "scene_index": 2,
+    "episode_id": "695b5e0fb3ff4332ced87c2b",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/zhenjiameihouwang_2.mp3",
+    "created_at": "2026-01-05T06:45:42.418551+00:00"
+  },
+  {
+    "id": "4d9d33f7-15c5-43b2-947e-7bec71616cdc",
+    "story_id": "zhenjiameihouwang",
+    "scene_index": 3,
+    "episode_id": "695b5e2cfd7d46b79ebef06f",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/zhenjiameihouwang_3.mp3",
+    "created_at": "2026-01-05T06:46:10.66077+00:00"
+  },
+  {
+    "id": "6e67e5d2-6397-418a-be3a-73478c1711f5",
+    "story_id": "zhenjiameihouwang",
+    "scene_index": 4,
+    "episode_id": "695b5e6bb2db8c69d82ec3bf",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/zhenjiameihouwang_4.mp3",
+    "created_at": "2026-01-05T06:47:13.976948+00:00"
+  },
+  {
+    "id": "18281cab-4ab3-4d65-a284-df8ce08c65db",
+    "story_id": "zhenjiameihouwang",
+    "scene_index": 5,
+    "episode_id": "695b5e877aacd37423fb2a61",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/zhenjiameihouwang_5.mp3",
+    "created_at": "2026-01-05T06:47:41.646569+00:00"
+  },
+  {
+    "id": "a4e85097-206f-47f4-ab29-76322505695d",
+    "story_id": "zhenjiameihouwang",
+    "scene_index": 6,
+    "episode_id": "695b5ea77aacd37423fb2c8a",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/zhenjiameihouwang_6.mp3",
+    "created_at": "2026-01-05T06:48:14.321508+00:00"
+  },
+  {
+    "id": "40d9838a-3874-4696-93d8-163296a3c371",
+    "story_id": "huoshaochibi",
+    "scene_index": 4,
+    "episode_id": "696613497719e6aad14a7586",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/huoshaochibi_5.mp3",
+    "created_at": "2026-01-13T09:41:36.631079+00:00"
+  },
+  {
+    "id": "b92969e4-3556-4eab-b39c-a95316e3e14a",
+    "story_id": "huoshaochibi",
+    "scene_index": 3,
+    "episode_id": "696613497719e6aad14a7583",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/huoshaochibi_4.mp3",
+    "created_at": "2026-01-13T09:41:36.417615+00:00"
+  },
+  {
+    "id": "6fe9a0c8-1561-4523-9a69-4c3f881761fd",
+    "story_id": "huoshaochibi",
+    "scene_index": 2,
+    "episode_id": "69660f9ffc99feef4b91c846",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/huoshaochibi_3.mp3",
+    "created_at": "2026-01-13T09:25:57.570083+00:00"
+  },
+  {
+    "id": "eac8e662-7d04-4fcb-9599-72e07c6a2cfc",
+    "story_id": "huoshaochibi",
+    "scene_index": 1,
+    "episode_id": "69660f964e56d6393a63098a",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/huoshaochibi_2.mp3",
+    "created_at": "2026-01-13T09:25:49.204604+00:00"
+  },
+  {
+    "id": "36930352-2d9b-4dde-8641-b349bf4923c0",
+    "story_id": "huoshaochibi",
+    "scene_index": 0,
+    "episode_id": "69660f8d91f32895501cdf5f",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/huoshaochibi_1.mp3",
+    "created_at": "2026-01-13T09:25:40.066046+00:00"
+  },
+  {
+    "id": "2b0dc7fc-2856-47c0-ab30-8fcc9f317546",
+    "story_id": "kongchengji",
+    "scene_index": 0,
+    "episode_id": "69670221f9b980076d798d7e",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/kongchengji_0.mp3",
+    "created_at": "2026-01-14T02:40:40.145964+00:00"
+  },
+  {
+    "id": "d04762ed-8b0b-471f-9200-af11198ae622",
+    "story_id": "kongchengji",
+    "scene_index": 1,
+    "episode_id": "6967022bd0f6899ec2456b47",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/kongchengji_1.mp3",
+    "created_at": "2026-01-14T02:40:49.62016+00:00"
+  },
+  {
+    "id": "b6b290d0-c6a3-40ec-b23b-0dc6c59be2a7",
+    "story_id": "kongchengji",
+    "scene_index": 2,
+    "episode_id": "696702347aec4250270b0998",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/kongchengji_2.mp3",
+    "created_at": "2026-01-14T02:40:59.421097+00:00"
+  },
+  {
+    "id": "3fd0a3ed-1a7e-4293-b4e0-dde277b35b02",
+    "story_id": "kongchengji",
+    "scene_index": 3,
+    "episode_id": "6967027da3dcb74a98187676",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/kongchengji_3.mp3",
+    "created_at": "2026-01-14T02:42:11.932881+00:00"
+  },
+  {
+    "id": "4fb9aa4e-2d63-4151-b664-8710ea88b0f1",
+    "story_id": "kongchengji",
+    "scene_index": 4,
+    "episode_id": "69670287f9b980076d799326",
+    "status": "success",
+    "audio_url": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/narrations/kongchengji_4.mp3",
+    "created_at": "2026-01-14T02:42:21.595653+00:00"
+  }
+]

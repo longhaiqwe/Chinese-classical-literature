@@ -34,4 +34,5 @@ public/assets/
 # Antigravity
 .agent/
 !.agent/workflows/
-supabase/.temp/
+supabase/.temp/supabase_backup*
+supabase_https_backup*
