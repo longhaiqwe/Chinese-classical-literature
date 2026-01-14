@@ -85,7 +85,7 @@ export default function DatabaseSync({
                         story_id: storyId,
                         title: scene.title,
                         narrative: scene.narrative,
-                        scene_index: i,
+                        scene_index: i + 1,
                         character_state: "", // Placeholder as required by schema
                         environment_description: "", // Placeholder as required by schema
                     })

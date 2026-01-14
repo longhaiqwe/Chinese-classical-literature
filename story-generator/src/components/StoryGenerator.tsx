@@ -75,6 +75,27 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
                 throw new Error('Invalid JSON format');
             }
 
+            // Post-process to ensure clean titles (Frontend adds "Chapter X" based on index)
+            storyData = storyData.map((scene) => {
+
+                // Remove any likely existing prefix (Chinese or English, 0-based or 1-based)
+                let cleanTitle = scene.title
+                    .replace(/^第\s*\d+\s*章/, '')
+                    .replace(/^Chapter\s*\d+/i, '')
+                    .replace(/^\d+\./, '') // Handles "1. Title"
+                    .trim();
+
+                // Cleanup separators like "·", ".", ":"
+                if (/^[·.:]/.test(cleanTitle)) {
+                    cleanTitle = cleanTitle.substring(1).trim();
+                }
+
+                return {
+                    ...scene,
+                    title: cleanTitle
+                };
+            });
+
             onStoryGenerated(storyData, topic, metadata);
         } catch (err: any) {
             console.error('Generation failed:', err);

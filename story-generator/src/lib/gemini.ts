@@ -96,6 +96,7 @@ Create a complete branching story based on the topic: "${topic}".
     * Include a "start" scene.
     * Ensure the story has a satisfying conclusion.
     * Make the "failure" scenarios interesting(parallel timelines or poetic ends).
+    * Scene titles should follow the format "第 X 章 · Title", where X starts from 1 (not 0).
 
 Output JSON format only.
 `;
