@@ -66,39 +66,46 @@ export const promptModel = genAI.getGenerativeModel({
 });
 
 export const GENERATE_STORY_PROMPT = (topic: string) => `
-You are a creative writer for a Chinese Classical Literature interactive story game.
-Create a complete branching story based on the topic: "${topic}".
+You are a Master Storyteller of Chinese History (演义宗师), specializing in the "Romance of the Three Kingdoms" style.
+Your words carry the weight of history and the vividness of a painting. You are weaving a tapestry of destiny based on: "${topic}".
 
     Requirements:
-1. ** Language **: All text must be in Chinese(Simplified).
-2. ** Style **: Ancient rhyme(古韵), elegant, immersive.
-3. ** Length **: The story MUST contain ** 4 to 6 scenes ** for the main plot path. 3 scenes is too short.
-4. ** Perspective **: Third - person perspective. ** Do NOT use "you"(你) ** to refer to the protagonist.Use the historical figure's name or title directly (e.g., "Kong Ming", "Li Bai").
-5. ** Structure **:
-    * Return a JSON OBJECT with the following fields:
-        * id: A unique string ID for the story in Pinyin(e.g., "huoshaochibi", "caochuanjiejian").
-        * category_id: Choose the most appropriate category from: "sanguoyanyi"(Three Kingdoms), "xiyouji"(Journey to the West), "shanhaijing"(Classic of Mountains and Seas), "lunyu"(Analects), "shijing"(Book of Songs).
-        * description: A brief summary of the story (1-2 sentences), suitable for a card preview.
-        * ending_title: A 4-character idiom for the success ending title (e.g., '如鱼得水').
-        * ending_description: A specific summary of the story's outcome and historical significance (2-3 sentences). Example: "刘备三顾茅庐，终得卧龙出山。此后君臣相知，如鱼得水，共创蜀汉基业。" Do NOT use generic text like "Congratulations on finishing the story".
-        * scenes: An ARRAY of Scene objects.
-    * Each Scene has an 'id'(unique string).
-    * 'narrative': Detailed description of the scene.
-    * 'choices': Exactly 3 options.Keep texts ** very short ** (under 10 chars).
-    * One option is CORRECT and leads to the next main plot scene(or the ending summary).
-    * Two options are INCORRECT(traps / failures) and lead to failure endings.
-    *   ** Final Scene **: The last scene provided in this JSON should be the ** CLIMAX ** of the story, not a post - game summary.It MUST still have 3 choices(1 Correct, 2 Incorrect).The correct choice should conceptually lead to the "Happy Ending".Do NOT create a scene with only 1 options or where all options are correct.Treat the finale as a gameplay challenge.
-6. ** Failure handling **:
-    * If a choice is incorrect, set 'is_correct' to false.
-    *   ** MANDATORY **: You MUST provide a 'failure_message' for ALL choices.
-    *   ** For INCORRECT choices **: Explain why it's wrong (short feedback).
-    *   ** For CORRECT choices **: Provide positive reinforcement or a short fun fact/historical context. ** IT MUST NOT BE EMPTY **.
-    *   (Note: The field is still called 'failure_message' in the schema, but treat it as 'feedback_message').
-7. ** Content **:
-    * Include a "start" scene.
-    * Ensure the story has a satisfying conclusion.
-    * Make the "failure" scenarios interesting(parallel timelines or poetic ends).
-    * Scene titles should follow the format "第 X 章 · Title", where X starts from 1 (not 0).
+1. ** Language **: Chinese (Simplified).
+    *   ** CRITICAL **: All text, especially the 'choices' options, MUST be in Chinese. ** NO English allowed in the final JSON content **.
+
+2. ** Style & Tone (The Soul) **:
+    *   ** Cinematic Vernacular (电影感白话) **: Blend the immersive storytelling of Ming/Qing fiction with modern clarity.
+    *   ** Show, Don't Tell **: Do not say "he was angry". Say "Zhang Fei's eyes widened like brass bells, his whiskers bristling like steel wire." (张飞圆睁环眼，倒竖虎须，声若巨雷).
+    *   ** Accessible Classical **: Maintain the "flavor" of ancient times (idioms, sentence structure) but ensure modern readers understand it instantly.
+
+3. ** Scene Aesthetics (Immersion) **:
+    *   ** Atmosphere First **: Start scenes by setting the mood (weather, lighting, sound). E.g., "The setting sun dyed the battlefield blood-red..." (残阳如血，荒草连天...).
+    *   ** Character Presence **: When characters speak or act, describe their micro-expressions or posture. E.g., "Kong Ming waved his feather fan gently, a faint smile on his lips." (孔明轻摇羽扇，嘴角微扬).
+
+4. ** Structure & Pacing **:
+    *   ** Length **: ** 5 to 7 scenes **.
+    *   ** Flow **: Scenes must flow logically like a movie reel. Use transitional phrases.
+    *   ** POV **: Third-person historical.
+
+5. ** The Weight of Choice (Interaction) **:
+    *   ** Format **: Exactly 3 options per scene.
+    *   ** Content **: MUST be Chinese. Under 12 chars.
+    *   ** Style **: Natural, immersive action or dialogue.
+        *   ** FORBIDDEN **: Do NOT use bracketed tags like [Attack] or [强攻]. Do NOT use game-like labels.
+        *   ** GOOD **: "Order the archers to fire!" (令弓弩手万箭齐发) or "Frown and remain silent" (以此皱眉，默然不语).
+        *   ** BAD **: "[Attack] Shoot arrows" ([强攻] 射箭).
+
+6. ** Feedback Mechanism (Instant Karma) **:
+    *   The 'failure_message' is ** Narrative Feedback **.
+    *   ** Incorrect **: Instant regret or tragic consequence. "He rushed in, but an ambush awaited." (刚冲入阵中，只听一声炮响，乱箭齐发...)
+    *   ** Correct **: Smooth transition ensuring continuity. "He nodded and devised a plan." (点头应允，心生一计...)
+
+7. ** The Ending (Historical Resonance) **:
+    *   The final scene is the Climax.
+    *   ** ending_description **: MUST include a "Historian's Commentary" (千古评说). End with a poetic summary or deep reflection on the event's significance.
+    
+    *   Return a JSON OBJECT matching the schema.
+    *   ** Scene titles **: 4-character idioms (e.g., "单刀赴会").
 
 Output JSON format only.
 `;

@@ -72,49 +72,40 @@ export default function DatabaseSync({
 
             if (storyError) throw storyError;
 
-            setStatus('清理旧数据...');
-
-            // 2.5 Clean up existing scenes (and options via cascade if configured, but let's be safe)
-            // Note: If you have ON DELETE CASCADE on scenes -> options, this is enough.
-            // If not, you might need to delete scene_options first. 
-            // Assuming standard cascade or loose coupling, let's try deleting scenes.
-            // First find scenes to know their IDs if we need to delete options manually? 
-            // Let's assume cascade for now as it's cleaner. If it fails, we fix it.
-            const { error: cleanupError } = await supabase
-                .from('scenes')
-                .delete()
-                .eq('story_id', storyId);
-
-            if (cleanupError) {
-                console.warn("Cleanup warning:", cleanupError);
-                // Try to proceed anyway? Or throw?
-                // If cleanup failed due to FK, we must handle it.
-                // Let's assume we proceed and see.
-            }
-
-            setStatus('正在同步场景...');
-
-            // 3. Insert Scenes
+            // 3. Upsert Scenes & Refresh Options
             for (let i = 0; i < story.length; i++) {
                 const scene = story[i];
                 setStatus(`正在同步场景 ${i + 1}/${story.length}: ${scene.title}`);
 
-                // Insert Scene
+                // Upsert Scene (Handle collisions via story_id + scene_index)
                 const { data: sceneData, error: sceneError } = await supabase
                     .from('scenes')
-                    .insert({
+                    .upsert({
                         story_id: storyId,
                         title: scene.title,
                         narrative: scene.narrative,
                         scene_index: i + 1,
-                        character_state: "", // Placeholder as required by schema
-                        environment_description: "", // Placeholder as required by schema
-                    })
+                        character_state: "",
+                        environment_description: "",
+                    }, { onConflict: 'story_id, scene_index' })
                     .select()
                     .single();
 
-                if (sceneError) throw sceneError;
-                if (!sceneData) throw new Error(`Failed to insert scene: ${scene.title}`);
+                if (sceneError) {
+                    console.error(`Failed to upsert scene ${i + 1}:`, sceneError);
+                    throw sceneError;
+                }
+                if (!sceneData) throw new Error(`Failed to upsert scene: ${scene.title}`);
+
+                // Clear old options for this specific scene (since we just upserted/confirmed it exists)
+                const { error: clearOptionsError } = await supabase
+                    .from('scene_options')
+                    .delete()
+                    .eq('scene_id', sceneData.id);
+
+                if (clearOptionsError) {
+                    console.warn(`Warning clearing options for scene ${sceneData.id}:`, clearOptionsError);
+                }
 
                 // 4. Insert Options
                 if (scene.choices && scene.choices.length > 0) {

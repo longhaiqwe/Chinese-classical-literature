@@ -35,15 +35,30 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
         setIsRefining(true);
         try {
             const result = await refineStory(reviewedStory, refineInstructions);
-            const refinedStory = JSON.parse(result);
-            if (Array.isArray(refinedStory)) {
-                setReviewedStory(refinedStory);
-                setShowRefineDialog(false);
-                setRefineInstructions('');
-            } else {
-                console.error("Refined story is not an array");
-                // Optional: Add error handling/toast here
+            let jsonStr = result;
+
+            // Handle markdown code blocks just in case
+            if (typeof jsonStr === 'string' && jsonStr.startsWith('```')) {
+                jsonStr = jsonStr.replace(/^```(json)?|```$/g, '').trim();
             }
+
+            const refinedStory = JSON.parse(jsonStr);
+
+            // Support both array (legacy) and object (new schema) formats
+            let newScenes: Scene[] = [];
+
+            if (Array.isArray(refinedStory)) {
+                newScenes = refinedStory;
+            } else if (refinedStory && Array.isArray(refinedStory.scenes)) {
+                newScenes = refinedStory.scenes;
+            } else {
+                console.error("Refined story format invalid:", refinedStory);
+                throw new Error("Refined story is not an array or valid story object");
+            }
+
+            setReviewedStory(newScenes);
+            setShowRefineDialog(false);
+            setRefineInstructions('');
         } catch (error) {
             console.error("Failed to refine story:", error);
             // Optional: Add error handling/toast here

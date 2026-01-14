@@ -100,31 +100,74 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
             }
 
             const storyId = deleteConfirm.id;
+            console.log('Starting deletion for storyId:', storyId);
 
-            // 2. Clean DB - Dependent tables first if no cascade (safe approach)
-            // Delete scene_options via scenes? 
-            // Let's get scenes first
-            const { data: scenes } = await supabase
+            // 2. Clean DB - Dependent tables first
+
+            // Get scenes
+            const { data: scenes, error: scenesError } = await supabase
                 .from('scenes')
                 .select('id')
                 .eq('story_id', storyId);
 
-            const sceneIds = scenes?.map(s => s.id) || [];
-
-            if (sceneIds.length > 0) {
-                await supabase.from('scene_options').delete().in('scene_id', sceneIds);
+            if (scenesError) {
+                console.error('Error fetching scenes:', scenesError);
+                throw scenesError;
             }
 
-            await supabase.from('scene_narrations').delete().eq('story_id', storyId);
-            await supabase.from('scenes').delete().eq('story_id', storyId);
+            const sceneIds = scenes?.map(s => s.id) || [];
+            console.log('Found scenes to delete:', sceneIds);
+
+            if (sceneIds.length > 0) {
+                const { error: optError, count: optCount } = await supabase
+                    .from('scene_options')
+                    .delete({ count: 'exact' })
+                    .in('scene_id', sceneIds);
+
+                if (optError) {
+                    console.error('Error deleting scene_options:', optError);
+                    throw optError;
+                }
+                console.log(`Deleted ${optCount} scene_options`);
+            }
+
+            const { error: narrError, count: narrCount } = await supabase
+                .from('scene_narrations')
+                .delete({ count: 'exact' })
+                .eq('story_id', storyId);
+
+            if (narrError) {
+                console.error('Error deleting scene_narrations:', narrError);
+                throw narrError;
+            }
+            console.log(`Deleted ${narrCount} scene_narrations`);
+
+            const { error: sceneError, count: sceneCount } = await supabase
+                .from('scenes')
+                .delete({ count: 'exact' })
+                .eq('story_id', storyId);
+
+            if (sceneError) {
+                console.error('Error deleting scenes:', sceneError);
+                throw sceneError;
+            }
+            console.log(`Deleted ${sceneCount} scenes`);
 
             // 3. Delete Story
-            const { error } = await supabase
+            const { error: storyError, count: storyCount } = await supabase
                 .from('stories')
-                .delete()
+                .delete({ count: 'exact' })
                 .eq('id', storyId);
 
-            if (error) throw error;
+            if (storyError) {
+                console.error('Error deleting story:', storyError);
+                throw storyError;
+            }
+            console.log(`Deleted ${storyCount} stories`);
+
+            if (storyCount === 0) {
+                throw new Error('Stories deletion returned 0 rows affected. Likely permission denied or record not found.');
+            }
 
             alert('删除成功');
             setDeleteConfirm(null);
@@ -175,7 +218,9 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
             {/* Results */}
             {searched && (
                 <div className="space-y-4">
-                    {storyList.length === 0 ? (
+                    {loading ? (
+                        <p className="text-center text-ink-400 py-8">搜索中...</p>
+                    ) : storyList.length === 0 ? (
                         <p className="text-center text-ink-400 py-8">未找到相关故事</p>
                     ) : (
                         storyList.map((story) => (
