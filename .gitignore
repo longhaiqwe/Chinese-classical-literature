@@ -34,3 +34,4 @@ public/assets/
 # Antigravity
 .agent/
 !.agent/workflows/
+supabase/.temp/

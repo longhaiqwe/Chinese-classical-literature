@@ -4,6 +4,7 @@ import StoryReview from './components/StoryReview';
 import DatabaseSync from './components/DatabaseSync';
 import AudioGenerator from './components/AudioGenerator';
 import ImagePromptGenerator from './components/ImagePromptGenerator';
+import ImageGenerator from './components/ImageGenerator';
 
 // Keys for localStorage
 const STORAGE_KEYS = {
@@ -207,12 +208,19 @@ function App() {
             />
           )}
 
-          {currentStep === 6 && (
-            <div className="text-center py-12">
-              <h2 className="text-2xl font-bold mb-4">Step 6: Image Generation</h2>
-              <p className="text-stone-500">Coming soon...</p>
-              <button onClick={() => setCurrentStep(5)} className="mt-4 text-emerald-600 hover:underline">Back to Prompts</button>
-            </div>
+          {currentStep === 6 && generatedStory && storyId && (
+            <ImageGenerator
+              storyId={storyId}
+              story={generatedStory}
+              prompts={imagePrompts}
+              onBack={() => setCurrentStep(5)}
+              onFinish={() => {
+                alert('恭喜！故事制作完成！(Story Published)');
+                // In a real app, maybe navigate back to dashboard or show a preview link
+                // For now, we just stay here or maybe reset?
+                // Let's just confirm it's done.
+              }}
+            />
           )}
         </div>
       </main>
