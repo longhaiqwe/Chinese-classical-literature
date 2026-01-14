@@ -1636,7 +1636,7 @@ def generate_sql():
     # -------------------------------------------------------------
     
     # STORAGE CONFIG
-    STORAGE_BASE_URL = "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets"
+    STORAGE_BASE_URL = "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images"
 
     sql.append("-- NOTE: This script now uses UPSERT logic. It will NOT delete all data.")
     sql.append("-- It will update existing stories/scenes and insert new ones.")

@@ -18,7 +18,7 @@ const TABLES = [
 // List of storage buckets to backup
 const BUCKETS = [
     'narrations',
-    'story-assets',
+    'images',
     'images' // Checking images bucket too just in case
 ];
 

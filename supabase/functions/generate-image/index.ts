@@ -116,12 +116,12 @@ serve(async (req) => {
         const byteArray = new Uint8Array(byteNumbers);
         const imageBlob = new Blob([byteArray], { type: 'image/jpeg' });
 
-        // 6. Upload to Supabase Storage (story-assets)
+        // 6. Upload to Supabase Storage (images)
         // Path: {category}/{story_id}/{scene_index}_{timestamp}.png
         const fileName = `${categoryId}/${story_id}/scene_${scene_index}_${Date.now()}.png`;
         const { data: uploadData, error: uploadError } = await supabaseClient
             .storage
-            .from('story-assets')
+            .from('images')
             .upload(fileName, imageBlob, {
                 contentType: 'image/jpeg',
                 upsert: true
@@ -135,7 +135,7 @@ serve(async (req) => {
         // 7. Get Public URL
         const { data: { publicUrl } } = supabaseClient
             .storage
-            .from('story-assets')
+            .from('images')
             .getPublicUrl(fileName);
 
         // 8. Update Database

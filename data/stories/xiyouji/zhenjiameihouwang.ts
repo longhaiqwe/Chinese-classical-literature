@@ -8,7 +8,7 @@ export const ZHENJIAMEIHOUWANG_SCENES: IGameScene[] = [
         narrative: "孙悟空因打死强盗，被唐僧逐回花果山。不料，悟空走后，又有一'悟空'现身，打晕唐僧，抢走行李。沙僧奔至花果山索讨，见'悟空'高坐石台，这也是'美猴王'，那也是'齐天大圣'，更有一般无二的猴子猴孙。",
         environmentDescription: "Tang Seng collapsed on the roadside, luggage gone. A fake Wukong looking arrogant at Huaguoshan.",
         characterState: "Tang Seng injured and confused, Sha Seng angry and suspicious.",
-        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/zhenjiameihouwang/bg_01_exile.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images/xiyouji/zhenjiameihouwang/bg_01_exile.jpg",
         options: [
             {
                 text: "沙僧怒斥，挥杖便打",
@@ -33,7 +33,7 @@ export const ZHENJIAMEIHOUWANG_SCENES: IGameScene[] = [
         narrative: "真悟空得知有人假冒自己，大怒，随沙僧同回花果山。两个悟空一照面，一般的黄衣虎皮裙，一般的金箍棒，一般的相貌声音。二猴打在一处，从花果山打到半空，如两道金光纠缠，难解难分。",
         environmentDescription: "Two identical Monkey Kings fighting mid-air above Huaguoshan. Golden sparks flying.",
         characterState: "Both Wukongs furious and evenly matched.",
-        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/zhenjiameihouwang/bg_02_battle.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images/xiyouji/zhenjiameihouwang/bg_02_battle.jpg",
         options: [
             {
                 text: "请师父念咒辨真假",
@@ -58,7 +58,7 @@ export const ZHENJIAMEIHOUWANG_SCENES: IGameScene[] = [
         narrative: "打到落伽山，观音菩萨唤来木叉与白鹦哥，欲擒那假悟空。谁知两个悟空同时护住唐僧，一般地降妖除魔，一般地虔诚礼拜。菩萨看来看去，也看不出半点破绽。",
         environmentDescription: "Mount Luojia, Guanyin Bodhisattva observing two identical Wukongs.",
         characterState: "Guanyin puzzled, Wukongs anxious.",
-        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/zhenjiameihouwang/bg_03_guanyin.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images/xiyouji/zhenjiameihouwang/bg_03_guanyin.jpg",
         options: [
             {
                 text: "去天庭照妖镜一照",
@@ -83,7 +83,7 @@ export const ZHENJIAMEIHOUWANG_SCENES: IGameScene[] = [
         narrative: "谛听伏在地下，听了片刻，抬起头来。它虽已知晓真假，却不敢当面说破。因那假悟空神通广大，若当面揭穿，恐大闹地府，无人能制。",
         environmentDescription: "Hell (Diyu), Di Ting (mythical beast) listening on the ground. Ten Kings of Hell watching fearfully.",
         characterState: "Di Ting knowing but silent, Wukongs impatient.",
-        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/zhenjiameihouwang/bg_04_diting.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images/xiyouji/zhenjiameihouwang/bg_04_diting.jpg",
         options: [
             {
                 text: "谛听直言真相",
@@ -108,7 +108,7 @@ export const ZHENJIAMEIHOUWANG_SCENES: IGameScene[] = [
         narrative: "二猴打至西天大雷音寺，如来佛祖正对众罗汉讲经。见二猴赶来，佛祖笑道：'汝等俱是一心，且看二心竞斗而来也。' 即指出假悟空本相。",
         environmentDescription: "Great Thunder Monastery, Buddha sitting on lotus throne. Two Wukongs arriving.",
         characterState: "Buddha calm and omniscient, Fake Wukong panicked.",
-        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/zhenjiameihouwang/bg_05_buddha.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images/xiyouji/zhenjiameihouwang/bg_05_buddha.jpg",
         options: [
             {
                 text: "道破六耳猕猴身世",
@@ -133,7 +133,7 @@ export const ZHENJIAMEIHOUWANG_SCENES: IGameScene[] = [
         narrative: "一念之差，真假难辨。六耳猕猴通过了考验，从此顶替了美猴王的名号。取经路上，魔心深种，最终酿成大祸，三界大乱……\n\n（胜败乃兵家常事，少侠请重新来过）",
         environmentDescription: "Chaos in the three realms. Fake Wukong laughing menacingly.",
         characterState: "Fake Wukong triumphant, world in chaos.",
-        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/zhenjiameihouwang/bg_06_failure.jpg",
+        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images/xiyouji/zhenjiameihouwang/bg_06_failure.jpg",
         options: [
             {
                 text: "重新来过，再辨真伪",

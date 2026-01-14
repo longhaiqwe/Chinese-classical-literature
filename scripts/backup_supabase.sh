@@ -44,7 +44,7 @@ echo "[3/3] Backing up storage buckets..."
 mkdir -p "$BACKUP_DIR/storage"
 
 # List of buckets to backup
-BUCKETS=("narrations" "story-assets")
+BUCKETS=("narrations" "images")
 
 for BUCKET in "${BUCKETS[@]}"; do
     echo "  > Downloading bucket: $BUCKET..."

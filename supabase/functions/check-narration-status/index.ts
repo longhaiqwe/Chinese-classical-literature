@@ -53,6 +53,17 @@ serve(async (req) => {
 
         const processStatus = lhData.data.processStatus
 
+
+        const { data: storyData, error: storyError } = await supabaseClient
+            .from('stories')
+            .select('category_id')
+            .eq('id', story_id)
+            .single()
+
+        if (storyError || !storyData) throw new Error('Story/Category not found')
+
+        const category_id = storyData.category_id
+
         if (processStatus === 'success') {
             // 3. Download and Upload to Supabase Storage
             const audioUrl = lhData.data.audioUrl
@@ -61,10 +72,12 @@ serve(async (req) => {
             const audioBlob = await (await fetch(audioUrl)).blob()
 
             const fileName = `${story_id}_${scene_index}.mp3`
+            const filePath = `${category_id}/${story_id}/${fileName}`
+
             const { data: storageData, error: uploadError } = await supabaseClient
                 .storage
                 .from('narrations')
-                .upload(fileName, audioBlob, {
+                .upload(filePath, audioBlob, {
                     contentType: 'audio/mpeg',
                     upsert: true
                 })
@@ -74,7 +87,7 @@ serve(async (req) => {
             const { data: { publicUrl } } = supabaseClient
                 .storage
                 .from('narrations')
-                .getPublicUrl(fileName)
+                .getPublicUrl(filePath)
 
             // 4. Update DB
             await supabaseClient
