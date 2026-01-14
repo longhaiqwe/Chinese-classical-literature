@@ -48,7 +48,7 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
         const imagePath = `${categoryId}/${story.id}`;
         // List all files first
         const { data: imageFiles } = await supabase.storage
-            .from('story-assets')
+            .from('images')
             .list(imagePath);
 
         if (imageFiles && imageFiles.length > 0) {
