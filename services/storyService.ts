@@ -56,24 +56,43 @@ export const storyService = {
      * Fetches full details for a story, including scenes and options.
      */
     async getStoryDetails(storyId: string): Promise<IGameScene[]> {
-        const { data: scenes, error } = await supabase
-            .from('scenes')
-            .select(`
-        *,
-        options:scene_options(*)
-      `)
-            .eq('story_id', storyId)
-            .order('scene_index', { ascending: true });
+        // Parallel fetch for scenes and explicit scene_images
+        const [scenesResult, imagesResult] = await Promise.all([
+            supabase
+                .from('scenes')
+                .select(`
+                    *,
+                    options:scene_options(*)
+                `)
+                .eq('story_id', storyId)
+                .order('scene_index', { ascending: true }),
 
-        if (error) throw error;
+            supabase
+                .from('scene_images')
+                .select('scene_index, image_url')
+                .eq('story_id', storyId)
+        ]);
 
-        return scenes.map((scene: any) => ({
+        if (scenesResult.error) throw scenesResult.error;
+
+        // Create a map for quick lookup of new images
+        const imageMap = new Map<number, string>();
+        if (imagesResult.data) {
+            imagesResult.data.forEach((img: any) => {
+                if (img.image_url) {
+                    imageMap.set(img.scene_index, img.image_url);
+                }
+            });
+        }
+
+        return scenesResult.data.map((scene: any) => ({
             id: scene.scene_index,
             title: scene.title,
             narrative: scene.narrative,
             environmentDescription: scene.environment_description,
             characterState: scene.character_state,
-            imageUrl: scene.image_url,
+            // Prefer image from scene_images table, fallback to legacy scenes.image_url
+            imageUrl: imageMap.get(scene.scene_index) || scene.image_url,
             options: (scene.options || [])
                 // Sort options by sort_order or id as stable fallback
                 .sort((a: any, b: any) => (a.sort_order || 0) - (b.sort_order || 0))

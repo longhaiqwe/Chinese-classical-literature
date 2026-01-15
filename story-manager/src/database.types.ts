@@ -52,7 +52,7 @@ export type Database = {
                     content: string
                     created_at?: string | null
                     device_info?: Json | null
-                    id: string
+                    id?: string
                     status?: string | null
                 }
                 Update: {
@@ -114,9 +114,9 @@ export type Database = {
                     audio_url?: string | null
                     created_at?: string
                     episode_id?: string | null
-                    id: string
+                    id?: string
                     scene_index: number
-                    status: string
+                    status?: string
                     story_id: string
                 }
                 Update: {
@@ -128,12 +128,42 @@ export type Database = {
                     status?: string
                     story_id?: string
                 }
+                Relationships: []
+            }
+            scene_options: {
+                Row: {
+                    created_at: string | null
+                    feedback: string
+                    id: string
+                    is_correct: boolean
+                    scene_id: string
+                    sort_order: number | null
+                    text: string
+                }
+                Insert: {
+                    created_at?: string | null
+                    feedback: string
+                    id?: string
+                    is_correct?: boolean
+                    scene_id: string
+                    sort_order?: number | null
+                    text: string
+                }
+                Update: {
+                    created_at?: string | null
+                    feedback?: string
+                    id?: string
+                    is_correct?: boolean
+                    scene_id?: string
+                    sort_order?: number | null
+                    text?: string
+                }
                 Relationships: [
                     {
-                        foreignKeyName: "scene_narrations_story_id_fkey"
-                        columns: ["story_id"]
+                        foreignKeyName: "scene_options_scene_id_fkey"
+                        columns: ["scene_id"]
                         isOneToOne: false
-                        referencedRelation: "stories"
+                        referencedRelation: "scenes"
                         referencedColumns: ["id"]
                     },
                 ]
@@ -142,39 +172,36 @@ export type Database = {
                 Row: {
                     audio_url: string | null
                     character_state: string
-                    created_at: string
+                    created_at: string | null
                     environment_description: string
-                    id: number
+                    id: string
                     image_url: string | null
                     narrative: string
-                    scene_index: number | null
-                    sort_order: number | null
+                    scene_index: number
                     story_id: string
                     title: string
                 }
                 Insert: {
                     audio_url?: string | null
                     character_state: string
-                    created_at?: string
+                    created_at?: string | null
                     environment_description: string
-                    id?: number
+                    id?: string
                     image_url?: string | null
                     narrative: string
-                    scene_index?: number | null
-                    sort_order?: number | null
+                    scene_index: number
                     story_id: string
                     title: string
                 }
                 Update: {
                     audio_url?: string | null
                     character_state?: string
-                    created_at?: string
+                    created_at?: string | null
                     environment_description?: string
-                    id?: number
+                    id?: string
                     image_url?: string | null
                     narrative?: string
-                    scene_index?: number | null
-                    sort_order?: number | null
+                    scene_index?: number
                     story_id?: string
                     title?: string
                 }
@@ -191,32 +218,35 @@ export type Database = {
             stories: {
                 Row: {
                     category_id: string | null
-                    created_at: string
-                    description: string
+                    created_at: string | null
+                    description: string | null
                     ending_description: string | null
                     ending_title: string | null
                     id: string
                     is_ready: boolean
+                    sort_order: number | null
                     title: string
                 }
                 Insert: {
                     category_id?: string | null
-                    created_at?: string
-                    description: string
+                    created_at?: string | null
+                    description?: string | null
                     ending_description?: string | null
                     ending_title?: string | null
                     id: string
                     is_ready?: boolean
+                    sort_order?: number | null
                     title: string
                 }
                 Update: {
                     category_id?: string | null
-                    created_at?: string
-                    description?: string
+                    created_at?: string | null
+                    description?: string | null
                     ending_description?: string | null
                     ending_title?: string | null
                     id?: string
                     is_ready?: boolean
+                    sort_order?: number | null
                     title?: string
                 }
                 Relationships: [
@@ -225,41 +255,6 @@ export type Database = {
                         columns: ["category_id"]
                         isOneToOne: false
                         referencedRelation: "categories"
-                        referencedColumns: ["id"]
-                    },
-                ]
-            }
-            story_options: {
-                Row: {
-                    created_at: string
-                    feedback: string
-                    id: number
-                    is_correct: boolean
-                    scene_id: number
-                    text: string
-                }
-                Insert: {
-                    created_at?: string
-                    feedback: string
-                    id?: number
-                    is_correct: boolean
-                    scene_id: number
-                    text: string
-                }
-                Update: {
-                    created_at?: string
-                    feedback?: string
-                    id?: number
-                    is_correct?: boolean
-                    scene_id?: number
-                    text?: string
-                }
-                Relationships: [
-                    {
-                        foreignKeyName: "story_options_scene_id_fkey"
-                        columns: ["scene_id"]
-                        isOneToOne: false
-                        referencedRelation: "scenes"
                         referencedColumns: ["id"]
                     },
                 ]
@@ -366,7 +361,9 @@ export type CompositeTypes<
     PublicCompositeTypeNameOrOptions extends
     | keyof PublicSchema["CompositeTypes"]
     | { schema: keyof Database },
-    CompositeTypeName extends PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+    CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+        schema: keyof Database
+    }
     ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
 > = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
