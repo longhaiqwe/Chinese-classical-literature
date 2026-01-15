@@ -6,7 +6,7 @@ interface Choice {
     text: string;
     next_scene_id: string | null;
     is_correct: boolean;
-    failure_message: string | null;
+    feedback: string;
 }
 
 interface Scene {

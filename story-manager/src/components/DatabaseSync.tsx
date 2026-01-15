@@ -113,7 +113,7 @@ export default function DatabaseSync({
                         scene_id: sceneData.id,
                         text: choice.text,
                         is_correct: choice.is_correct,
-                        feedback: choice.failure_message || '', // Map failure_message to feedback
+                        feedback: choice.feedback, // Map feedback directly
                     }));
 
                     const { error: optionsError } = await supabase

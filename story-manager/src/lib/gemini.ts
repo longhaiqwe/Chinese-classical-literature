@@ -36,9 +36,9 @@ export const geminiModel = genAI.getGenerativeModel({
                                         text: { type: SchemaType.STRING },
                                         next_scene_id: { type: SchemaType.STRING, nullable: true },
                                         is_correct: { type: SchemaType.BOOLEAN },
-                                        failure_message: { type: SchemaType.STRING }
+                                        feedback: { type: SchemaType.STRING }
                                     },
-                                    required: ["text", "is_correct", "failure_message"]
+                                    required: ["text", "is_correct", "feedback"]
                                 }
                             }
                         },
@@ -95,10 +95,10 @@ Your words carry the weight of history and the vividness of a painting. You are 
         *   ** GOOD **: "Order the archers to fire!" (令弓弩手万箭齐发) or "Frown and remain silent" (以此皱眉，默然不语).
         *   ** BAD **: "[Attack] Shoot arrows" ([强攻] 射箭).
 
-6. ** Feedback Mechanism (Instant Karma) **:
-    *   The 'failure_message' is ** Narrative Feedback **.
-    *   ** Incorrect **: Instant regret or tragic consequence. "He rushed in, but an ambush awaited." (刚冲入阵中，只听一声炮响，乱箭齐发...)
-    *   ** Correct **: Smooth transition ensuring continuity. "He nodded and devised a plan." (点头应允，心生一计...)
+6. ** narrative_feedback (Instant Karma) **:
+    *   The 'feedback' field is REQUIRED for **BOTH** Correct and Incorrect options.
+    *   ** Incorrect Feedback **: Instant regret or tragic consequence. "He rushed in, but an ambush awaited." (刚冲入阵中，只听一声炮响，乱箭齐发...)
+    *   ** Correct Feedback **: Smooth transition or successful execution ensuring continuity. "He nodded and devised a plan." (点头应允，心生一计，便唤左右...)
 
 7. ** The Ending (Historical Resonance) **:
     *   The final scene is the Climax.

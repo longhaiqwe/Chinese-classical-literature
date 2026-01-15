@@ -7,7 +7,7 @@ interface Choice {
     text: string;
     next_scene_id: string | null;
     is_correct: boolean;
-    failure_message: string | null;
+    feedback: string;
 }
 
 interface Scene {
@@ -138,11 +138,9 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
                                     </div>
                                     <div className="flex-1">
                                         <p className="font-bold text-ink-900 mb-1">{choice.text}</p>
-                                        {choice.failure_message && (
-                                            <p className={`text-sm italic ${choice.is_correct ? 'text-emerald-700' : 'text-rose-700'}`}>
-                                                {choice.is_correct ? '正向反馈' : '失败反馈'}: "{choice.failure_message}"
-                                            </p>
-                                        )}
+                                        <p className={`text-sm italic ${choice.is_correct ? 'text-emerald-700' : 'text-rose-700'}`}>
+                                            {choice.is_correct ? '正向反馈' : '失败反馈'}: "{choice.feedback}"
+                                        </p>
                                         {choice.next_scene_id && (
                                             <p className="text-xs text-ink-500 mt-1 font-mono">
                                                 跳转至 {`->`} {choice.next_scene_id}
