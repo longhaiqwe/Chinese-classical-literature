@@ -98,8 +98,8 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
     const generateAllImages = async () => {
         // Identify scenes needing generation
         const scenesToGenerate = story.map((_, index) => {
-            const sIndex = index; // 0-indexed usually in our logic, but DB is... let's check. 
-            // In DatabaseSync, we inserted with i (0-based).
+            const sIndex = index + 1; // 1-based index
+            // In DatabaseSync, we inserted with i (0-based) but DB index is i+1.
             return { index: sIndex, prompt: prompts.find(p => p.scene_id === story[index].id)?.prompt_en };
         }).filter(item => {
             const status = imageStatuses[item.index];
@@ -195,7 +195,8 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {story.map((scene, index) => {
-                    const status = imageStatuses[index] || { status: 'missing' };
+                    const sceneIndex = index + 1;
+                    const status = imageStatuses[sceneIndex] || { status: 'missing' };
                     const promptData = prompts.find(p => p.scene_id === scene.id);
                     const prompt = promptData?.prompt_en || "No prompt available";
 
@@ -233,7 +234,7 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
                                 {/* Overlay Controls */}
                                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                                     <button
-                                        onClick={() => generateImage(index, prompt)}
+                                        onClick={() => generateImage(sceneIndex, prompt)}
                                         disabled={globalLoading}
                                         className="bg-white text-ink-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-accent-red hover:text-white transition-colors"
                                     >

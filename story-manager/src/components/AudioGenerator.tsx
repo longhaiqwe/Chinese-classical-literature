@@ -166,7 +166,7 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
     const generateAllAudio = async () => {
         // Filter scenes that need generation (not success or pending)
         const scenesToGenerate = scenes.filter((scene) => {
-            const sIndex = (scene as any).scene_index ?? scenes.indexOf(scene);
+            const sIndex = (scene as any).scene_index ?? scenes.indexOf(scene) + 1;
             const status = audioStatuses[sIndex];
             return !status || (status.status !== 'success' && status.status !== 'pending' && status.status !== 'failed');
             // Note: Retrying failed ones automatically might be aggressive if failure is persistent,
@@ -190,7 +190,7 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
 
         for (let i = 0; i < scenesToGenerate.length; i++) {
             const scene = scenesToGenerate[i];
-            const sIndex = (scene as any).scene_index ?? scenes.indexOf(scene);
+            const sIndex = (scene as any).scene_index ?? scenes.indexOf(scene) + 1;
 
             // Rate limiting check
             // We can send 3 requests immediately, then must wait.
@@ -263,7 +263,7 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
 
             <div className="space-y-6">
                 {scenes.map((scene, index) => {
-                    const sIndex = (scene as any).scene_index ?? index;
+                    const sIndex = (scene as any).scene_index ?? index + 1;
                     const status = audioStatuses[sIndex] || { status: 'missing' };
                     const isSuccess = status.status === 'success';
 
