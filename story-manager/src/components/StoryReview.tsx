@@ -20,7 +20,7 @@ interface Scene {
 interface StoryReviewProps {
     story: Scene[];
     onBack: () => void;
-    onConfirm: () => void;
+    onConfirm: (story: Scene[]) => void;
 }
 
 export default function StoryReview({ story, onBack, onConfirm }: StoryReviewProps) {
@@ -85,7 +85,7 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
                         优化故事
                     </button>
                     <button
-                        onClick={onConfirm}
+                        onClick={() => onConfirm(reviewedStory)}
                         className="px-4 py-2 bg-accent-red text-white rounded font-bold hover:bg-[#a63030] shadow-md transition-all"
                     >
                         确认并继续
@@ -162,7 +162,8 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
                     返回生成页
                 </button>
                 <button
-                    onClick={onConfirm}
+                    onClick={() => onConfirm(reviewedStory)}
+
                     className="px-8 py-3 bg-accent-red text-white rounded font-bold hover:bg-[#a63030] shadow-md transition-all text-lg"
                 >
                     确认，下一步

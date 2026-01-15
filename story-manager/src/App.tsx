@@ -214,7 +214,8 @@ function App() {
               <StoryReview
                 story={generatedStory}
                 onBack={() => setCurrentStep(1)}
-                onConfirm={() => {
+                onConfirm={(updatedStory) => {
+                  setGeneratedStory(updatedStory);
                   setCurrentStep(3);
                 }}
               />
