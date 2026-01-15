@@ -43,17 +43,24 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
     };
 
     const cleanStorage = async (story: Story) => {
-        // 1. Clean Images: category_id/story_id/
+        // 1. Clean Images
+        // Check both categorized path and root path for backward compatibility
         const categoryId = story.category_id || 'uncategorized';
-        const imagePath = `${categoryId}/${story.id}`;
-        // List all files first
-        const { data: imageFiles } = await supabase.storage
-            .from('images')
-            .list(imagePath);
+        const possiblePaths = [
+            `${categoryId}/${story.id}`, // Standard path: category/story_id
+            `${story.id}`                // Root path (legacy or migrated): story_id
+        ];
 
-        if (imageFiles && imageFiles.length > 0) {
-            const pathsToRemove = imageFiles.map(f => `${imagePath}/${f.name}`);
-            await supabase.storage.from('story-assets').remove(pathsToRemove);
+        for (const imagePath of possiblePaths) {
+            const { data: imageFiles } = await supabase.storage
+                .from('images')
+                .list(imagePath);
+
+            if (imageFiles && imageFiles.length > 0) {
+                const pathsToRemove = imageFiles.map(f => `${imagePath}/${f.name}`);
+                console.log(`Deleting images from ${imagePath}:`, pathsToRemove);
+                await supabase.storage.from('images').remove(pathsToRemove);
+            }
         }
 
         // 2. Clean Audios: we need to find them first based on pattern or existing narrations
@@ -65,11 +72,7 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
 
         if (narrations && narrations.length > 0) {
             // Extract paths. 
-            // URL format: .../storage/v1/object/public/narrations/huoshaochibi_1.mp3
-            // We need path relative to bucket: "huoshaochibi_1.mp3"
-            // Or just guess schema: `${story.id_scene.index}.mp3`
-            // Let's rely on filenames if standard. 
-            // check-narration-status saves as `${story_id}_${scene_index}.mp3`
+            // URL format: .../storage/v1/object/public/narrations/{category_id}/{story_id}/{filename}
 
             const audioPaths = narrations.map(n => {
                 if (!n.audio_url) return null;
@@ -78,7 +81,9 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
                     const path = url.pathname.split('/narrations/')[1];
                     return decodeURIComponent(path);
                 } catch (e) {
-                    return `${story.id}_${n.scene_index}.mp3`;
+                    // Fallback: Construct path manually if URL parsing fails
+                    // Structure: category_id/story_id/story_id_scene_index.mp3
+                    return `${categoryId}/${story.id}/${story.id}_${n.scene_index}.mp3`;
                 }
             }).filter(p => p !== null) as string[];
 
@@ -253,8 +258,8 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-xl max-w-md w-full p-8 shadow-2xl">
                         <h3 className="text-2xl font-bold text-red-600 mb-4">危险操作确认</h3>
-                        <p className="text-ink-700 mb-6">
-                            确定要删除故事 <span className="font-bold">“{deleteConfirm.title}”</span> 吗？
+                        <div className="text-ink-700 mb-6">
+                            確定要刪除故事 <span className="font-bold">“{deleteConfirm.title}”</span> 嗎？
                             <br />
                             <br />
                             <span className="text-sm text-ink-500">
@@ -266,7 +271,7 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
                                 </ul>
                                 <b className="text-red-500">此操作不可恢复！</b>
                             </span>
-                        </p>
+                        </div>
                         <div className="flex gap-4">
                             <button
                                 onClick={() => setDeleteConfirm(null)}
