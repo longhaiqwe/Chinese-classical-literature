@@ -28,22 +28,21 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
     const fetchExistingImages = async () => {
         if (!storyId) return;
         try {
-            // We can fetch from scenes table directly
+            // Fetch from new scene_images table
             const { data, error } = await supabase
-                .from('scenes')
-                .select('scene_index, image_url')
+                .from('scene_images')
+                .select('*')
                 .eq('story_id', storyId);
 
             if (error) throw error;
 
             const statuses: Record<number, ImageStatus> = {};
-            data?.forEach((scene) => {
-                if (scene.image_url && scene.scene_index !== null) {
-                    statuses[scene.scene_index] = {
-                        status: 'success',
-                        image_url: scene.image_url
-                    };
-                }
+            data?.forEach((record) => {
+                statuses[record.scene_index] = {
+                    status: (record.status as any) || 'success', // Default to success if migrated without status or null 
+                    image_url: record.image_url || undefined,
+                    error: undefined // No error column in DB yet if we didn't add it, but status might imply it
+                };
             });
             setImageStatuses(statuses);
         } catch (err) {

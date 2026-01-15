@@ -139,10 +139,15 @@ serve(async (req) => {
             .getPublicUrl(fileName);
 
         // 8. Update Database
+        // 8. Update Database
         const { error: updateError } = await supabaseClient
-            .from('scenes')
-            .update({ image_url: publicUrl })
-            .match({ story_id: story_id, scene_index: scene_index });
+            .from('scene_images')
+            .upsert({
+                story_id: story_id,
+                scene_index: scene_index,
+                image_url: publicUrl,
+                status: 'success'
+            }, { onConflict: 'story_id, scene_index' });
 
         if (updateError) console.error('DB Update Error:', updateError);
 

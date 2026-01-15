@@ -1,4 +1,3 @@
-// @ts-nocheck
 export type Json =
     | string
     | number
@@ -53,7 +52,7 @@ export type Database = {
                     content: string
                     created_at?: string | null
                     device_info?: Json | null
-                    id?: string
+                    id: string
                     status?: string | null
                 }
                 Update: {
@@ -65,6 +64,41 @@ export type Database = {
                     status?: string | null
                 }
                 Relationships: []
+            }
+            scene_images: {
+                Row: {
+                    created_at: string
+                    id: string
+                    image_url: string | null
+                    scene_index: number
+                    status: string | null
+                    story_id: string
+                }
+                Insert: {
+                    created_at?: string
+                    id?: string
+                    image_url?: string | null
+                    scene_index: number
+                    status?: string | null
+                    story_id: string
+                }
+                Update: {
+                    created_at?: string
+                    id?: string
+                    image_url?: string | null
+                    scene_index?: number
+                    status?: string | null
+                    story_id?: string
+                }
+                Relationships: [
+                    {
+                        foreignKeyName: "scene_images_story_id_fkey"
+                        columns: ["story_id"]
+                        isOneToOne: false
+                        referencedRelation: "stories"
+                        referencedColumns: ["id"]
+                    },
+                ]
             }
             scene_narrations: {
                 Row: {
@@ -110,10 +144,11 @@ export type Database = {
                     character_state: string
                     created_at: string
                     environment_description: string
-                    id: string
+                    id: number
                     image_url: string | null
                     narrative: string
                     scene_index: number | null
+                    sort_order: number | null
                     story_id: string
                     title: string
                 }
@@ -122,10 +157,11 @@ export type Database = {
                     character_state: string
                     created_at?: string
                     environment_description: string
-                    id?: string
+                    id?: number
                     image_url?: string | null
                     narrative: string
                     scene_index?: number | null
+                    sort_order?: number | null
                     story_id: string
                     title: string
                 }
@@ -134,10 +170,11 @@ export type Database = {
                     character_state?: string
                     created_at?: string
                     environment_description?: string
-                    id?: string
+                    id?: number
                     image_url?: string | null
                     narrative?: string
                     scene_index?: number | null
+                    sort_order?: number | null
                     story_id?: string
                     title?: string
                 }
@@ -159,8 +196,8 @@ export type Database = {
                     ending_description: string | null
                     ending_title: string | null
                     id: string
+                    is_ready: boolean
                     title: string
-                    is_ready: boolean // Added manually
                 }
                 Insert: {
                     category_id?: string | null
@@ -169,8 +206,8 @@ export type Database = {
                     ending_description?: string | null
                     ending_title?: string | null
                     id: string
+                    is_ready?: boolean
                     title: string
-                    is_ready?: boolean // Added manually
                 }
                 Update: {
                     category_id?: string | null
@@ -179,8 +216,8 @@ export type Database = {
                     ending_description?: string | null
                     ending_title?: string | null
                     id?: string
+                    is_ready?: boolean
                     title?: string
-                    is_ready?: boolean // Added manually
                 }
                 Relationships: [
                     {
@@ -192,34 +229,34 @@ export type Database = {
                     },
                 ]
             }
-            scene_options: {
+            story_options: {
                 Row: {
                     created_at: string
                     feedback: string
-                    id: string
+                    id: number
                     is_correct: boolean
-                    scene_id: string
+                    scene_id: number
                     text: string
                 }
                 Insert: {
                     created_at?: string
                     feedback: string
-                    id?: string
+                    id?: number
                     is_correct: boolean
-                    scene_id: string
+                    scene_id: number
                     text: string
                 }
                 Update: {
                     created_at?: string
                     feedback?: string
-                    id?: string
+                    id?: number
                     is_correct?: boolean
-                    scene_id?: string
+                    scene_id?: number
                     text?: string
                 }
                 Relationships: [
                     {
-                        foreignKeyName: "scene_options_scene_id_fkey"
+                        foreignKeyName: "story_options_scene_id_fkey"
                         columns: ["scene_id"]
                         isOneToOne: false
                         referencedRelation: "scenes"
