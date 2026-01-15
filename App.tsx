@@ -187,7 +187,7 @@ const App: React.FC = () => {
 
       // Remove the last scene (Bad Ending) to unify logic
       // Only slice if we have multiple scenes, assuming the last is always the Bad Ending placeholder
-      const validScenes = allScenes.length > 1 ? allScenes.slice(0, -1) : allScenes;
+      const validScenes = allScenes;
 
       setSelectedStory(story);
       setScenes(validScenes);
