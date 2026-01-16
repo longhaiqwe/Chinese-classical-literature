@@ -20,6 +20,11 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
     const [globalLoading, setGlobalLoading] = useState(false);
     const [batchProgress, setBatchProgress] = useState<{ current: number; total: number } | null>(null);
 
+    const [editingScene, setEditingScene] = useState<number | null>(null);
+    const [editPromptText, setEditPromptText] = useState('');
+    // Store edited prompts: sceneIndex -> prompt string
+    const [customPrompts, setCustomPrompts] = useState<Record<number, string>>({});
+
     // Initial check for existing images
     useEffect(() => {
         fetchExistingImages();
@@ -98,8 +103,9 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
         // Identify scenes needing generation
         const scenesToGenerate = story.map((_, index) => {
             const sIndex = index + 1; // 1-based index
-            // In DatabaseSync, we inserted with i (0-based) but DB index is i+1.
-            return { index: sIndex, prompt: prompts.find(p => p.scene_id === story[index].id)?.prompt_en };
+            // Use custom prompt if available, otherwise original
+            const effectivePrompt = customPrompts[sIndex] || prompts.find(p => p.scene_id === story[index].id)?.prompt_en;
+            return { index: sIndex, prompt: effectivePrompt };
         }).filter(item => {
             const status = imageStatuses[item.index];
             return !status || status.status !== 'success';
@@ -129,7 +135,7 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
     };
 
     // Check if all done
-    const allDone = story.length > 0 && story.every((_, index) => imageStatuses[index]?.status === 'success');
+    const allDone = story.length > 0 && story.every((_, index) => imageStatuses[index + 1]?.status === 'success');
 
     const handleFinish = async () => {
         try {
@@ -151,8 +157,29 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
         }
     };
 
+    const openEditModal = (sceneIndex: number, currentPrompt: string) => {
+        setEditingScene(sceneIndex);
+        setEditPromptText(customPrompts[sceneIndex] || currentPrompt);
+    };
+
+    const handleSaveAndRegenerate = async () => {
+        if (editingScene === null) return;
+
+        // Save the custom prompt
+        setCustomPrompts(prev => ({
+            ...prev,
+            [editingScene]: editPromptText
+        }));
+
+        // Close modal
+        setEditingScene(null);
+
+        // Trigger generation
+        await generateImage(editingScene, editPromptText);
+    };
+
     return (
-        <div className="max-w-6xl mx-auto p-8 bg-[#FDFBF7] font-serif min-h-screen">
+        <div className="max-w-6xl mx-auto p-8 bg-[#FDFBF7] font-serif min-h-screen relative">
             <header className="mb-8 border-b-2 border-accent-red/10 pb-6 flex justify-between items-end">
                 <div>
                     <h2 className="text-3xl font-calligraphy text-ink-900 mb-2">第六步：图片生成</h2>
@@ -196,8 +223,9 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
                 {story.map((scene, index) => {
                     const sceneIndex = index + 1;
                     const status = imageStatuses[sceneIndex] || { status: 'missing' };
-                    const promptData = prompts.find(p => p.scene_id === scene.id);
-                    const prompt = promptData?.prompt_en || "No prompt available";
+                    // Use custom prompt if available, fallback to original
+                    const originalPrompt = prompts.find(p => p.scene_id === scene.id)?.prompt_en || "No prompt available";
+                    const effectivePrompt = customPrompts[sceneIndex] || originalPrompt;
 
                     return (
                         <div key={scene.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-ink-100 overflow-hidden flex flex-col">
@@ -231,13 +259,20 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
                                 )}
 
                                 {/* Overlay Controls */}
-                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-3 p-4">
                                     <button
-                                        onClick={() => generateImage(sceneIndex, prompt)}
+                                        onClick={() => openEditModal(sceneIndex, originalPrompt)}
                                         disabled={globalLoading}
-                                        className="bg-white text-ink-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-accent-red hover:text-white transition-colors"
+                                        className="bg-white/10 backdrop-blur-sm border border-white/40 text-white px-4 py-2 rounded-full text-sm hover:bg-white hover:text-ink-900 transition-all w-full max-w-[140px]"
                                     >
-                                        {status.status === 'success' ? '重新生成' : '生成图片'}
+                                        ✏️ 修改提示词
+                                    </button>
+                                    <button
+                                        onClick={() => generateImage(sceneIndex, effectivePrompt)}
+                                        disabled={globalLoading}
+                                        className="bg-accent-red text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-red-600 transition-colors w-full max-w-[140px] shadow-lg"
+                                    >
+                                        {status.status === 'success' ? '🔄 重新生成' : '✨ 生成图片'}
                                     </button>
                                 </div>
                             </div>
@@ -254,16 +289,62 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
                                     {scene.narrative}
                                 </p>
 
-                                <div className="bg-stone-50 p-2 rounded border border-stone-100">
-                                    <p className="text-[10px] text-stone-400 font-mono leading-tight line-clamp-3" title={prompt}>
-                                        PROMPT: {prompt}
+                                <div className="bg-stone-50 p-2 rounded border border-stone-100 group relative">
+                                    <p className="text-[10px] text-stone-400 font-mono leading-tight line-clamp-3">
+                                        <span className="font-bold text-stone-500">PROMPT:</span> {effectivePrompt}
                                     </p>
+                                    {/* Tooltip for full prompt */}
+                                    <div className="hidden group-hover:block absolute bottom-full left-0 right-0 bg-black/90 text-white text-xs p-3 rounded mb-2 z-10 max-h-40 overflow-y-auto whitespace-pre-wrap shadow-xl">
+                                        {effectivePrompt}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     );
                 })}
             </div>
+
+            {/* Prompt Edit Modal */}
+            {editingScene !== null && (
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
+                    <div className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden flex flex-col max-h-[90vh]">
+                        <div className="p-4 border-b border-stone-200 bg-stone-50 flex justify-between items-center">
+                            <h3 className="font-bold text-ink-900 text-lg">修改提示词 (Scene #{editingScene})</h3>
+                            <button
+                                onClick={() => setEditingScene(null)}
+                                className="text-stone-400 hover:text-stone-600"
+                            >
+                                ✕
+                            </button>
+                        </div>
+
+                        <div className="p-6 flex-1 overflow-y-auto">
+                            <p className="text-sm text-stone-500 mb-2">您可以直接修改下方的英文提示词来调整图片生成结果。</p>
+                            <textarea
+                                value={editPromptText}
+                                onChange={(e) => setEditPromptText(e.target.value)}
+                                className="w-full h-48 p-4 border border-stone-300 rounded-lg font-mono text-sm leading-relaxed focus:ring-2 focus:ring-accent-red/20 focus:border-accent-red outline-none shadow-inner"
+                                placeholder="输入英文提示词..."
+                            />
+                        </div>
+
+                        <div className="p-4 border-t border-stone-200 bg-stone-50 flex justify-end gap-3">
+                            <button
+                                onClick={() => setEditingScene(null)}
+                                className="px-5 py-2 text-stone-600 hover:bg-stone-200 rounded-lg transition-colors font-medium"
+                            >
+                                取消
+                            </button>
+                            <button
+                                onClick={handleSaveAndRegenerate}
+                                className="px-6 py-2 bg-accent-red text-white rounded-lg shadow-md hover:bg-red-700 transition-all font-bold flex items-center gap-2"
+                            >
+                                <span>🚀</span> 保存并生成
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
