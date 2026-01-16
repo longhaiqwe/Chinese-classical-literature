@@ -135,8 +135,8 @@ export default function DatabaseSync({
     };
 
     return (
-        <div className="max-w-2xl mx-auto p-8 bg-paper-100 rounded-lg ink-border shadow-lg">
-            <h2 className="text-2xl font-serif text-ink-900 mb-6 text-center border-b-2 border-accent-brown pb-4">
+        <div className="max-w-2xl mx-auto p-4 md:p-8 bg-paper-100 rounded-lg ink-border shadow-lg">
+            <h2 className="text-xl md:text-2xl font-serif text-ink-900 mb-6 text-center border-b-2 border-accent-brown pb-4">
                 第三步：同步到数据库
             </h2>
 
@@ -151,10 +151,10 @@ export default function DatabaseSync({
                 </div>
 
                 {/* Manual ID Inputs */}
-                <div className="bg-white p-6 rounded border border-ink-200 space-y-4">
+                <div className="bg-white p-4 md:p-6 rounded border border-ink-200 space-y-4">
                     <h3 className="font-bold text-lg text-ink-800">数据库配置</h3>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-sm font-bold text-ink-700 mb-1">
                                 Story ID <span className="text-red-500">*</span>
@@ -197,7 +197,7 @@ export default function DatabaseSync({
                         />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-sm font-bold text-ink-700 mb-1">
                                 结局标题 (Ending Title)
@@ -243,7 +243,7 @@ export default function DatabaseSync({
                     </div>
                 )}
 
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-col md:flex-row gap-4 pt-4">
                     <button
                         onClick={onBack}
                         disabled={syncing}

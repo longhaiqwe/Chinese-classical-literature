@@ -106,20 +106,20 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
     };
 
     return (
-        <div className="w-full max-w-2xl mx-auto p-6 bg-paper-100 rounded-lg ink-border">
-            <h2 className="text-2xl font-serif text-ink-900 mb-6 border-b-2 border-accent-brown pb-2">
+        <div className="w-full max-w-2xl mx-auto p-4 md:p-6 bg-paper-100 rounded-lg ink-border">
+            <h2 className="text-xl md:text-2xl font-serif text-ink-900 mb-6 border-b-2 border-accent-brown pb-2">
                 第一步：生成故事结构
             </h2>
 
             <div className="space-y-4">
                 <div>
-                    <label htmlFor="topic" className="block text-ink-800 font-bold mb-2">
+                    <label htmlFor="topic" className="block text-ink-800 font-bold mb-2 text-base">
                         故事主题 / 标题
                     </label>
                     <input
                         id="topic"
                         type="text"
-                        className="w-full p-3 bg-paper-50 border-2 border-ink-500 rounded focus:border-accent-red focus:outline-none transition-colors text-ink-900"
+                        className="w-full p-3 bg-paper-50 border-2 border-ink-500 rounded focus:border-accent-red focus:outline-none transition-colors text-ink-900 text-base"
                         placeholder="例如：孔融让梨、草船借箭"
                         value={topic}
                         onChange={(e) => setTopic(e.target.value)}
@@ -128,7 +128,7 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
                 </div>
 
                 {error && (
-                    <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                    <div className="p-4 bg-red-100 border border-red-400 text-red-700 rounded text-sm md:text-base">
                         {error}
                     </div>
                 )}
@@ -136,9 +136,9 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
                 <button
                     onClick={handleGenerate}
                     disabled={loading || !topic.trim()}
-                    className={`w-full py-3 px-6 rounded font-bold text-paper-50 transition-all ${loading || !topic.trim()
+                    className={`w-full py-3 px-6 rounded font-bold text-paper-50 transition-all text-base md:text-lg ${loading || !topic.trim()
                         ? 'bg-ink-500 cursor-not-allowed'
-                        : 'bg-accent-red hover:bg-[#a63030] shadow-md hover:shadow-lg'
+                        : 'bg-accent-red hover:bg-[#a63030] shadow-md hover:shadow-lg active:scale-95'
                         }`}
                 >
                     {loading ? (

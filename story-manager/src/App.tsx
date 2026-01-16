@@ -118,30 +118,30 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-paper-50 font-serif p-8">
-      <header className="mb-8 relative">
-        <div className="flex justify-between items-center border-b border-ink-100 pb-4 mb-8">
-          <div className="flex items-center gap-4">
-            <h1 className="text-2xl font-calligraphy text-ink-900 border-r border-ink-200 pr-4">
+    <div className="min-h-screen bg-paper-50 font-serif p-4 md:p-8">
+      <header className="mb-6 md:mb-8 relative">
+        <div className="flex flex-col md:flex-row justify-between items-center border-b border-ink-100 pb-4 mb-6 md:mb-8 gap-4 md:gap-0">
+          <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
+            <h1 className="text-xl md:text-2xl font-calligraphy text-ink-900 border-none md:border-r border-ink-200 pr-0 md:pr-4">
               中国古典文学故事工坊
             </h1>
-            <nav className="flex space-x-1">
+            <nav className="flex space-x-1 w-full justify-center md:w-auto">
               <button
                 onClick={() => setViewMode('generator')}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${viewMode === 'generator' ? 'bg-accent-red text-white shadow-sm' : 'text-ink-500 hover:bg-ink-100'}`}
+                className={`flex-1 md:flex-none px-4 py-1.5 rounded-full text-sm font-medium transition-all ${viewMode === 'generator' ? 'bg-accent-red text-white shadow-sm' : 'text-ink-500 hover:bg-ink-100'}`}
               >
                 故事创作
               </button>
               <button
                 onClick={() => setViewMode('deleter')}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${viewMode === 'deleter' ? 'bg-accent-red text-white shadow-sm' : 'text-ink-500 hover:bg-ink-100'}`}
+                className={`flex-1 md:flex-none px-4 py-1.5 rounded-full text-sm font-medium transition-all ${viewMode === 'deleter' ? 'bg-accent-red text-white shadow-sm' : 'text-ink-500 hover:bg-ink-100'}`}
               >
                 故事管理
               </button>
             </nav>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
             <span className="text-xs text-ink-300">v1.0.0</span>
             <button
               onClick={handleClearCache}
@@ -155,11 +155,11 @@ function App() {
 
         {/* Hero Section if in Generator Mode and Step 1 */}
         {viewMode === 'generator' && currentStep === 1 && (
-          <div className="text-center mb-10 fade-in">
-            <h2 className="text-4xl font-calligraphy text-accent-red mb-3">
+          <div className="text-center mb-6 md:mb-10 fade-in px-2">
+            <h2 className="text-2xl md:text-4xl font-calligraphy text-accent-red mb-3">
               妙笔生花，重塑经典
             </h2>
-            <p className="text-ink-500">
+            <p className="text-sm md:text-base text-ink-500">
               基于 AI 的全自动化古典文学故事创作与改编平台
             </p>
           </div>
@@ -171,11 +171,11 @@ function App() {
       ) : (
         <main className="container mx-auto">
           {/* Stepper Navigation */}
-          <div className="flex justify-between mb-8 overflow-x-auto pb-4">
+          <div className="flex justify-between mb-8 overflow-x-auto pb-4 gap-2 md:gap-0 scrollbar-hide">
             {[1, 2, 3, 4, 5, 6].map((step) => (
               <div
                 key={step}
-                className={`flex flex-col items-center min-w-[100px] ${step === currentStep
+                className={`flex flex-col items-center min-w-[60px] md:min-w-[100px] shrink-0 ${step === currentStep
                   ? 'text-accent-red font-bold'
                   : step < currentStep
                     ? 'text-emerald-700'
@@ -192,7 +192,7 @@ function App() {
                 >
                   {step}
                 </div>
-                <span className="text-sm px-2">
+                <span className={`text-xs md:text-sm px-1 whitespace-nowrap ${step !== currentStep ? 'hidden md:block' : ''}`}>
                   {step === 1 && '生成故事'}
                   {step === 2 && '审阅调整'}
                   {step === 3 && '同步数据库'}

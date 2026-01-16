@@ -69,24 +69,24 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
 
     return (
         <div className="max-w-4xl mx-auto space-y-8">
-            <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold font-serif text-ink-900">审阅故事内容</h2>
-                <div className="space-x-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <h2 className="text-xl md:text-2xl font-bold font-serif text-ink-900">审阅故事内容</h2>
+                <div className="flex flex-wrap gap-2 w-full md:w-auto">
                     <button
                         onClick={onBack}
-                        className="px-4 py-2 border-2 border-ink-500 rounded hover:bg-paper-200 text-ink-800 font-bold transition-colors"
+                        className="flex-1 md:flex-none px-3 py-2 border-2 border-ink-500 rounded hover:bg-paper-200 text-ink-800 font-bold transition-colors text-sm md:text-base"
                     >
                         返回重成
                     </button>
                     <button
                         onClick={() => setShowRefineDialog(true)}
-                        className="px-4 py-2 border-2 border-accent-brown rounded hover:bg-paper-200 text-accent-brown font-bold transition-colors"
+                        className="flex-1 md:flex-none px-3 py-2 border-2 border-accent-brown rounded hover:bg-paper-200 text-accent-brown font-bold transition-colors text-sm md:text-base"
                     >
                         优化故事
                     </button>
                     <button
                         onClick={() => onConfirm(reviewedStory)}
-                        className="px-4 py-2 bg-accent-red text-white rounded font-bold hover:bg-[#a63030] shadow-md transition-all"
+                        className="flex-1 md:flex-none px-3 py-2 bg-accent-red text-white rounded font-bold hover:bg-[#a63030] shadow-md transition-all text-sm md:text-base"
                     >
                         确认并继续
                     </button>
@@ -94,7 +94,7 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
             </div>
 
             {reviewedStory.map((scene, index) => (
-                <div key={scene.id} className="bg-paper-100 p-6 rounded-lg ink-border relative">
+                <div key={scene.id} className="bg-paper-100 p-4 md:p-6 rounded-lg ink-border relative">
                     <div className="absolute -top-4 -left-4 w-10 h-10 bg-accent-brown text-paper-50 rounded-full flex items-center justify-center font-bold font-serif border-2 border-paper-50 shadow">
                         {index + 1}
                     </div>
@@ -154,17 +154,17 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
                 </div>
             ))}
 
-            <div className="flex justify-end items-center gap-4 pt-4 border-t border-ink-200">
+            <div className="flex flex-col-reverse md:flex-row justify-end items-center gap-4 pt-4 border-t border-ink-200">
                 <button
                     onClick={onBack}
-                    className="px-6 py-3 text-ink-600 hover:text-ink-900 font-bold underline decoration-dotted underline-offset-4"
+                    className="w-full md:w-auto px-6 py-3 text-ink-600 hover:text-ink-900 font-bold underline decoration-dotted underline-offset-4 text-center"
                 >
                     返回生成页
                 </button>
                 <button
                     onClick={() => onConfirm(reviewedStory)}
 
-                    className="px-8 py-3 bg-accent-red text-white rounded font-bold hover:bg-[#a63030] shadow-md transition-all text-lg"
+                    className="w-full md:w-auto px-8 py-3 bg-accent-red text-white rounded font-bold hover:bg-[#a63030] shadow-md transition-all text-lg active:scale-95"
                 >
                     确认，下一步
                 </button>

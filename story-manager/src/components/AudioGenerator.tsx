@@ -246,32 +246,32 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
     };
 
     return (
-        <div className="max-w-5xl mx-auto p-8 bg-[#FDFBF7] min-h-[600px] font-serif">
-            <div className="flex justify-between items-center mb-10 border-b-2 border-accent-red/20 pb-6">
+        <div className="max-w-5xl mx-auto p-4 md:p-8 bg-[#FDFBF7] min-h-[600px] font-serif">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-10 border-b-2 border-accent-red/20 pb-4 md:pb-6 gap-4">
                 <div>
-                    <h2 className="text-3xl font-calligraphy text-ink-900 mb-2">第四步：音频生成</h2>
-                    <p className="text-ink-500 text-sm">为每个场景及结局赋予声音</p>
+                    <h2 className="text-2xl md:text-3xl font-calligraphy text-ink-900 mb-2">第四步：音频生成</h2>
+                    <p className="text-sm md:text-base text-ink-500">为每个场景及结局赋予声音</p>
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex flex-col md:flex-row gap-2 md:gap-4 w-full md:w-auto">
                     <button
                         onClick={generateAllAudio}
-                        className="flex items-center gap-2 px-5 py-2.5 bg-accent-red text-white rounded-lg hover:bg-red-800 transition-all shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="flex items-center justify-center gap-2 px-5 py-2.5 bg-accent-red text-white rounded-lg hover:bg-red-800 transition-all shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed w-full md:w-auto"
                         disabled={loading || !!batchStatus}
                     >
                         <span className="text-lg">▶</span>
                         {batchStatus ? `生成中 (${batchStatus.current}/${batchStatus.total})` : '一键生成所有'}
                     </button>
-                    <div className="h-10 w-px bg-ink-200 mx-2"></div>
+                    <div className="h-px w-full md:h-10 md:w-px bg-ink-200 md:mx-2 hidden md:block"></div>
                     <button
                         onClick={onBack}
-                        className="px-5 py-2.5 bg-paper-100 border border-ink-200 text-ink-600 rounded-lg hover:bg-paper-200 hover:border-ink-300 transition-all"
+                        className="px-5 py-2.5 bg-paper-100 border border-ink-200 text-ink-600 rounded-lg hover:bg-paper-200 hover:border-ink-300 transition-all w-full md:w-auto text-center"
                     >
                         返回修改
                     </button>
                     <button
                         onClick={onNext}
-                        className="px-5 py-2.5 bg-emerald-700 text-white rounded-lg hover:bg-emerald-800 transition-all shadow-md flex items-center gap-2"
+                        className="px-5 py-2.5 bg-emerald-700 text-white rounded-lg hover:bg-emerald-800 transition-all shadow-md flex items-center justify-center gap-2 w-full md:w-auto"
                     >
                         下一步：生成提示词
                         <span>→</span>
@@ -312,7 +312,7 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
                         >
                             <div className="absolute top-6 left-0 w-1 h-12 bg-accent-red rounded-r"></div>
 
-                            <div className="flex gap-8 items-start pl-4">
+                            <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-start pl-4">
                                 <div className="flex-grow">
                                     <div className="flex items-center gap-3 mb-3">
                                         <span className="text-2xl font-calligraphy text-ink-400">
@@ -354,7 +354,7 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
                                     )}
                                 </div>
 
-                                <div className="flex flex-col justify-start min-w-[120px] pt-2">
+                                <div className="flex flex-row md:flex-col justify-end md:justify-start w-full md:min-w-[120px] md:w-auto pt-2 border-t md:border-t-0 border-ink-100 mt-4 md:mt-0">
                                     {status.status === 'success' ? (
                                         <button
                                             onClick={() => generateAudio(sIndex, scene.narrative)}
@@ -390,7 +390,7 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
                     `}>
                         <div className="absolute top-6 left-0 w-1 h-12 bg-amber-600 rounded-r"></div>
 
-                        <div className="flex gap-8 items-start pl-4">
+                        <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-start pl-4">
                             <div className="flex-grow">
                                 <div className="flex items-center gap-3 mb-3">
                                     <span className="text-2xl font-calligraphy text-amber-700">
@@ -432,7 +432,7 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
                                 )}
                             </div>
 
-                            <div className="flex flex-col justify-start min-w-[120px] pt-2">
+                            <div className="flex flex-row md:flex-col justify-end md:justify-start w-full md:min-w-[120px] md:w-auto pt-2 border-t md:border-t-0 border-ink-100 mt-4 md:mt-0">
                                 {audioStatuses[-1]?.status === 'success' ? (
                                     <button
                                         onClick={() => generateAudio(-1, endingDescription)}

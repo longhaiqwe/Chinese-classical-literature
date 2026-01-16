@@ -187,34 +187,34 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-8 bg-[#FDFBF7] font-serif min-h-[600px]">
-            <div className="mb-8 border-b-2 border-accent-red/20 pb-6 flex justify-between items-center">
+        <div className="max-w-4xl mx-auto p-4 md:p-8 bg-[#FDFBF7] font-serif min-h-[600px]">
+            <div className="mb-6 md:mb-8 border-b-2 border-accent-red/20 pb-4 md:pb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h2 className="text-3xl font-calligraphy text-ink-900 mb-2">删除故事</h2>
-                    <p className="text-ink-500">管理并删除已生成的故事</p>
+                    <h2 className="text-2xl md:text-3xl font-calligraphy text-ink-900 mb-2">删除故事</h2>
+                    <p className="text-sm md:text-base text-ink-500">管理并删除已生成的故事</p>
                 </div>
                 <button
                     onClick={onBack}
-                    className="px-6 py-2 border border-ink-300 rounded text-ink-600 hover:bg-ink-50"
+                    className="w-full md:w-auto px-6 py-2 border border-ink-300 rounded text-ink-600 hover:bg-ink-50 text-center"
                 >
                     返回
                 </button>
             </div>
 
             {/* Search Area */}
-            <div className="flex gap-4 mb-8">
+            <div className="flex flex-col md:flex-row gap-4 mb-8">
                 <input
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="输入故事标题 (中文)"
-                    className="flex-grow p-3 border border-ink-300 rounded text-lg focus:border-accent-red focus:outline-none"
+                    className="flex-grow p-3 border border-ink-300 rounded text-base md:text-lg focus:border-accent-red focus:outline-none"
                     onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                 />
                 <button
                     onClick={handleSearch}
                     disabled={loading}
-                    className="px-8 py-3 bg-ink-800 text-white rounded font-bold hover:bg-ink-900 disabled:opacity-50"
+                    className="w-full md:w-auto px-8 py-3 bg-ink-800 text-white rounded font-bold hover:bg-ink-900 disabled:opacity-50"
                 >
                     {loading ? '搜索中...' : '搜索'}
                 </button>
@@ -231,11 +231,11 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
                         storyList.map((story) => (
                             <div
                                 key={story.id}
-                                className="bg-white p-6 rounded-xl border border-ink-100 shadow-sm flex justify-between items-center"
+                                className="bg-white p-4 md:p-6 rounded-xl border border-ink-100 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
                             >
                                 <div>
-                                    <h3 className="text-xl font-bold text-ink-900 mb-1">{story.title}</h3>
-                                    <div className="text-sm text-ink-500 flex gap-4">
+                                    <h3 className="text-lg md:text-xl font-bold text-ink-900 mb-1">{story.title}</h3>
+                                    <div className="text-xs md:text-sm text-ink-500 flex flex-wrap gap-2 md:gap-4">
                                         <span>ID: {story.id}</span>
                                         <span>分类: {story.category_id || 'N/A'}</span>
                                         <span>{story.created_at ? new Date(story.created_at).toLocaleString() : '未知时间'}</span>
@@ -243,7 +243,7 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
                                 </div>
                                 <button
                                     onClick={() => setDeleteConfirm(story)}
-                                    className="px-4 py-2 bg-red-50 text-red-600 rounded border border-red-100 hover:bg-red-100 transition-colors"
+                                    className="w-full md:w-auto px-4 py-2 bg-red-50 text-red-600 rounded border border-red-100 hover:bg-red-100 transition-colors text-center"
                                 >
                                     删除
                                 </button>
