@@ -1497,7 +1497,23 @@ weibiansanjue_scenes = [
         "environmentDescription": "Confucius teaching, phantom of Yi Jing text in background.",
         "characterState": "Confucius interacting with disciples.",
         "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/lunyu/weibiansanjue/bg_06_legacy.jpg",
-        "options": []
+        "options": [
+            {
+                "text": "薪火相传",
+                "isCorrect": True,
+                "feedback": "孔子的思想借由《易传》流传千古，如同薪尽火传，照亮了后世无数读书人的心灵。"
+            },
+            {
+                "text": "束之高阁",
+                "isCorrect": False,
+                "feedback": "圣人著书立说，旨在教化世人。若束之高阁，岂不是辜负了这一番心血与智慧？"
+            },
+            {
+                "text": "秘而不宣",
+                "isCorrect": False,
+                "feedback": "孔子强调“有教无类”，他的学术是开放的，也是无私的，绝不会将此等大道秘而不宣。"
+            }
+        ]
     }
 ]
 
