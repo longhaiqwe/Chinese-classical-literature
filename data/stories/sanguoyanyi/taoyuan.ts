@@ -152,19 +152,5 @@ export const TAOYUAN_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 7,
-        title: "平行时空：孤身落魄",
-        narrative: "虽有心报国，然行差踏错，终是孤身一人。桃园之义未成，天下大势亦随之而变...",
-        environmentDescription: "Lonely figure walking away in the snow.",
-        characterState: "Liu Bei walking away alone.",
-        imageUrl: "/assets/sanguoyanyi/taoyuan/bg_07_bad_lonely.jpg",
-        options: [
-            {
-                text: "重新来过",
-                isCorrect: true,
-                feedback: "往事已矣，来者可追。"
-            }
-        ]
-    }
+
 ];

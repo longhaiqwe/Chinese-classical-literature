@@ -127,19 +127,5 @@ export const CAOCHUANJIEJIAN_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 6,
-        title: "平行时空：军法从事",
-        narrative: "三天期限已到，十万枝箭未能凑齐。周瑜依军令状，令刀斧手将诸葛亮推出辕门斩首。一代卧龙就此陨落，孙刘联盟破裂，曹操挥师南下，天下一统归魏。",
-        environmentDescription: "Execution ground inside the camp. Zhou Yu sits sternly on the podium, throwing the command arrow. Zhuge Liang is bound, looking up at the sky with a sigh.",
-        characterState: "Zhou Yu stern and cold; Zhuge Liang resigned.",
-        imageUrl: "/assets/sanguoyanyi/caochuanjiejian/bg_06_execution.jpg",
-        options: [
-            {
-                text: "重新来过，再施妙计",
-                isCorrect: true,
-                feedback: "胜败乃兵家常事，少侠请重新来过。"
-            }
-        ]
-    }
+
 ];

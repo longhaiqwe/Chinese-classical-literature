@@ -127,13 +127,5 @@ export const YANHUITOUZHOU_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 6,
-        title: "信任崩塌",
-        narrative: "若孔子当时未能查明真相，或者颜回未能即使解释，一代贤人恐蒙不白之冤。师徒之间若无信任，道义何存？信任一旦破裂，便如覆水难收，令人扼腕叹息。",
-        environmentDescription: "Yan Hui walking away, Confucius looking regretful.",
-        characterState: "Sadness and separation.",
-        imageUrl: "/assets/lunyu/yanhuitouzhou/bg_06_bad.jpg",
-        options: []
-    }
+
 ];

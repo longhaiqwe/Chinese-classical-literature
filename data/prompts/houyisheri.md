@@ -15,5 +15,3 @@ Gritty Chinese Manhua style. Epic action freeze-frame. Hou Yi has just released 
 ## 5. 万物复苏 (All Things Reborn)
 Gritty Chinese Manhua style. Wide peaceful shot. Only one gentle sun remains in the clear blue sky. Gentle rain is falling on the cracked earth, and small green shoots are instantly springing up. Hou Yi stands on a cliff, lowering his bow, looking out over the recovering land. People in the distance are cheering and dancing in the rain. Soft, cool color palette (blues, greens) contrasting with the previous heat. Atmosphere of relief and hope. --ar 16:9
 
-## 6. 平行时空：黑暗永夜 (Bad Ending: Eternal Darkness)
-Gritty Chinese Manhua style. Dark, cold atmosphere. A frozen wasteland under a starless pitch-black sky. No suns exist. Everything is covered in blue ice and snow. Hou Yi stands alone, shivering, frozen statue-like, holding his useless bow. Regretful expression. Monochromatic blue and black palette. Ghostly wind effects. --ar 16:9

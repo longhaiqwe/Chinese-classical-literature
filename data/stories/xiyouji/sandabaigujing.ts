@@ -177,29 +177,5 @@ export const SANDABAIGUJING_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 8,
-        title: "平行时空：师徒情缘",
-        narrative: "若当时唐僧能识破妖计，或悟空能有更好法子证明清白，师徒也不必经受这一番分离之苦。然天道循环，自有定数。九九八十一难，少一难皆不成正果。",
-        environmentDescription: "A conceptual scene of the team reunited, walking towards the west.",
-        characterState: "Reflective and hopeful.",
-        imageUrl: "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/images/xiyouji/sandabaigujing/bg_08_happy_team.jpg",
-        options: [
-            {
-                text: "勘破迷障，再续前缘",
-                isCorrect: true,
-                feedback: "经此一难，师徒情分虽受挫折，却也为日后破镜重圆埋下伏笔。真金不怕火炼，患难才见真情。终以此心，修成正果。"
-            },
-            {
-                text: "畏难而退，散伙各去",
-                isCorrect: false,
-                feedback: "取经大业，关乎苍生福祉，岂可因一时误会而轻言放弃？半途而废，非英雄所为。"
-            },
-            {
-                text: "独善其身，逍遥自在",
-                isCorrect: false,
-                feedback: "悟空本已长生不老，然成佛作祖并非只为长生，更为修得正果，普度众生。独善其身，终非大道。"
-            }
-        ]
-    }
+
 ];

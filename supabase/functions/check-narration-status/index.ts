@@ -71,10 +71,19 @@ serve(async (req) => {
 
             const audioBlob = await (await fetch(audioUrl)).blob()
 
-            const fileName = `${story_id}_${scene_index}.mp3`
+            let fileName = `${story_id}_${scene_index}.mp3`
+            if (String(scene_index) === '-1') {
+                fileName = `${story_id}_ending.mp3`
+            }
             const filePath = `${category_id}/${story_id}/${fileName}`
 
             const { data: storageData, error: uploadError } = await supabaseClient
+                .storage
+                .from('narrations')
+                .getPublicUrl(filePath) // Check existence or just upload. Original used upload.
+
+            // Re-instating correct upload logic
+            const { data: uploadData, error: upError } = await supabaseClient
                 .storage
                 .from('narrations')
                 .upload(filePath, audioBlob, {
@@ -82,7 +91,7 @@ serve(async (req) => {
                     upsert: true
                 })
 
-            if (uploadError) throw uploadError
+            if (upError) throw upError
 
             const { data: { publicUrl } } = supabaseClient
                 .storage

@@ -127,19 +127,5 @@ export const SANGUMAOLU_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 6,
-        title: "平行时空：错失良机",
-        narrative: "若非刘备这般三顾之诚，诸葛亮恐终老林泉，或许汉室难兴，三国历史也将改写。",
-        environmentDescription: "An old man fishing by the river, forgotten by history.",
-        characterState: "Zhuge Liang fishing alone.",
-        imageUrl: "/assets/sanguoyanyi/sangumaolu/bg_06_bad_missed.png",
-        options: [
-            {
-                text: "重新来过，诚心求贤",
-                isCorrect: true,
-                feedback: "精诚所至，金石为开。"
-            }
-        ]
-    }
+
 ];

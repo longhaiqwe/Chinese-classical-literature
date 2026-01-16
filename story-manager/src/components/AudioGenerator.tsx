@@ -169,10 +169,19 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
             const sIndex = (scene as any).scene_index ?? scenes.indexOf(scene) + 1;
             const status = audioStatuses[sIndex];
             return !status || (status.status !== 'success' && status.status !== 'pending' && status.status !== 'failed');
-            // Note: Retrying failed ones automatically might be aggressive if failure is persistent,
-            // but for rate limits, we might want to retry. Let's stick to "not success/pending" for now.
-            // Actually, if previous attempt failed, we probably want to retry.
-        });
+        }) as any[]; // Cast to any[] to allow adding the custom ending object
+
+        // Check if ending needs generation
+        // Ending uses index -1
+        if (endingDescription) {
+            const endingStatus = audioStatuses[-1];
+            if (!endingStatus || (endingStatus.status !== 'success' && endingStatus.status !== 'pending' && endingStatus.status !== 'failed')) {
+                scenesToGenerate.push({
+                    scene_index: -1,
+                    narrative: endingDescription
+                });
+            }
+        }
 
         if (scenesToGenerate.length === 0) {
             alert('所有场景音频已生成或正在生成中');
@@ -210,12 +219,38 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
         setBatchStatus(null);
     };
 
+    const [endingDescription, setEndingDescription] = useState<string>('');
+    const [endingTitle, setEndingTitle] = useState<string>('');
+
+    useEffect(() => {
+        fetchStoryMetadata();
+    }, [storyId]);
+
+    const fetchStoryMetadata = async () => {
+        if (!storyId) return;
+        try {
+            const { data, error } = await supabase
+                .from('stories')
+                .select('ending_description, ending_title')
+                .eq('id', storyId)
+                .single();
+
+            if (error) throw error;
+            if (data) {
+                setEndingDescription(data.ending_description || '');
+                setEndingTitle(data.ending_title || '');
+            }
+        } catch (err) {
+            console.error('Error fetching story metadata:', err);
+        }
+    };
+
     return (
         <div className="max-w-5xl mx-auto p-8 bg-[#FDFBF7] min-h-[600px] font-serif">
             <div className="flex justify-between items-center mb-10 border-b-2 border-accent-red/20 pb-6">
                 <div>
                     <h2 className="text-3xl font-calligraphy text-ink-900 mb-2">第四步：音频生成</h2>
-                    <p className="text-ink-500 text-sm">为每个场景赋予声音</p>
+                    <p className="text-ink-500 text-sm">为每个场景及结局赋予声音</p>
                 </div>
 
                 <div className="flex gap-4">
@@ -346,6 +381,83 @@ export default function AudioGenerator({ storyId, story, onBack, onNext }: Audio
                         </div>
                     )
                 })}
+
+                {/* Ending Audio Section */}
+                {endingDescription && (
+                    <div className={`
+                        relative bg-stone-50 p-6 rounded-xl border border-stone-200 transition-all duration-300
+                        ${audioStatuses[-1]?.status === 'success' ? 'border-emerald-200 shadow-sm' : 'shadow-md hover:shadow-lg'}
+                    `}>
+                        <div className="absolute top-6 left-0 w-1 h-12 bg-amber-600 rounded-r"></div>
+
+                        <div className="flex gap-8 items-start pl-4">
+                            <div className="flex-grow">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <span className="text-2xl font-calligraphy text-amber-700">
+                                        结局：{endingTitle || '千古评说'}
+                                    </span>
+                                    {audioStatuses[-1]?.status === 'success' && (
+                                        <span className="bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded text-xs border border-emerald-100 flex items-center gap-1">
+                                            ✓ 已生成
+                                        </span>
+                                    )}
+                                </div>
+
+                                <p className="text-lg text-ink-800 leading-8 font-medium tracking-wide">
+                                    {endingDescription}
+                                </p>
+
+                                {/* Audio Player if Success */}
+                                {audioStatuses[-1]?.status === 'success' && audioStatuses[-1].audio_url && (
+                                    <div className="mt-4 bg-paper-50 p-2 rounded-lg border border-ink-50">
+                                        <audio controls className="w-full h-8 opacity-90 custom-audio-player">
+                                            <source src={audioStatuses[-1].audio_url} type="audio/mpeg" />
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </div>
+                                )}
+
+                                {/* Error Message */}
+                                {audioStatuses[-1]?.status === 'failed' && (
+                                    <div className="mt-4 flex items-center gap-2 text-red-700 bg-red-50 p-3 rounded-lg text-sm border border-red-100">
+                                        <span>⚠</span>
+                                        生成失败: {audioStatuses[-1].error || '未知错误'}
+                                        <button
+                                            onClick={() => generateAudio(-1, endingDescription)}
+                                            className="ml-auto underline hover:text-red-900"
+                                        >
+                                            重试
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="flex flex-col justify-start min-w-[120px] pt-2">
+                                {audioStatuses[-1]?.status === 'success' ? (
+                                    <button
+                                        onClick={() => generateAudio(-1, endingDescription)}
+                                        className="text-xs text-ink-300 hover:text-accent-red transition-colors flex items-center justify-end gap-1 mt-2"
+                                    >
+                                        <span>↻</span> 重新生成
+                                    </button>
+                                ) : audioStatuses[-1]?.status === 'pending' ? (
+                                    <div className="flex flex-col items-end text-right">
+                                        <div className="w-6 h-6 border-2 border-accent-red border-t-transparent rounded-full animate-spin mb-2"></div>
+                                        <span className="text-xs text-ink-400">正在生成...</span>
+                                    </div>
+                                ) : (
+                                    <button
+                                        onClick={() => generateAudio(-1, endingDescription)}
+                                        className="group flex flex-col items-center justify-center w-full py-4 border-2 border-dashed border-ink-200 rounded-lg hover:border-accent-red hover:bg-red-50/50 transition-all"
+                                    >
+                                        <span className="text-2xl text-ink-300 group-hover:text-accent-red mb-1">🎙</span>
+                                        <span className="text-sm text-ink-500 group-hover:text-accent-red font-medium">生成音频</span>
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

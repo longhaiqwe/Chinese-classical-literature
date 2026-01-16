@@ -35,9 +35,3 @@ Gritty Chinese Manhua style. Daytime, fog dispersing. The fleet of straw boats i
 **中文翻译:**
 中国漫画风格。白天，雾气消散。草船船队归来，船体两侧的草束上密密麻麻地插满了成千上万支箭。诸葛亮站在船上大笑，士兵们看起来高兴且胜利在望。明亮的阳光穿透云层。胜利的气氛。古中国船只，草把上插满了箭。无文字。
 
-## Scene 6: 平行时空：军法从事 (Bad Ending: Execution)
-**Prompt:**
-Gritty Chinese Manhua style. Execution ground inside the camp. Zhou Yu sits sternly on the high podium, throwing a command arrow to verify the execution order. Zhuge Liang is bound with ropes, kneeling or standing with dignity, looking up at the sky with a sigh. Executioners with large blades stand ready. The atmosphere is cold, tragic and tense. Ancient Chinese military execution scene. no text --ar 16:9
-
-**中文翻译:**
-硬派中国漫画风格。军营内的刑场。周瑜表情严厉地坐在高台上，掷出令箭以确认斩首命令。诸葛亮被绳索捆绑，有尊严地跪着或站着，仰天长叹。刽子手手持大刀准备行刑。气氛寒冷、悲剧且紧张。古中国军事处决场景。无文字。

@@ -15,5 +15,3 @@ Gritty Chinese Manhua style. Interior scene, ancient Chinese cottage room, simpl
 ## 5. 隆中对·天下 (Longzhong Plan)
 Gritty Chinese Manhua style. Close-up intense shot. Zhuge Liang (Young scholar, handsome, wearing white and light blue crane robes) pointing at a large ancient map of China (Three Kingdoms era) spread on a table. Liu Bei (Middle-aged man, benevolent face, long earlobes, short beard, wearing earthy brown and green Hanfu robes) looking at the map with admiration. Strategic atmosphere, "Longzhong Plan", ancient scroll map, historical feeling, wise tactician, cinematic lighting, 8k. --ar 16:9
 
-## 6. 平行时空：错失良机 (Parallel Universe: Missed Opportunity)
-Gritty Chinese Manhua style. Melancholic medium shot. An old man (Zhuge Liang: aged, gray hair, wearing worn-out white robes) fishing alone by a misty river. Back view or side view, reflecting on a life of obscurity. No army, no glory. Sunset, melancholic traditional Chinese painting, solitude, forgotten hero, sad mood, artistic concept. --ar 16:9

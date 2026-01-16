@@ -21,5 +21,3 @@ Gritty Chinese Manhua style. Confrontation perspective. The tiny Jingwei bird ho
 ## 7. 精神永存 (Eternal Spirit)
 Gritty Chinese Manhua style. Symbolic composition. A silhouette of the Jingwei bird flying towards a setting sun, dropping a stone. The ocean below looks slightly calmer, filled with many stones creating a path. Warm, legendary amber and gold color palette. Rough paper texture. Timeless feel. --ar 16:9
 
-## 8. 平行时空：安度一生 (Bad Ending: A Normal Life)
-Gritty Chinese Manhua style. Peaceful medium shot. Nuwa, now an adult woman, weaving cloth in a farmhouse courtyard. She looks content but ordinary, with no spark in her eyes. Chickens picking at the ground. Warm but dull afternoon light. No vast ocean, just a closed-in courtyard walls. Static composition. --ar 16:9

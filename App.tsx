@@ -11,6 +11,7 @@ import CategoryView from './components/CategoryView';
 import LoadingScreen from './components/LoadingScreen';
 import FeedbackModal from './components/FeedbackModal';
 import FeedbackTassel from './components/FeedbackTassel';
+import { VoicePlayer } from './components/VoicePlayer';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.HOME);
@@ -475,6 +476,17 @@ const App: React.FC = () => {
               <p className="text-lg md:text-xl mb-8 leading-relaxed whitespace-pre-line font-serif text-ink-900">
                 {selectedStory?.endingDescription || "恭喜你完成了这段历史的演绎。"}
               </p>
+
+              {/* Ending Audio */}
+              {selectedStory && (
+                <div className="flex justify-center mb-8">
+                  <VoicePlayer
+                    storyId={selectedStory.id}
+                    sceneIndex={-1}
+                    text={selectedStory.endingDescription || ''}
+                  />
+                </div>
+              )}
               <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <button
                   onClick={handleRestart}

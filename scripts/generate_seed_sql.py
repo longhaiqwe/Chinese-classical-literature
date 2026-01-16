@@ -130,21 +130,7 @@ sangumaolu_scenes = [
             }
         ]
     },
-    {
-        "id": 6,
-        "title": "平行时空：错失良机",
-        "narrative": "若非刘备这般三顾之诚，诸葛亮恐终老林泉，或许汉室难兴，三国历史也将改写。",
-        "environmentDescription": "An old man fishing by the river, forgotten by history.",
-        "characterState": "Zhuge Liang fishing alone.",
-        "imageUrl": "/assets/sanguoyanyi/sangumaolu/bg_06_bad_missed.png",
-        "options": [
-            {
-                "text": "重新来过，诚心求贤",
-                "isCorrect": True,
-                "feedback": "精诚所至，金石为开。"
-            }
-        ]
-    }
+
 ]
 
 
@@ -280,21 +266,7 @@ caochuanjiejian_scenes = [
 
         ]
     },
-    {
-        "id": 6,
-        "title": "平行时空：军法从事",
-        "narrative": "三天期限已到，十万枝箭未能凑齐。周瑜依军令状，令刀斧手将诸葛亮推出辕门斩首。一代卧龙就此陨落，孙刘联盟破裂，曹操挥师南下，天下一统归魏。",
-        "environmentDescription": "Execution ground inside the camp. Zhou Yu sits sternly on the podium, throwing the command arrow. Zhuge Liang is bound, looking up at the sky with a sigh.",
-        "characterState": "Zhou Yu stern and cold; Zhuge Liang resigned.",
-        "imageUrl": "/assets/sanguoyanyi/caochuanjiejian/bg_06_execution.jpg",
-        "options": [
-            {
-                "text": "重新来过，再施妙计",
-                "isCorrect": True,
-                "feedback": "胜败乃兵家常事，少侠请重新来过。"
-            }
-        ]
-    }
+
 ]
 
 taoyuan_scenes = [
@@ -448,21 +420,7 @@ taoyuan_scenes = [
             }
         ]
     },
-    {
-        "id": 7,
-        "title": "平行时空：孤身落魄",
-        "narrative": "虽有心报国，然行差踏错，终是孤身一人。桃园之义未成，天下大势亦随之而变...",
-        "environmentDescription": "Lonely figure walking away in the snow.",
-        "characterState": "Liu Bei walking away alone.",
-        "imageUrl": "/assets/sanguoyanyi/taoyuan/bg_07_bad_lonely.jpg",
-        "options": [
-            {
-                "text": "重新来过",
-                "isCorrect": True,
-                "feedback": "往事已矣，来者可追。"
-            }
-        ]
-    }
+
 ]
 
 # ==========================================
@@ -620,21 +578,7 @@ danaotiangong_scenes = [
             }
         ]
     },
-    {
-        "id": 7,
-        "title": "平行时空：皈依",
-        "narrative": "若当初不至龙宫寻宝、地府销名、不闹天宫，安分守己做个弼马温，或许便是另一番光景。但这，还是那个敢爱敢恨、无法无天的齐天大圣吗？",
-        "environmentDescription": "Sun Wukong looking bored in heaven.",
-        "characterState": "Sun Wukong as a celestial bureaucrat.",
-        "imageUrl": "/assets/xiyouji/danaotiangong/bg_07_bad_boring.jpg",
-        "options": [
-            {
-                "text": "重新来过，再闹天宫！",
-                "isCorrect": True,
-                "feedback": "哪怕被压五百年，哪怕历经九九八十一难，俺老孙也绝不后悔！"
-            }
-        ]
-    }
+
 ]
 
 
@@ -967,31 +911,7 @@ sandabaigujing_scenes = [
             }
         ]
     },
-    {
-        "id": 8,
-        "title": "平行时空：师徒情缘",
-        "narrative": "若当时唐僧能识破妖计，或悟空能有更好法子证明清白，师徒也不必经受这一番分离之苦。然天道循环，自有定数。九九八十一难，少一难皆不成正果。",
-        "environmentDescription": "A conceptual scene of the team reunited, walking towards the west.",
-        "characterState": "Reflective and hopeful.",
-        "imageUrl": "https://yvftzwxiiyhheaoykxgc.supabase.co/storage/v1/object/public/story-assets/xiyouji/sandabaigujing/bg_08_happy_team.jpg",
-        "options": [
-            {
-                "text": "勘破迷障，再续前缘",
-                "isCorrect": True,
-                "feedback": "经此一难，师徒情分虽受挫折，却也为日后破镜重圆埋下伏笔。真金不怕火炼，患难才见真情。终以此心，修成正果。"
-            },
-            {
-                "text": "畏难而退，散伙各去",
-                "isCorrect": False,
-                "feedback": "取经大业，关乎苍生福祉，岂可因一时误会而轻言放弃？半途而废，非英雄所为。"
-            },
-            {
-                "text": "独善其身，逍遥自在",
-                "isCorrect": False,
-                "feedback": "悟空本已长生不老，然成佛作祖并非只为长生，更为修得正果，普度众生。独善其身，终非大道。"
-            }
-        ]
-    }
+
 ]
 
 # ==========================================
@@ -1174,31 +1094,7 @@ jingweitianhai_scenes = [
             }
         ]
     },
-    {
-        "id": 8,
-        "title": "平行时空：安度一生",
-        "narrative": "若当日女娃听从父命，未去东海，或许她能承欢膝下，无忧无虑度过一生。世间少了一段凄美的神话，却多了一个幸福的少女。但那样的女娃，还是那个向往自由的灵魂吗？",
-        "environmentDescription": "Nuwa playing happily in the fields.",
-        "characterState": "Nuwa living a peaceful life.",
-        "imageUrl": "/assets/shanhaijing/jingweitianhai/bg_08_bad_safe.jpg",
-        "options": [
-            {
-                "text": "享受平凡，相夫教子",
-                "isCorrect": False,
-                "feedback": "这也是一种幸福，只是少了那份惊心动魄。"
-            },
-            {
-                "text": "梦回东海，心存遗憾",
-                "isCorrect": False,
-                "feedback": "既然选择了安逸，便只能在梦中寻找那片海。"
-            },
-            {
-                "text": "重新来过，再化精卫",
-                "isCorrect": True,
-                "feedback": "有些命运，或许注定要燃烧自己，照亮后人。"
-            }
-        ]
-    }
+
 ]
 
 
@@ -1332,21 +1228,7 @@ houyisheri_scenes = [
             }
         ]
     },
-    {
-        "id": 6,
-        "title": "平行时空：黑暗永夜",
-        "narrative": "若后羿一时兴起，将十日尽数射杀，世界从此陷入无尽黑暗，那个英雄，恐将成为千古罪人。",
-        "environmentDescription": "Eternal night, frozen world.",
-        "characterState": "Hou Yi standing alone in the dark.",
-        "imageUrl": "/assets/shanhaijing/houyisheri/bg_06_bad_darkness.jpg",
-        "options": [
-            {
-                "text": "重新来过，手下留情",
-                "isCorrect": True,
-                "feedback": "过犹不及，万事当有度。"
-            }
-        ]
-    }
+
 ]
 
 # ==========================================
@@ -1479,15 +1361,7 @@ yanhuitouzhou_scenes = [
             }
         ]
     },
-    {
-        "id": 6,
-        "title": "信任崩塌",
-        "narrative": "若孔子当时未能查明真相，或者颜回未能即使解释，一代贤人恐蒙不白之冤。师徒之间若无信任，道义何存？信任一旦破裂，便如覆水难收，令人扼腕叹息。",
-        "environmentDescription": "Yan Hui walking away, Confucius looking regretful.",
-        "characterState": "Sadness and separation.",
-        "imageUrl": "/assets/lunyu/yanhuitouzhou/bg_06_bad.jpg",
-        "options": []
-    }
+
 ]
 
 weibiansanjue_scenes = [

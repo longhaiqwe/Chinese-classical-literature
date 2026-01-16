@@ -126,19 +126,5 @@ export const HOUYISHERI_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 6,
-        title: '平行时空：黑暗永夜',
-        narrative: '若后羿一时兴起，将十日尽数射杀，世界从此陷入无尽黑暗，那个英雄，恐将成为千古罪人。',
-        environmentDescription: 'Eternal night, frozen world.',
-        characterState: 'Hou Yi standing alone in the dark.',
-        imageUrl: '/assets/shanhaijing/houyisheri/bg_06_bad_darkness.jpg',
-        options: [
-            {
-                text: '重新来过，手下留情',
-                isCorrect: true,
-                feedback: '过犹不及，万事当有度。'
-            }
-        ]
-    }
+
 ];

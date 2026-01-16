@@ -35,7 +35,3 @@ Chinese Manhua style. The Yellow Robed Monster is defeated. Tang Seng is transfo
 
 中国漫画风格。黄袍怪被击败/擒获。唐僧变回人形。唐僧看起来懊悔且感激，正在行礼或握着悟空的手。悟空看起来胜利且欣慰。师徒重聚。无文字。
 
-## Scene 8: 平行时空：师徒情缘
-Chinese Manhua style. A conceptual scene of the four pilgrims (Tang Seng, Wukong, Pigsy, Sandy) and the white dragon horse walking together towards the west. The atmosphere is hopeful and reflective, symbolizing their unbreakable bond and the path to enlightenment. No text. --ar 16:9
-
-中国漫画风格。概念场景，师徒四人（唐僧、悟空、八戒、沙僧）和白龙马一起向西而行。气氛充满希望且引人深思，象征着他们牢不可破的羁绊和通往正果的道路。无文字。

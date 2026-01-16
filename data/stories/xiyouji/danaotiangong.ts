@@ -152,19 +152,5 @@ export const DANAOTIANGONG_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 7,
-        title: "平行时空：皈依",
-        narrative: "若当初不至龙宫寻宝、地府销名、不闹天宫，安分守己做个弼马温，或许便是另一番光景。但这，还是那个敢爱敢恨、无法无天的齐天大圣吗？",
-        environmentDescription: "Sun Wukong looking bored in heaven.",
-        characterState: "Sun Wukong as a celestial bureaucrat.",
-        imageUrl: "/assets/xiyouji/danaotiangong/bg_07_bad_boring.jpg",
-        options: [
-            {
-                text: "重新来过，再闹天宫！",
-                isCorrect: true,
-                feedback: "哪怕被压五百年，哪怕历经九九八十一难，俺老孙也绝不后悔！"
-            }
-        ]
-    }
+
 ];

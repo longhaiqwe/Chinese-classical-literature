@@ -177,29 +177,5 @@ export const JINGWEITIANHAI_SCENES: IGameScene[] = [
             }
         ]
     },
-    {
-        id: 8,
-        title: "平行时空：安度一生",
-        narrative: "若当日女娃听从父命，未去东海，或许她能承欢膝下，无忧无虑度过一生。世间少了一段凄美的神话，却多了一个幸福的少女。但那样的女娃，还是那个向往自由的灵魂吗？",
-        environmentDescription: "Nuwa playing happily in the fields.",
-        characterState: "Nuwa living a peaceful life.",
-        imageUrl: "/assets/shanhaijing/jingweitianhai/bg_08_bad_safe.jpg",
-        options: [
-            {
-                text: "享受平凡，相夫教子",
-                isCorrect: false,
-                feedback: "这也是一种幸福，只是少了那份惊心动魄。"
-            },
-            {
-                text: "梦回东海，心存遗憾",
-                isCorrect: false,
-                feedback: "既然选择了安逸，便只能在梦中寻找那片海。"
-            },
-            {
-                text: "重新来过，再化精卫",
-                isCorrect: true,
-                feedback: "有些命运，或许注定要燃烧自己，照亮后人。"
-            }
-        ]
-    }
+
 ];

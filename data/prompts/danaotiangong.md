@@ -18,5 +18,3 @@ Gritty Chinese Manhua style. Chaos scene. Sun Wukong (drunk, face flushed) spraw
 ## 6. 大战天兵 (Battle with Heavenly Army)
 Gritty Chinese Manhua style. Epic action shot. Sun Wukong (now in full Golden Chain Mail armor) mid-air, striking a dynamic combat pose with the Golden Cudgel. Below and around him are clouds filled with thousands of celestial soldiers (silhouettes and glimmering armor). Explosive energy, swirling clouds, lightning. high contrast, dramatic side lighting. Sense of overwhelming scale and one-man-army power. --ar 16:9
 
-## 7. 平行时空：平庸官僚 (Bad Ending: Boring Bureaucrat)
-Gritty Chinese Manhua style. Melancholic medium shot. Sun Wukong sitting at a desk piled with paperwork in a sterile heavenly office. He looks aged, dull, and completely devoid of spirit. No armor, just plain official robes. Grey and beige color palette. Static, lifeless composition. A window shows a small glimpse of the free world far below, out of focus. --ar 16:9

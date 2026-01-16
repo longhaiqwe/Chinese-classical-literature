@@ -43,8 +43,3 @@ Gritty Chinese Manhua style. Two-shot. Confucius places a hand on Yan Hui's shou
 ## 5. 误会冰释 (冰释前嫌)
 
 粗砺中国漫画风格。双人镜头。听闻真相后，孔子将手搭在颜回肩头，神情欣慰自豪。阳光从残窗倾泻，为二人镀上圣洁金辉。宁静祥和氛围，背景采用柔和泼墨效果。--ar 16:9
-
-## 6. 平行时空：信任崩塌 (Broken Trust)
-**Filename:** bg_06_bad.jpg
-
-粗砺中国漫画风格。伤感广角镜头。颜回背对画面，独自走向风雪交加大地。孔子在身后神情痛心遗憾。冷色调，蓝灰为主。孤寂与决绝感。粗糙线条表现。--ar 16:9
