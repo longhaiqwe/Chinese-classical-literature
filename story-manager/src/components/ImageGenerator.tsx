@@ -205,7 +205,7 @@ export default function ImageGenerator({ storyId, story, prompts, onBack, onFini
                         disabled={globalLoading}
                         className="w-full md:w-auto px-8 py-2 rounded font-bold shadow-md transition-all bg-emerald-700 text-white hover:bg-emerald-800 hover:scale-105 disabled:opacity-50 text-center"
                     >
-                        发布故事 (Finish)
+                        发布故事
                     </button>
                 </div>
             </header>

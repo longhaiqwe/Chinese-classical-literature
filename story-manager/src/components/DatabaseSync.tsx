@@ -186,7 +186,7 @@ export default function DatabaseSync({
 
                     <div>
                         <label className="block text-sm font-bold text-ink-700 mb-1">
-                            故事简介 (Description)
+                            故事简介
                         </label>
                         <textarea
                             value={description}
@@ -200,7 +200,7 @@ export default function DatabaseSync({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-sm font-bold text-ink-700 mb-1">
-                                结局标题 (Ending Title)
+                                结局标题
                             </label>
                             <input
                                 type="text"
