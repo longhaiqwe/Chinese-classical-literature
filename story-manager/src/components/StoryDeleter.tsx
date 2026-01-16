@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabase';
 interface Story {
     id: string;
     title: string;
-    created_at: string;
+    created_at: string | null;
     category_id: string | null;
 }
 
@@ -238,7 +238,7 @@ export default function StoryDeleter({ onBack }: StoryDeleterProps) {
                                     <div className="text-sm text-ink-500 flex gap-4">
                                         <span>ID: {story.id}</span>
                                         <span>分类: {story.category_id || 'N/A'}</span>
-                                        <span>{new Date(story.created_at).toLocaleString()}</span>
+                                        <span>{story.created_at ? new Date(story.created_at).toLocaleString() : '未知时间'}</span>
                                     </div>
                                 </div>
                                 <button
