@@ -10,7 +10,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category, onClick }) => {
     return (
         <div
             onClick={() => onClick(category)}
-            className="group relative cursor-pointer w-full aspect-[3/4] overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            className="group relative cursor-pointer w-full aspect-square overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
         >
             {/* Background Image */}
             <img

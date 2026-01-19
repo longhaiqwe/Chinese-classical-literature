@@ -16,7 +16,7 @@ export const geminiModel = genAI.getGenerativeModel({
             type: SchemaType.OBJECT,
             properties: {
                 id: { type: SchemaType.STRING, description: "Unique story ID in pinyin, e.g., 'huoshaochibi'" },
-                category_id: { type: SchemaType.STRING, description: "Category ID: 'sanguoyanyi', 'xiyouji', 'shanhaijing', 'lunyu', etc." },
+                category_id: { type: SchemaType.STRING, description: "Category ID: 'sanguoyanyi', 'shuihuzhuan', 'xiyouji', 'shanhaijing', 'lunyu', etc." },
                 description: { type: SchemaType.STRING, description: "A brief summary of the story (1-2 sentences)." },
                 ending_title: { type: SchemaType.STRING, description: "A 4-character idiom for the success ending title, e.g., '如鱼得水'" },
                 ending_description: { type: SchemaType.STRING, description: "A specific summary of the story's outcome and historical significance (2-3 sentences). Do NOT use generic congratulations." },
