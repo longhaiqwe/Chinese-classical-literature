@@ -83,7 +83,8 @@ serve(async (req) => {
             body: JSON.stringify({
                 contents: [{ parts: [{ text: prompt }] }],
                 generationConfig: {
-                    responseModalities: ["TEXT", "IMAGE"]
+                    responseModalities: ["TEXT", "IMAGE"],
+                    aspectRatio: "3:4"
                 }
             })
         });

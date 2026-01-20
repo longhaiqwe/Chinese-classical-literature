@@ -12,6 +12,7 @@
     "export:xhs": "npx tsx scripts/export_xiaohongshu_content.ts"
   },
   "dependencies": {
+    "@capacitor/android": "^6.2.1",
     "@capacitor/cli": "^6.2.1",
     "@capacitor/core": "^6.2.1",
     "@capacitor/ios": "^6.2.1",
