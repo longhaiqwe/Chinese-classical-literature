@@ -166,7 +166,11 @@ Requirements:
     * Extract key visual elements: characters(appearance, clothing), setting(era, environment, lighting), action, and mood.
     * Translate these visualization details into precise English keyphrases.
     * Avoid abstract concepts; describe what is visually present.
-4. ** Completeness **: Generate a prompt for EVERY scene in the story.
+4. ** Safety & Audience **:
+    * ** Target Audience **: Children and students.
+    * ** Constraint **: Do NOT include bloody, gory, or excessively violent descriptions.
+    * ** Handling Violence **: If a scene is violent (e.g., a battle), depict it dynamically but cleanly (e.g., "clashing weapons", "intense expression") without blood or open wounds.
+5. ** Completeness **: Generate a prompt for EVERY scene in the story.
 
 Output JSON format only.
 `;
