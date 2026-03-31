@@ -39,9 +39,15 @@ export async function runCli(
   io: CliIo = defaultIo,
   commands: CommandRegistry = defaultCommands,
 ): Promise<CliResult> {
-  return runCliWithCommands(argv, io, {
-    ...commands,
-  })
+  try {
+    return await runCliWithCommands(argv, io, {
+      ...commands,
+    })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    io.stderr.write(`CLI_ERROR: ${message}\n`)
+    return { exitCode: 1 }
+  }
 }
 
 export async function runCliWithCommands(

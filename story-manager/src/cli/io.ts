@@ -45,6 +45,25 @@ export function readRequiredValue(parsed: ParsedArgs, name: string): string {
   return value
 }
 
+export async function readRequiredInlineOrFileValue(
+  parsed: ParsedArgs,
+  inlineName: string,
+  fileName: string,
+  fileReader: (path: string) => Promise<string> = readTextInput,
+): Promise<string> {
+  const inlineValue = parsed.values.get(inlineName)
+  if (inlineValue) {
+    return inlineValue
+  }
+
+  const filePath = parsed.values.get(fileName)
+  if (filePath) {
+    return fileReader(filePath)
+  }
+
+  throw new Error(`Missing required option: --${inlineName} or --${fileName}`)
+}
+
 export async function readTextInput(path: string): Promise<string> {
   if (path === '-') {
     const chunks: Buffer[] = []

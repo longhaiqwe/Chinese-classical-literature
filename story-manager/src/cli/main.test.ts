@@ -44,4 +44,22 @@ describe('runCli', () => {
     expect(result.exitCode).toBe(0)
     expect(syncDb).toHaveBeenCalledWith(['--input', 'story.json'], { stdout, stderr })
   })
+
+  it('formats thrown command errors with a stable CLI_ERROR prefix', async () => {
+    const stdout = { write: vi.fn() }
+    const stderr = { write: vi.fn() }
+
+    const result = await runCli(
+      ['generate-story'],
+      { stdout, stderr },
+      {
+        'generate-story': vi.fn().mockRejectedValue(new Error('Missing required option: --topic or --topic-file')),
+      },
+    )
+
+    expect(result.exitCode).toBe(1)
+    expect(stderr.write).toHaveBeenCalledWith(
+      'CLI_ERROR: Missing required option: --topic or --topic-file\n',
+    )
+  })
 })
