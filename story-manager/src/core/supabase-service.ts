@@ -1,5 +1,5 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
-import { readRequiredEnv } from './env.js'
+import { readRequiredSupabaseKey, readRequiredSupabaseUrl } from './env.js'
 import type { Database } from '../database.types.js'
 import type { StoryRepository } from './sync-service.js'
 import type { StoryChoice, StoryScene } from './types.js'
@@ -10,8 +10,8 @@ type SupabaseSceneOptionInsert = Database['public']['Tables']['scene_options']['
 
 function buildSupabaseClient() {
   return createClient<Database>(
-    readRequiredEnv(['SUPABASE_URL', 'VITE_SUPABASE_URL']),
-    readRequiredEnv(['SUPABASE_ANON_KEY', 'VITE_SUPABASE_ANON_KEY']),
+    readRequiredSupabaseUrl(),
+    readRequiredSupabaseKey(),
   )
 }
 

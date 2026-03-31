@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { loadRuntimeEnv } from '../core/env-loader.js'
 import { runGenerateImagePromptsCommand } from './commands/generate-image-prompts.js'
 import { runGenerateStoryCommand } from './commands/generate-story.js'
 import { runNormalizeStoryCommand } from './commands/normalize-story.js'
@@ -44,6 +45,8 @@ export async function runCli(
   commands: CommandRegistry = defaultCommands,
 ): Promise<CliResult> {
   try {
+    loadRuntimeEnv()
+
     return await runCliWithCommands(argv, io, {
       ...commands,
     })

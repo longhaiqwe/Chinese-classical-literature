@@ -1,7 +1,42 @@
 import { describe, expect, it, vi } from 'vitest'
+
+const mockLoadRuntimeEnv = vi.fn()
+
+vi.mock('../core/env-loader.js', () => ({
+  loadRuntimeEnv: (...args: unknown[]) => mockLoadRuntimeEnv(...args),
+}))
+
 import { runCli } from './main.js'
 
 describe('runCli', () => {
+  it('loads runtime env before dispatching commands', async () => {
+    const events: string[] = []
+    const stdout = { write: vi.fn() }
+    const stderr = { write: vi.fn() }
+    const generateStory = vi.fn().mockImplementation(async () => {
+      events.push('command')
+      return { exitCode: 0 }
+    })
+
+    mockLoadRuntimeEnv.mockReset()
+    mockLoadRuntimeEnv.mockImplementation(() => {
+      events.push('env')
+      return { loadedFiles: [] }
+    })
+
+    const result = await runCli(
+      ['generate-story', '--topic', '草船借箭'],
+      { stdout, stderr },
+      {
+        'generate-story': generateStory,
+      },
+    )
+
+    expect(result.exitCode).toBe(0)
+    expect(mockLoadRuntimeEnv).toHaveBeenCalledTimes(1)
+    expect(events).toEqual(['env', 'command'])
+  })
+
   it('prints help for an unknown subcommand', async () => {
     const result = await runCli(['wat'], {
       stdout: { write: () => undefined },

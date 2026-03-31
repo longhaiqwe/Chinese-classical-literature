@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { parseJsonDocument } from './json.js'
 import { normalizeStoryDocument } from './story-document.js'
-import { readRequiredEnv } from './env.js'
+import { readGeminiApiKey } from './env.js'
 import type { ImagePromptDocument, StoryDocument } from './types.js'
 
 export interface GeminiServiceDeps {
@@ -60,7 +60,7 @@ Requirements:
 let defaultDeps: GeminiServiceDeps | undefined
 
 function createDefaultGeminiDeps(): GeminiServiceDeps {
-  const apiKey = readRequiredEnv(['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY'])
+  const apiKey = readGeminiApiKey()
   const genAI = new GoogleGenerativeAI(apiKey)
   const storyModel = genAI.getGenerativeModel({
     model: STORY_MODEL_NAME,
