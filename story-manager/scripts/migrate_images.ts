@@ -17,8 +17,8 @@ let SUBAPASE_URL: string;
 let SUPABASE_KEY: string;
 
 try {
-    SUBAPASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? readRequiredSupabaseUrl();
-    SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY ?? readRequiredSupabaseKey();
+    SUBAPASE_URL = readRequiredSupabaseUrl();
+    SUPABASE_KEY = readRequiredSupabaseKey();
 } catch {
     console.error('Missing Supabase URL or Key');
     process.exit(1);
