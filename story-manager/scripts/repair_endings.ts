@@ -1,18 +1,32 @@
 
 import { createClient } from '@supabase/supabase-js';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { fileURLToPath } from 'url';
+import { loadRuntimeEnv } from '../src/core/env-loader.js';
+import { readGeminiApiKey, readRequiredSupabaseKey, readRequiredSupabaseUrl } from '../src/core/env.js';
 
-const SUPABASE_URL = process.env.VITE_SUPABASE_URL;
-const SUPABASE_KEY = process.env.VITE_SUPABASE_ANON_KEY;
-const GEMINI_KEY = process.env.VITE_GEMINI_API_KEY;
+const runtimeCwd = fileURLToPath(new URL('..', import.meta.url));
+loadRuntimeEnv({ cwd: runtimeCwd });
 
-if (!SUPABASE_URL || !SUPABASE_KEY || !GEMINI_KEY) {
+let SUPABASE_URL: string;
+let SUPABASE_KEY: string;
+let GEMINI_KEY: string;
+
+try {
+    SUPABASE_URL = readRequiredSupabaseUrl();
+    SUPABASE_KEY = readRequiredSupabaseKey();
+    GEMINI_KEY = readGeminiApiKey();
+} catch {
     console.error('Missing env vars');
     process.exit(1);
 }
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 const genAI = new GoogleGenerativeAI(GEMINI_KEY);
+type NarrationStatusRecord = {
+    status?: string;
+    message?: string;
+};
 // Using the model from the app code check
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
 // Note: 'gemini-3-pro-preview' might be specific to their project or a typo in their code, 
@@ -61,12 +75,14 @@ async function main() {
                 .eq('scene_index', -1)
                 .maybeSingle(); // Use maybeSingle to avoid error if 0 rows
 
-            if (narrations && narrations.status === 'success') {
+            const narrationStatus = narrations as NarrationStatusRecord | null;
+
+            if (narrationStatus && narrationStatus.status === 'success') {
                 console.log(`Audio already exists for ${story.title}`);
                 continue;
             }
 
-            if (narrations && narrations.status === 'pending') {
+            if (narrationStatus && narrationStatus.status === 'pending') {
                 console.log(`Audio pending for ${story.title}, just polling...`);
             } else {
                 console.log(`Requesting audio for ${story.title}...`);
@@ -118,7 +134,7 @@ async function main() {
                         continue;
                     }
 
-                    const pollData = await pollRes.json();
+                    const pollData = await pollRes.json() as NarrationStatusRecord;
                     if (pollData.status === 'success') {
                         console.log(`Audio SUCCESS for ${story.title}`);
                         break;

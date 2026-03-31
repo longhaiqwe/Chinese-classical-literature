@@ -1,9 +1,27 @@
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { fileURLToPath } from 'url';
+import { loadRuntimeEnv } from '../src/core/env-loader.js';
+import { readGeminiApiKey } from '../src/core/env.js';
 
-const apiKey = process.env.GEMINI_API_KEY;
+const runtimeCwd = fileURLToPath(new URL('..', import.meta.url));
+loadRuntimeEnv({ cwd: runtimeCwd });
 
-if (!apiKey) {
+let apiKey: string;
+
+type GeminiModelSummary = {
+    displayName?: string;
+    name: string;
+    supportedGenerationMethods?: string[];
+};
+
+type GeminiModelsResponse = {
+    models?: GeminiModelSummary[];
+};
+
+try {
+    apiKey = readGeminiApiKey();
+} catch {
     console.error('Please provide GEMINI_API_KEY env var');
     process.exit(1);
 }
@@ -22,11 +40,11 @@ async function listModels() {
 
         // Fallback to fetch for certainty to avoid SDK version guessing
         const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-        const data = await response.json();
+        const data = await response.json() as GeminiModelsResponse;
 
         if (data.models) {
             console.log('Available Models:');
-            data.models.forEach((m: any) => {
+            data.models.forEach((m) => {
                 console.log(`- ${m.name} (${m.displayName})`);
                 if (m.supportedGenerationMethods) {
                     console.log(`  Methods: ${m.supportedGenerationMethods.join(', ')}`);

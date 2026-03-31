@@ -1,32 +1,29 @@
 
 import { createClient } from '@supabase/supabase-js';
-import fs from 'fs';
-import path from 'path';
 import { fileURLToPath } from 'url';
+import { loadRuntimeEnv } from '../src/core/env-loader.js';
+import { readRequiredSupabaseKey, readRequiredSupabaseUrl } from '../src/core/env.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const runtimeCwd = fileURLToPath(new URL('..', import.meta.url));
 
-function loadEnv() {
-    try {
-        const envPath = path.resolve(__dirname, '../.env');
-        if (fs.existsSync(envPath)) {
-            const content = fs.readFileSync(envPath, 'utf-8');
-            const lines = content.split('\n');
-            for (const line of lines) {
-                const match = line.match(/^([^=]+)=(.*)$/);
-                if (match) {
-                    process.env[match[1].trim()] = match[2].trim().replace(/^["']|["']$/g, '');
-                }
-            }
-        }
-    } catch (e) { console.error(e); }
+try {
+    loadRuntimeEnv({ cwd: runtimeCwd });
+} catch (e) { console.error(e); }
+
+let supabaseUrl: string;
+let supabaseKey: string;
+
+try {
+    supabaseUrl = readRequiredSupabaseUrl();
+    supabaseKey = readRequiredSupabaseKey();
+} catch {
+    console.error('Missing Supabase URL or Key');
+    process.exit(1);
 }
-loadEnv();
 
 const supabase = createClient(
-    process.env.VITE_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY!
+    supabaseUrl,
+    supabaseKey
 );
 
 async function listFiles() {

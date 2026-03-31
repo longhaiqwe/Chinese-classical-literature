@@ -1,42 +1,30 @@
 
 import { createClient } from '@supabase/supabase-js';
-import fs from 'fs';
-import path from 'path';
 import { fileURLToPath } from 'url';
+import { loadRuntimeEnv } from '../src/core/env-loader.js';
+import { readRequiredSupabaseKey, readRequiredSupabaseUrl } from '../src/core/env.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const runtimeCwd = fileURLToPath(new URL('..', import.meta.url));
+const defaultEnvPath = fileURLToPath(new URL('../.env', import.meta.url));
 
-// Simple .env parser since we might not have dotenv
-function loadEnv() {
-    try {
-        const envPath = path.resolve(__dirname, '../.env');
-        if (fs.existsSync(envPath)) {
-            const content = fs.readFileSync(envPath, 'utf-8');
-            const lines = content.split('\n');
-            for (const line of lines) {
-                const match = line.match(/^([^=]+)=(.*)$/);
-                if (match) {
-                    const key = match[1].trim();
-                    const value = match[2].trim().replace(/^["']|["']$/g, ''); // Remove quotes
-                    process.env[key] = value;
-                }
-            }
-            console.log('Loaded .env file');
-        } else {
-            console.warn('No .env file found at', envPath);
-        }
-    } catch (e) {
-        console.error('Error loading .env:', e);
+try {
+    const { loadedFiles } = loadRuntimeEnv({ cwd: runtimeCwd });
+    if (loadedFiles.length > 0) {
+        console.log('Loaded .env file');
+    } else {
+        console.warn('No .env file found at', defaultEnvPath);
     }
+} catch (e) {
+    console.error('Error loading .env:', e);
 }
 
-loadEnv();
+let SUBAPASE_URL: string;
+let SUPABASE_KEY: string;
 
-const SUBAPASE_URL = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY;
-
-if (!SUBAPASE_URL || !SUPABASE_KEY) {
+try {
+    SUBAPASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? readRequiredSupabaseUrl();
+    SUPABASE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY ?? readRequiredSupabaseKey();
+} catch {
     console.error('Missing Supabase URL or Key');
     process.exit(1);
 }
