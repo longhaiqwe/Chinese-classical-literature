@@ -3,6 +3,7 @@
 import { runGenerateImagePromptsCommand } from './commands/generate-image-prompts.js'
 import { runGenerateStoryCommand } from './commands/generate-story.js'
 import { runRefineStoryCommand } from './commands/refine-story.js'
+import { runSyncDbCommand } from './commands/sync-db.js'
 
 type OutputWriter = {
   write: (chunk: string) => void
@@ -30,6 +31,7 @@ const defaultCommands: CommandRegistry = {
   'generate-image-prompts': runGenerateImagePromptsCommand,
   'generate-story': runGenerateStoryCommand,
   'refine-story': runRefineStoryCommand,
+  'sync-db': runSyncDbCommand,
 }
 
 export async function runCli(

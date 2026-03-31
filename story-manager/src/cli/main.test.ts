@@ -27,4 +27,21 @@ describe('runCli', () => {
     expect(result.exitCode).toBe(0)
     expect(generateStory).toHaveBeenCalledWith(['--topic', '草船借箭'], { stdout, stderr })
   })
+
+  it('routes sync-db to the command handler', async () => {
+    const stdout = { write: vi.fn() }
+    const stderr = { write: vi.fn() }
+    const syncDb = vi.fn().mockResolvedValue({ exitCode: 0 })
+
+    const result = await runCli(
+      ['sync-db', '--input', 'story.json'],
+      { stdout, stderr },
+      {
+        'sync-db': syncDb,
+      },
+    )
+
+    expect(result.exitCode).toBe(0)
+    expect(syncDb).toHaveBeenCalledWith(['--input', 'story.json'], { stdout, stderr })
+  })
 })
