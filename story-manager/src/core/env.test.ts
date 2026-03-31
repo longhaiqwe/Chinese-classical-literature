@@ -28,6 +28,12 @@ describe('readRequiredSupabaseUrl', () => {
 
     expect(readRequiredSupabaseUrl()).toBe('https://vite.supabase.co')
   })
+
+  it('throws when the Supabase URL is missing', () => {
+    expect(() => readRequiredSupabaseUrl()).toThrow(
+      'Missing environment variable: SUPABASE_URL or VITE_SUPABASE_URL',
+    )
+  })
 })
 
 describe('readRequiredSupabaseKey', () => {
@@ -37,6 +43,19 @@ describe('readRequiredSupabaseKey', () => {
     process.env.VITE_SUPABASE_ANON_KEY = 'vite-anon-key'
 
     expect(readRequiredSupabaseKey()).toBe('service-role-key')
+  })
+
+  it('falls back to anon aliases when the service role key is missing', () => {
+    process.env.SUPABASE_ANON_KEY = 'anon-key'
+    process.env.VITE_SUPABASE_ANON_KEY = 'vite-anon-key'
+
+    expect(readRequiredSupabaseKey()).toBe('anon-key')
+  })
+
+  it('throws when the Supabase key is missing', () => {
+    expect(() => readRequiredSupabaseKey()).toThrow(
+      'Missing environment variable: SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY or VITE_SUPABASE_ANON_KEY',
+    )
   })
 })
 
