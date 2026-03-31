@@ -8,9 +8,11 @@ import {
 afterEach(() => {
   delete process.env.SUPABASE_URL
   delete process.env.VITE_SUPABASE_URL
+  delete process.env.NEXT_PUBLIC_SUPABASE_URL
   delete process.env.SUPABASE_SERVICE_ROLE_KEY
   delete process.env.SUPABASE_ANON_KEY
   delete process.env.VITE_SUPABASE_ANON_KEY
+  delete process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY
   delete process.env.GEMINI_API_KEY
   delete process.env.VITE_GEMINI_API_KEY
 })
@@ -29,9 +31,15 @@ describe('readRequiredSupabaseUrl', () => {
     expect(readRequiredSupabaseUrl()).toBe('https://vite.supabase.co')
   })
 
+  it('falls back to the legacy Next.js public URL alias last', () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://next-public.supabase.co'
+
+    expect(readRequiredSupabaseUrl()).toBe('https://next-public.supabase.co')
+  })
+
   it('throws when the Supabase URL is missing', () => {
     expect(() => readRequiredSupabaseUrl()).toThrow(
-      'Missing environment variable: SUPABASE_URL or VITE_SUPABASE_URL',
+      'Missing environment variable: SUPABASE_URL or VITE_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_URL',
     )
   })
 })
@@ -52,9 +60,15 @@ describe('readRequiredSupabaseKey', () => {
     expect(readRequiredSupabaseKey()).toBe('anon-key')
   })
 
+  it('falls back to the legacy Next.js publishable key alias last', () => {
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY = 'next-public-key'
+
+    expect(readRequiredSupabaseKey()).toBe('next-public-key')
+  })
+
   it('throws when the Supabase key is missing', () => {
     expect(() => readRequiredSupabaseKey()).toThrow(
-      'Missing environment variable: SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY or VITE_SUPABASE_ANON_KEY',
+      'Missing environment variable: SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY or VITE_SUPABASE_ANON_KEY or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY',
     )
   })
 })

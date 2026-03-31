@@ -19,11 +19,16 @@ export function readRequiredEnv(names: string[]): string {
 }
 
 export function readRequiredSupabaseUrl(): string {
-  return readRequiredEnv(['SUPABASE_URL', 'VITE_SUPABASE_URL'])
+  return readRequiredEnv(['SUPABASE_URL', 'VITE_SUPABASE_URL', 'NEXT_PUBLIC_SUPABASE_URL'])
 }
 
 export function readRequiredSupabaseKey(): string {
-  return readRequiredEnv(['SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_ANON_KEY', 'VITE_SUPABASE_ANON_KEY'])
+  return readRequiredEnv([
+    'SUPABASE_SERVICE_ROLE_KEY',
+    'SUPABASE_ANON_KEY',
+    'VITE_SUPABASE_ANON_KEY',
+    'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY',
+  ])
 }
 
 export function readGeminiApiKey(): string {
