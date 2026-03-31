@@ -1,5 +1,4 @@
 
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { fileURLToPath } from 'url';
 import { loadRuntimeEnv } from '../src/core/env-loader.js';
 import { readGeminiApiKey } from '../src/core/env.js';
@@ -25,8 +24,6 @@ try {
     console.error('Please provide GEMINI_API_KEY env var');
     process.exit(1);
 }
-
-const genAI = new GoogleGenerativeAI(apiKey);
 
 async function listModels() {
     try {

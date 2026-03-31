@@ -144,7 +144,7 @@ async function main() {
                         break;
                     }
                     process.stdout.write('.');
-                } catch (e) {
+                } catch {
                     // ignore
                 }
                 attempts++;

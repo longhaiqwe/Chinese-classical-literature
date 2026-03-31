@@ -42,10 +42,10 @@ async function migrate() {
     console.log(`Starting migration: ${SOURCE_BUCKET} -> ${TARGET_BUCKET}`);
 
     // 0. Ensure target bucket exists
-    const { data: bucketData, error: bucketError } = await supabase.storage.getBucket(TARGET_BUCKET);
+    const { error: bucketError } = await supabase.storage.getBucket(TARGET_BUCKET);
     if (bucketError && bucketError.message.includes('not found')) {
         console.log(`Bucket '${TARGET_BUCKET}' not found. Creating...`);
-        const { data: newBucket, error: createError } = await supabase.storage.createBucket(TARGET_BUCKET, {
+        const { error: createError } = await supabase.storage.createBucket(TARGET_BUCKET, {
             public: true,
             fileSizeLimit: undefined, // default
             allowedMimeTypes: ['image/*']
@@ -77,17 +77,16 @@ async function migrate() {
     }
 
     let fileCount = 0;
-    let errorCount = 0;
 
     for (const cat of categories || []) {
         if (!cat.id) { // It's a folder
             console.log(`Scanning category: ${cat.name}`);
-            const { data: stories, error: storyError } = await supabase.storage.from(SOURCE_BUCKET).list(cat.name);
+            const { data: stories } = await supabase.storage.from(SOURCE_BUCKET).list(cat.name);
 
             for (const story of stories || []) {
                 if (!story.id) { // It's a folder
                     console.log(`  Scanning story: ${story.name}`);
-                    const { data: files, error: fileError } = await supabase.storage.from(SOURCE_BUCKET).list(`${cat.name}/${story.name}`);
+                    const { data: files } = await supabase.storage.from(SOURCE_BUCKET).list(`${cat.name}/${story.name}`);
 
                     for (const file of files || []) {
                         if (file.id) { // It's a file
@@ -97,7 +96,7 @@ async function migrate() {
                             console.log(`    Migrating: ${oldPath}`);
 
                             // Copy
-                            const { error: copyError } = await supabase.storage.from(SOURCE_BUCKET).copy(oldPath, newPath, {
+                            await supabase.storage.from(SOURCE_BUCKET).copy(oldPath, newPath, {
                                 destinationBucket: TARGET_BUCKET
                             });
 
@@ -114,7 +113,6 @@ async function migrate() {
                             const { data: blob, error: downloadError } = await supabase.storage.from(SOURCE_BUCKET).download(oldPath);
                             if (downloadError) {
                                 console.error(`    Download failed: ${downloadError.message}`);
-                                errorCount++;
                                 continue;
                             }
 
@@ -125,7 +123,6 @@ async function migrate() {
 
                             if (uploadError) {
                                 console.error(`    Upload failed: ${uploadError.message}`);
-                                errorCount++;
                                 continue;
                             }
 

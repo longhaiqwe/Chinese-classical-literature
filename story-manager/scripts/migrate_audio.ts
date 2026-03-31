@@ -21,6 +21,11 @@ try {
 let SUBAPASE_URL: string;
 let SUPABASE_KEY: string;
 
+type StoryCategoryRecord = {
+    category_id?: string;
+    id?: string;
+};
+
 try {
     SUBAPASE_URL = readRequiredSupabaseUrl();
     SUPABASE_KEY = readRequiredSupabaseKey();
@@ -65,7 +70,7 @@ async function migrate() {
     }
 
     const storyCategoryMap = new Map<string, string>();
-    storiesData?.forEach((s: any) => {
+    storiesData?.forEach((s: StoryCategoryRecord) => {
         if (s.id && s.category_id) {
             storyCategoryMap.set(s.id, s.category_id);
         }
