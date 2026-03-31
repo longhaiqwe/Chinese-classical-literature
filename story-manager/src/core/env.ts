@@ -17,3 +17,15 @@ export function readRequiredEnv(names: string[]): string {
 
   return value
 }
+
+export function readRequiredSupabaseUrl(): string {
+  return readRequiredEnv(['SUPABASE_URL', 'VITE_SUPABASE_URL'])
+}
+
+export function readRequiredSupabaseKey(): string {
+  return readRequiredEnv(['SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_ANON_KEY', 'VITE_SUPABASE_ANON_KEY'])
+}
+
+export function readGeminiApiKey(): string {
+  return readEnvValue(['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY']) ?? ''
+}
