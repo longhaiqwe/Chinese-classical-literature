@@ -1,23 +1,9 @@
 import { useState } from 'react';
-import { generateContent, GENERATE_STORY_PROMPT } from '../lib/gemini';
-
-// Define the Scene type based on our JSON schema
-interface Choice {
-    text: string;
-    next_scene_id: string | null;
-    is_correct: boolean;
-    feedback: string;
-}
-
-interface Scene {
-    id: string;
-    title: string;
-    narrative: string;
-    choices: Choice[];
-}
+import { generateStory } from '../lib/gemini';
+import type { StoryScene } from '../core/types.js';
 
 interface StoryGeneratorProps {
-    onStoryGenerated: (story: Scene[], topic: string, metadata?: {
+    onStoryGenerated: (story: StoryScene[], topic: string, metadata?: {
         id: string;
         categoryId: string;
         description: string;
@@ -38,68 +24,17 @@ export default function StoryGenerator({ onStoryGenerated }: StoryGeneratorProps
         setError(null);
 
         try {
-            const prompt = GENERATE_STORY_PROMPT(topic);
-            const output = await generateContent(prompt);
-
-            console.log('Gemini Output:', output);
-
-            if (!output) {
-                throw new Error('No output from Gemini');
-            }
-
-            // Parse JSON from the response
-            // The response might contain markdown code blocks (```json ... ```), we need to clean it
-            let jsonStr = output.trim();
-            if (jsonStr.startsWith('```')) {
-                jsonStr = jsonStr.replace(/^```(json)?|```$/g, '');
-            }
-
-            const result = JSON.parse(jsonStr);
-
-            // Check if result is the new object format or fallback (though schema enforces object now)
-            let storyData: Scene[] = [];
-            let metadata = { id: '', categoryId: '', description: '', endingTitle: '', endingDescription: '' };
-
-            if (Array.isArray(result)) {
-                storyData = result;
-            } else if (result.scenes) {
-                storyData = result.scenes;
-                metadata = {
-                    id: result.id || '',
-                    categoryId: result.category_id || '',
-                    description: result.description || '',
-                    endingTitle: result.ending_title || '',
-                    endingDescription: result.ending_description || ''
-                };
-            } else {
-                throw new Error('Invalid JSON format');
-            }
-
-            // Post-process to ensure clean titles (Frontend adds "Chapter X" based on index)
-            storyData = storyData.map((scene) => {
-
-                // Remove any likely existing prefix (Chinese or English, 0-based or 1-based)
-                let cleanTitle = scene.title
-                    .replace(/^第\s*\d+\s*章/, '')
-                    .replace(/^Chapter\s*\d+/i, '')
-                    .replace(/^\d+\./, '') // Handles "1. Title"
-                    .trim();
-
-                // Cleanup separators like "·", ".", ":"
-                if (/^[·.:]/.test(cleanTitle)) {
-                    cleanTitle = cleanTitle.substring(1).trim();
-                }
-
-                return {
-                    ...scene,
-                    title: cleanTitle
-                };
+            const storyDocument = await generateStory(topic);
+            onStoryGenerated(storyDocument.scenes, topic, {
+                id: storyDocument.id,
+                categoryId: storyDocument.category_id,
+                description: storyDocument.description,
+                endingTitle: storyDocument.ending_title,
+                endingDescription: storyDocument.ending_description,
             });
-
-            onStoryGenerated(storyData, topic, metadata);
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error('Generation failed:', err);
-            setError(err.message || '生成故事失败');
+            setError(err instanceof Error ? err.message : '生成故事失败');
         } finally {
             setLoading(false);
         }

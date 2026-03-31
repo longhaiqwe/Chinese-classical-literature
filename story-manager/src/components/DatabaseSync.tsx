@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { useState } from 'react';
+import { normalizeStoryDocument } from '../core/story-document.js';
+import { syncStoryDocument } from '../core/sync-service.js';
+import type { StoryScene } from '../core/types.js';
+import { storyRepository } from '../lib/supabase';
 
 interface DatabaseSyncProps {
-    story: any[];
+    story: StoryScene[];
     title: string;
     initialStoryId?: string;
     initialCategoryId?: string;
@@ -35,17 +38,9 @@ export default function DatabaseSync({
     const [endingTitle, setEndingTitle] = useState(initialEndingTitle || '通关成功');
     const [endingDescription, setEndingDescription] = useState(initialEndingDescription || '恭喜你完成了这段历史的演绎。');
 
-    // Simple effect to pre-fill ID if empty (mocking pinyin or just manual)
-    useEffect(() => {
-        // Just a helper to clear it if title changes, or keep it.
-        // Let's just default to empty and let user type, or provide a "Generate" button?
-        // User asked for "huoshaochibi", so they know what they want.
-        // Let's just default to a sanitized version of title if English, or empty if Chinese.
-    }, [title]);
-
     const handleSync = async () => {
         setSyncing(true);
-        setStatus('正在创建故事记录...');
+        setStatus('正在同步故事与场景...');
         setError(null);
 
         try {
@@ -56,80 +51,22 @@ export default function DatabaseSync({
                 throw new Error('请输入分类 ID (Category ID cannot be empty)');
             }
 
-            // 1. Use provided Story ID
-            const storyId = customStoryId.trim();
-
-            // 2. Insert/Upsert Story
-            const { error: storyError } = await supabase.from('stories').upsert({
-                id: storyId,
-                title: title,
-                description: description,
+            const storyDocument = normalizeStoryDocument(story, {
+                id: customStoryId.trim(),
                 category_id: categoryId.trim(),
+                title,
+                description,
                 ending_title: endingTitle,
                 ending_description: endingDescription,
-                created_at: new Date().toISOString() // Update timestamp
             });
 
-            if (storyError) throw storyError;
-
-            // 3. Upsert Scenes & Refresh Options
-            for (let i = 0; i < story.length; i++) {
-                const scene = story[i];
-                setStatus(`正在同步场景 ${i + 1}/${story.length}: ${scene.title}`);
-
-                // Upsert Scene (Handle collisions via story_id + scene_index)
-                const { data: sceneData, error: sceneError } = await supabase
-                    .from('scenes')
-                    .upsert({
-                        story_id: storyId,
-                        title: scene.title,
-                        narrative: scene.narrative,
-                        scene_index: i + 1,
-                        character_state: "",
-                        environment_description: "",
-                    }, { onConflict: 'story_id, scene_index' })
-                    .select()
-                    .single();
-
-                if (sceneError) {
-                    console.error(`Failed to upsert scene ${i + 1}:`, sceneError);
-                    throw sceneError;
-                }
-                if (!sceneData) throw new Error(`Failed to upsert scene: ${scene.title}`);
-
-                // Clear old options for this specific scene (since we just upserted/confirmed it exists)
-                const { error: clearOptionsError } = await supabase
-                    .from('scene_options')
-                    .delete()
-                    .eq('scene_id', sceneData.id);
-
-                if (clearOptionsError) {
-                    console.warn(`Warning clearing options for scene ${sceneData.id}:`, clearOptionsError);
-                }
-
-                // 4. Insert Options
-                if (scene.choices && scene.choices.length > 0) {
-                    const optionsToInsert = scene.choices.map((choice: any) => ({
-                        scene_id: sceneData.id,
-                        text: choice.text,
-                        is_correct: choice.is_correct,
-                        feedback: choice.feedback, // Map feedback directly
-                    }));
-
-                    const { error: optionsError } = await supabase
-                        .from('scene_options')
-                        .insert(optionsToInsert);
-
-                    if (optionsError) throw optionsError;
-                }
-            }
-
-            setStatus('同步完成！');
-            onSyncComplete(storyId);
-
-        } catch (err: any) {
+            const result = await syncStoryDocument(storyDocument, storyRepository);
+            setStatus(`同步完成！已同步 ${result.synced_scenes} 个场景。`);
+            onSyncComplete(result.story_id);
+        } catch (err: unknown) {
             console.error('Sync failed:', err);
-            setError(err.message || '数据库同步失败');
+            setError(err instanceof Error ? err.message : '数据库同步失败');
+        } finally {
             setSyncing(false);
         }
     };

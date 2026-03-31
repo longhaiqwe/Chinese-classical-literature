@@ -1,22 +1,17 @@
 import { useState, useEffect } from 'react';
 import { generateImagePrompts } from '../lib/gemini';
-
-interface PromptData {
-    scene_id: string;
-    prompt_en: string;
-    prompt_cn: string;
-}
+import type { ImagePromptItem, StoryScene } from '../core/types.js';
 
 interface ImagePromptGeneratorProps {
-    story: any[];
+    story: StoryScene[];
     onBack: () => void;
     onNext: () => void;
-    initialPrompts?: PromptData[];
-    onPromptsChange?: (prompts: PromptData[]) => void;
+    initialPrompts?: ImagePromptItem[];
+    onPromptsChange?: (prompts: ImagePromptItem[]) => void;
 }
 
 export default function ImagePromptGenerator({ story, onBack, onNext, initialPrompts, onPromptsChange }: ImagePromptGeneratorProps) {
-    const [prompts, setPrompts] = useState<PromptData[]>(initialPrompts || []);
+    const [prompts, setPrompts] = useState<ImagePromptItem[]>(initialPrompts || []);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -31,17 +26,9 @@ export default function ImagePromptGenerator({ story, onBack, onNext, initialPro
         setLoading(true);
         setError(null);
         try {
-            const rawResponse = await generateImagePrompts(story);
-            // Clean up markdown code blocks if present
-            const cleanJson = rawResponse.replace(/```json\n?|\n?```/g, '').trim();
-            const parsedPrompts = JSON.parse(cleanJson);
-
-            if (!Array.isArray(parsedPrompts)) {
-                throw new Error("Invalid response format: expected an array");
-            }
-
+            const parsedPrompts = await generateImagePrompts(story);
             setPrompts(parsedPrompts);
-        } catch (err) {
+        } catch (err: unknown) {
             console.error("Failed to generate prompts:", err);
             setError("Failed to generate prompts. Please try again.");
         } finally {
@@ -67,7 +54,7 @@ export default function ImagePromptGenerator({ story, onBack, onNext, initialPro
 
     // Helper to find scene details
     const getSceneDetails = (sceneId: string) => {
-        const scene = story.find(s => s.id === sceneId);
+        const scene = story.find((storyScene) => storyScene.id === sceneId);
         return scene ? { title: scene.title, narrative: scene.narrative } : { title: 'Unknown Scene', narrative: '' };
     };
 

@@ -1,30 +1,16 @@
 
 import { useState } from 'react';
 import { refineStory } from '../lib/gemini';
-
-// Reusing types from StoryGenerator (we should move these to a types file later)
-interface Choice {
-    text: string;
-    next_scene_id: string | null;
-    is_correct: boolean;
-    feedback: string;
-}
-
-interface Scene {
-    id: string;
-    title: string;
-    narrative: string;
-    choices: Choice[];
-}
+import type { StoryScene } from '../core/types.js';
 
 interface StoryReviewProps {
-    story: Scene[];
+    story: StoryScene[];
     onBack: () => void;
-    onConfirm: (story: Scene[]) => void;
+    onConfirm: (story: StoryScene[]) => void;
 }
 
 export default function StoryReview({ story, onBack, onConfirm }: StoryReviewProps) {
-    const [reviewedStory, setReviewedStory] = useState<Scene[]>(story);
+    const [reviewedStory, setReviewedStory] = useState<StoryScene[]>(story);
     const [isRefining, setIsRefining] = useState(false);
     const [showRefineDialog, setShowRefineDialog] = useState(false);
     const [refineInstructions, setRefineInstructions] = useState('');
@@ -34,32 +20,11 @@ export default function StoryReview({ story, onBack, onConfirm }: StoryReviewPro
 
         setIsRefining(true);
         try {
-            const result = await refineStory(reviewedStory, refineInstructions);
-            let jsonStr = result;
-
-            // Handle markdown code blocks just in case
-            if (typeof jsonStr === 'string' && jsonStr.startsWith('```')) {
-                jsonStr = jsonStr.replace(/^```(json)?|```$/g, '').trim();
-            }
-
-            const refinedStory = JSON.parse(jsonStr);
-
-            // Support both array (legacy) and object (new schema) formats
-            let newScenes: Scene[] = [];
-
-            if (Array.isArray(refinedStory)) {
-                newScenes = refinedStory;
-            } else if (refinedStory && Array.isArray(refinedStory.scenes)) {
-                newScenes = refinedStory.scenes;
-            } else {
-                console.error("Refined story format invalid:", refinedStory);
-                throw new Error("Refined story is not an array or valid story object");
-            }
-
-            setReviewedStory(newScenes);
+            const refinedStory = await refineStory(reviewedStory, refineInstructions);
+            setReviewedStory(refinedStory);
             setShowRefineDialog(false);
             setRefineInstructions('');
-        } catch (error) {
+        } catch (error: unknown) {
             console.error("Failed to refine story:", error);
             // Optional: Add error handling/toast here
         } finally {

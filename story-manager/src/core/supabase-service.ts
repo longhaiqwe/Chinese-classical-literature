@@ -1,4 +1,4 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { readRequiredEnv } from './env.js'
 import type { Database } from '../database.types.js'
 import type { StoryRepository } from './sync-service.js'
@@ -55,9 +55,7 @@ function buildSceneOptionInserts(sceneId: string, choices: StoryChoice[]): Supab
   }))
 }
 
-export function createSupabaseStoryRepository(): StoryRepository {
-  const supabase = buildSupabaseClient()
-
+export function createStoryRepository(supabase: SupabaseClient<Database>): StoryRepository {
   return {
     async upsertStory(story) {
       const { error } = await supabase.from('stories').upsert(buildStoryInsert(story))
@@ -103,4 +101,8 @@ export function createSupabaseStoryRepository(): StoryRepository {
       }
     },
   }
+}
+
+export function createSupabaseStoryRepository(): StoryRepository {
+  return createStoryRepository(buildSupabaseClient())
 }
