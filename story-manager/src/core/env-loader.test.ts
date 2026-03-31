@@ -16,6 +16,7 @@ afterEach(async () => {
   delete process.env.FROM_INLINE_COMMENT
   delete process.env.FROM_QUOTED_DOUBLE
   delete process.env.FROM_QUOTED_SINGLE
+  delete process.env.FROM_QUOTED_WITH_COMMENT
   delete process.env.QUOTED_VALUE
   delete process.env.SAME_KEY
   delete process.env.PRESET
@@ -90,5 +91,22 @@ describe('loadRuntimeEnv', () => {
     expect(process.env.FROM_INLINE_COMMENT).toBe('plain value')
     expect(process.env.FROM_QUOTED_DOUBLE).toBe('quoted # still value')
     expect(process.env.FROM_QUOTED_SINGLE).toBe('single # still value')
+  })
+
+  it('strips surrounding quotes before dropping a trailing inline comment', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'story-manager-env-loader-'))
+    tempDirs.push(root)
+
+    const cwd = join(root, 'story-manager')
+    await mkdir(cwd)
+    await writeFile(
+      join(cwd, '.env'),
+      ['FROM_QUOTED_WITH_COMMENT="https://example" # note'].join('\n'),
+      'utf8',
+    )
+
+    loadRuntimeEnv({ cwd })
+
+    expect(process.env.FROM_QUOTED_WITH_COMMENT).toBe('https://example')
   })
 })
