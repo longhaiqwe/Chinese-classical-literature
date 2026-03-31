@@ -12,10 +12,14 @@ export interface RuntimeEnvLoadResult {
 function parseEnvFile(content: string): Record<string, string> {
   const values: Record<string, string> = {}
 
-  for (const line of content.split(/\r?\n/)) {
-    const trimmed = line.trim()
+  for (const line of content.replace(/^\uFEFF/, '').split(/\r?\n/)) {
+    let trimmed = line.trim()
     if (!trimmed || trimmed.startsWith('#')) {
       continue
+    }
+
+    if (trimmed.startsWith('export ')) {
+      trimmed = trimmed.slice('export '.length).trimStart()
     }
 
     const separatorIndex = trimmed.indexOf('=')
@@ -29,11 +33,19 @@ function parseEnvFile(content: string): Record<string, string> {
     }
 
     let value = trimmed.slice(separatorIndex + 1).trim()
-    if (value.length >= 2) {
-      const first = value[0]
-      const last = value[value.length - 1]
-      if ((first === '"' && last === '"') || (first === "'" && last === "'")) {
-        value = value.slice(1, -1)
+    const first = value[0]
+    const last = value[value.length - 1]
+    const isQuoted =
+      value.length >= 2 && ((first === '"' && last === '"') || (first === "'" && last === "'"))
+
+    if (isQuoted) {
+      value = value.slice(1, -1)
+    } else {
+      for (let index = 0; index < value.length; index += 1) {
+        if (value[index] === '#' && index > 0 && /\s/.test(value[index - 1]!)) {
+          value = value.slice(0, index).trimEnd()
+          break
+        }
       }
     }
 

@@ -12,6 +12,10 @@ afterEach(async () => {
   delete process.env.FROM_CWD_ENV
   delete process.env.FROM_PARENT_LOCAL
   delete process.env.FROM_PARENT_ENV
+  delete process.env.FROM_EXPORT
+  delete process.env.FROM_INLINE_COMMENT
+  delete process.env.FROM_QUOTED_DOUBLE
+  delete process.env.FROM_QUOTED_SINGLE
   delete process.env.QUOTED_VALUE
   delete process.env.SAME_KEY
   delete process.env.PRESET
@@ -61,5 +65,30 @@ describe('loadRuntimeEnv', () => {
     expect(process.env.QUOTED_VALUE).toBe('hello world')
     expect(process.env.SAME_KEY).toBe('from-local')
     expect(process.env.PRESET).toBe('shell')
+  })
+
+  it('supports export prefixes, inline comments, and quoted values', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'story-manager-env-loader-'))
+    tempDirs.push(root)
+
+    const cwd = join(root, 'story-manager')
+    await mkdir(cwd)
+    await writeFile(
+      join(cwd, '.env'),
+      [
+        'export FROM_EXPORT=exported',
+        'FROM_INLINE_COMMENT=plain value # note',
+        'FROM_QUOTED_DOUBLE="quoted # still value"',
+        "FROM_QUOTED_SINGLE='single # still value'",
+      ].join('\n'),
+      'utf8',
+    )
+
+    loadRuntimeEnv({ cwd })
+
+    expect(process.env.FROM_EXPORT).toBe('exported')
+    expect(process.env.FROM_INLINE_COMMENT).toBe('plain value')
+    expect(process.env.FROM_QUOTED_DOUBLE).toBe('quoted # still value')
+    expect(process.env.FROM_QUOTED_SINGLE).toBe('single # still value')
   })
 })
