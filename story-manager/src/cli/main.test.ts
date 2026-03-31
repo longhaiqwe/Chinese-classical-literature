@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { runCli } from './main'
+import { runCli } from './main.js'
 
 describe('runCli', () => {
   it('prints help for an unknown subcommand', async () => {
