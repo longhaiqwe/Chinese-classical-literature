@@ -45,6 +45,40 @@ describe('runCli', () => {
     expect(syncDb).toHaveBeenCalledWith(['--input', 'story.json'], { stdout, stderr })
   })
 
+  it('routes normalize-story to the command handler', async () => {
+    const stdout = { write: vi.fn() }
+    const stderr = { write: vi.fn() }
+    const normalizeStory = vi.fn().mockResolvedValue({ exitCode: 0 })
+
+    const result = await runCli(
+      ['normalize-story', '--input', 'story.json'],
+      { stdout, stderr },
+      {
+        'normalize-story': normalizeStory,
+      },
+    )
+
+    expect(result.exitCode).toBe(0)
+    expect(normalizeStory).toHaveBeenCalledWith(['--input', 'story.json'], { stdout, stderr })
+  })
+
+  it('routes validate-story to the command handler', async () => {
+    const stdout = { write: vi.fn() }
+    const stderr = { write: vi.fn() }
+    const validateStory = vi.fn().mockResolvedValue({ exitCode: 1 })
+
+    const result = await runCli(
+      ['validate-story', '--input', 'story.json'],
+      { stdout, stderr },
+      {
+        'validate-story': validateStory,
+      },
+    )
+
+    expect(result.exitCode).toBe(1)
+    expect(validateStory).toHaveBeenCalledWith(['--input', 'story.json'], { stdout, stderr })
+  })
+
   it('formats thrown command errors with a stable CLI_ERROR prefix', async () => {
     const stdout = { write: vi.fn() }
     const stderr = { write: vi.fn() }

@@ -2,8 +2,10 @@
 
 import { runGenerateImagePromptsCommand } from './commands/generate-image-prompts.js'
 import { runGenerateStoryCommand } from './commands/generate-story.js'
+import { runNormalizeStoryCommand } from './commands/normalize-story.js'
 import { runRefineStoryCommand } from './commands/refine-story.js'
 import { runSyncDbCommand } from './commands/sync-db.js'
+import { runValidateStoryCommand } from './commands/validate-story.js'
 
 type OutputWriter = {
   write: (chunk: string) => void
@@ -30,8 +32,10 @@ const defaultIo: CliIo = {
 const defaultCommands: CommandRegistry = {
   'generate-image-prompts': runGenerateImagePromptsCommand,
   'generate-story': runGenerateStoryCommand,
+  'normalize-story': runNormalizeStoryCommand,
   'refine-story': runRefineStoryCommand,
   'sync-db': runSyncDbCommand,
+  'validate-story': runValidateStoryCommand,
 }
 
 export async function runCli(

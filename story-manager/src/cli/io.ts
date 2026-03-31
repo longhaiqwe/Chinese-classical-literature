@@ -81,10 +81,16 @@ export async function readStoryDocument(path: string): Promise<StoryDocument> {
   return normalizeStoryDocument(parseJsonDocument(text))
 }
 
+export async function readJsonInput<T = unknown>(path: string): Promise<T> {
+  const text = await readTextInput(path)
+  return parseJsonDocument<T>(text)
+}
+
 export async function writeJsonResult(
   result: unknown,
   outputPath: string | undefined,
   io: CliIo,
+  exitCode = 0,
 ): Promise<CliResult> {
   const payload = `${JSON.stringify(result, null, 2)}\n`
   if (outputPath) {
@@ -93,7 +99,16 @@ export async function writeJsonResult(
     io.stdout.write(payload)
   }
 
-  return { exitCode: 0 }
+  return { exitCode }
+}
+
+export function writeTextResult(
+  text: string,
+  io: CliIo,
+  exitCode = 0,
+): CliResult {
+  io.stdout.write(text)
+  return { exitCode }
 }
 
 export function writeUsage(io: CliIo, usage: string): CliResult {

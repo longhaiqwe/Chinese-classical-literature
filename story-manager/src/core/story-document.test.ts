@@ -33,6 +33,33 @@ describe('normalizeStoryDocument', () => {
     expect(document.scenes[0]?.title).toBe('夜议军机')
   })
 
+  it('fills metadata from fallback when input only contains scenes', () => {
+    const document = normalizeStoryDocument(
+      {
+        scenes: [
+          {
+            id: 'scene_1',
+            title: '第一章 夜议军机',
+            narrative: '诸葛亮端坐帐中。',
+            choices: [],
+          },
+        ],
+      },
+      {
+        id: 'caochuanjiejian',
+        category_id: 'sanguoyanyi',
+        title: '草船借箭',
+        ending_title: '神机妙算',
+        ending_description: '雾夜借箭，千古传诵。',
+      },
+    )
+
+    expect(document.id).toBe('caochuanjiejian')
+    expect(document.title).toBe('草船借箭')
+    expect(document.ending_title).toBe('神机妙算')
+    expect(document.scenes[0]?.title).toBe('夜议军机')
+  })
+
   it('preserves structured story objects', () => {
     const document = normalizeStoryDocument({
       id: 'caochuanjiejian',

@@ -38,3 +38,9 @@ export interface StoryDocumentFallback {
   ending_title?: string
   ending_description?: string
 }
+
+export interface StoryValidationResult {
+  ok: boolean
+  errors: string[]
+  warnings: string[]
+}
