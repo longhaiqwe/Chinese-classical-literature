@@ -27,5 +27,5 @@ export function readRequiredSupabaseKey(): string {
 }
 
 export function readGeminiApiKey(): string {
-  return readEnvValue(['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY']) ?? ''
+  return readRequiredEnv(['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY'])
 }

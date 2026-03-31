@@ -16,6 +16,13 @@ afterEach(() => {
 })
 
 describe('readRequiredSupabaseUrl', () => {
+  it('prefers the primary Supabase URL over the Vite alias', () => {
+    process.env.SUPABASE_URL = 'https://primary.supabase.co'
+    process.env.VITE_SUPABASE_URL = 'https://vite.supabase.co'
+
+    expect(readRequiredSupabaseUrl()).toBe('https://primary.supabase.co')
+  })
+
   it('falls back to the Vite-prefixed URL', () => {
     process.env.VITE_SUPABASE_URL = 'https://vite.supabase.co'
 
@@ -34,9 +41,22 @@ describe('readRequiredSupabaseKey', () => {
 })
 
 describe('readGeminiApiKey', () => {
+  it('prefers the primary Gemini key over the Vite alias', () => {
+    process.env.GEMINI_API_KEY = 'primary-gemini-key'
+    process.env.VITE_GEMINI_API_KEY = 'vite-gemini-key'
+
+    expect(readGeminiApiKey()).toBe('primary-gemini-key')
+  })
+
   it('falls back to the Vite-prefixed key', () => {
     process.env.VITE_GEMINI_API_KEY = 'vite-gemini-key'
 
     expect(readGeminiApiKey()).toBe('vite-gemini-key')
+  })
+
+  it('throws when the Gemini key is missing', () => {
+    expect(() => readGeminiApiKey()).toThrow(
+      'Missing environment variable: GEMINI_API_KEY or VITE_GEMINI_API_KEY',
+    )
   })
 })
