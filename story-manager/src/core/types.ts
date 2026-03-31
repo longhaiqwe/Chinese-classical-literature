@@ -22,6 +22,14 @@ export interface StoryDocument {
   scenes: StoryScene[]
 }
 
+export interface ImagePromptItem {
+  scene_id: string
+  prompt_en: string
+  prompt_cn: string
+}
+
+export type ImagePromptDocument = ImagePromptItem[]
+
 export interface StoryDocumentFallback {
   id?: string
   category_id?: string
