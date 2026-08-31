@@ -11,7 +11,9 @@ import CategoryView from './components/CategoryView';
 import LoadingScreen from './components/LoadingScreen';
 import FeedbackModal from './components/FeedbackModal';
 import FeedbackTassel from './components/FeedbackTassel';
+import StoryShareButton from './components/StoryShareButton';
 import { VoicePlayer } from './components/VoicePlayer';
+import { exportAndShareStory, type ShareExportProgress } from './services/shareStory';
 
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.HOME);
@@ -308,6 +310,17 @@ const App: React.FC = () => {
     handleBackToCategory();
   };
 
+  const handleShareStory = async (
+    story: IGameStory,
+    categoryTitle: string,
+    onProgress: (progress: ShareExportProgress) => void,
+    loadedScenes?: IGameScene[],
+  ) => {
+    const storyScenes = loadedScenes ?? await storyService.getStoryDetails(story.id);
+    if (storyScenes.length === 0) throw new Error('这个故事还没有可导出的场景');
+    return exportAndShareStory({ story, categoryTitle, scenes: storyScenes, onProgress });
+  };
+
   // Mobile: Swipe to Exit Game Listener
   useEffect(() => {
     if (!isNative || appState !== AppState.PLAYING) return;
@@ -441,9 +454,8 @@ const App: React.FC = () => {
           {/* PLAYING VIEW */}
           {!isLoading && appState === AppState.PLAYING && scenes.length > 0 && (
             <div className="w-full">
-              <div className="mb-4 flex justifyContent-between items-center px-4 md:px-0">
-                {/* Spacer to center the content if needed, or just simple alignment */}
-                {!isNative && (
+              {!isNative && (
+                <div className="mb-4 flex items-center px-4 md:px-0">
                   <button
                     onClick={handleExitGame}
                     className="flex items-center gap-2 px-4 py-2 border border-ink-300 rounded-full text-ink-600 hover:border-accent-red hover:text-accent-red hover:bg-paper-50 transition-all text-sm font-serif group"
@@ -453,8 +465,8 @@ const App: React.FC = () => {
                     </svg>
                     结束闯关
                   </button>
-                )}
-              </div>
+                </div>
+              )}
               <GameScene
                 key={currentSceneIndex}
                 scene={scenes[currentSceneIndex]}
@@ -469,7 +481,7 @@ const App: React.FC = () => {
 
           {/* VICTORY VIEW */}
           {appState === AppState.VICTORY && (
-            <div className="text-center animate-fade-in p-8 border-4 border-double border-accent-red bg-paper-100 shadow-2xl max-w-2xl mx-4">
+            <div className="mx-4 max-w-2xl animate-fade-in border-4 border-double border-accent-red bg-paper-100 p-8 text-center shadow-2xl">
               <h2 className="text-4xl md:text-5xl font-calligraphy text-accent-red mb-6">
                 {selectedStory?.endingTitle || "通关成功"}
               </h2>
@@ -501,6 +513,13 @@ const App: React.FC = () => {
                   返回目录
                 </button>
               </div>
+              {selectedStory && selectedCategory && (
+                <div className="mt-5 flex justify-center">
+                  <StoryShareButton
+                    onExport={(onProgress) => handleShareStory(selectedStory, selectedCategory.title, onProgress, scenes)}
+                  />
+                </div>
+              )}
             </div>
           )}
 

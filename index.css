@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "ChineseStoryCalligraphy";
+    src: url("/fonts/MaShanZheng-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "ChineseStorySerif";
+    src: url("/fonts/NotoSerifSC-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+}
+
+@font-face {
+    font-family: "ChineseStorySerif";
+    src: url("/fonts/NotoSerifSC-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+}
+
 
 
 @theme {

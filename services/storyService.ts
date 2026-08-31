@@ -1,5 +1,10 @@
 import { supabase } from './supabase';
 import { IGameCategory, IGameScene, GameOption } from '../types';
+import {
+    resolveStoryCoverImage,
+    STORY_COVER_FALLBACK_SCENE_INDEX,
+    STORY_COVER_SCENE_INDEX,
+} from './storyCover';
 
 export const storyService = {
     /**
@@ -22,9 +27,17 @@ export const storyService = {
         if (storiesError) throw storiesError;
 
         // Check which stories have scenes to determining "Unlock" status (Unlock = has scenes)
-        const { data: distinctScenes, error: sceneError } = await supabase
-            .from('scenes')
-            .select('story_id');
+        const [sceneResult, coverResult] = await Promise.all([
+            supabase
+                .from('scenes')
+                .select('story_id'),
+            supabase
+                .from('scene_images')
+                .select('story_id,scene_index,image_url')
+                .in('scene_index', [STORY_COVER_SCENE_INDEX, STORY_COVER_FALLBACK_SCENE_INDEX]),
+        ]);
+
+        const { data: distinctScenes, error: sceneError } = sceneResult;
 
         if (sceneError) {
             console.error("Failed to fetch scene counts", sceneError);
@@ -32,6 +45,20 @@ export const storyService = {
         }
 
         const validStoryIds = new Set(distinctScenes?.map((s: any) => s.story_id));
+        const dedicatedCoverByStory = new Map<string, string>();
+        const firstSceneImageByStory = new Map<string, string>();
+        if (coverResult.error) {
+            console.error('Failed to fetch story cover images', coverResult.error);
+        } else {
+            coverResult.data?.forEach((image: any) => {
+                if (!image.image_url) return;
+                if (image.scene_index === STORY_COVER_SCENE_INDEX) {
+                    dedicatedCoverByStory.set(image.story_id, image.image_url);
+                } else if (image.scene_index === STORY_COVER_FALLBACK_SCENE_INDEX) {
+                    firstSceneImageByStory.set(image.story_id, image.image_url);
+                }
+            });
+        }
 
         return categories.map((cat: any) => ({
             id: cat.id,
@@ -43,6 +70,10 @@ export const storyService = {
                     id: s.id,
                     title: s.title,
                     description: s.description,
+                    coverImage: resolveStoryCoverImage(
+                        dedicatedCoverByStory.get(s.id),
+                        firstSceneImageByStory.get(s.id),
+                    ),
                     endingTitle: s.ending_title,
                     endingDescription: s.ending_description,
                     isReady: s.is_ready,

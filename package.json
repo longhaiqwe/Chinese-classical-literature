@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test:share": "node --experimental-strip-types --test services/*.test.ts",
     "cap:sync": "cap sync",
     "cap:open": "cap open ios",
     "export:xhs": "npx tsx scripts/export_xiaohongshu_content.ts"
@@ -15,11 +16,15 @@
     "@capacitor/android": "^6.2.1",
     "@capacitor/assets": "^3.0.5",
     "@capacitor/cli": "^6.2.1",
+    "@capacitor/clipboard": "^6.0.3",
     "@capacitor/core": "^6.2.1",
+    "@capacitor/filesystem": "^6.0.4",
     "@capacitor/ios": "^6.2.1",
+    "@capacitor/share": "^6.0.4",
     "@google/genai": "^1.32.0",
     "@supabase/supabase-js": "^2.89.0",
     "firebase": "^12.6.0",
+    "jszip": "^3.10.1",
     "react": "^19.2.1",
     "react-dom": "^19.2.1"
   },
